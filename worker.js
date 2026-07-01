@@ -5693,7 +5693,7 @@ async function handle(req) {
  "Content-Type": "application/json"
  },
  body: JSON.stringify({
- from: "홈투과외 상담신청 <noreply@hometostudy.com>",
+ from: "홈투과외 상담신청 <noreply@eunshinestudy.com>",
  to: ["thdmsdidfl@naver.com"],
  subject: "📚 [" + srcLabel + "] 새 상담 신청 - " + (name || "이름 없음") + " (" + (grade || "") + ")",
  html: html
