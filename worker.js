@@ -353,7 +353,7 @@ const subjects = ["국어","영어","수학","사회","과학","코딩","논술"
 
 // ============================================================
 // 콘텐츠 자동 생성 시스템 v3 (3000자/페이지, 유사도 <10%)
-// 핵심: 35년 교육 노하우, 1:1 맞춤, 방문·화상, 첫 체험 무료,
+// 핵심: 35년 교육 노하우, 1:1 맞춤, 화상, 첫 체험 무료,
 // 카톡 24시간, 기출 분석, 수행평가 관리, 매주 학부모 피드백
 // ============================================================
 function maskName(n){if(!n||n.length<2)return n;return n.charAt(0)+"○".repeat(n.length-1);}
@@ -391,7 +391,7 @@ const WHY_INTROS=[
 ];
 const WHY_FEATURES=[
 {i:"🎯",t:"완전 맞춤 커리큘럼",d:"{kw}는 학생의 학교·학년·시험 일정에 맞게 처음부터 다시 설계되며, 정해진 교재를 일괄 적용하지 않습니다."},
-{i:"🏠",t:"상담 후 수업 방식 결정",d:"방문·화상 중 학생 동선과 집중도, 일정 여건을 함께 따져 가장 효율적인 방식을 첫 상담에서 정해 드립니다."},
+{i:"🏠",t:"상담 후 수업 방식 결정",d:"화상 수업 학생 동선과 집중도, 일정 여건을 함께 따져 가장 효율적인 방식을 첫 상담에서 정해 드립니다."},
 {i:"📈",t:"체계적 성적 관리",d:"매 수업 후 이해도·과제 이행률·취약 단원을 누적 기록해 시험 직전 점검과 회차별 보완이 가능합니다."},
 {i:"⚡",t:"빠른 수업 시작",d:"상담 후 평균 2~3일 내로 첫 수업이 가능하며, 시험 임박한 경우 당일·익일 매칭도 진행해 드립니다."},
 {i:"🧭",t:"진단 기반 설계",d:"첫 회차에서 학생의 약점을 정밀하게 분류한 뒤, 약점 우선순위에 따라 단계별 학습 플랜을 짜 드립니다."},
@@ -411,8 +411,8 @@ function buildWhyBlock(kw,tc,seed){
  const pickedIntros=pkU(WHY_INTROS,seed,2,11);
  const introHtml=pickedIntros.map(t=>t.replace(/\{kw\}/g,'<strong style="color:'+tc+'">'+kw+'</strong>')).join(' ');
  const feats=pkU(WHY_FEATURES,seed,4,31);
- const cards=feats.map(f=>'<div style="border:1px solid #ECE7F6;border-radius:14px;padding:18px;"><div style="font-size:24px;margin-bottom:8px;">'+f.i+'</div><div style="font-weight:800;color:#2E2A45;margin-bottom:5px;font-size:14px;">'+f.t+'</div><div style="font-size:12px;color:#666;line-height:1.7;">'+f.d.replace(/\{kw\}/g,kw)+'</div></div>').join('');
- return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">🏙️ '+kw+', 왜 홈투과외일까요?</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:20px;">'+introHtml+'</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;">'+cards+'</div></div>';
+ const cards=feats.map(f=>'<div style="border:1px solid #E3E7F0;border-radius:14px;padding:18px;"><div style="font-size:24px;margin-bottom:8px;">'+f.i+'</div><div style="font-weight:800;color:#1B2440;margin-bottom:5px;font-size:14px;">'+f.t+'</div><div style="font-size:12px;color:#666;line-height:1.7;">'+f.d.replace(/\{kw\}/g,kw)+'</div></div>').join('');
+ return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">🏙️ '+kw+', 왜 홈투과외일까요?</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:20px;">'+introHtml+'</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;">'+cards+'</div></div>';
 }
 
 const STUDY_TIPS=[
@@ -448,7 +448,7 @@ const TUTOR_FEATS=[
 {t:"오답 원인 분류 시스템",b:"틀린 문제를 개념 부족·계산 실수·시간 부족 등으로 분류해 원인별 맞춤 보완 전략을 세웁니다."},
 {t:"수업 녹화 복습 제공",b:"화상 수업 시 녹화본을 제공해 학생이 언제든 다시 보며 복습할 수 있도록 합니다."},
 {t:"학습 플래너 함께 작성",b:"주간·월간 학습 계획표를 학생과 함께 세우고 매주 실행 여부를 점검합니다."},
-{t:"방문·화상 자유 전환",b:"시험 기간에는 방문, 방학에는 화상 등 상황에 따라 수업 방식을 유연하게 전환할 수 있습니다."},
+{t:"화상 수업 유연 운영",b:"시험 기간·방학 등 학생 일정에 따라 수업 시간을 유연하게 전환할 수 있습니다."},
 {t:"맞춤형 학습 자료 제공",b:"학생 수준과 학교 진도에 맞춰 자체 제작한 맞춤형 자료를 매 수업마다 제공합니다."},
 {t:"수능·내신 병행 전략",b:"내신과 수능을 동시에 대비하는 학생을 위해 시기별로 비중을 조절하는 투트랙 전략을 제공합니다."},
 {t:"시험 후 즉시 오답 분석",b:"시험이 끝나면 시험지를 바로 분석해 어디서 점수를 잃었는지 파악하고 다음 시험 대비 방향을 세웁니다."},
@@ -460,14 +460,14 @@ const TUTOR_FEATS=[
 {t:"체험 수업 후 결정",b:"첫 수업을 무료로 진행해 학생과 선생님의 궁합을 확인한 뒤 정식 수업 여부를 결정합니다."}
 ];
 const METHOD_POOL=[
-"무료 상담 → 학생 수준 진단 → 맞춤 선생님 매칭 → 방문 또는 화상 중 선택 → 정규 수업 시작",
+"무료 상담 → 학생 수준 진단 → 맞춤 선생님 매칭 → 화상 수업 진행 → 정규 수업 시작",
 "카카오톡·전화 상담 → 학습 목표 설정 → 최적 강사 배정 → 체험 수업 후 결정 → 본 수업 진행",
-"온라인 또는 전화 상담 → 학생 성향·수준 파악 → 맞춤형 커리큘럼 설계 → 방문·화상 수업 방식 확정",
+"온라인 또는 전화 상담 → 학생 성향·수준 파악 → 맞춤형 커리큘럼 설계 → 화상 수업 방식 확정",
 "무료 상담 신청 → 코디네이터 24시간 내 연락 → 학생 진단 → 강사 추천 → 무료 체험 → 정식 수업",
 "상담 접수 → 학생 학교·성적 분석 → 수업 방식과 시간 조율 → 첫 수업 무료 진행 → 만족 시 계속",
 "카카오톡으로 간편 신청 → 전담 상담사 배정 → 학생 맞춤 강사 매칭 → 첫 회 무료 체험 → 수업 시작",
 "네이버 폼·카카오톡·전화 중 편한 방법으로 상담 → 학생 정보 확인 → 48시간 내 최적 강사 추천 → 체험 수업",
-"무료 상담 → 학습 습관·취약점 진단 → 방문과 화상 중 최적 방식 결정 → 맞춤 커리큘럼 구성 → 수업 개시",
+"무료 상담 → 학습 습관·취약점 진단 → 화상 수업 방식 확정 → 맞춤 커리큘럼 구성 → 수업 개시",
 "전화 또는 카카오톡 상담 → 학생·학부모 요구 사항 파악 → 강사 프로필 제안 → 무료 수업 1회 → 진행 결정",
 "상담 신청 → 지역·학교·과목에 맞는 강사 탐색 → 무료 시범 수업 → 학부모·학생 피드백 확인 → 정규 수업 스타트",
 "온라인 간편 상담 → 학생 목표·수준 분석 → 수업 방식 및 교재 제안 → 무료 체험 후 계약 여부 결정",
@@ -478,13 +478,13 @@ const METHOD_POOL=[
 ];
 function buildStudyBlock(kw,tc,seed){
  var picks=pkU(STUDY_TIPS,seed,4,7);
- var cards=picks.map(function(c){return '<div style="background:#F5F2FC;border-radius:14px;padding:20px;"><div style="font-size:26px;margin-bottom:10px;">'+c.i+'</div><div style="font-weight:800;color:#2E2A45;margin-bottom:8px;">'+c.t+'</div><div style="font-size:13px;color:#555;line-height:1.8;">'+c.b.replace(/\{kw\}/g,kw)+'</div></div>';}).join('');
- return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:20px;">📖 '+kw+' 공부법 가이드</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">'+cards+'</div></div>';
+ var cards=picks.map(function(c){return '<div style="background:#EFF1F8;border-radius:14px;padding:20px;"><div style="font-size:26px;margin-bottom:10px;">'+c.i+'</div><div style="font-weight:800;color:#1B2440;margin-bottom:8px;">'+c.t+'</div><div style="font-size:13px;color:#555;line-height:1.8;">'+c.b.replace(/\{kw\}/g,kw)+'</div></div>';}).join('');
+ return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:20px;">📖 '+kw+' 공부법 가이드</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">'+cards+'</div></div>';
 }
 function buildTutorBlock(kw,tc,seed){
  var picks=pkU(TUTOR_FEATS,seed,4,13);
- var items=picks.map(function(f,i){return '<div style="display:flex;gap:14px;align-items:flex-start;background:#F5F2FC;border-radius:12px;padding:16px 18px;"><div style="background:'+tc+';color:white;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">'+(i+1)+'</div><div><div style="font-weight:800;color:#2E2A45;margin-bottom:4px;font-size:14px;">'+f.t+'</div><div style="font-size:13px;color:#555;line-height:1.7;">'+f.b+'</div></div></div>';}).join('');
- return '<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;margin-top:8px;">💡 '+kw+' 홈투과외만의 특징</h2><div style="display:flex;flex-direction:column;gap:12px;">'+items+'</div>';
+ var items=picks.map(function(f,i){return '<div style="display:flex;gap:14px;align-items:flex-start;background:#EFF1F8;border-radius:12px;padding:16px 18px;"><div style="background:'+tc+';color:white;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">'+(i+1)+'</div><div><div style="font-weight:800;color:#1B2440;margin-bottom:4px;font-size:14px;">'+f.t+'</div><div style="font-size:13px;color:#555;line-height:1.7;">'+f.b+'</div></div></div>';}).join('');
+ return '<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;margin-top:8px;">💡 '+kw+' 홈투과외만의 특징</h2><div style="display:flex;flex-direction:column;gap:12px;">'+items+'</div>';
 }
 function buildFaqBlock(kw,tc,seed){
  var picks=pkU(FAQ_POOL,seed,4,19);
@@ -500,7 +500,7 @@ function buildFaqBlock(kw,tc,seed){
   };})
  };
  var schemaTag = '<script type="application/ld+json">'+JSON.stringify(jsonLd)+'</script>';
- return schemaTag+'<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:20px;">❓ '+kw+' 자주 묻는 질문</h2><div style="display:flex;flex-direction:column;gap:24px;">'+qs+'</div></div>';
+ return schemaTag+'<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:20px;">❓ '+kw+' 자주 묻는 질문</h2><div style="display:flex;flex-direction:column;gap:24px;">'+qs+'</div></div>';
 }
 function getMethodDesc(seed){return METHOD_POOL[(seed>>>0)%METHOD_POOL.length];}
 
@@ -822,7 +822,7 @@ const RV_BODIES=[
 "전에 다니던 학원에서는 질문할 시간도 없었는데, 과외는 모르는 걸 바로 해결할 수 있어서 좋다고 합니다. 취약 단원을 집중적으로 보강해주시니 빈틈이 채워지는 게 느껴집니다.",
 "수업 후 매주 피드백을 보내주셔서 가정에서도 학습 관리가 가능합니다. 어떤 부분이 부족한지, 어떤 과제를 해야 하는지 명확하게 안내해주시니 학부모로서 큰 도움이 됩니다.",
 "고등학교 내신과 수능을 동시에 준비해야 해서 고민이 많았는데, 시기별로 전략을 세워주시니 효율적으로 공부할 수 있었습니다. 덕분에 내신과 모의고사 성적 모두 올랐습니다.",
-"화상 수업도 방문 수업 못지않게 효과적이었습니다. 오히려 이동 시간이 절약되어 그 시간에 복습을 더 할 수 있었습니다. 화면 공유로 설명해주시는 것도 이해하기 쉬웠습니다.",
+"화상 수업이 이렇게 효과적일 줄 몰랐습니다. 이동 시간이 절약되어 그 시간에 복습을 더 할 수 있었고, 화면 공유로 설명해주시는 것도 이해하기 쉬웠습니다.",
 "다른 과외 선생님은 교재만 풀어주셨는데, 여기는 아이 맞춤형으로 커리큘럼을 짜주십니다. 아이의 약점에 집중해서 가르쳐주시니 같은 시간을 공부해도 효율이 훨씬 높습니다.",
 "수행평가까지 챙겨주시는 선생님은 처음입니다. 발표 준비, 보고서 작성까지 꼼꼼하게 도와주셔서 수행평가 점수가 크게 올랐습니다. 내신 관리에 정말 큰 도움이 됩니다.",
 "시험 3주 전부터 집중 대비로 전환해주시는 시스템이 마음에 듭니다. 시험 범위에 맞춘 문제를 풀고 오답을 분석하는 과정이 체계적이어서 시험에 대한 자신감이 크게 올랐습니다.",
@@ -845,7 +845,7 @@ const EDU_ANALYSIS=[
 "인근 고등학교의 대학 진학률이 높아 중학교 때부터 경쟁이 시작됩니다. 중학교 내신 관리와 함께 고등학교 수학·영어 선행을 병행하면 고입 후 적응이 훨씬 수월합니다.",
 "이 지역은 신규 입주 아파트가 늘면서 학생 수가 증가하고 있습니다. 새로운 환경에서 학교에 적응하면서 동시에 학업을 관리해야 하므로, 맞춤형 학습 지원이 특히 중요한 지역입니다.",
 "이 지역 학교들은 수행평가에 대한 비중이 높습니다. 보고서 작성, 발표, 실험 활동 등 다양한 수행평가에 대한 체계적인 준비가 내신 성적을 좌우하는 핵심 요소입니다.",
-"이 지역은 교통이 편리해 인근 지역 학원까지 이동하는 학생이 많지만, 이동 시간을 줄이고 방문·화상 과외로 학습 시간을 확보하는 것이 더 효율적인 선택일 수 있습니다.",
+"이 지역은 교통이 편리해 인근 지역 학원까지 이동하는 학생이 많지만, 이동 시간을 줄이고 화상 과외로 학습 시간을 확보하는 것이 더 효율적인 선택일 수 있습니다.",
 "이 지역 학부모들은 자녀의 학습에 높은 관심을 갖고 계십니다. 정기적인 학습 리포트와 상담을 통해 학부모님과 소통하며 학생의 성장을 함께 관리하는 것이 홈투과외의 강점입니다.",
 "이 지역은 특목고·자사고 진학을 목표로 하는 학생이 많습니다. 중학교 내신 관리뿐 아니라 자기소개서, 면접 대비까지 종합적으로 준비하면 원하는 고등학교에 진학할 확률이 높아집니다.",
 "이 지역의 교육 환경은 온·오프라인 학습을 병행하기 좋은 인프라를 갖추고 있습니다. 화상 과외를 통해 이동 시간을 절약하고, 절약한 시간을 자기주도학습에 투자하면 학습 효율이 극대화됩니다.",
@@ -871,7 +871,7 @@ const OVERVIEW_POOL=[
 "{city}에 위치한 {school} 학생들의 학습 특성에 맞춘 1:1 맞춤 과외를 제공합니다. 해당 학교의 기출문제를 완벽히 분석하고, 내신 출제 경향에 따른 전략적 대비로 효율적인 성적 향상을 도와드립니다. 학원에서 따라가기 어려운 학생도 1:1 수업을 통해 자신감을 되찾을 수 있습니다.",
 "{school} 학생의 학습 수준을 정밀 진단한 뒤, 약점 단원을 집중 보강하는 맞춤 커리큘럼으로 수업합니다. 홈투과외는 35년 교육 경험을 바탕으로 {school} 재학생의 내신 등급 향상과 상위권 도약을 체계적으로 지원합니다.",
 "{school} 재학생이라면 학교 내신에 최적화된 과외가 필수입니다. 홈투과외는 {school}의 교과서, 부교재, 기출문제를 기반으로 시험 대비를 진행하며, 서술형 답안 작성법부터 고난도 문제 풀이까지 체계적으로 훈련합니다.",
-"{city}의 {school} 학생을 위한 1:1 방문·화상 과외입니다. 학교에서 배우는 내용을 기반으로 개념 정리→유형 훈련→실전 대비의 3단계 커리큘럼을 적용합니다. 이동 시간 없이 집에서 편하게 수업받을 수 있으며, 24시간 카카오톡 질문이 가능합니다.",
+"{city}의 {school} 학생을 위한 1:1 화상 과외입니다. 학교에서 배우는 내용을 기반으로 개념 정리→유형 훈련→실전 대비의 3단계 커리큘럼을 적용합니다. 이동 시간 없이 집에서 편하게 수업받을 수 있으며, 24시간 카카오톡 질문이 가능합니다.",
 "{school} 학생의 성적 향상을 위해 가장 중요한 것은 학교별 출제 유형을 정확히 파악하는 것입니다. 홈투과외는 {school}의 기출문제를 분석하여 빈출 유형에 집중 대비하고, 취약점을 빠르게 보완하여 시험 점수를 효율적으로 올려드립니다.",
 "{school} 재학생 맞춤 1:1 과외로 내신과 수능을 동시에 준비할 수 있습니다. 학기 중에는 내신에 집중하고, 방학에는 선행과 수능 대비를 병행하는 전략적 커리큘럼을 제공합니다. 학생의 목표와 수준에 맞춰 매 수업을 최적화합니다.",
 "홈투과외과 함께하는 {school} 재학생 맞춤 과외는 단순 문제풀이가 아닌 개념 이해 중심의 수업입니다. 학생이 '왜 그런지'를 스스로 설명할 수 있을 때까지 반복하고, 이해도를 수시로 확인하여 빈틈없는 학습을 완성합니다.",
@@ -901,7 +901,7 @@ const FAQ_POOL=[
 {q:"교재는 별도로 구매해야 하나요?",a:"무료 진단 테스트 후 선생님이 학생 수준에 맞는 최적의 교재를 추천합니다. 학교 교과서와 부교재를 기본으로 활용하며, 필요시 추가 교재를 안내드립니다. 교재비는 별도입니다."},
 {q:"성적이 정말 오를 수 있나요?",a:"꾸준히 수업에 참여하고 과제를 성실히 수행하면 대부분 3개월 내에 성적 변화가 나타납니다. 매주 학습 리포트를 통해 성장 과정을 확인할 수 있으며, 학생의 노력과 선생님의 지도가 함께할 때 최상의 결과가 나옵니다."},
 {q:"다른 선생님으로 변경할 수 있나요?",a:"학생과 선생님의 궁합이 맞지 않으면 언제든지 다른 선생님으로 변경할 수 있습니다. 학생의 학습 스타일과 성향에 맞는 최적의 선생님을 매칭해드립니다."},
-{q:"방문과 화상 중 어떤 수업이 더 효과적인가요?",a:"두 방식 모두 동일한 커리큘럼으로 진행되므로 학습 효과는 비슷합니다. 집에서 더 집중이 잘 되는 학생은 방문 수업이, 이동 시간을 절약하고 싶은 학생은 화상 수업이 적합합니다. 두 방식을 병행하는 것도 가능합니다."},
+{q:"화상 과외도 대면 수업만큼 효과가 있나요?",a:"네. 1:1 화상 수업은 선생님이 학생 한 명에게 집중하고, 화면 공유로 문제와 풀이를 실시간으로 함께 짚기 때문에 대면 못지않게 밀도 높게 진행됩니다. 이동 시간이 없어 그 시간을 복습에 쓸 수 있고, 수업 녹화로 다시 볼 수 있다는 장점도 큽니다."},
 {q:"무료 상담에서 어떤 것을 알 수 있나요?",a:"무료 상담에서는 학생의 현재 학습 수준을 진단하고, 취약점을 파악하며, 맞춤형 학습 계획을 제안드립니다. 수업 방식, 수업료, 선생님 매칭 등에 대한 궁금한 점도 상세히 안내받을 수 있습니다."},
 {q:"시험 기간에만 수업을 받을 수 있나요?",a:"가능합니다. 시험 기간 집중 대비 수업으로 시험 범위를 빠르게 정리하고, 예상 문제를 풀며, 약점을 보강하는 단기 수업을 운영합니다. 다만 꾸준한 학습이 장기적으로 더 효과적입니다."},
 {q:"수업 취소나 변경은 가능한가요?",a:"수업 하루 전까지 연락주시면 다른 날로 변경 가능합니다. 당일 취소가 어려울 수 있으니 가급적 미리 연락 부탁드립니다."},
@@ -982,57 +982,57 @@ function renderUniqueContent(ct,dong,grade,subj,tc,rd,schools){
  const schoolStr=(schools||[]).slice(0,4).join(", ");
  // ── 교육 환경 분석 + 학습법 통합 ──
  h+=`<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📊 ${area} 교육 환경 분석</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📊 ${area} 교육 환경 분석</h2>
  <p style="font-size:14px;color:#444;line-height:2;margin-bottom:20px;">${ct.analysis.replace(/이 지역/g,area)}</p>`;
  if(ct.tips.length>0){
- h+=`<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📖 ${area}${grade?" "+grade:""}${subj?" "+subj:""} 학습법 가이드</h2>`;
- ct.tips.forEach(function(t){h+=`<div style="background:#F5F2FC;border-radius:14px;padding:18px 22px;margin-bottom:12px;"><p style="font-size:14px;color:#333;line-height:2;margin:0;">${t}</p></div>`;});
+ h+=`<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📖 ${area}${grade?" "+grade:""}${subj?" "+subj:""} 학습법 가이드</h2>`;
+ ct.tips.forEach(function(t){h+=`<div style="background:#EFF1F8;border-radius:14px;padding:18px 22px;margin-bottom:12px;"><p style="font-size:14px;color:#333;line-height:2;margin:0;">${t}</p></div>`;});
  }
  if(ct.strat){
- h+=`<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin:20px 0 14px;">🎓 ${grade||""} 학습 전략</h2>
+ h+=`<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin:20px 0 14px;">🎓 ${grade||""} 학습 전략</h2>
  <p style="font-size:14px;color:#444;line-height:2;">${ct.strat}</p>`;
  }
  h+=`</div>`;
  // ── 교육 칼럼 ──
  if(ct.columns.length>0){ct.columns.forEach(function(col){
  h+=`<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📝 ${col.title}</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📝 ${col.title}</h2>
  <p style="font-size:14px;color:#444;line-height:2;">${col.body}</p></div>`;});}
  // ── 학교별 맞춤 정보 & 공부법 ──
  if(ct.schoolContents&&ct.schoolContents.length>0){
  h+=`<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">⭐ ${area} 인근 학교별 맞춤 정보 & 공부법</h2>`;
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">⭐ ${area} 인근 학교별 맞춤 정보 & 공부법</h2>`;
  ct.schoolContents.forEach(function(sc){
- h+=`<div style="background:#F5F2FC;border-radius:14px;padding:20px 22px;margin-bottom:14px;border-left:4px solid ${tc};">
+ h+=`<div style="background:#EFF1F8;border-radius:14px;padding:20px 22px;margin-bottom:14px;border-left:4px solid ${tc};">
  <h3 style="font-size:16px;font-weight:800;color:${tc};margin:0 0 10px 0;">${sc.school} 재학생 맞춤 학습 가이드</h3>
  <p style="font-size:14px;color:#333;line-height:2;margin:0;">${sc.body}</p></div>`;});
  
   }
  // ── 학부모 후기 + 성적 사례 통합 ──
  h+=`<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">💬 ${area} 학부모님 생생 후기</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">💬 ${area} 학부모님 생생 후기</h2>
  <div class="rv-carousel" id="rvCity"><div class="rv-track" id="rvCityT">`;
  ct.reviews.forEach(function(rv){
  h+=`<div class="rv-card" style="border:2px solid ${tc}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
  <div style="width:40px;height:40px;border-radius:50%;background:${tc};color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;">${rv.name.charAt(0)}</div>
- <div><div style="font-weight:700;color:#2E2A45;font-size:14px;">${maskName(rv.name)} 학부모님</div>
+ <div><div style="font-weight:700;color:#1B2440;font-size:14px;">${maskName(rv.name)} 학부모님</div>
  <div style="font-size:12px;color:#888;">${area} · ${rv.grade} ${rv.subj}</div></div></div>
  <p style="font-size:13px;color:#555;line-height:1.8;margin:0;">"${rv.body}"</p></div>`;});
  ct.reviews.slice(0,3).forEach(function(rv){
  h+=`<div class="rv-card" style="border:2px solid ${tc}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
  <div style="width:40px;height:40px;border-radius:50%;background:${tc};color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;">${rv.name.charAt(0)}</div>
- <div><div style="font-weight:700;color:#2E2A45;font-size:14px;">${maskName(rv.name)} 학부모님</div>
+ <div><div style="font-weight:700;color:#1B2440;font-size:14px;">${maskName(rv.name)} 학부모님</div>
  <div style="font-size:12px;color:#888;">${area} · ${rv.grade} ${rv.subj}</div></div></div>
  <p style="font-size:13px;color:#555;line-height:1.8;margin:0;">"${rv.body}"</p></div>`;});
  h+=`</div></div>
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;margin-top:36px;">📈 실제 성적 향상 사례</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;margin-top:36px;">📈 실제 성적 향상 사례</h2>
  <div class="rv-carousel"><div class="rv-track">`;
  ct.stories.forEach(function(st){
  h+=`<div class="rv-card" style="border:2px solid ${tc}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
- <span style="font-weight:800;color:#2E2A45;font-size:15px;">${st.name} 학생</span>
+ <span style="font-weight:800;color:#1B2440;font-size:15px;">${st.name} 학생</span>
  <span style="background:${tc}15;color:${tc};padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">${st.grade} ${st.subj}</span></div>
  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
  <span style="background:#fdecea;color:#e74c3c;padding:6px 14px;border-radius:8px;font-weight:800;font-size:15px;">${st.from}</span>
@@ -1044,7 +1044,7 @@ function renderUniqueContent(ct,dong,grade,subj,tc,rd,schools){
  // ── 자주 묻는 질문 (펼쳐진 형태, 지역명 포함) ──
  if(ct.faqs.length>0){
  h+=`<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">자주 묻는 질문</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">자주 묻는 질문</h2>
  <div style="display:flex;flex-direction:column;gap:24px;">`;
  ct.faqs.forEach(function(fq){
  var q=fq.q.replace(/과외/,"과외 선생님").replace(/되나요/,"되나요");
@@ -1102,7 +1102,7 @@ const CITY_EXTRA=[
 {t:"내신과 수능 동시 준비 전략",b:"학기 중에는 내신에 80% 비중을 두고 수능 감각 유지를 위해 주 2~3회 모의고사 유형 문제를 풀어봅니다. 방학에는 수능 대비에 집중하며 기출 분석과 약점 보완에 집중합니다. 두 가지를 동시에 잡으려면 시간 관리가 핵심이므로 주간 학습 계획을 세우고 실천 여부를 매주 점검하는 습관이 중요합니다. {rd} 홈투과외는 내신과 수능을 모두 놓치지 않는 균형 잡힌 학습 전략을 제안합니다. 학생의 목표 대학과 전형 방식에 맞춰 최적의 비율을 설정하고 유연하게 조정합니다."},
 {t:"{rd} 학생들의 실제 성적 변화",b:"{rd} 지역에서 홈투과외와 함께한 학생들의 변화를 소개합니다. 수학 4등급에서 2등급으로 올라간 학생은 기초 개념 재정리와 오답 분석을 통해 3개월 만에 두 등급을 상승시켰습니다. 영어가 계속 60점대였던 학생은 독해 전략과 문법 체계 재정리를 통해 89점까지 향상되었습니다. 국어 서술형에서 계속 감점되던 학생은 답안 작성 구조 훈련을 통해 서술형 만점을 달성했습니다. 이 모든 변화의 공통점은 학생 개개인의 약점을 정확히 진단하고 맞춤으로 보강한 결과입니다."},
 {t:"중학교에서 고등학교 학습 전환 전략",b:"중학교에서 고등학교로 올라가면 학습 난이도와 양이 급격히 증가합니다. 가장 큰 차이는 수학과 영어의 깊이입니다. 중학교 때 기본기를 확실히 다지지 않으면 고등학교에서 따라가기 매우 어렵습니다. {rd} 홈투과외는 중3 겨울방학부터 고1 수학과 영어를 미리 접할 수 있는 선행 커리큘럼을 제공합니다. 고등학교는 자기주도학습 시간이 성적을 결정하므로 중학교 때부터 자기 공부 시간을 확보하는 습관을 길러야 합니다."},
-{t:"{rd} 방문 과외와 화상 과외 비교",b:"방문 과외는 선생님이 집으로 직접 와서 수업하므로 학생이 이동할 필요 없이 가장 편한 환경에서 수업할 수 있습니다. 학생의 교재와 학습 환경을 직접 확인하며 수업할 수 있어 더 세밀한 지도가 가능합니다. 화상 과외는 장소에 구애받지 않아 전국 어디서든 수업이 가능합니다. 화면 공유를 통해 교재 학습과 실시간 필기 피드백 등이 원활하며 수업 녹화 후 복습도 가능합니다. {rd} 홈투과외는 학생의 상황에 맞게 두 가지 방식을 선택하거나 병행할 수 있습니다."},
+{t:"{rd} 화상 과외, 왜 효과적일까요?",b:"홈투과외는 100% 1:1 화상 과외입니다. 장소에 구애받지 않아 {rd} 어디서든, 지역에 좋은 선생님이 없어도 전국의 검증된 선생님과 연결될 수 있습니다. 화면 공유를 통해 교재 학습과 실시간 필기 피드백이 원활하고, 이동 시간이 없어 그 시간을 학습에 더 쓸 수 있습니다. 수업은 녹화되어 언제든 복습이 가능합니다."},
 {t:"시험 2주 전 집중 대비 전략",b:"시험 2주 전에는 새로운 내용을 공부하기보다 이미 배운 내용을 반복하는 것이 핵심입니다. 1주차에는 교과서와 노트를 정독하며 개념을 재정리하고 단원별 핵심 문제를 풀어봅니다. 2주차에는 오답 노트를 집중 복습하고 예상 문제를 풀며 실전 감각을 기릅니다. 시험 전날에는 정리 노트만 빠르게 훑으며 핵심만 확인합니다. {rd} 홈투과외는 시험 기간에 맞춘 집중 대비 플랜을 별도 운영합니다. 학교별 기출 분석을 바탕으로 출제 예상 포인트를 짚어주고 취약 유형을 반복 훈련합니다."},
 {q:"선생님이 마음에 안 들면 교체 가능한가요?",a:"학생과 선생님의 궁합이 중요하기 때문에, 무료 체험 수업 후 불만족 시 다른 선생님으로 즉시 교체 가능합니다. 추가 비용은 없습니다."},
 {q:"초등학생도 과외가 필요한가요?",a:"초등학생은 학습 습관과 기초 실력을 잡는 가장 중요한 시기입니다. 공부가 재미있다는 경험을 만들어 주는 것이 장기적으로 가장 큰 효과를 냅니다."},
@@ -1251,7 +1251,7 @@ function buildEduData() {
 const eduData = buildEduData();
 
 // index.html base64
-const INDEX_HTML = "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n<meta charset=\"UTF-8\">\n<link rel=\"icon\" type=\"image/png\" href=\"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\">\n<title>홈투과외 - 1:1 방문·화상 과외 | 우리 아이에게 딱 맞는 선생님</title>\n<meta name=\"description\" content=\"홈투과외 - 초·중·고 전 과목 1:1 맞춤 과외. 방문·화상 수업 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다. 학생에게 꼭 맞는 선생님을 매칭해 드립니다.\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:site_name\" content=\"홈투과외\">\n<meta property=\"og:title\" content=\"홈투과외 - 1:1 방문·화상 과외\">\n<meta property=\"og:image\" content=\"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/banner1.png\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap\" rel=\"stylesheet\">\n<style>\n*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}\n:root{\n --ink:#2E2A45;--primary:#7B6EF6;--primary-deep:#5B4EE0;--primary-soft:#EEEBFF;\n --peach:#FF9E7D;--peach-soft:#FFEEE6;--mint:#3FC7B8;--mint-soft:#DFF7F3;\n --sky:#54C4F7;--sky-soft:#E4F5FE;--yellow:#FFCF5C;--yellow-soft:#FFF6DE;\n --pink:#FF8FB6;--pink-soft:#FFEAF1;\n --cream:#FBF8F4;--white:#fff;--panel:#F5F2FC;--line:#ECE7F6;\n --text:#3A354F;--mute:#7A748E;--faint:#A49EB5;\n --r:16px;--r-lg:28px;--pill:999px;--maxw:1140px;\n --shadow:0 8px 26px rgba(90,78,224,0.08);--shadow-lg:0 20px 46px rgba(90,78,224,0.16);\n --disp:'Jua',sans-serif;--sans:'Noto Sans KR',sans-serif;\n}\nhtml{scroll-behavior:smooth;}\nbody{font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}\nimg{max-width:100%;display:block;}\na{color:inherit;}\n\n/* shared */\n.wrap{max-width:var(--maxw);margin:0 auto;}\n.sec{padding:84px 40px;position:relative;}\n.sec--panel{background:var(--panel);}\n.center{text-align:center;}\n.pill-label{display:inline-block;font-family:var(--sans);font-size:0.8rem;font-weight:800;color:var(--primary);background:var(--primary-soft);padding:7px 18px;border-radius:var(--pill);margin-bottom:18px;letter-spacing:.3px;}\n.sec-title{font-family:var(--disp);font-size:clamp(1.7rem,3.6vw,2.6rem);color:var(--ink);line-height:1.35;letter-spacing:.3px;margin-bottom:14px;font-weight:400;}\n.sec-title .cc{color:var(--primary);}\n.sec-title .cc2{color:var(--peach);}\n.sec-desc{font-size:1rem;color:var(--mute);max-width:560px;margin:0 auto;line-height:1.85;}\n\n/* NAV */\nnav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,248,244,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:0 34px;height:70px;display:flex;align-items:center;justify-content:space-between;}\n.nav-logo{font-family:var(--disp);font-size:1.35rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;}\n.nav-logo .accent{color:var(--primary);}\n.nav-logo img{width:36px;height:36px;object-fit:contain;}\n.nav-links{display:flex;gap:8px;list-style:none;align-items:center;}\n.nav-links>a,.nav-region-btn{text-decoration:none;font-size:0.92rem;font-weight:700;color:var(--ink);transition:all .2s;white-space:nowrap;cursor:pointer;padding:9px 14px;border-radius:var(--pill);}\n.nav-links>a:hover,.nav-region-btn:hover{color:var(--primary);background:var(--primary-soft);}\n.nav-cta{background:var(--primary)!important;color:#fff!important;padding:10px 22px!important;font-weight:800!important;box-shadow:0 6px 16px rgba(123,110,246,.32);}\n.nav-cta:hover{background:var(--primary-deep)!important;transform:translateY(-1px);}\n.nav-region-wrap{position:relative;}\n.nav-region-btn{display:flex;align-items:center;gap:4px;}\n.nav-arrow{font-size:0.6rem;}\n.nav-region-drop{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);padding:16px;z-index:999;}\n.nav-region-drop a{display:block;padding:8px 10px;font-size:0.84rem;color:var(--ink);text-decoration:none;border-radius:12px;text-align:center;transition:all .15s;font-weight:600;}\n.nav-region-drop a:hover{background:var(--primary-soft);color:var(--primary);}\n#navToggle{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--ink);padding:4px;}\n\n/* HERO (search integrated) */\n.hero{padding:132px 40px 76px;position:relative;overflow:hidden;text-align:center;}\n.blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5;z-index:0;pointer-events:none;}\n.blob.b1{width:320px;height:320px;background:var(--primary-soft);top:70px;left:-60px;}\n.blob.b2{width:300px;height:300px;background:var(--peach-soft);top:120px;right:-40px;}\n.blob.b3{width:260px;height:260px;background:var(--mint-soft);bottom:-60px;left:40%;}\n.hero-in{position:relative;z-index:1;max-width:760px;margin:0 auto;}\n.hero .badge{display:inline-flex;align-items:center;gap:7px;font-size:0.86rem;font-weight:800;color:var(--primary-deep);background:var(--white);border:1.5px solid var(--primary-soft);padding:8px 18px;border-radius:var(--pill);margin-bottom:24px;box-shadow:var(--shadow);}\n.hero h1{font-family:var(--disp);font-size:clamp(2.2rem,5.5vw,3.7rem);color:var(--ink);line-height:1.3;letter-spacing:.5px;margin-bottom:20px;font-weight:400;}\n.hero h1 .hl{color:var(--primary);position:relative;}\n.hero h1 .hl2{color:var(--peach);}\n.hero p.sub{font-size:1.1rem;color:var(--mute);line-height:1.85;margin-bottom:30px;max-width:560px;margin-left:auto;margin-right:auto;}\n.hero-search{background:var(--white);border-radius:var(--pill);box-shadow:var(--shadow-lg);display:flex;padding:7px;max-width:540px;margin:0 auto 16px;border:1.5px solid var(--line);position:relative;}\n.hero-search input{flex:1;border:none;outline:none;background:transparent;padding:14px 22px;font-size:15px;font-family:inherit;color:var(--ink);border-radius:var(--pill);}\n.hero-search button{background:var(--primary);color:#fff;border:none;padding:0 28px;font-size:15px;font-weight:800;border-radius:var(--pill);cursor:pointer;font-family:inherit;transition:background .2s;}\n.hero-search button:hover{background:var(--primary-deep);}\n.hero-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px;}\n.hero-links a{font-size:0.88rem;font-weight:700;color:var(--primary);background:var(--white);border:1.5px solid var(--primary-soft);padding:9px 18px;border-radius:var(--pill);text-decoration:none;transition:all .2s;}\n.hero-links a:hover{background:var(--primary-soft);}\n.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}\n.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--pill);font-size:1.02rem;font-weight:800;text-decoration:none;transition:all .22s;cursor:pointer;font-family:inherit;border:none;}\n.btn-primary{background:var(--primary);color:#fff;padding:16px 34px;box-shadow:0 10px 24px rgba(123,110,246,.34);}\n.btn-primary:hover{background:var(--primary-deep);transform:translateY(-2px);}\n.btn-peach{background:var(--peach);color:#fff;padding:16px 34px;box-shadow:0 10px 24px rgba(255,158,125,.36);}\n.btn-peach:hover{background:#f7875f;transform:translateY(-2px);}\n.hero-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}\n.stat-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:18px 26px;min-width:150px;box-shadow:var(--shadow);}\n.stat-number{font-family:var(--disp);font-size:1.9rem;color:var(--primary);line-height:1;margin-bottom:6px;font-weight:400;}\n.stat-card:nth-child(2) .stat-number{color:var(--peach);}\n.stat-card:nth-child(3) .stat-number{color:var(--mint);}\n.stat-label{font-size:0.82rem;color:var(--mute);font-weight:700;}\n.stat-icon,.stat-desc{display:none;}\n\n/* SUBJECTS (moved up, colorful tiles) */\n.subj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}\n.subj-card{border-radius:var(--r-lg);padding:30px 20px;text-align:center;transition:transform .25s;border:2px solid transparent;}\n.subj-card:hover{transform:translateY(-6px) rotate(-1deg);}\n.subj-emoji{font-size:2.2rem;margin-bottom:12px;display:block;}\n.subj-name{font-family:var(--disp);font-size:1.15rem;color:var(--ink);margin-bottom:4px;font-weight:400;}\n.subj-desc{font-size:0.78rem;color:var(--mute);font-weight:600;}\n.sc0{background:var(--primary-soft);}.sc0:hover{border-color:var(--primary);}\n.sc1{background:var(--peach-soft);}.sc1:hover{border-color:var(--peach);}\n.sc2{background:var(--sky-soft);}.sc2:hover{border-color:var(--sky);}\n.sc3{background:var(--mint-soft);}.sc3:hover{border-color:var(--mint);}\n.sc4{background:var(--yellow-soft);}.sc4:hover{border-color:var(--yellow);}\n.sc5{background:var(--pink-soft);}.sc5:hover{border-color:var(--pink);}\n\n/* CLASS (visit / online) */\n.class-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px;text-align:left;}\n.class-card{border-radius:var(--r-lg);padding:34px 30px;position:relative;overflow:hidden;}\n.class-card.visit{background:var(--primary-soft);}\n.class-card.online{background:var(--peach-soft);}\n.class-badge{display:inline-block;font-family:var(--disp);font-size:1.4rem;color:#fff;width:64px;height:64px;line-height:64px;text-align:center;border-radius:22px;margin-bottom:16px;}\n.class-card.visit .class-badge{background:var(--primary);}\n.class-card.online .class-badge{background:var(--peach);}\n.class-card h3{font-family:var(--disp);font-size:1.4rem;color:var(--ink);margin-bottom:10px;font-weight:400;}\n.class-card>p{font-size:0.92rem;color:var(--mute);line-height:1.8;margin-bottom:20px;}\n.feat{display:flex;gap:11px;align-items:center;margin-bottom:11px;background:rgba(255,255,255,.65);border-radius:var(--pill);padding:9px 16px;}\n.feat .fe{font-size:1.05rem;}\n.feat .ft{font-size:0.88rem;font-weight:700;color:var(--ink);}\n\n/* WHY (rounded badges) */\n.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;}\n.why-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:30px 24px;text-align:center;transition:all .25s;}\n.why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}\n.why-badge{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 16px;}\n.wb0{background:var(--primary-soft);}.wb1{background:var(--peach-soft);}.wb2{background:var(--mint-soft);}\n.wb3{background:var(--sky-soft);}.wb4{background:var(--yellow-soft);}.wb5{background:var(--pink-soft);}\n.why-card h3{font-family:var(--disp);font-size:1.12rem;color:var(--ink);margin-bottom:8px;font-weight:400;}\n.why-card p{font-size:0.88rem;color:var(--mute);line-height:1.72;}\n\n/* PROCESS (vertical timeline) */\n.timeline{max-width:620px;margin:48px auto 0;position:relative;text-align:left;padding-left:20px;}\n.timeline::before{content:'';position:absolute;left:47px;top:20px;bottom:20px;width:3px;background:var(--primary-soft);border-radius:3px;}\n.tstep{display:flex;gap:22px;align-items:flex-start;margin-bottom:20px;position:relative;}\n.tbubble{width:56px;height:56px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;position:relative;z-index:1;box-shadow:0 6px 16px rgba(123,110,246,.3);}\n.tstep:nth-child(1) .tbubble{background:var(--primary);}\n.tstep:nth-child(2) .tbubble{background:var(--sky);}\n.tstep:nth-child(3) .tbubble{background:var(--mint);}\n.tstep:nth-child(4) .tbubble{background:var(--peach);}\n.tbody{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:18px 24px;flex:1;box-shadow:var(--shadow);}\n.tbody .tn{font-size:0.72rem;font-weight:800;color:var(--primary);letter-spacing:1px;margin-bottom:4px;}\n.tbody h4{font-family:var(--disp);font-size:1.1rem;color:var(--ink);margin-bottom:3px;font-weight:400;}\n.tbody p{font-size:0.86rem;color:var(--mute);}\n\n/* GRADE */\n.grade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;text-align:left;}\n.grade-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r-lg);overflow:hidden;transition:transform .25s;}\n.grade-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}\n.grade-head{padding:26px 26px 20px;color:#fff;}\n.grade-head .ge{font-size:2rem;margin-bottom:8px;}\n.grade-head h3{font-family:var(--disp);font-size:1.3rem;margin-bottom:4px;font-weight:400;}\n.grade-head p{font-size:0.8rem;opacity:.92;}\n.gh-elem{background:linear-gradient(135deg,#8B7DF9,#6C5CE7);}\n.gh-mid{background:linear-gradient(135deg,#5CC8FF,#3AAEEA);}\n.gh-high{background:linear-gradient(135deg,#FFA97D,#FF8A5B);}\n.grade-body{padding:22px 26px;}\n.grade-body .gt{font-size:0.74rem;font-weight:800;color:var(--peach);letter-spacing:.5px;margin-bottom:10px;}\n.grade-body>p{font-size:0.86rem;color:var(--text);line-height:1.8;margin-bottom:14px;}\n.grade-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;}\n.grade-body li{display:flex;gap:8px;align-items:flex-start;font-size:0.83rem;color:var(--text);}\n.grade-body li::before{content:'🌟';flex-shrink:0;font-size:0.75rem;margin-top:2px;}\n.grade-body strong{font-weight:700;color:var(--ink);}\n\n/* COMPARE (vs cards, not a table) */\n.vs-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:48px;}\n.vs-card{border-radius:var(--r-lg);padding:30px 26px;text-align:left;}\n.vs-card.bad{background:var(--white);border:2px solid var(--line);}\n.vs-card.good{background:var(--primary-soft);border:2px solid var(--primary);}\n.vs-card .vt{font-family:var(--disp);font-size:1.3rem;margin-bottom:18px;text-align:center;font-weight:400;}\n.vs-card.bad .vt{color:var(--faint);}\n.vs-card.good .vt{color:var(--primary-deep);}\n.vs-row{display:flex;gap:9px;align-items:flex-start;margin-bottom:12px;font-size:0.9rem;line-height:1.5;}\n.vs-row .ic{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:#fff;margin-top:1px;}\n.vs-card.bad .ic{background:#D8D3E6;}\n.vs-card.bad .vs-row{color:var(--faint);}\n.vs-card.good .ic{background:var(--primary);}\n.vs-card.good .vs-row{color:var(--text);font-weight:600;}\n.vs-mid{font-family:var(--disp);font-size:1.5rem;color:var(--peach);text-align:center;}\n\n/* REVIEWS (speech bubbles marquee) */\n@keyframes rvScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}\n.rv-viewport{overflow:hidden;position:relative;padding:10px 0;margin-top:44px;}\n.rv-viewport::before,.rv-viewport::after{content:'';position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none;}\n.rv-viewport::before{left:0;background:linear-gradient(90deg,var(--panel),transparent);}\n.rv-viewport::after{right:0;background:linear-gradient(270deg,var(--panel),transparent);}\n.rv-track{display:flex;gap:18px;animation:rvScroll 44s linear infinite;width:max-content;}\n.rv-viewport:hover .rv-track{animation-play-state:paused;}\n.review-card{min-width:320px;max-width:320px;flex-shrink:0;background:var(--white);border:1.5px solid var(--line);border-radius:24px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);}\n.review-top{display:flex;align-items:center;justify-content:space-between;}\n.review-badge{font-size:0.72rem;font-weight:800;color:var(--primary);background:var(--primary-soft);padding:5px 13px;border-radius:var(--pill);}\n.review-stars{color:var(--yellow);font-size:0.9rem;letter-spacing:1px;}\n.review-text{font-size:0.88rem;color:var(--text);line-height:1.75;flex:1;}\n.review-author{display:flex;align-items:center;gap:10px;padding-top:13px;border-top:1px solid var(--line);}\n.review-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:1.05rem;color:#fff;flex-shrink:0;background:var(--primary);font-weight:400;}\n.review-card:nth-child(3n+1) .review-avatar{background:var(--peach);}\n.review-card:nth-child(3n+2) .review-avatar{background:var(--mint);}\n.review-name{font-size:0.84rem;font-weight:800;color:var(--ink);}\n.review-info{font-size:0.72rem;color:var(--faint);margin-top:1px;}\n\n/* FAQ */\n.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:44px;max-width:760px;margin-left:auto;margin-right:auto;text-align:left;}\n.faq-item{border:1.5px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--white);transition:all .25s;}\n.faq-item:hover{box-shadow:var(--shadow);}\n.faq-item.open{border-color:var(--primary);background:var(--primary-soft);}\n.faq-q{width:100%;background:none;border:none;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;font-size:0.98rem;font-weight:700;color:var(--ink);text-align:left;font-family:inherit;cursor:pointer;gap:12px;}\n.faq-q .q-icon{font-family:var(--disp);color:var(--primary);font-size:1.15rem;flex-shrink:0;font-weight:400;}\n.faq-chev{color:var(--faint);transition:transform .25s;flex-shrink:0;}\n.faq-item.open .faq-chev{transform:rotate(180deg);color:var(--primary);}\n.faq-a{font-size:0.9rem;color:var(--mute);line-height:1.85;padding:0 24px 20px 54px;display:none;}\n.faq-item.open .faq-a{display:block;}\n\n/* FORM */\n.form-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:38px 30px;text-align:left;box-shadow:var(--shadow-lg);}\n.fg{margin-bottom:22px;}\n.fl{display:block;font-size:0.86rem;font-weight:800;color:var(--ink);margin-bottom:11px;}\n.fl span{color:var(--faint);font-weight:400;}\n.chips{display:flex;flex-wrap:wrap;gap:8px;}\n.mb{background:var(--cream);border:1.5px solid var(--line);color:var(--mute);padding:9px 17px;border-radius:var(--pill);font-size:0.84rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .18s;}\n.mb:hover{border-color:var(--primary);color:var(--primary);}\n.mb.on{background:var(--primary);border-color:var(--primary);color:#fff;}\n.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}\n.fin{width:100%;padding:13px 18px;border:1.5px solid var(--line);border-radius:var(--pill);font-size:0.92rem;font-family:inherit;outline:none;transition:border-color .2s;background:var(--cream);color:var(--ink);}\n.fin:focus{border-color:var(--primary);}\ntextarea.fin{border-radius:var(--r);}\n.fin[readonly]{cursor:pointer;background:var(--white);}\n.addr-row{display:flex;gap:8px;margin-bottom:8px;}\n.addr-btn{background:var(--ink);color:#fff;border:none;padding:13px 22px;border-radius:var(--pill);font-size:0.86rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s;}\n.addr-btn:hover{background:#211d33;}\n.agree-row{display:flex;align-items:flex-start;gap:9px;margin:6px 0 24px;}\n.agree-row input{width:18px;height:18px;accent-color:var(--primary);cursor:pointer;margin-top:2px;flex-shrink:0;}\n.agree-row label{font-size:0.82rem;color:var(--mute);cursor:pointer;line-height:1.6;}\n.submit-btn{width:100%;padding:17px;background:var(--primary);color:#fff;border:none;border-radius:var(--pill);font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 10px 24px rgba(123,110,246,.34);}\n.submit-btn:hover{transform:translateY(-2px);}\n.kakao-btn{display:block;width:100%;padding:17px;background:#FEE500;color:#3A1D1D;border:none;border-radius:var(--pill);font-size:1.05rem;font-weight:800;text-decoration:none;text-align:center;font-family:inherit;transition:all .2s;margin-top:12px;}\n.kakao-btn:hover{transform:translateY(-2px);}\n\n/* CTA */\n#cta{text-align:center;overflow:hidden;}\n.cta-box{position:relative;background:linear-gradient(135deg,#7B6EF6,#9B7DF6);border-radius:36px;padding:64px 40px;overflow:hidden;box-shadow:var(--shadow-lg);}\n.cta-box .blob{opacity:.28;}\n.cta-box .cb1{width:240px;height:240px;background:#fff;top:-60px;left:-40px;}\n.cta-box .cb2{width:200px;height:200px;background:var(--peach);bottom:-70px;right:-30px;opacity:.4;}\n.cta-box h2{font-family:var(--disp);font-size:clamp(1.8rem,3.6vw,2.6rem);color:#fff;margin-bottom:14px;position:relative;z-index:1;font-weight:400;line-height:1.4;}\n.cta-box p{font-size:1.05rem;color:rgba(255,255,255,.9);margin-bottom:30px;position:relative;z-index:1;}\n.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}\n.btn-onlight{background:#fff;color:var(--primary-deep);padding:16px 36px;border-radius:var(--pill);font-size:1.02rem;font-weight:800;text-decoration:none;transition:all .2s;}\n.btn-onlight:hover{transform:translateY(-2px);}\n.btn-ghost{border:2px solid rgba(255,255,255,.6);color:#fff;padding:16px 34px;border-radius:var(--pill);font-size:1.02rem;font-weight:800;text-decoration:none;transition:all .2s;}\n.btn-ghost:hover{background:rgba(255,255,255,.14);}\n\n/* FOOTER */\nfooter{background:var(--ink);color:rgba(255,255,255,.55);font-size:0.84rem;}\n.footer-in{max-width:var(--maxw);margin:0 auto;}\n.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;padding:28px 20px;border-bottom:1px solid rgba(255,255,255,.1);}\n.footer-links a{color:rgba(255,255,255,.65);text-decoration:none;font-weight:600;}\n.footer-links a:hover{color:var(--peach);}\n.footer-main{text-align:center;padding:28px 20px;line-height:2;}\n.footer-brand{font-family:var(--disp);font-size:1.3rem;color:rgba(255,255,255,.9);margin-bottom:8px;font-weight:400;}\n.footer-main a{color:var(--peach);text-decoration:none;font-weight:600;}\n\n/* FLOATING */\n.float-widget{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:9px;z-index:999;}\n.float-btn{display:flex;align-items:center;gap:8px;padding:14px 20px;border-radius:var(--pill);font-size:13px;font-weight:800;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.18);transition:transform .25s;white-space:nowrap;}\n.float-btn:hover{transform:translateY(-3px) scale(1.03);}\n\n.suggest-row{padding:14px 22px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--line);transition:background .15s;display:flex;align-items:center;gap:8px;text-align:left;color:var(--ink);}\n.suggest-row:hover{background:var(--primary-soft);}\n\n@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;}}\n\n@media(max-width:920px){\n #navToggle{display:flex;align-items:center;justify-content:center;}\n .nav-links{display:none;position:fixed;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);padding:8px 0;max-height:calc(100vh - 70px);overflow-y:auto;z-index:999;}\n .nav-links.open{display:flex;}\n .nav-links>a,.nav-region-btn{padding:14px 24px;border-radius:0;font-size:0.95rem;border-bottom:1px solid var(--line);}\n .nav-region-drop{position:static;transform:none;box-shadow:none;border:none;border-radius:0;padding:8px 24px;}\n .subj-grid{grid-template-columns:repeat(2,1fr);}\n .class-grid{grid-template-columns:1fr;}\n .why-grid{grid-template-columns:1fr;}\n .grade-grid{grid-template-columns:1fr;}\n .vs-wrap{grid-template-columns:1fr;}\n .vs-mid{transform:rotate(90deg);}\n}\n@media(max-width:640px){\n .sec{padding:56px 18px;}\n .hero{padding:104px 18px 52px;}\n nav{padding:0 16px;height:64px;}\n .hero-cta{flex-direction:column;align-items:stretch;}\n .btn{justify-content:center;}\n .hero-stats{gap:10px;}\n .stat-card{min-width:calc(50% - 5px);padding:16px;}\n .subj-grid{grid-template-columns:1fr 1fr;}\n .frow{grid-template-columns:1fr;}\n .review-card{min-width:270px;max-width:270px;}\n .timeline{padding-left:0;}\n .timeline::before{left:27px;}\n .float-btn .fl-label{display:none;}\n .float-btn{padding:14px;border-radius:50%;width:50px;height:50px;justify-content:center;font-size:18px;}\n .cta-box{padding:48px 24px;}\n}\n</style>\n</head>\n<body>\n\n<!-- NAV -->\n<nav>\n <a href=\"/\" class=\"nav-logo\"><img src=\"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png\" alt=\"홈투과외\"> <span class=\"accent\">홈투</span>과외</a>\n <button id=\"navToggle\" onclick=\"var m=document.getElementById('navMenu');m.classList.toggle('open');this.innerHTML=m.classList.contains('open')?'✕':'☰';\">☰</button>\n <div class=\"nav-links\" id=\"navMenu\">\n  <div class=\"nav-region-wrap\">\n   <a href=\"#\" class=\"nav-region-btn\" onclick=\"event.preventDefault();var p=document.getElementById('ddFind');p.style.display=p.style.display==='block'?'none':'block';\">과외찾기 <span class=\"nav-arrow\">▾</span></a>\n   <div class=\"nav-region-drop\" id=\"ddFind\" style=\"width:430px;\">\n    <div style=\"display:flex;gap:8px;margin-bottom:14px;\">\n     <button class=\"dd-tab\" onclick=\"switchDD(0)\" style=\"flex:1;padding:9px;border-radius:12px;border:1.5px solid var(--line);background:var(--primary);color:#fff;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;\">📍 지역별</button>\n     <button class=\"dd-tab\" onclick=\"switchDD(1)\" style=\"flex:1;padding:9px;border-radius:12px;border:1.5px solid var(--line);background:var(--white);color:var(--ink);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;\">🎓 학년별</button>\n     <button class=\"dd-tab\" onclick=\"switchDD(2)\" style=\"flex:1;padding:9px;border-radius:12px;border:1.5px solid var(--line);background:var(--white);color:var(--ink);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;\">🏫 학교별</button>\n    </div>\n    <div class=\"dd-content\" id=\"ddC0\" style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:4px;\">\n     <a href=\"/seoul\">서울</a><a href=\"/gyeonggi\">경기</a><a href=\"/incheon\">인천</a><a href=\"/busan\">부산</a>\n     <a href=\"/daegu\">대구</a><a href=\"/daejeon\">대전</a><a href=\"/gwangju\">광주</a><a href=\"/ulsan\">울산</a>\n     <a href=\"/sejong\">세종</a><a href=\"/gangwon\">강원</a><a href=\"/chungbuk\">충북</a><a href=\"/chungnam\">충남</a>\n     <a href=\"/jeonbuk\">전북</a><a href=\"/jeonnam\">전남</a><a href=\"/gyeongbuk\">경북</a><a href=\"/gyeongnam\">경남</a>\n     <a href=\"/jeju\">제주</a>\n    </div>\n    <div class=\"dd-content\" id=\"ddC1\" style=\"display:none;\">\n     <div style=\"font-size:0.72rem;font-weight:700;color:var(--peach);margin-bottom:6px;\">초등학생</div>\n     <div style=\"display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:10px;\"><a href=\"/grade/elem1\">초1</a><a href=\"/grade/elem2\">초2</a><a href=\"/grade/elem3\">초3</a><a href=\"/grade/elem4\">초4</a><a href=\"/grade/elem5\">초5</a><a href=\"/grade/elem6\">초6</a></div>\n     <div style=\"font-size:0.72rem;font-weight:700;color:var(--peach);margin-bottom:6px;\">중학생</div>\n     <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:10px;\"><a href=\"/grade/mid1\">중1</a><a href=\"/grade/mid2\">중2</a><a href=\"/grade/mid3\">중3</a></div>\n     <div style=\"font-size:0.72rem;font-weight:700;color:var(--peach);margin-bottom:6px;\">고등학생</div>\n     <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px;\"><a href=\"/grade/high1\">고1</a><a href=\"/grade/high2\">고2</a><a href=\"/grade/high3\">고3</a></div>\n     <div style=\"display:inline-block;\"><a href=\"/grade/nsu\" style=\"border:1px solid var(--peach);color:var(--peach);\">재수생</a></div>\n    </div>\n    <div class=\"dd-content\" id=\"ddC2\" style=\"display:none;grid-template-columns:repeat(4,1fr);gap:4px;\">\n     <a href=\"/schools/seoul\">서울</a><a href=\"/schools/gyeonggi\">경기</a><a href=\"/schools/incheon\">인천</a><a href=\"/schools/busan\">부산</a>\n     <a href=\"/schools/daegu\">대구</a><a href=\"/schools/daejeon\">대전</a><a href=\"/schools/gwangju\">광주</a><a href=\"/schools/ulsan\">울산</a>\n     <a href=\"/schools/sejong\">세종</a><a href=\"/schools/gangwon\">강원</a><a href=\"/schools/chungbuk\">충북</a><a href=\"/schools/chungnam\">충남</a>\n     <a href=\"/schools/jeonbuk\">전북</a><a href=\"/schools/jeonnam\">전남</a><a href=\"/schools/gyeongbuk\">경북</a><a href=\"/schools/gyeongnam\">경남</a>\n     <a href=\"/schools/jeju\">제주</a>\n    </div>\n   </div>\n  </div>\n  <div class=\"nav-region-wrap\">\n   <a href=\"#\" class=\"nav-region-btn\" onclick=\"event.preventDefault();var p=document.getElementById('ddSubj');p.style.display=p.style.display==='block'?'none':'block';\">과목수업 <span class=\"nav-arrow\">▾</span></a>\n   <div class=\"nav-region-drop\" id=\"ddSubj\" style=\"width:320px;\">\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:4px;\">\n     <a href=\"/subject/korean\">국어</a><a href=\"/subject/english\">영어</a>\n     <a href=\"/subject/math\">수학</a><a href=\"/subject/science\">과학</a>\n     <a href=\"/subject/social\">사회</a><a href=\"/subject/coding\">코딩</a>\n     <a href=\"/subject/essay\">논술</a><a href=\"/subject/ged\">검정고시</a>\n     <a href=\"/subject/social-exam\">사회탐구</a><a href=\"/subject/science-exam\">과학탐구</a>\n    </div>\n   </div>\n  </div>\n  <a href=\"/academy\">학원수업</a>\n  <div class=\"nav-region-wrap\">\n   <a href=\"#\" class=\"nav-region-btn\" onclick=\"event.preventDefault();var p=document.getElementById('ddLang');p.style.display=p.style.display==='block'?'none':'block';\">제2외국어 <span class=\"nav-arrow\">▾</span></a>\n   <div class=\"nav-region-drop\" id=\"ddLang\" style=\"width:240px;\">\n    <a href=\"/language/english\">영어 회화</a>\n    <a href=\"/language/japanese\">일본어 회화</a>\n    <a href=\"/language/chinese\">중국어 회화</a>\n   </div>\n  </div>\n  <a href=\"#form\" class=\"nav-cta\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\">상담 신청</a>\n </div>\n</nav>\n\n<!-- HERO + SEARCH -->\n<section class=\"hero\">\n <div class=\"blob b1\"></div><div class=\"blob b2\"></div><div class=\"blob b3\"></div>\n <div class=\"hero-in\">\n  <span class=\"badge\">✨ 1:1 맞춤 과외 · 방문 &amp; 화상 모두 가능</span>\n  <h1>우리 아이에게 <span class=\"hl\">딱 맞는</span><br>선생님을 <span class=\"hl2\">찾아드려요</span> 🧡</h1>\n  <p class=\"sub\">홈투과외는 학생 한 명 한 명의 수준과 성향을 먼저 살펴보고, 꼭 맞는 선생님을 연결해 드려요. 첫 상담과 체험 수업은 완전 무료랍니다!</p>\n  <div class=\"hero-search\">\n   <input type=\"text\" id=\"searchInput\" placeholder=\"동네·학교로 찾기 (예: 대치동, 대치중)\">\n   <button onclick=\"var v=document.getElementById('searchInput').value.trim();if(v)window.location.href='/search?q='+encodeURIComponent(v);\">검색 🔍</button>\n  </div>\n  <div class=\"hero-links\">\n   <a href=\"/directory\">📍 전국 지역 보기</a>\n   <a href=\"/schools\">🏫 전국 학교 보기</a>\n  </div>\n  <div class=\"hero-cta\">\n   <a href=\"#form\" class=\"btn btn-primary\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\">무료 상담 신청하기 →</a>\n   <a href=\"/directory\" class=\"btn btn-peach\">과외 시작하기</a>\n  </div>\n  <div class=\"hero-stats\">\n   <div class=\"stat-card\">\n    <div class=\"stat-number\"><span class=\"count-up\" data-target=\"98\" data-suffix=\"%\">0%</span></div>\n    <div class=\"stat-label\">수강생 만족도</div>\n   </div>\n   <div class=\"stat-card\">\n    <div class=\"stat-number\"><span class=\"count-up\" data-target=\"200\" data-suffix=\"명+\">0명+</span></div>\n    <div class=\"stat-label\">함께한 학생</div>\n   </div>\n   <div class=\"stat-card\">\n    <div class=\"stat-number\"><span class=\"count-up\" data-target=\"3\" data-suffix=\"개월\">0개월</span></div>\n    <div class=\"stat-label\">평균 성적 향상</div>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- SUBJECTS (moved up) -->\n<section class=\"sec center\" id=\"subjects\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">수업 과목</span>\n  <h2 class=\"sec-title\">초·중·고 <span class=\"cc\">전 과목</span>, 다 있어요 📚</h2>\n  <p class=\"sec-desc\">국어부터 코딩, 제2외국어까지. 어떤 과목이든 맞춤 선생님이 준비되어 있어요.</p>\n  <div class=\"subj-grid\">\n   <div class=\"subj-card sc0\"><span class=\"subj-emoji\">📖</span><div class=\"subj-name\">국어</div><div class=\"subj-desc\">문학·비문학·문법</div></div>\n   <div class=\"subj-card sc1\"><span class=\"subj-emoji\">🔢</span><div class=\"subj-name\">수학</div><div class=\"subj-desc\">개념·심화·수능</div></div>\n   <div class=\"subj-card sc2\"><span class=\"subj-emoji\">🌍</span><div class=\"subj-name\">영어</div><div class=\"subj-desc\">독해·문법·회화</div></div>\n   <div class=\"subj-card sc3\"><span class=\"subj-emoji\">🧪</span><div class=\"subj-name\">과학</div><div class=\"subj-desc\">물리·화학·생명</div></div>\n   <div class=\"subj-card sc4\"><span class=\"subj-emoji\">🗺️</span><div class=\"subj-name\">사회</div><div class=\"subj-desc\">사회·경제·윤리</div></div>\n   <div class=\"subj-card sc5\"><span class=\"subj-emoji\">📜</span><div class=\"subj-name\">한국사</div><div class=\"subj-desc\">내신·수능·능력</div></div>\n   <div class=\"subj-card sc0\"><span class=\"subj-emoji\">💻</span><div class=\"subj-name\">코딩</div><div class=\"subj-desc\">스크래치·파이썬</div></div>\n   <div class=\"subj-card sc1\"><span class=\"subj-emoji\">🌸</span><div class=\"subj-name\">제2외국어</div><div class=\"subj-desc\">일본어·중국어</div></div>\n  </div>\n </div>\n</section>\n\n<!-- CLASS -->\n<section class=\"sec sec--panel center\" id=\"class\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">수업 방식</span>\n  <h2 class=\"sec-title\">방문도, 화상도 <span class=\"cc\">원하는 대로</span> 🏠💻</h2>\n  <p class=\"sec-desc\">가까운 곳은 방문 과외로, 먼 곳도 화상 과외로. 어디에 살아도 똑같은 1:1 수업을 받을 수 있어요.</p>\n  <div class=\"class-grid\">\n   <div class=\"class-card visit\">\n    <div class=\"class-badge\">🏠</div>\n    <h3>방문 과외</h3>\n    <p>선생님이 직접 집으로 찾아가 수업해요. 가장 편한 환경에서 집중력을 끌어올리고, 학부모님과도 직접 소통합니다.</p>\n    <div class=\"feat\"><span class=\"fe\">🚗</span><span class=\"ft\">이동 시간 없이 집에서 바로 시작</span></div>\n    <div class=\"feat\"><span class=\"fe\">📚</span><span class=\"ft\">학교 교재·문제집 그대로 진행</span></div>\n    <div class=\"feat\"><span class=\"fe\">👪</span><span class=\"ft\">학부모님과 학습 상황 직접 공유</span></div>\n    <div class=\"feat\"><span class=\"fe\">⏰</span><span class=\"ft\">규칙적인 학습 루틴 형성</span></div>\n   </div>\n   <div class=\"class-card online\">\n    <div class=\"class-badge\">💻</div>\n    <h3>화상 과외</h3>\n    <p>거리에 상관없이 전국 어디서든 수업이 가능해요. 화면 공유로 방문 과외와 똑같은 품질의 1:1 수업을 제공합니다.</p>\n    <div class=\"feat\"><span class=\"fe\">🌍</span><span class=\"ft\">전국 어디서든 같은 품질 수업</span></div>\n    <div class=\"feat\"><span class=\"fe\">🖥️</span><span class=\"ft\">실시간 화면 공유로 함께 풀이</span></div>\n    <div class=\"feat\"><span class=\"fe\">🎥</span><span class=\"ft\">녹화로 언제든 복습 가능</span></div>\n    <div class=\"feat\"><span class=\"fe\">📅</span><span class=\"ft\">일정에 맞춰 유연한 시간 조율</span></div>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- WHY -->\n<section class=\"sec center\" id=\"why\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">왜 홈투과외</span>\n  <h2 class=\"sec-title\">아이의 <span class=\"cc2\">진짜 실력</span>을 키워요 🌱</h2>\n  <p class=\"sec-desc\">문제 풀이만 하는 게 아니라, 개념의 뿌리부터 잡아 스스로 풀어내는 힘을 만들어요.</p>\n  <div class=\"why-grid\">\n   <div class=\"why-card\"><div class=\"why-badge wb0\">🎯</div><h3>완전 맞춤 수업</h3><p>학생의 수준·성향·목표에 맞춰 커리큘럼을 100% 개인화해요.</p></div>\n   <div class=\"why-card\"><div class=\"why-badge wb1\">🚀</div><h3>빠른 성적 향상</h3><p>취약 단원을 정확히 짚어 공략해요. 평균 3개월 안에 변화가 보여요.</p></div>\n   <div class=\"why-card\"><div class=\"why-badge wb2\">💬</div><h3>24시간 질문 응답</h3><p>수업 외에도 카카오톡으로 언제든 질문하세요. 그날 의문은 그날 해결!</p></div>\n   <div class=\"why-card\"><div class=\"why-badge wb3\">📊</div><h3>주간 학습 리포트</h3><p>매주 수업 내용과 취약점 분석을 학부모님께 보내드려요.</p></div>\n   <div class=\"why-card\"><div class=\"why-badge wb4\">🏡</div><h3>편안한 방문 과외</h3><p>가장 편한 집에서 수업해요. 이동 없이 집중력을 올려요.</p></div>\n   <div class=\"why-card\"><div class=\"why-badge wb5\">🌐</div><h3>어디서든 화상 과외</h3><p>거리에 상관없이 똑같은 1:1 맞춤 수업을 받을 수 있어요.</p></div>\n  </div>\n </div>\n</section>\n\n<!-- PROCESS (vertical timeline) -->\n<section class=\"sec sec--panel center\" id=\"process\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">수업 절차</span>\n  <h2 class=\"sec-title\">상담부터 수업까지 <span class=\"cc\">딱 4단계</span> ✨</h2>\n  <p class=\"sec-desc\">복잡한 절차 없이 빠르게 시작할 수 있어요.</p>\n  <div class=\"timeline\">\n   <div class=\"tstep\"><div class=\"tbubble\">📞</div><div class=\"tbody\"><div class=\"tn\">STEP 1</div><h4>무료 상담</h4><p>카카오톡 또는 네이버 폼으로 편하게 신청해요.</p></div></div>\n   <div class=\"tstep\"><div class=\"tbubble\">🔍</div><div class=\"tbody\"><div class=\"tn\">STEP 2</div><h4>수준 진단</h4><p>학생의 현재 수준을 파악하고 목표를 함께 정해요.</p></div></div>\n   <div class=\"tstep\"><div class=\"tbubble\">📅</div><div class=\"tbody\"><div class=\"tn\">STEP 3</div><h4>일정 조율</h4><p>학생에게 맞는 수업 시간과 방식을 협의해요.</p></div></div>\n   <div class=\"tstep\"><div class=\"tbubble\">🎉</div><div class=\"tbody\"><div class=\"tn\">STEP 4</div><h4>수업 시작</h4><p>맞춤 커리큘럼으로 바로 수업을 시작해요!</p></div></div>\n  </div>\n </div>\n</section>\n\n<!-- GRADE -->\n<section class=\"sec center\" id=\"grade\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">학년별 수업</span>\n  <h2 class=\"sec-title\">학년마다 <span class=\"cc\">전략이 달라요</span> 🎓</h2>\n  <p class=\"sec-desc\">각 시기에 꼭 필요한 것을 집중적으로 잡아드려요.</p>\n  <div class=\"grade-grid\">\n   <div class=\"grade-card\">\n    <div class=\"grade-head gh-elem\"><div class=\"ge\">🌱</div><h3>초등학교</h3><p>공부 습관의 씨앗을 심는 시기</p></div>\n    <div class=\"grade-body\">\n     <div class=\"gt\">이 시기의 핵심</div>\n     <p>억지로 공부시키기보다 <strong>공부가 재미있다는 경험</strong>을 쌓는 게 목표예요.</p>\n     <ul>\n      <li>기초 연산·독해·받아쓰기 등 <strong>기본기 완성</strong></li>\n      <li>일기·독후감 등 <strong>글쓰기 습관</strong> 형성</li>\n      <li>스스로 계획표 짜는 <strong>자기주도 학습</strong></li>\n      <li>수학 개념을 <strong>놀이처럼 이해</strong></li>\n     </ul>\n    </div>\n   </div>\n   <div class=\"grade-card\">\n    <div class=\"grade-head gh-mid\"><div class=\"ge\">📘</div><h3>중학교</h3><p>내신 기초가 결정되는 중요한 시기</p></div>\n    <div class=\"grade-body\">\n     <div class=\"gt\">이 시기의 핵심</div>\n     <p>중학교 내신은 고등 성적의 <strong>기반</strong>이 돼요. 개념의 흐름을 이해해요.</p>\n     <ul>\n      <li>수학 중1~3 개념 체계를 <strong>단계별 완성</strong></li>\n      <li>내신 기출 분석으로 <strong>출제 패턴 파악</strong></li>\n      <li>국어·영어 문법 기초 및 <strong>독해력 향상</strong></li>\n      <li>고등학교 대비 <strong>선행 학습 설계</strong></li>\n     </ul>\n    </div>\n   </div>\n   <div class=\"grade-card\">\n    <div class=\"grade-head gh-high\"><div class=\"ge\">🔥</div><h3>고등학교</h3><p>내신·수능·논술, 목표별 전략의 시기</p></div>\n    <div class=\"grade-body\">\n     <div class=\"gt\">이 시기의 핵심</div>\n     <p>고등학교는 <strong>시간 싸움</strong>이에요. 효율적인 전략과 입시 플랜을 설계해요.</p>\n     <ul>\n      <li>학교별 내신 기출 분석 및 <strong>족보 대비</strong></li>\n      <li>수능 유형 분석 및 <strong>등급 상승 전략</strong></li>\n      <li>취약 단원 공략 및 <strong>오답 노트 관리</strong></li>\n      <li>목표 대학 맞춤 <strong>입시 전략 상담</strong></li>\n     </ul>\n    </div>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- COMPARE (vs cards) -->\n<section class=\"sec sec--panel center\" id=\"compare\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">학원과의 차이</span>\n  <h2 class=\"sec-title\">같은 시간·비용, <span class=\"cc\">더 나은 결과</span> 💜</h2>\n  <p class=\"sec-desc\">단체 수업이 채우지 못하는 빈자리를, 1:1 과외가 메워요.</p>\n  <div class=\"vs-wrap\">\n   <div class=\"vs-card bad\">\n    <div class=\"vt\">🏫 학원</div>\n    <div class=\"vs-row\"><span class=\"ic\">✕</span><span>단체 수업 (20~40명)</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✕</span><span>모든 학생 동일 커리큘럼</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✕</span><span>질문은 수업 중 제한적</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✕</span><span>정해진 진도 따라가기</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✕</span><span>학습 피드백 거의 없음</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✕</span><span>왕복 이동 시간 필요</span></div>\n   </div>\n   <div class=\"vs-mid\">VS</div>\n   <div class=\"vs-card good\">\n    <div class=\"vt\">💜 홈투과외</div>\n    <div class=\"vs-row\"><span class=\"ic\">✓</span><span>완전 1:1 맞춤 수업</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✓</span><span>학생 수준별 100% 개인화</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✓</span><span>24시간 카카오톡 질문</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✓</span><span>학생에 맞춰 유연하게 조절</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✓</span><span>매주 상세 학습 리포트</span></div>\n    <div class=\"vs-row\"><span class=\"ic\">✓</span><span>집에서 편하게 수업</span></div>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- REVIEWS -->\n<section class=\"sec center\" id=\"reviews\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">수강생 후기</span>\n  <h2 class=\"sec-title\">먼저 경험한 <span class=\"cc2\">가족들의 이야기</span> 💬</h2>\n </div>\n <div class=\"rv-viewport\">\n  <div class=\"rv-track\" id=\"rvTrack\">\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">수학을 완전히 포기했었는데 홈투과외 덕분에 4등급에서 2등급으로 올랐어요. 개념을 이렇게 쉽게 가르쳐 주시는 선생님은 처음이었습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">김</div><div><div class=\"review-name\">김○○ 학생 어머니</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">영어 · 고3</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">모의고사 영어가 계속 60점대였는데 3개월 만에 89점으로 올랐습니다. 빠른 피드백과 친절한 답변 덕분에 믿고 맡길 수 있었어요.</p><div class=\"review-author\"><div class=\"review-avatar\">이</div><div><div class=\"review-name\">이○○ 학생</div><div class=\"review-info\">고등학교 3학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어·수학</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">중학교 때부터 3년 동안 함께했어요. 스스로 공부하는 습관을 만들어 주셨고, 결국 원하는 대학에 합격했습니다!</p><div class=\"review-author\"><div class=\"review-avatar\">박</div><div><div class=\"review-name\">박○○ 학생</div><div class=\"review-info\">대학 입시 합격</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·과학 · 중1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">아이가 원래 수업 시간에 집중을 못 하는 편인데, 선생님이 아이 눈높이에 딱 맞게 설명해 주셔서 흥미를 갖기 시작했어요.</p><div class=\"review-author\"><div class=\"review-avatar\">최</div><div><div class=\"review-name\">최○○ 학생 어머니</div><div class=\"review-info\">중학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어 · 고1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">내신 국어가 늘 발목을 잡았는데, 문학·비문학 접근법을 완전히 새로 배웠어요. 처음으로 국어 시험이 기다려졌습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">정</div><div><div class=\"review-name\">정○○ 학생</div><div class=\"review-info\">고등학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·영어 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">카카오톡으로 언제든지 질문할 수 있어서 정말 좋았어요. 늦은 밤에도 친절히 답해주셔서 시험 전날에도 든든했습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">윤</div><div><div class=\"review-name\">윤○○ 학생</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">수학을 완전히 포기했었는데 홈투과외 덕분에 4등급에서 2등급으로 올랐어요. 개념을 이렇게 쉽게 가르쳐 주시는 선생님은 처음이었습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">김</div><div><div class=\"review-name\">김○○ 학생 어머니</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">영어 · 고3</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">모의고사 영어가 계속 60점대였는데 3개월 만에 89점으로 올랐습니다. 빠른 피드백과 친절한 답변 덕분에 믿고 맡길 수 있었어요.</p><div class=\"review-author\"><div class=\"review-avatar\">이</div><div><div class=\"review-name\">이○○ 학생</div><div class=\"review-info\">고등학교 3학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어·수학</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">중학교 때부터 3년 동안 함께했어요. 스스로 공부하는 습관을 만들어 주셨고, 결국 원하는 대학에 합격했습니다!</p><div class=\"review-author\"><div class=\"review-avatar\">박</div><div><div class=\"review-name\">박○○ 학생</div><div class=\"review-info\">대학 입시 합격</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·과학 · 중1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">아이가 원래 수업 시간에 집중을 못 하는 편인데, 선생님이 아이 눈높이에 딱 맞게 설명해 주셔서 흥미를 갖기 시작했어요.</p><div class=\"review-author\"><div class=\"review-avatar\">최</div><div><div class=\"review-name\">최○○ 학생 어머니</div><div class=\"review-info\">중학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어 · 고1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">내신 국어가 늘 발목을 잡았는데, 문학·비문학 접근법을 완전히 새로 배웠어요. 처음으로 국어 시험이 기다려졌습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">정</div><div><div class=\"review-name\">정○○ 학생</div><div class=\"review-info\">고등학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·영어 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">카카오톡으로 언제든지 질문할 수 있어서 정말 좋았어요. 늦은 밤에도 친절히 답해주셔서 시험 전날에도 든든했습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">윤</div><div><div class=\"review-name\">윤○○ 학생</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n  </div>\n </div>\n</section>\n\n<!-- FAQ -->\n<section class=\"sec sec--panel center\" id=\"faq\">\n <div class=\"wrap\">\n  <span class=\"pill-label\">자주 묻는 질문</span>\n  <h2 class=\"sec-title\">궁금한 점이 있으신가요? 🤔</h2>\n  <div class=\"faq-list\">\n   <div class=\"faq-item open\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span>수업 지역은 어디까지 가능한가요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">상담을 통해 수업 가능 지역을 안내해 드려요. 카카오톡이나 네이버 폼으로 지역을 남겨주시면 빠르게 확인 후 연락드립니다. 화상 과외는 전국 어디서든 가능해요.</div></div>\n   <div class=\"faq-item\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span>수업료는 어떻게 되나요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">학년, 과목, 수업 횟수에 따라 달라져요. 부담 없이 먼저 상담 신청해 주시면 자세히 안내해 드립니다. 첫 상담과 체험 수업은 무료로 진행돼요.</div></div>\n   <div class=\"faq-item\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span>첫 수업 전에 어떤 준비가 필요한가요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">별도의 준비 없이 편하게 상담 먼저 받으시면 돼요. 첫 수업에서 학생의 현재 수준을 파악하고, 필요한 교재와 자료는 선생님이 안내해 드립니다.</div></div>\n  </div>\n </div>\n</section>\n\n<!-- FORM -->\n<section class=\"sec center\" id=\"form\">\n <div class=\"wrap\" style=\"max-width:720px;\">\n  <span class=\"pill-label\">무료 상담 신청</span>\n  <h2 class=\"sec-title\">지금 바로 <span class=\"cc\">시작</span>해 보세요 💌</h2>\n  <p class=\"sec-desc\">아래 내용을 선택하고 신청하시면 24시간 내로 연락드려요. 첫 상담 및 체험 수업은 완전 무료입니다!</p>\n  <div class=\"form-card\" style=\"margin-top:36px;\">\n   <div class=\"fg\">\n    <label class=\"fl\">🖥️ 수업 방식 <span>(복수 선택 가능)</span></label>\n    <div class=\"chips\">\n     <button type=\"button\" class=\"mb\">🏠 방문 과외</button>\n     <button type=\"button\" class=\"mb\">💻 화상 과외</button>\n     <button type=\"button\" class=\"mb\">🤔 상담 후 결정</button>\n    </div>\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">🎓 자녀 학년 <span>(복수 선택 가능)</span></label>\n    <div class=\"chips\">\n     <button type=\"button\" class=\"mb\">유아 5세</button>\n     <button type=\"button\" class=\"mb\">유아 6세</button>\n     <button type=\"button\" class=\"mb\">유아 7세</button>\n     <button type=\"button\" class=\"mb\">초1</button>\n     <button type=\"button\" class=\"mb\">초2</button>\n     <button type=\"button\" class=\"mb\">초3</button>\n     <button type=\"button\" class=\"mb\">초4</button>\n     <button type=\"button\" class=\"mb\">초5</button>\n     <button type=\"button\" class=\"mb\">초6</button>\n     <button type=\"button\" class=\"mb\">중1</button>\n     <button type=\"button\" class=\"mb\">중2</button>\n     <button type=\"button\" class=\"mb\">중3</button>\n     <button type=\"button\" class=\"mb\">고1</button>\n     <button type=\"button\" class=\"mb\">고2</button>\n     <button type=\"button\" class=\"mb\">고3</button>\n     <button type=\"button\" class=\"mb\">성인</button>\n    </div>\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">📚 희망 과목 <span>(복수 선택 가능)</span></label>\n    <div class=\"chips\">\n     <button type=\"button\" class=\"mb\">📖 국어</button>\n     <button type=\"button\" class=\"mb\">🔢 수학</button>\n     <button type=\"button\" class=\"mb\">🌍 영어</button>\n     <button type=\"button\" class=\"mb\">🧪 과학</button>\n     <button type=\"button\" class=\"mb\">🗺️ 사회</button>\n     <button type=\"button\" class=\"mb\">✏️ 논술</button>\n     <button type=\"button\" class=\"mb\">🎯 기타</button>\n    </div>\n   </div>\n   <div class=\"frow\">\n    <div><label class=\"fl\">🧑‍🎓 학생 이름</label><input type=\"text\" id=\"studentName\" class=\"fin\" placeholder=\"학생 이름\"></div>\n    <div><label class=\"fl\">📱 연락처</label><input type=\"text\" id=\"contact\" class=\"fin\" placeholder=\"전화번호\"></div>\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">🏫 학생 학교 <span>(선택)</span></label>\n    <input type=\"text\" id=\"school\" class=\"fin\" placeholder=\"예) 대치중학교, 강남고등학교\">\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">📍 거주 주소</label>\n    <div class=\"addr-row\">\n     <input type=\"text\" id=\"address\" class=\"fin\" placeholder=\"예: 서울 강남구 대치동\" autocomplete=\"off\" readonly onclick=\"openKakaoAddress()\">\n     <button type=\"button\" class=\"addr-btn\" onclick=\"openKakaoAddress()\">검색</button>\n    </div>\n    <input type=\"text\" id=\"addressDetail\" class=\"fin\" placeholder=\"상세주소 (예: 101동 1001호)\">\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">💬 문의 사항 <span>(선택)</span></label>\n    <textarea rows=\"3\" class=\"fin\" style=\"resize:vertical;\" placeholder=\"추가로 전달하실 내용이 있으면 자유롭게 적어주세요\"></textarea>\n   </div>\n   <div class=\"agree-row\"><input type=\"checkbox\" id=\"agree\"><label for=\"agree\">본인은 만 14세 이상이며, 개인정보 수집 및 이용에 동의합니다. (필수)</label></div>\n   <button type=\"button\" class=\"submit-btn\" onclick=\"submitForm()\">📝 상담 신청하기</button>\n   <a href=\"https://pf.kakao.com/_KRAjG\" target=\"_blank\" class=\"kakao-btn\">💬 카카오톡으로 바로 문의하기</a>\n  </div>\n </div>\n</section>\n\n<!-- CTA -->\n<section class=\"sec\" id=\"cta\">\n <div class=\"wrap\">\n  <div class=\"cta-box\">\n   <div class=\"blob cb1\"></div><div class=\"blob cb2\"></div>\n   <h2>우리 아이에게 딱 맞는 수업,<br>지금 무료로 경험해 보세요! 🎈</h2>\n   <p>첫 상담과 체험 수업은 완전 무료예요. 부담 없이 시작하세요.</p>\n   <div class=\"cta-buttons\">\n    <a href=\"#form\" class=\"btn-onlight\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\">무료 상담 신청 →</a>\n    <a href=\"tel:01023370458\" class=\"btn-ghost\">📞 010-2337-0458</a>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- FOOTER -->\n<footer>\n <div class=\"footer-in\">\n  <div class=\"footer-links\">\n   <a href=\"/seoul\">서울 과외</a>\n   <a href=\"/gyeonggi\">경기 과외</a>\n   <a href=\"/busan\">부산 과외</a>\n   <a href=\"/subject/math\">수학 과외</a>\n   <a href=\"/subject/english\">영어 과외</a>\n   <a href=\"/directory\">전체 지역</a>\n   <a href=\"/academy\">학원 소개</a>\n   <a href=\"#form\">문의하기</a>\n  </div>\n  <div class=\"footer-main\">\n   <div class=\"footer-brand\">🌟 홈투과외</div>\n   <div style=\"margin-bottom:4px;\"><a href=\"tel:01023370458\">📞 010-2337-0458</a> &nbsp;·&nbsp; <a href=\"https://pf.kakao.com/_KRAjG/chat\">💬 카카오톡 문의</a></div>\n   <p>상담 가능 시간 · 평일&amp;주말 상관없이 24시간 상담 가능합니다.</p>\n   <p>© 2026 홈투과외 All Rights Reserved.</p>\n  </div>\n </div>\n</footer>\n\n<!-- FLOATING -->\n<div class=\"float-widget\">\n <a href=\"tel:01023370458\" class=\"float-btn\" style=\"background:var(--ink);color:#fff;\">📞 <span class=\"fl-label\">전화 상담</span></a>\n <a href=\"#form\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\" class=\"float-btn\" style=\"background:var(--primary);color:#fff;\">✏️ <span class=\"fl-label\">무료 상담</span></a>\n <a href=\"https://naver.me/Gnva0jjW\" target=\"_blank\" class=\"float-btn\" style=\"background:#03C75A;color:#fff;\">📋 <span class=\"fl-label\">네이버 폼</span></a>\n <a href=\"https://pf.kakao.com/_KRAjG/chat\" target=\"_blank\" class=\"float-btn\" style=\"background:#FEE500;color:#3A1D1D;\">💬 <span class=\"fl-label\">카카오톡</span></a>\n</div>\n\n<script src=\"//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js\"></script>\n<script>\nfunction switchDD(idx){\n for(var i=0;i<3;i++){\n  document.getElementById('ddC'+i).style.display=i===idx?(i===1?'block':'grid'):'none';\n  var tabs=document.querySelectorAll('.dd-tab');\n  if(tabs[i]){tabs[i].style.background=i===idx?'#7B6EF6':'#FFFFFF';tabs[i].style.color=i===idx?'#fff':'#2E2A45';}\n }\n}\ndocument.addEventListener('click',function(e){\n ['ddFind','ddSubj','ddLang'].forEach(function(id){\n  var dd=document.getElementById(id);\n  if(dd&&!dd.parentElement.contains(e.target))dd.style.display='none';\n });\n});\n\ndocument.querySelectorAll('.mb').forEach(function(b){\n b.addEventListener('click',function(){this.classList.toggle('on');});\n});\n\nfunction animateNum(el){var t=parseInt(el.dataset.target);var s=el.dataset.suffix||'';var cur=0;var step=Math.max(1,Math.ceil(t/45));var timer=setInterval(function(){cur+=step;if(cur>=t){cur=t;clearInterval(timer);}el.textContent=cur+s;},28);}\nvar statObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(animateNum);statObs.unobserve(e.target);}});},{threshold:0.3});\ndocument.querySelectorAll('.hero-stats').forEach(function(el){statObs.observe(el);});\n\nfunction openKakaoAddress(){new daum.Postcode({oncomplete:function(data){var addr=data.userSelectedType==='R'?data.roadAddress:data.jibunAddress;document.getElementById('address').value=addr;document.getElementById('addressDetail').focus();}}).open();}\n\n(function(){\n var si=document.getElementById('searchInput');\n if(!si)return;\n var drop=document.createElement('div');\n drop.style.cssText='position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:20px;box-shadow:0 14px 34px rgba(90,78,224,0.18);border:1.5px solid #ECE7F6;display:none;flex-direction:column;z-index:100;overflow:hidden;max-height:320px;overflow-y:auto;';\n si.parentElement.style.position='relative';\n si.parentElement.appendChild(drop);\n si.addEventListener('input',async function(){\n  var q=this.value.trim();\n  if(q.length<1){drop.style.display='none';return;}\n  try{\n   var res=await fetch('/api/suggest?q='+encodeURIComponent(q));\n   var data=await res.json();\n   if(data.length>0){\n    drop.innerHTML='';\n    data.forEach(function(item){\n     var div=document.createElement('div');\n     div.className='suggest-row';\n     div.innerHTML='🔍 '+item.display;\n     div.onclick=function(){window.location.href=item.url;};\n     drop.appendChild(div);\n    });\n    drop.style.display='flex';\n   }else{drop.style.display='none';}\n  }catch(e){}\n });\n document.addEventListener('click',function(e){if(!si.contains(e.target)&&!drop.contains(e.target))drop.style.display='none';});\n})();\n\nasync function submitForm(){\n var agree=document.getElementById('agree');\n var studentName=document.getElementById('studentName').value.trim();\n var contact=document.getElementById('contact').value.trim();\n var addrMain=(document.getElementById('address')||{value:''}).value.trim();\n var addrDetail=(document.getElementById('addressDetail')||{value:''}).value.trim();\n var address=addrDetail?addrMain+' '+addrDetail:addrMain;\n var school=(document.getElementById('school')||{value:''}).value.trim();\n var msg=document.querySelector('#form textarea')?document.querySelector('#form textarea').value.trim():'';\n if(!studentName){alert('학생 이름을 입력해 주세요.');return;}\n if(!contact){alert('연락처를 입력해 주세요.');return;}\n if(!agree.checked){alert('개인정보 수집 및 이용에 동의해 주세요.');return;}\n var modes=[],grades=[],subjects=[];\n document.querySelectorAll('#form .mb.on').forEach(function(b){\n  var txt=b.textContent.trim();\n  var parent=b.parentElement;\n  var label=parent.previousElementSibling?parent.previousElementSibling.textContent:'';\n  if(label.indexOf('수업')>=0)modes.push(txt);\n  else if(label.indexOf('학년')>=0)grades.push(txt);\n  else if(label.indexOf('과목')>=0)subjects.push(txt);\n });\n var btn=document.querySelector('#form button[onclick*=\"submitForm\"]');\n if(btn){btn.disabled=true;btn.textContent='전송 중...';}\n try{\n  var res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({method:modes.join(', ')||'미선택',grade:grades.join(', ')||'미선택',subject:subjects.join(', ')||'미선택',name:studentName,contact:contact,school:school,address:address,message:msg,source:'메인 홈페이지'})});\n  var result=await res.json();\n  if(result.ok){alert('✅ 상담 신청이 완료되었습니다!\\n24시간 내로 연락드리겠습니다.');if(btn){btn.disabled=false;btn.textContent='📝 상담 신청하기';}}else{throw new Error(result.error||'전송 실패');}\n }catch(e){alert('❌ 전송 중 오류가 발생했습니다.\\n카카오톡 또는 전화로 문의해 주세요.');if(btn){btn.disabled=false;btn.textContent='📝 상담 신청하기';}}\n}\n</script>\n</body>\n</html>\n";
+const INDEX_HTML = "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n<meta charset=\"UTF-8\">\n<link rel=\"icon\" type=\"image/png\" href=\"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\">\n<title>홈투과외 - 검증된 선생님과의 1:1 화상 과외 | 전국 어디서든</title>\n<meta name=\"description\" content=\"홈투과외는 검증을 통과한 선생님만 배정하는 1:1 화상 과외입니다. 지역에 상관없이 전국 어디서든, 학생에게 꼭 맞는 선생님과 실시간으로 수업하세요. 첫 상담과 체험 수업은 무료입니다.\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:site_name\" content=\"홈투과외\">\n<meta property=\"og:title\" content=\"홈투과외 - 검증된 선생님과의 1:1 화상 과외\">\n<meta property=\"og:image\" content=\"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/banner1.png\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap\" rel=\"stylesheet\">\n<style>\n*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}\n:root{\n --ink:#1B2440;--brand:#3B5BDB;--brand-deep:#2C46B8;--brand-soft:#EAEEFB;\n --teal:#0FA3A3;--teal-soft:#E1F5F4;\n --paper:#F7F8FC;--panel:#EFF1F8;--card:#FFFFFF;--line:#E3E7F0;\n --text:#2A3350;--mute:#5E6980;--faint:#94A0B6;\n --r:14px;--r-lg:22px;--pill:999px;--maxw:1120px;\n --shadow:0 6px 26px rgba(27,36,64,0.07);--shadow-lg:0 20px 46px rgba(27,36,64,0.14);\n --sans:'Noto Sans KR',sans-serif;\n}\nhtml{scroll-behavior:smooth;}\nbody{font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}\nimg{max-width:100%;display:block;}\na{color:inherit;}\n\n.wrap{max-width:var(--maxw);margin:0 auto;}\n.sec{padding:88px 40px;position:relative;}\n.sec--panel{background:var(--panel);}\n.sec--ink{background:var(--ink);}\n.center{text-align:center;}\n.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:0.78rem;font-weight:800;letter-spacing:1.6px;color:var(--brand);text-transform:uppercase;margin-bottom:16px;}\n.eyebrow::before{content:'';width:22px;height:2px;background:var(--brand);border-radius:2px;}\n.center .eyebrow::before{display:none;}\n.title{font-size:clamp(1.65rem,3.4vw,2.45rem);font-weight:800;color:var(--ink);line-height:1.34;letter-spacing:-.5px;margin-bottom:16px;}\n.title .cc{color:var(--brand);}\n.lead{font-size:1rem;color:var(--mute);line-height:1.9;max-width:600px;}\n.center .lead{margin-left:auto;margin-right:auto;}\n\n/* NAV */\nnav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,248,252,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:0 34px;height:66px;display:flex;align-items:center;justify-content:space-between;}\n.nav-logo{font-size:1.24rem;font-weight:900;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-.5px;}\n.nav-logo .accent{color:var(--brand);}\n.nav-logo img{width:34px;height:34px;object-fit:contain;}\n.nav-links{display:flex;gap:6px;list-style:none;align-items:center;}\n.nav-links>a,.nav-region-btn{text-decoration:none;font-size:0.9rem;font-weight:600;color:var(--ink);transition:all .2s;white-space:nowrap;cursor:pointer;padding:9px 13px;border-radius:10px;}\n.nav-links>a:hover,.nav-region-btn:hover{color:var(--brand);background:var(--brand-soft);}\n.nav-cta{background:var(--brand)!important;color:#fff!important;padding:9px 20px!important;font-weight:700!important;box-shadow:0 6px 15px rgba(59,91,219,.28);}\n.nav-cta:hover{background:var(--brand-deep)!important;transform:translateY(-1px);}\n.nav-region-wrap{position:relative;}\n.nav-region-btn{display:flex;align-items:center;gap:4px;}\n.nav-arrow{font-size:0.6rem;}\n.nav-region-drop{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);padding:16px;z-index:999;}\n.nav-region-drop a{display:block;padding:8px 10px;font-size:0.84rem;color:var(--ink);text-decoration:none;border-radius:10px;text-align:center;transition:all .15s;font-weight:600;}\n.nav-region-drop a:hover{background:var(--brand-soft);color:var(--brand);}\n#navToggle{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--ink);padding:4px;}\n\n/* HERO */\n.hero{padding:126px 40px 80px;position:relative;overflow:hidden;background:\n radial-gradient(760px 440px at 84% -10%,rgba(59,91,219,.10),transparent 62%),\n radial-gradient(560px 380px at -4% 110%,rgba(15,163,163,.08),transparent 60%),var(--paper);}\n.hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:1;}\n.hero .tag{display:inline-flex;align-items:center;gap:8px;font-size:0.84rem;font-weight:700;color:var(--brand-deep);background:var(--card);border:1px solid var(--brand-soft);padding:8px 16px;border-radius:var(--pill);margin-bottom:22px;box-shadow:var(--shadow);}\n.hero .tag .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);}\n.hero h1{font-size:clamp(2rem,4.4vw,3.15rem);font-weight:900;line-height:1.28;letter-spacing:-1.2px;color:var(--ink);margin-bottom:20px;}\n.hero h1 .cc{color:var(--brand);}\n.hero-desc{font-size:1.05rem;color:var(--mute);line-height:1.9;margin-bottom:28px;max-width:490px;}\n.hero-search{background:var(--card);border-radius:var(--pill);box-shadow:var(--shadow);display:flex;padding:6px;max-width:440px;margin-bottom:14px;border:1.5px solid var(--line);position:relative;}\n.hero-search input{flex:1;border:none;outline:none;background:transparent;padding:12px 20px;font-size:14px;font-family:inherit;color:var(--ink);}\n.hero-search button{background:var(--ink);color:#fff;border:none;padding:0 24px;font-size:14px;font-weight:700;border-radius:var(--pill);cursor:pointer;font-family:inherit;transition:background .2s;}\n.hero-search button:hover{background:#111930;}\n.hero-links{display:flex;gap:16px;margin-bottom:30px;padding-left:4px;}\n.hero-links a{font-size:0.86rem;font-weight:600;color:var(--brand);text-decoration:none;}\n.hero-links a:hover{text-decoration:underline;}\n.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}\n.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--pill);font-size:1rem;font-weight:700;text-decoration:none;transition:all .22s;cursor:pointer;font-family:inherit;border:none;}\n.btn-primary{background:var(--brand);color:#fff;padding:15px 30px;box-shadow:0 10px 24px rgba(59,91,219,.3);}\n.btn-primary:hover{background:var(--brand-deep);transform:translateY(-2px);}\n.btn-line{background:transparent;color:var(--ink);padding:15px 26px;border:1.5px solid var(--line);}\n.btn-line:hover{border-color:var(--brand);color:var(--brand);}\n.hero-stats{display:flex;gap:28px;border-top:1px solid var(--line);padding-top:22px;}\n.stat-card{}\n.stat-number{font-size:1.75rem;font-weight:900;color:var(--ink);line-height:1;margin-bottom:6px;letter-spacing:-.5px;}\n.stat-number .u{color:var(--brand);}\n.stat-label{font-size:0.8rem;color:var(--mute);font-weight:600;}\n.stat-icon,.stat-desc{display:none;}\n/* hero video mock (signature) */\n.vmock{background:var(--ink);border-radius:var(--r-lg);padding:16px;box-shadow:var(--shadow-lg);position:relative;}\n.vmock-bar{display:flex;gap:6px;margin-bottom:12px;padding:2px 4px;}\n.vmock-bar i{width:11px;height:11px;border-radius:50%;display:block;}\n.vmock-bar i:nth-child(1){background:#FF6058;}.vmock-bar i:nth-child(2){background:#FFBD2E;}.vmock-bar i:nth-child(3){background:#28C840;}\n.vmock-screen{background:#0F1730;border-radius:12px;overflow:hidden;}\n.vmock-main{aspect-ratio:16/10;background:linear-gradient(135deg,#25335C,#1A2547);position:relative;display:flex;align-items:center;justify-content:center;}\n.vmock-board{position:absolute;inset:14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.16);}\n.vmock-eq{position:relative;z-index:1;color:#fff;font-weight:800;font-size:clamp(1rem,2.4vw,1.5rem);letter-spacing:1px;opacity:.92;}\n.vmock-eq .hl{color:var(--teal);}\n.vmock-tile{position:absolute;right:16px;bottom:16px;width:34%;aspect-ratio:4/3;border-radius:8px;background:linear-gradient(135deg,#3B5BDB,#5B76E8);border:2px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:2;box-shadow:0 8px 18px rgba(0,0,0,.3);}\n.vmock-cap{display:flex;align-items:center;justify-content:space-between;padding:12px 6px 4px;color:rgba(255,255,255,.85);font-size:0.78rem;font-weight:600;}\n.vmock-cap .live{display:inline-flex;align-items:center;gap:6px;color:#fff;}\n.vmock-cap .live .rd{width:7px;height:7px;border-radius:50%;background:#FF6058;}\n.vmock-cap .ctrls{display:flex;gap:7px;}\n.vmock-cap .ctrls span{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);display:inline-flex;align-items:center;justify-content:center;font-size:0.8rem;}\n\n/* VERIFY (선생님 검증·매칭) */\n.verify-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px;text-align:left;}\n.verify-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 28px;position:relative;transition:all .25s;}\n.verify-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--brand-soft);}\n.verify-step{font-size:0.74rem;font-weight:800;color:var(--teal);letter-spacing:1.5px;margin-bottom:14px;}\n.verify-icon{width:56px;height:56px;border-radius:16px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px;}\n.verify-card h3{font-size:1.18rem;font-weight:800;color:var(--ink);margin-bottom:9px;}\n.verify-card p{font-size:0.92rem;color:var(--mute);line-height:1.8;}\n\n/* WHY VIDEO */\n.wv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px;text-align:left;}\n.wv-card{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 26px;transition:all .25s;}\n.wv-card:hover{box-shadow:var(--shadow);border-color:var(--brand-soft);}\n.wv-num{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.05rem;}\n.wv-card h3{font-size:1.05rem;font-weight:800;color:var(--ink);margin-bottom:7px;}\n.wv-card p{font-size:0.9rem;color:var(--mute);line-height:1.75;}\n\n/* RESULTS */\n.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px;}\n.rs-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 20px;text-align:center;}\n.rs-num{font-size:2.4rem;font-weight:900;color:var(--brand);line-height:1;margin-bottom:8px;letter-spacing:-1px;}\n.rs-label{font-size:0.86rem;color:var(--mute);font-weight:600;}\n.case-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}\n.case-card{background:var(--brand-soft);border-radius:var(--r-lg);padding:24px 22px;text-align:left;}\n.case-move{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink);font-size:1.15rem;margin-bottom:8px;}\n.case-move .ar{color:var(--teal);}\n.case-desc{font-size:0.85rem;color:var(--mute);line-height:1.7;}\n.case-who{font-size:0.78rem;color:var(--faint);font-weight:600;margin-top:10px;}\n\n/* HOW (video flow) */\n.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;max-width:960px;margin-left:auto;margin-right:auto;position:relative;}\n.flow::before{content:'';position:absolute;top:26px;left:12.5%;right:12.5%;height:2px;background:var(--line);z-index:0;}\n.flow-step{text-align:center;position:relative;z-index:1;padding:0 12px;}\n.flow-badge{width:54px;height:54px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.25rem;font-weight:800;box-shadow:0 6px 16px rgba(59,91,219,.28);}\n.flow-step:last-child .flow-badge{background:var(--teal);box-shadow:0 6px 16px rgba(15,163,163,.3);}\n.flow-step h4{font-size:0.98rem;font-weight:800;color:var(--ink);margin-bottom:6px;}\n.flow-step p{font-size:0.82rem;color:var(--mute);line-height:1.6;}\n\n/* SUBJECTS + GRADE combined */\n.sg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px;text-align:left;}\n.sg-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;}\n.sg-box h3{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:6px;}\n.sg-box .sgd{font-size:0.86rem;color:var(--mute);margin-bottom:20px;}\n.sg-chips{display:flex;flex-wrap:wrap;gap:8px;}\n.sg-chips a{font-size:0.86rem;font-weight:600;color:var(--ink);background:var(--panel);border:1px solid var(--line);padding:9px 15px;border-radius:var(--pill);text-decoration:none;transition:all .18s;}\n.sg-chips a:hover{background:var(--brand);border-color:var(--brand);color:#fff;}\n.sg-grades{display:flex;flex-direction:column;gap:10px;}\n.sg-grade{display:flex;gap:12px;align-items:center;padding:12px 16px;border-radius:12px;background:var(--panel);}\n.sg-grade .ge{font-size:1.3rem;}\n.sg-grade .gt{font-weight:800;color:var(--ink);font-size:0.92rem;}\n.sg-grade .gd{font-size:0.8rem;color:var(--mute);}\n\n/* REVIEWS */\n@keyframes rvScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}\n.rv-viewport{overflow:hidden;position:relative;padding:8px 0;margin-top:44px;}\n.rv-viewport::before,.rv-viewport::after{content:'';position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none;}\n.rv-viewport::before{left:0;background:linear-gradient(90deg,var(--panel),transparent);}\n.rv-viewport::after{right:0;background:linear-gradient(270deg,var(--panel),transparent);}\n.rv-track{display:flex;gap:18px;animation:rvScroll 46s linear infinite;width:max-content;}\n.rv-viewport:hover .rv-track{animation-play-state:paused;}\n.review-card{min-width:330px;max-width:330px;flex-shrink:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);}\n.review-top{display:flex;align-items:center;justify-content:space-between;}\n.review-badge{font-size:0.72rem;font-weight:800;color:var(--brand);background:var(--brand-soft);padding:5px 12px;border-radius:var(--pill);}\n.review-stars{color:#F5A623;font-size:0.86rem;letter-spacing:1px;}\n.review-text{font-size:0.88rem;color:var(--text);line-height:1.75;flex:1;}\n.review-author{display:flex;align-items:center;gap:10px;padding-top:13px;border-top:1px solid var(--line);}\n.review-avatar{width:38px;height:38px;border-radius:50%;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;font-size:0.98rem;font-weight:800;color:var(--brand);flex-shrink:0;}\n.review-name{font-size:0.83rem;font-weight:800;color:var(--ink);}\n.review-info{font-size:0.72rem;color:var(--faint);margin-top:1px;}\n\n/* FAQ */\n.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:44px;max-width:780px;margin-left:auto;margin-right:auto;text-align:left;}\n.faq-item{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);transition:all .25s;}\n.faq-item.open{border-color:var(--brand);}\n.faq-q{width:100%;background:none;border:none;padding:19px 22px;display:flex;justify-content:space-between;align-items:center;font-size:0.96rem;font-weight:700;color:var(--ink);text-align:left;font-family:inherit;cursor:pointer;gap:12px;}\n.faq-q .q-icon{color:var(--brand);font-weight:900;flex-shrink:0;}\n.faq-chev{color:var(--faint);transition:transform .25s;flex-shrink:0;}\n.faq-item.open .faq-chev{transform:rotate(180deg);color:var(--brand);}\n.faq-a{font-size:0.9rem;color:var(--mute);line-height:1.85;padding:0 22px 19px 48px;display:none;}\n.faq-item.open .faq-a{display:block;}\n\n/* FORM */\n.form-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:38px 30px;text-align:left;box-shadow:var(--shadow-lg);}\n.fg{margin-bottom:22px;}\n.fl{display:block;font-size:0.86rem;font-weight:800;color:var(--ink);margin-bottom:11px;}\n.fl span{color:var(--faint);font-weight:400;}\n.chips{display:flex;flex-wrap:wrap;gap:8px;}\n.mb{background:var(--paper);border:1.5px solid var(--line);color:var(--mute);padding:9px 17px;border-radius:var(--pill);font-size:0.84rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .18s;}\n.mb:hover{border-color:var(--brand);color:var(--brand);}\n.mb.on{background:var(--brand);border-color:var(--brand);color:#fff;}\n.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}\n.fin{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:var(--r);font-size:0.92rem;font-family:inherit;outline:none;transition:border-color .2s;background:var(--paper);color:var(--ink);}\n.fin:focus{border-color:var(--brand);}\n.fin[readonly]{cursor:pointer;background:var(--card);}\n.addr-row{display:flex;gap:8px;margin-bottom:8px;}\n.addr-btn{background:var(--ink);color:#fff;border:none;padding:13px 22px;border-radius:var(--r);font-size:0.86rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s;}\n.addr-btn:hover{background:#111930;}\n.agree-row{display:flex;align-items:flex-start;gap:9px;margin:6px 0 24px;}\n.agree-row input{width:18px;height:18px;accent-color:var(--brand);cursor:pointer;margin-top:2px;flex-shrink:0;}\n.agree-row label{font-size:0.82rem;color:var(--mute);cursor:pointer;line-height:1.6;}\n.submit-btn{width:100%;padding:17px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:1.02rem;font-weight:800;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 10px 24px rgba(59,91,219,.3);}\n.submit-btn:hover{transform:translateY(-2px);}\n.kakao-btn{display:block;width:100%;padding:17px;background:#FEE500;color:#3A1D1D;border:none;border-radius:var(--r);font-size:1.02rem;font-weight:800;text-decoration:none;text-align:center;font-family:inherit;transition:all .2s;margin-top:12px;}\n.kakao-btn:hover{transform:translateY(-2px);}\n\n/* CTA */\n#cta{text-align:center;}\n#cta .eyebrow{color:#8FA6F5;justify-content:center;}\n#cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:14px;line-height:1.4;}\n#cta p{font-size:1rem;color:rgba(255,255,255,.66);margin-bottom:32px;}\n.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}\n.btn-onlight{background:#fff;color:var(--brand-deep);padding:16px 36px;border-radius:var(--pill);font-size:1rem;font-weight:800;text-decoration:none;transition:all .2s;}\n.btn-onlight:hover{transform:translateY(-2px);}\n.btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:16px 34px;border-radius:var(--pill);font-size:1rem;font-weight:700;text-decoration:none;transition:all .2s;}\n.btn-ghost:hover{background:rgba(255,255,255,.08);}\n\n/* FOOTER */\nfooter{background:var(--ink);color:rgba(255,255,255,.55);font-size:0.84rem;}\n.footer-in{max-width:var(--maxw);margin:0 auto;}\n.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;padding:28px 20px;border-bottom:1px solid rgba(255,255,255,.1);}\n.footer-links a{color:rgba(255,255,255,.62);text-decoration:none;font-weight:600;}\n.footer-links a:hover{color:#8FA6F5;}\n.footer-main{text-align:center;padding:28px 20px;line-height:2;}\n.footer-brand{font-size:1.2rem;font-weight:900;color:rgba(255,255,255,.9);margin-bottom:8px;}\n.footer-main a{color:#8FA6F5;text-decoration:none;font-weight:600;}\n\n/* FLOATING */\n.float-widget{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:9px;z-index:999;}\n.float-btn{display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:var(--pill);font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.16);transition:transform .25s;white-space:nowrap;}\n.float-btn:hover{transform:translateY(-2px);}\n\n.suggest-row{padding:14px 22px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--line);transition:background .15s;display:flex;align-items:center;gap:8px;text-align:left;color:var(--ink);}\n.suggest-row:hover{background:var(--panel);}\n\n@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;}}\n\n@media(max-width:920px){\n #navToggle{display:flex;align-items:center;justify-content:center;}\n .nav-links{display:none;position:fixed;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);padding:8px 0;max-height:calc(100vh - 66px);overflow-y:auto;z-index:999;}\n .nav-links.open{display:flex;}\n .nav-links>a,.nav-region-btn{padding:14px 24px;border-radius:0;border-bottom:1px solid var(--line);}\n .nav-region-drop{position:static;transform:none;box-shadow:none;border:none;border-radius:0;padding:8px 24px;}\n .hero-in{grid-template-columns:1fr;gap:40px;}\n .verify-grid{grid-template-columns:1fr;}\n .wv-grid{grid-template-columns:1fr;}\n .result-stats{grid-template-columns:1fr;}\n .case-row{grid-template-columns:1fr;}\n .sg-wrap{grid-template-columns:1fr;}\n}\n@media(max-width:640px){\n .sec{padding:58px 18px;}\n .hero{padding:104px 18px 54px;}\n nav{padding:0 16px;height:62px;}\n .hero-cta{flex-direction:column;align-items:stretch;}\n .btn{justify-content:center;}\n .hero-stats{gap:18px;flex-wrap:wrap;}\n .flow{grid-template-columns:repeat(2,1fr);gap:30px 12px;}\n .flow::before{display:none;}\n .review-card{min-width:280px;max-width:280px;}\n .frow{grid-template-columns:1fr;}\n .float-btn .fl-label{display:none;}\n .float-btn{padding:14px;border-radius:50%;width:50px;height:50px;justify-content:center;font-size:18px;}\n}\n</style>\n</head>\n<body>\n\n<!-- NAV -->\n<nav>\n <a href=\"/\" class=\"nav-logo\"><img src=\"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png\" alt=\"홈투과외\"> <span class=\"accent\">홈투</span>과외</a>\n <button id=\"navToggle\" onclick=\"var m=document.getElementById('navMenu');m.classList.toggle('open');this.innerHTML=m.classList.contains('open')?'✕':'☰';\">☰</button>\n <div class=\"nav-links\" id=\"navMenu\">\n  <div class=\"nav-region-wrap\">\n   <a href=\"#\" class=\"nav-region-btn\" onclick=\"event.preventDefault();var p=document.getElementById('ddFind');p.style.display=p.style.display==='block'?'none':'block';\">과외찾기 <span class=\"nav-arrow\">▾</span></a>\n   <div class=\"nav-region-drop\" id=\"ddFind\" style=\"width:430px;\">\n    <div style=\"display:flex;gap:8px;margin-bottom:14px;\">\n     <button class=\"dd-tab\" onclick=\"switchDD(0)\" style=\"flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--line);background:var(--brand);color:#fff;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;\">지역별</button>\n     <button class=\"dd-tab\" onclick=\"switchDD(1)\" style=\"flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;\">학년별</button>\n     <button class=\"dd-tab\" onclick=\"switchDD(2)\" style=\"flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;\">학교별</button>\n    </div>\n    <div class=\"dd-content\" id=\"ddC0\" style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:4px;\">\n     <a href=\"/seoul\">서울</a><a href=\"/gyeonggi\">경기</a><a href=\"/incheon\">인천</a><a href=\"/busan\">부산</a>\n     <a href=\"/daegu\">대구</a><a href=\"/daejeon\">대전</a><a href=\"/gwangju\">광주</a><a href=\"/ulsan\">울산</a>\n     <a href=\"/sejong\">세종</a><a href=\"/gangwon\">강원</a><a href=\"/chungbuk\">충북</a><a href=\"/chungnam\">충남</a>\n     <a href=\"/jeonbuk\">전북</a><a href=\"/jeonnam\">전남</a><a href=\"/gyeongbuk\">경북</a><a href=\"/gyeongnam\">경남</a>\n     <a href=\"/jeju\">제주</a>\n    </div>\n    <div class=\"dd-content\" id=\"ddC1\" style=\"display:none;\">\n     <div style=\"font-size:0.72rem;font-weight:700;color:var(--teal);margin-bottom:6px;\">초등학생</div>\n     <div style=\"display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:10px;\"><a href=\"/grade/elem1\">초1</a><a href=\"/grade/elem2\">초2</a><a href=\"/grade/elem3\">초3</a><a href=\"/grade/elem4\">초4</a><a href=\"/grade/elem5\">초5</a><a href=\"/grade/elem6\">초6</a></div>\n     <div style=\"font-size:0.72rem;font-weight:700;color:var(--teal);margin-bottom:6px;\">중학생</div>\n     <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:10px;\"><a href=\"/grade/mid1\">중1</a><a href=\"/grade/mid2\">중2</a><a href=\"/grade/mid3\">중3</a></div>\n     <div style=\"font-size:0.72rem;font-weight:700;color:var(--teal);margin-bottom:6px;\">고등학생</div>\n     <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px;\"><a href=\"/grade/high1\">고1</a><a href=\"/grade/high2\">고2</a><a href=\"/grade/high3\">고3</a></div>\n     <div style=\"display:inline-block;\"><a href=\"/grade/nsu\" style=\"border:1px solid var(--teal);color:var(--teal);\">재수생</a></div>\n    </div>\n    <div class=\"dd-content\" id=\"ddC2\" style=\"display:none;grid-template-columns:repeat(4,1fr);gap:4px;\">\n     <a href=\"/schools/seoul\">서울</a><a href=\"/schools/gyeonggi\">경기</a><a href=\"/schools/incheon\">인천</a><a href=\"/schools/busan\">부산</a>\n     <a href=\"/schools/daegu\">대구</a><a href=\"/schools/daejeon\">대전</a><a href=\"/schools/gwangju\">광주</a><a href=\"/schools/ulsan\">울산</a>\n     <a href=\"/schools/sejong\">세종</a><a href=\"/schools/gangwon\">강원</a><a href=\"/schools/chungbuk\">충북</a><a href=\"/schools/chungnam\">충남</a>\n     <a href=\"/schools/jeonbuk\">전북</a><a href=\"/schools/jeonnam\">전남</a><a href=\"/schools/gyeongbuk\">경북</a><a href=\"/schools/gyeongnam\">경남</a>\n     <a href=\"/schools/jeju\">제주</a>\n    </div>\n   </div>\n  </div>\n  <div class=\"nav-region-wrap\">\n   <a href=\"#\" class=\"nav-region-btn\" onclick=\"event.preventDefault();var p=document.getElementById('ddSubj');p.style.display=p.style.display==='block'?'none':'block';\">과목수업 <span class=\"nav-arrow\">▾</span></a>\n   <div class=\"nav-region-drop\" id=\"ddSubj\" style=\"width:320px;\">\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:4px;\">\n     <a href=\"/subject/korean\">국어</a><a href=\"/subject/english\">영어</a>\n     <a href=\"/subject/math\">수학</a><a href=\"/subject/science\">과학</a>\n     <a href=\"/subject/social\">사회</a><a href=\"/subject/coding\">코딩</a>\n     <a href=\"/subject/essay\">논술</a><a href=\"/subject/ged\">검정고시</a>\n     <a href=\"/subject/social-exam\">사회탐구</a><a href=\"/subject/science-exam\">과학탐구</a>\n    </div>\n   </div>\n  </div>\n  <a href=\"/academy\">학원수업</a>\n  <div class=\"nav-region-wrap\">\n   <a href=\"#\" class=\"nav-region-btn\" onclick=\"event.preventDefault();var p=document.getElementById('ddLang');p.style.display=p.style.display==='block'?'none':'block';\">제2외국어 <span class=\"nav-arrow\">▾</span></a>\n   <div class=\"nav-region-drop\" id=\"ddLang\" style=\"width:240px;\">\n    <a href=\"/language/english\">영어 회화</a>\n    <a href=\"/language/japanese\">일본어 회화</a>\n    <a href=\"/language/chinese\">중국어 회화</a>\n   </div>\n  </div>\n  <a href=\"#form\" class=\"nav-cta\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\">상담 신청</a>\n </div>\n</nav>\n\n<!-- HERO -->\n<section class=\"hero\">\n <div class=\"hero-in\">\n  <div>\n   <span class=\"tag\"><span class=\"dot\"></span> 100% 1:1 화상 과외 · 전국 어디서든</span>\n   <h1>선생님이 다르면,<br><span class=\"cc\">결과</span>가 다릅니다</h1>\n   <p class=\"hero-desc\">홈투과외는 검증을 통과한 선생님만 배정합니다. 사는 곳에 상관없이, 우리 아이에게 꼭 맞는 선생님과 화상으로 1:1 수업을 시작하세요.</p>\n   <div class=\"hero-search\">\n    <input type=\"text\" id=\"searchInput\" placeholder=\"동네·학교로 찾기 (예: 대치동, 대치중)\">\n    <button onclick=\"var v=document.getElementById('searchInput').value.trim();if(v)window.location.href='/search?q='+encodeURIComponent(v);\">검색</button>\n   </div>\n   <div class=\"hero-links\">\n    <a href=\"/directory\">전국 지역 보기</a>\n    <a href=\"/schools\">전국 학교 보기</a>\n   </div>\n   <div class=\"hero-cta\">\n    <a href=\"#form\" class=\"btn btn-primary\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\">무료 상담 신청</a>\n    <a href=\"#how\" class=\"btn btn-line\" onclick=\"document.getElementById('how').scrollIntoView({behavior:'smooth'});return false;\">수업이 어떻게 진행되나요?</a>\n   </div>\n   <div class=\"hero-stats\">\n    <div class=\"stat-card\">\n     <div class=\"stat-number\"><span class=\"count-up\" data-target=\"98\" data-suffix=\"%\">0%</span></div>\n     <div class=\"stat-label\">수강생 만족도</div>\n    </div>\n    <div class=\"stat-card\">\n     <div class=\"stat-number\"><span class=\"count-up\" data-target=\"200\" data-suffix=\"명+\">0명+</span></div>\n     <div class=\"stat-label\">함께한 학생</div>\n    </div>\n    <div class=\"stat-card\">\n     <div class=\"stat-number\"><span class=\"count-up\" data-target=\"3\" data-suffix=\"개월\">0개월</span></div>\n     <div class=\"stat-label\">평균 성적 향상</div>\n    </div>\n   </div>\n  </div>\n  <div class=\"vmock\">\n   <div class=\"vmock-bar\"><i></i><i></i><i></i></div>\n   <div class=\"vmock-screen\">\n    <div class=\"vmock-main\">\n     <div class=\"vmock-board\"></div>\n     <div class=\"vmock-eq\">y = ax<span class=\"hl\">²</span> + bx + c</div>\n     <div class=\"vmock-tile\">👩‍🏫</div>\n    </div>\n    <div class=\"vmock-cap\">\n     <span class=\"live\"><span class=\"rd\"></span> LIVE · 1:1 화상 수업</span>\n     <span class=\"ctrls\"><span>🎤</span><span>📹</span><span>✏️</span></span>\n    </div>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- VERIFY -->\n<section class=\"sec center\" id=\"verify\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">검증된 선생님</span>\n  <h2 class=\"title\">아무 선생님이나 <span class=\"cc\">배정하지 않습니다</span></h2>\n  <p class=\"lead\">홈투과외의 시작은 언제나 '선생님'입니다. 실력과 성향을 확인한 선생님만, 학생에게 꼭 맞게 연결합니다.</p>\n  <div class=\"verify-grid\">\n   <div class=\"verify-card\">\n    <div class=\"verify-step\">STEP 01</div>\n    <div class=\"verify-icon\">🔎</div>\n    <h3>검증</h3>\n    <p>학력·전공·과외 경력은 물론 실제 수업 역량과 성향까지 확인한 선생님만 등록합니다. 기준을 통과하지 못하면 배정하지 않습니다.</p>\n   </div>\n   <div class=\"verify-card\">\n    <div class=\"verify-step\">STEP 02</div>\n    <div class=\"verify-icon\">🤝</div>\n    <h3>맞춤 매칭</h3>\n    <p>학생의 현재 수준, 목표, 성향을 먼저 파악합니다. 그 위에 가장 잘 맞는 선생님을 1:1로 연결해 첫 수업부터 어긋남이 없도록 합니다.</p>\n   </div>\n   <div class=\"verify-card\">\n    <div class=\"verify-step\">STEP 03</div>\n    <div class=\"verify-icon\">📈</div>\n    <h3>지속 관리</h3>\n    <p>배정 후에도 수업 만족도와 학습 상황을 계속 점검합니다. 혹시 맞지 않는다면 부담 없이 다른 선생님으로 다시 매칭해 드립니다.</p>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- WHY VIDEO -->\n<section class=\"sec sec--panel center\" id=\"why\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">화상 과외의 힘</span>\n  <h2 class=\"title\">지역이 아니라, <span class=\"cc\">실력으로</span> 선생님을 고르세요</h2>\n  <p class=\"lead\">동네에서 구할 수 있는 선생님이 아니라, 전국에서 가장 잘 맞는 선생님과 만납니다. 화상 과외이기에 가능한 일입니다.</p>\n  <div class=\"wv-grid\">\n   <div class=\"wv-card\"><div class=\"wv-num\">01</div><div><h3>전국의 선생님, 지역 제약 없이</h3><p>우리 동네에 좋은 선생님이 없어도 괜찮습니다. 전국 어디의 선생님과도 연결될 수 있어요.</p></div></div>\n   <div class=\"wv-card\"><div class=\"wv-num\">02</div><div><h3>이동 시간 0, 그 시간도 공부로</h3><p>오가는 시간과 교통 부담이 사라집니다. 아낀 시간은 그대로 학습에 쓰입니다.</p></div></div>\n   <div class=\"wv-card\"><div class=\"wv-num\">03</div><div><h3>실시간 화면 공유 판서</h3><p>문제와 풀이를 화면에 함께 띄우고 실시간으로 짚어가며, 대면 못지않게 밀도 높은 수업을 합니다.</p></div></div>\n   <div class=\"wv-card\"><div class=\"wv-num\">04</div><div><h3>수업 녹화로 복습까지</h3><p>수업을 다시 보며 복습할 수 있어, 한 번 듣고 흘려보내지 않습니다.</p></div></div>\n  </div>\n </div>\n</section>\n\n<!-- RESULTS -->\n<section class=\"sec center\" id=\"results\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">결과로 증명</span>\n  <h2 class=\"title\">숫자로 남는 <span class=\"cc\">변화</span></h2>\n  <p class=\"lead\">검증된 선생님과 꾸준한 관리가 만든, 실제 학생들의 결과입니다.</p>\n  <div class=\"result-stats\">\n   <div class=\"rs-card\"><div class=\"rs-num\">98%</div><div class=\"rs-label\">수강생·학부모 만족도</div></div>\n   <div class=\"rs-card\"><div class=\"rs-num\">3개월</div><div class=\"rs-label\">평균 성적 향상 체감 시점</div></div>\n   <div class=\"rs-card\"><div class=\"rs-num\">200명+</div><div class=\"rs-label\">함께한 누적 학생 수</div></div>\n  </div>\n  <div class=\"case-row\">\n   <div class=\"case-card\"><div class=\"case-move\">4등급 <span class=\"ar\">→</span> 2등급</div><div class=\"case-desc\">개념부터 다시 잡고 취약 단원을 집중 공략해 한 학기 만에 두 등급을 올렸습니다.</div><div class=\"case-who\">고2 · 수학</div></div>\n   <div class=\"case-card\"><div class=\"case-move\">60점대 <span class=\"ar\">→</span> 89점</div><div class=\"case-desc\">유형 분석과 빠른 피드백으로 모의고사 영어 점수가 3개월 만에 크게 올랐습니다.</div><div class=\"case-who\">고3 · 영어</div></div>\n   <div class=\"case-card\"><div class=\"case-move\">기초 <span class=\"ar\">→</span> 대학 합격</div><div class=\"case-desc\">중학교 때부터 함께하며 자기주도 학습 습관을 만들고, 원하는 대학에 합격했습니다.</div><div class=\"case-who\">국어·수학</div></div>\n  </div>\n </div>\n</section>\n\n<!-- HOW (video flow) -->\n<section class=\"sec sec--panel center\" id=\"how\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">수업 진행 방식</span>\n  <h2 class=\"title\">화상 수업, 이렇게 <span class=\"cc\">간단합니다</span></h2>\n  <p class=\"lead\">복잡한 준비 없이, 노트북이나 태블릿만 있으면 됩니다.</p>\n  <div class=\"flow\">\n   <div class=\"flow-step\"><div class=\"flow-badge\">1</div><h4>무료 상담</h4><p>카카오톡·네이버 폼으로<br>편하게 신청</p></div>\n   <div class=\"flow-step\"><div class=\"flow-badge\">2</div><h4>선생님 매칭</h4><p>수준·목표에 맞는<br>검증된 선생님 배정</p></div>\n   <div class=\"flow-step\"><div class=\"flow-badge\">3</div><h4>화상 1:1 수업</h4><p>접속만 하면 바로<br>실시간 맞춤 수업</p></div>\n   <div class=\"flow-step\"><div class=\"flow-badge\">4</div><h4>리포트 &amp; 복습</h4><p>학습 리포트와<br>녹화로 복습</p></div>\n  </div>\n </div>\n</section>\n\n<!-- SUBJECTS + GRADE -->\n<section class=\"sec center\" id=\"subjects\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">과목 · 학년</span>\n  <h2 class=\"title\">초·중·고 전 과목, <span class=\"cc\">모두 화상으로</span></h2>\n  <p class=\"lead\">어느 과목, 어느 학년이든 그에 맞는 검증된 선생님이 있습니다.</p>\n  <div class=\"sg-wrap\">\n   <div class=\"sg-box\">\n    <h3>과목별 수업</h3>\n    <div class=\"sgd\">주요 과목부터 코딩·제2외국어까지</div>\n    <div class=\"sg-chips\">\n     <a href=\"/subject/korean\">국어</a><a href=\"/subject/math\">수학</a><a href=\"/subject/english\">영어</a>\n     <a href=\"/subject/science\">과학</a><a href=\"/subject/social\">사회</a><a href=\"/subject/essay\">논술</a>\n     <a href=\"/subject/coding\">코딩</a><a href=\"/subject/ged\">검정고시</a>\n    </div>\n   </div>\n   <div class=\"sg-box\">\n    <h3>학년별 전략</h3>\n    <div class=\"sgd\">시기마다 필요한 것이 다릅니다</div>\n    <div class=\"sg-grades\">\n     <div class=\"sg-grade\"><span class=\"ge\">🌱</span><div><div class=\"gt\">초등학교</div><div class=\"gd\">공부 습관과 기본기 완성</div></div></div>\n     <div class=\"sg-grade\"><span class=\"ge\">📘</span><div><div class=\"gt\">중학교</div><div class=\"gd\">내신 기초와 개념 체계 완성</div></div></div>\n     <div class=\"sg-grade\"><span class=\"ge\">🎓</span><div><div class=\"gt\">고등학교</div><div class=\"gd\">내신·수능 맞춤 입시 전략</div></div></div>\n    </div>\n   </div>\n  </div>\n </div>\n</section>\n\n<!-- REVIEWS -->\n<section class=\"sec sec--panel center\" id=\"reviews\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">수강 후기</span>\n  <h2 class=\"title\">먼저 경험한 <span class=\"cc\">가족들의 이야기</span></h2>\n </div>\n <div class=\"rv-viewport\">\n  <div class=\"rv-track\" id=\"rvTrack\">\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">화상이라 집중이 될까 걱정했는데, 화면으로 같이 풀이를 짚어주시니 오히려 더 몰입했어요. 4등급에서 2등급까지 올랐습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">김</div><div><div class=\"review-name\">김○○ 학생 어머니</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">영어 · 고3</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">지방이라 좋은 선생님 구하기 어려웠는데, 화상으로 실력 있는 선생님과 만났어요. 모의고사가 3개월 만에 89점이 됐습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">이</div><div><div class=\"review-name\">이○○ 학생</div><div class=\"review-info\">고등학교 3학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어·수학</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">이동 시간이 없으니 아이가 덜 지치고 수업에 집중했어요. 3년간 함께하며 원하는 대학에 합격했습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">박</div><div><div class=\"review-name\">박○○ 학생</div><div class=\"review-info\">대학 입시 합격</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·과학 · 중1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">선생님이 아이 성향을 먼저 파악하고 눈높이에 맞춰 주셔서, 화면 너머로도 아이가 마음을 열더라고요.</p><div class=\"review-author\"><div class=\"review-avatar\">최</div><div><div class=\"review-name\">최○○ 학생 어머니</div><div class=\"review-info\">중학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어 · 고1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">녹화된 수업을 다시 보며 복습할 수 있어서 좋았어요. 놓친 부분을 스스로 채울 수 있었습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">정</div><div><div class=\"review-name\">정○○ 학생</div><div class=\"review-info\">고등학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·영어 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">카카오톡으로 질문하면 늦은 밤에도 답을 주셔서, 시험 전날에도 든든했어요. 믿고 맡길 수 있었습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">윤</div><div><div class=\"review-name\">윤○○ 학생</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">화상이라 집중이 될까 걱정했는데, 화면으로 같이 풀이를 짚어주시니 오히려 더 몰입했어요. 4등급에서 2등급까지 올랐습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">김</div><div><div class=\"review-name\">김○○ 학생 어머니</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">영어 · 고3</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">지방이라 좋은 선생님 구하기 어려웠는데, 화상으로 실력 있는 선생님과 만났어요. 모의고사가 3개월 만에 89점이 됐습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">이</div><div><div class=\"review-name\">이○○ 학생</div><div class=\"review-info\">고등학교 3학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어·수학</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">이동 시간이 없으니 아이가 덜 지치고 수업에 집중했어요. 3년간 함께하며 원하는 대학에 합격했습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">박</div><div><div class=\"review-name\">박○○ 학생</div><div class=\"review-info\">대학 입시 합격</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·과학 · 중1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">선생님이 아이 성향을 먼저 파악하고 눈높이에 맞춰 주셔서, 화면 너머로도 아이가 마음을 열더라고요.</p><div class=\"review-author\"><div class=\"review-avatar\">최</div><div><div class=\"review-name\">최○○ 학생 어머니</div><div class=\"review-info\">중학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">국어 · 고1</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">녹화된 수업을 다시 보며 복습할 수 있어서 좋았어요. 놓친 부분을 스스로 채울 수 있었습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">정</div><div><div class=\"review-name\">정○○ 학생</div><div class=\"review-info\">고등학교 1학년</div></div></div></div>\n   <div class=\"review-card\"><div class=\"review-top\"><span class=\"review-badge\">수학·영어 · 고2</span><span class=\"review-stars\">★★★★★</span></div><p class=\"review-text\">카카오톡으로 질문하면 늦은 밤에도 답을 주셔서, 시험 전날에도 든든했어요. 믿고 맡길 수 있었습니다.</p><div class=\"review-author\"><div class=\"review-avatar\">윤</div><div><div class=\"review-name\">윤○○ 학생</div><div class=\"review-info\">고등학교 2학년</div></div></div></div>\n  </div>\n </div>\n</section>\n\n<!-- FAQ -->\n<section class=\"sec center\" id=\"faq\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">자주 묻는 질문</span>\n  <h2 class=\"title\">화상 과외, 이런 점이 궁금하시죠</h2>\n  <div class=\"faq-list\">\n   <div class=\"faq-item open\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span> 화상 수업, 집중이 잘 될까요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">1:1이라 선생님이 학생만 바라보며 수업하기 때문에 오히려 집중도가 높습니다. 화면 공유로 풀이를 함께 짚고, 실시간으로 반응을 확인하며 진행해 대면 못지않게 밀도 높게 수업합니다.</div></div>\n   <div class=\"faq-item\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span> 어떤 장비가 필요한가요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">노트북, 태블릿, PC 중 하나와 인터넷 연결이면 충분합니다. 준비가 어려우시면 상담 때 환경에 맞는 방법을 함께 안내해 드립니다.</div></div>\n   <div class=\"faq-item\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span> 사는 지역이 멀어도 수업이 가능한가요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">네, 홈투과외는 100% 화상 과외라 전국 어디서든 동일하게 수업할 수 있습니다. 지역에 상관없이 가장 잘 맞는 선생님과 연결해 드립니다.</div></div>\n   <div class=\"faq-item\" onclick=\"this.classList.toggle('open')\"><button type=\"button\" class=\"faq-q\"><span><span class=\"q-icon\">Q</span> 수업료는 어떻게 되나요?</span><span class=\"faq-chev\">▾</span></button><div class=\"faq-a\">학년, 과목, 수업 횟수에 따라 달라집니다. 부담 없이 먼저 상담 신청해 주시면 자세히 안내해 드리며, 첫 상담과 체험 수업은 무료로 진행됩니다.</div></div>\n  </div>\n </div>\n</section>\n\n<!-- FORM -->\n<section class=\"sec sec--panel center\" id=\"form\">\n <div class=\"wrap\" style=\"max-width:720px;\">\n  <span class=\"eyebrow\">무료 상담 신청</span>\n  <h2 class=\"title\">검증된 선생님, <span class=\"cc\">지금 만나보세요</span></h2>\n  <p class=\"lead\">아래 내용을 선택하고 신청하시면 24시간 내로 연락드립니다. 첫 상담 및 체험 수업은 완전 무료입니다.</p>\n  <div class=\"form-card\" style=\"margin-top:34px;\">\n   <div class=\"fg\">\n    <label class=\"fl\">🖥️ 수업 방식 <span>(홈투과외는 100% 화상 과외입니다)</span></label>\n    <div class=\"chips\">\n     <button type=\"button\" class=\"mb on\">💻 1:1 화상 과외</button>\n     <button type=\"button\" class=\"mb\">🤔 상담 후 결정</button>\n    </div>\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">🎓 자녀 학년 <span>(복수 선택 가능)</span></label>\n    <div class=\"chips\">\n     <button type=\"button\" class=\"mb\">유아 5세</button>\n     <button type=\"button\" class=\"mb\">유아 6세</button>\n     <button type=\"button\" class=\"mb\">유아 7세</button>\n     <button type=\"button\" class=\"mb\">초1</button>\n     <button type=\"button\" class=\"mb\">초2</button>\n     <button type=\"button\" class=\"mb\">초3</button>\n     <button type=\"button\" class=\"mb\">초4</button>\n     <button type=\"button\" class=\"mb\">초5</button>\n     <button type=\"button\" class=\"mb\">초6</button>\n     <button type=\"button\" class=\"mb\">중1</button>\n     <button type=\"button\" class=\"mb\">중2</button>\n     <button type=\"button\" class=\"mb\">중3</button>\n     <button type=\"button\" class=\"mb\">고1</button>\n     <button type=\"button\" class=\"mb\">고2</button>\n     <button type=\"button\" class=\"mb\">고3</button>\n     <button type=\"button\" class=\"mb\">성인</button>\n    </div>\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">📚 희망 과목 <span>(복수 선택 가능)</span></label>\n    <div class=\"chips\">\n     <button type=\"button\" class=\"mb\">📖 국어</button>\n     <button type=\"button\" class=\"mb\">🔢 수학</button>\n     <button type=\"button\" class=\"mb\">🌍 영어</button>\n     <button type=\"button\" class=\"mb\">🧪 과학</button>\n     <button type=\"button\" class=\"mb\">🗺️ 사회</button>\n     <button type=\"button\" class=\"mb\">✏️ 논술</button>\n     <button type=\"button\" class=\"mb\">🎯 기타</button>\n    </div>\n   </div>\n   <div class=\"frow\">\n    <div><label class=\"fl\">🧑‍🎓 학생 이름</label><input type=\"text\" id=\"studentName\" class=\"fin\" placeholder=\"학생 이름\"></div>\n    <div><label class=\"fl\">📱 연락처</label><input type=\"text\" id=\"contact\" class=\"fin\" placeholder=\"전화번호\"></div>\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">🏫 학생 학교 <span>(선택)</span></label>\n    <input type=\"text\" id=\"school\" class=\"fin\" placeholder=\"예) 대치중학교, 강남고등학교\">\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">📍 거주 지역 <span>(선택)</span></label>\n    <div class=\"addr-row\">\n     <input type=\"text\" id=\"address\" class=\"fin\" placeholder=\"예: 서울 강남구 대치동\" autocomplete=\"off\" readonly onclick=\"openKakaoAddress()\">\n     <button type=\"button\" class=\"addr-btn\" onclick=\"openKakaoAddress()\">검색</button>\n    </div>\n    <input type=\"text\" id=\"addressDetail\" class=\"fin\" placeholder=\"상세 지역 (선택)\">\n   </div>\n   <div class=\"fg\">\n    <label class=\"fl\">💬 문의 사항 <span>(선택)</span></label>\n    <textarea rows=\"3\" class=\"fin\" style=\"resize:vertical;border-radius:var(--r);\" placeholder=\"추가로 전달하실 내용이 있으면 자유롭게 적어주세요\"></textarea>\n   </div>\n   <div class=\"agree-row\"><input type=\"checkbox\" id=\"agree\"><label for=\"agree\">본인은 만 14세 이상이며, 개인정보 수집 및 이용에 동의합니다. (필수)</label></div>\n   <button type=\"button\" class=\"submit-btn\" onclick=\"submitForm()\">상담 신청하기</button>\n   <a href=\"https://pf.kakao.com/_KRAjG\" target=\"_blank\" class=\"kakao-btn\">💬 카카오톡으로 바로 문의하기</a>\n  </div>\n </div>\n</section>\n\n<!-- CTA -->\n<section class=\"sec sec--ink\" id=\"cta\">\n <div class=\"wrap\">\n  <span class=\"eyebrow\">홈투과외와 함께</span>\n  <h2>검증된 선생님과의 첫 수업,<br>지금 무료로 경험해 보세요</h2>\n  <p>첫 상담과 체험 수업은 완전 무료입니다. 부담 없이 시작하세요.</p>\n  <div class=\"cta-buttons\">\n   <a href=\"#form\" class=\"btn-onlight\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\">무료 상담 신청</a>\n   <a href=\"tel:01023370458\" class=\"btn-ghost\">📞 010-2337-0458</a>\n  </div>\n </div>\n</section>\n\n<!-- FOOTER -->\n<footer>\n <div class=\"footer-in\">\n  <div class=\"footer-links\">\n   <a href=\"/seoul\">서울 화상과외</a>\n   <a href=\"/gyeonggi\">경기 화상과외</a>\n   <a href=\"/busan\">부산 화상과외</a>\n   <a href=\"/subject/math\">수학 과외</a>\n   <a href=\"/subject/english\">영어 과외</a>\n   <a href=\"/directory\">전체 지역</a>\n   <a href=\"/academy\">학원 소개</a>\n   <a href=\"#form\">문의하기</a>\n  </div>\n  <div class=\"footer-main\">\n   <div class=\"footer-brand\">홈투과외</div>\n   <div style=\"margin-bottom:4px;\"><a href=\"tel:01023370458\">📞 010-2337-0458</a> &nbsp;·&nbsp; <a href=\"https://pf.kakao.com/_KRAjG/chat\">💬 카카오톡 문의</a></div>\n   <p>100% 1:1 화상 과외 · 평일&amp;주말 상관없이 24시간 상담 가능합니다.</p>\n   <p>© 2026 홈투과외 All Rights Reserved.</p>\n  </div>\n </div>\n</footer>\n\n<!-- FLOATING -->\n<div class=\"float-widget\">\n <a href=\"tel:01023370458\" class=\"float-btn\" style=\"background:var(--ink);color:#fff;\">📞 <span class=\"fl-label\">전화 상담</span></a>\n <a href=\"#form\" onclick=\"document.getElementById('form').scrollIntoView({behavior:'smooth'});return false;\" class=\"float-btn\" style=\"background:var(--brand);color:#fff;\">✏️ <span class=\"fl-label\">무료 상담</span></a>\n <a href=\"https://naver.me/Gnva0jjW\" target=\"_blank\" class=\"float-btn\" style=\"background:#03C75A;color:#fff;\">📋 <span class=\"fl-label\">네이버 폼</span></a>\n <a href=\"https://pf.kakao.com/_KRAjG/chat\" target=\"_blank\" class=\"float-btn\" style=\"background:#FEE500;color:#3A1D1D;\">💬 <span class=\"fl-label\">카카오톡</span></a>\n</div>\n\n<script src=\"//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js\"></script>\n<script>\nfunction switchDD(idx){\n for(var i=0;i<3;i++){\n  document.getElementById('ddC'+i).style.display=i===idx?(i===1?'block':'grid'):'none';\n  var tabs=document.querySelectorAll('.dd-tab');\n  if(tabs[i]){tabs[i].style.background=i===idx?'#3B5BDB':'#FFFFFF';tabs[i].style.color=i===idx?'#fff':'#1B2440';}\n }\n}\ndocument.addEventListener('click',function(e){\n ['ddFind','ddSubj','ddLang'].forEach(function(id){\n  var dd=document.getElementById(id);\n  if(dd&&!dd.parentElement.contains(e.target))dd.style.display='none';\n });\n});\n\ndocument.querySelectorAll('.mb').forEach(function(b){\n b.addEventListener('click',function(){this.classList.toggle('on');});\n});\n\nfunction animateNum(el){var t=parseInt(el.dataset.target);var s=el.dataset.suffix||'';var cur=0;var step=Math.max(1,Math.ceil(t/45));var timer=setInterval(function(){cur+=step;if(cur>=t){cur=t;clearInterval(timer);}el.textContent=cur+s;},28);}\nvar statObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(animateNum);statObs.unobserve(e.target);}});},{threshold:0.3});\ndocument.querySelectorAll('.hero-stats').forEach(function(el){statObs.observe(el);});\n\nfunction openKakaoAddress(){new daum.Postcode({oncomplete:function(data){var addr=data.userSelectedType==='R'?data.roadAddress:data.jibunAddress;document.getElementById('address').value=addr;document.getElementById('addressDetail').focus();}}).open();}\n\n(function(){\n var si=document.getElementById('searchInput');\n if(!si)return;\n var drop=document.createElement('div');\n drop.style.cssText='position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:16px;box-shadow:0 14px 34px rgba(27,36,64,0.16);border:1.5px solid #E3E7F0;display:none;flex-direction:column;z-index:100;overflow:hidden;max-height:320px;overflow-y:auto;';\n si.parentElement.style.position='relative';\n si.parentElement.appendChild(drop);\n si.addEventListener('input',async function(){\n  var q=this.value.trim();\n  if(q.length<1){drop.style.display='none';return;}\n  try{\n   var res=await fetch('/api/suggest?q='+encodeURIComponent(q));\n   var data=await res.json();\n   if(data.length>0){\n    drop.innerHTML='';\n    data.forEach(function(item){\n     var div=document.createElement('div');\n     div.className='suggest-row';\n     div.innerHTML='🔍 '+item.display;\n     div.onclick=function(){window.location.href=item.url;};\n     drop.appendChild(div);\n    });\n    drop.style.display='flex';\n   }else{drop.style.display='none';}\n  }catch(e){}\n });\n document.addEventListener('click',function(e){if(!si.contains(e.target)&&!drop.contains(e.target))drop.style.display='none';});\n})();\n\nasync function submitForm(){\n var agree=document.getElementById('agree');\n var studentName=document.getElementById('studentName').value.trim();\n var contact=document.getElementById('contact').value.trim();\n var addrMain=(document.getElementById('address')||{value:''}).value.trim();\n var addrDetail=(document.getElementById('addressDetail')||{value:''}).value.trim();\n var address=addrDetail?addrMain+' '+addrDetail:addrMain;\n var school=(document.getElementById('school')||{value:''}).value.trim();\n var msg=document.querySelector('#form textarea')?document.querySelector('#form textarea').value.trim():'';\n if(!studentName){alert('학생 이름을 입력해 주세요.');return;}\n if(!contact){alert('연락처를 입력해 주세요.');return;}\n if(!agree.checked){alert('개인정보 수집 및 이용에 동의해 주세요.');return;}\n var modes=[],grades=[],subjects=[];\n document.querySelectorAll('#form .mb.on').forEach(function(b){\n  var txt=b.textContent.trim();\n  var parent=b.parentElement;\n  var label=parent.previousElementSibling?parent.previousElementSibling.textContent:'';\n  if(label.indexOf('수업')>=0)modes.push(txt);\n  else if(label.indexOf('학년')>=0)grades.push(txt);\n  else if(label.indexOf('과목')>=0)subjects.push(txt);\n });\n var btn=document.querySelector('#form button[onclick*=\"submitForm\"]');\n if(btn){btn.disabled=true;btn.textContent='전송 중...';}\n try{\n  var res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({method:modes.join(', ')||'미선택',grade:grades.join(', ')||'미선택',subject:subjects.join(', ')||'미선택',name:studentName,contact:contact,school:school,address:address,message:msg,source:'메인 홈페이지'})});\n  var result=await res.json();\n  if(result.ok){alert('✅ 상담 신청이 완료되었습니다!\\n24시간 내로 연락드리겠습니다.');if(btn){btn.disabled=false;btn.textContent='상담 신청하기';}}else{throw new Error(result.error||'전송 실패');}\n }catch(e){alert('❌ 전송 중 오류가 발생했습니다.\\n카카오톡 또는 전화로 문의해 주세요.');if(btn){btn.disabled=false;btn.textContent='상담 신청하기';}}\n}\n</script>\n</body>\n</html>\n";
 
 function getIndex(){
  return INDEX_HTML;
@@ -1259,23 +1259,23 @@ function getIndex(){
 
 const NAV = `<style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--navy:#2E2A45;--navy-soft:#5B4EE0;--gold:#7B6EF6;--gold-light:#9B8CFF;--white:#fff;--gray-50:#F5F2FC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-500:#64748B;--gray-700:#334155;}
+:root{--navy:#1B2440;--navy-soft:#2C46B8;--gold:#3B5BDB;--gold-light:#6E86E8;--white:#fff;--gray-50:#EFF1F8;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-500:#64748B;--gray-700:#334155;}
 html{scroll-behavior:smooth;}
-body{font-family:'Noto Sans KR',sans-serif;color:#2E2A45;background:#fff;line-height:1.6;overflow-x:hidden;padding-top:64px;}
+body{font-family:'Noto Sans KR',sans-serif;color:#1B2440;background:#fff;line-height:1.6;overflow-x:hidden;padding-top:64px;}
 nav{position:fixed;top:0;left:0;right:0;z-index:99999;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #E2E8F0;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-size:1.15rem;font-weight:800;color:#2E2A45;text-decoration:none;display:flex;align-items:center;gap:6px;white-space:nowrap;}
-.nav-logo .accent{color:#7B6EF6;}
+.nav-logo{font-size:1.15rem;font-weight:800;color:#1B2440;text-decoration:none;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.nav-logo .accent{color:#3B5BDB;}
 .nav-links{display:flex;gap:24px;list-style:none;align-items:center;}
 .nav-links a{text-decoration:none;font-size:0.88rem;font-weight:600;color:#334155;transition:color .2s;white-space:nowrap;}
-.nav-links a:hover{color:#7B6EF6;}
-.nav-cta{background:#7B6EF6!important;color:#fff!important;padding:8px 20px;border-radius:10px;font-weight:700!important;}
+.nav-links a:hover{color:#3B5BDB;}
+.nav-cta{background:#3B5BDB!important;color:#fff!important;padding:8px 20px;border-radius:10px;font-weight:700!important;}
 .nrw{position:relative;}
 .nrb{display:flex;align-items:center;gap:4px;cursor:pointer;}
 .nra{font-size:0.65rem;}
 .nrd{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid #E2E8F0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);padding:14px;z-index:99998;}
 .nrd a{display:block;padding:7px 10px;font-size:0.82rem;color:#334155;text-decoration:none;border-radius:6px;text-align:center;}
-.nrd a:hover{background:rgba(200,169,110,0.1);color:#7B6EF6;}
-#navToggle{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:#2E2A45;padding:4px;}
+.nrd a:hover{background:rgba(200,169,110,0.1);color:#3B5BDB;}
+#navToggle{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:#1B2440;padding:4px;}
 @media(max-width:900px){nav{padding:0 16px;height:56px;}body{padding-top:56px;}#navToggle{display:flex!important;align-items:center;justify-content:center;}.nav-links{display:none!important;position:fixed;top:56px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0!important;background:#fff;border-bottom:1px solid #E2E8F0;box-shadow:0 8px 24px rgba(0,0,0,0.08);padding:8px 0;max-height:calc(100vh - 56px);overflow-y:auto;z-index:99998;}.nav-links.open{display:flex!important;}.nav-links>a,.nav-links>.nrw>.nrb{padding:14px 24px!important;font-size:0.95rem!important;border-bottom:1px solid #F1F5F9;}.nrd{position:static!important;transform:none!important;box-shadow:none!important;border:none!important;border-radius:0!important;padding:8px 24px!important;width:100%!important;}}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1283,15 +1283,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:99999;background:rgba(255,255,25
 <a href="/" class="nav-logo"><img src="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png" alt="홈투과외" style="width:28px;height:28px;object-fit:contain;"> <span class="accent">홈투</span> 스터디</a>
 <button id="navToggle" onclick="var m=document.getElementById('navMenu');m.classList.toggle('open');this.innerHTML=m.classList.contains('open')?'✕':'☰';">☰</button>
 <div class="nav-links" id="navMenu">
-<div class="nrw"><a href="#" class="nrb" onclick="event.preventDefault();var p=document.getElementById('ddF');p.style.display=p.style.display==='block'?'none':'block';">과외찾기 <span class="nra">▾</span></a><div class="nrd" id="ddF" style="width:420px;"><div style="display:flex;gap:8px;margin-bottom:12px;"><button class="ddt" onclick="switchDD(0)" style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #E2E8F0;background:#2E2A45;color:#fff;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;">📍 지역별</button><button class="ddt" onclick="switchDD(1)" style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #E2E8F0;background:#fff;color:#334155;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;">🎓 학년별</button><button class="ddt" onclick="switchDD(2)" style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #E2E8F0;background:#fff;color:#334155;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;">🏫 학교별</button></div><div id="ddC0" style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;"><a href="/seoul">📍 서울</a><a href="/gyeonggi">🌳 경기</a><a href="/incheon">🌊 인천</a><a href="/busan">🐟 부산</a><a href="/daegu">🍎 대구</a><a href="/daejeon">🌲 대전</a><a href="/gwangju">🌺 광주</a><a href="/ulsan">⚙ 울산</a><a href="/sejong">🏛 세종</a><a href="/gangwon">🏔 강원</a><a href="/chungbuk">🌾 충북</a><a href="/chungnam">🌊 충남</a><a href="/jeonbuk">🌿 전북</a><a href="/jeonnam">🍃 전남</a><a href="/gyeongbuk">🍎 경북</a><a href="/gyeongnam">🌊 경남</a><a href="/jeju">🌸 제주</a></div><div id="ddC1" style="display:none;"><div style="font-size:0.72rem;font-weight:700;color:#7B6EF6;margin-bottom:6px;">🌱 초등학생</div><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:10px;"><a href="/grade/elem1">초1</a><a href="/grade/elem2">초2</a><a href="/grade/elem3">초3</a><a href="/grade/elem4">초4</a><a href="/grade/elem5">초5</a><a href="/grade/elem6">초6</a></div><div style="font-size:0.72rem;font-weight:700;color:#7B6EF6;margin-bottom:6px;">📘 중학생</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:10px;"><a href="/grade/mid1">중1</a><a href="/grade/mid2">중2</a><a href="/grade/mid3">중3</a></div><div style="font-size:0.72rem;font-weight:700;color:#7B6EF6;margin-bottom:6px;">📕 고등학생</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px;"><a href="/grade/high1">고1</a><a href="/grade/high2">고2</a><a href="/grade/high3">고3</a></div><div><a href="/grade/nsu" style="border-color:#e74c3c;color:#e74c3c;">🔥 재수생</a></div></div><div id="ddC2" style="display:none;grid-template-columns:repeat(4,1fr);gap:4px;"><a href="/schools/seoul">📍 서울</a><a href="/schools/gyeonggi">🌳 경기</a><a href="/schools/incheon">🌊 인천</a><a href="/schools/busan">🐟 부산</a><a href="/schools/daegu">🍎 대구</a><a href="/schools/daejeon">🌲 대전</a><a href="/schools/gwangju">🌺 광주</a><a href="/schools/ulsan">⚙ 울산</a><a href="/schools/sejong">🏛 세종</a><a href="/schools/gangwon">🏔 강원</a><a href="/schools/chungbuk">🌾 충북</a><a href="/schools/chungnam">🌊 충남</a><a href="/schools/jeonbuk">🌿 전북</a><a href="/schools/jeonnam">🍃 전남</a><a href="/schools/gyeongbuk">🍎 경북</a><a href="/schools/gyeongnam">🌊 경남</a><a href="/schools/jeju">🌸 제주</a></div></div></div>
+<div class="nrw"><a href="#" class="nrb" onclick="event.preventDefault();var p=document.getElementById('ddF');p.style.display=p.style.display==='block'?'none':'block';">과외찾기 <span class="nra">▾</span></a><div class="nrd" id="ddF" style="width:420px;"><div style="display:flex;gap:8px;margin-bottom:12px;"><button class="ddt" onclick="switchDD(0)" style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #E2E8F0;background:#1B2440;color:#fff;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;">📍 지역별</button><button class="ddt" onclick="switchDD(1)" style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #E2E8F0;background:#fff;color:#334155;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;">🎓 학년별</button><button class="ddt" onclick="switchDD(2)" style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #E2E8F0;background:#fff;color:#334155;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;">🏫 학교별</button></div><div id="ddC0" style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;"><a href="/seoul">📍 서울</a><a href="/gyeonggi">🌳 경기</a><a href="/incheon">🌊 인천</a><a href="/busan">🐟 부산</a><a href="/daegu">🍎 대구</a><a href="/daejeon">🌲 대전</a><a href="/gwangju">🌺 광주</a><a href="/ulsan">⚙ 울산</a><a href="/sejong">🏛 세종</a><a href="/gangwon">🏔 강원</a><a href="/chungbuk">🌾 충북</a><a href="/chungnam">🌊 충남</a><a href="/jeonbuk">🌿 전북</a><a href="/jeonnam">🍃 전남</a><a href="/gyeongbuk">🍎 경북</a><a href="/gyeongnam">🌊 경남</a><a href="/jeju">🌸 제주</a></div><div id="ddC1" style="display:none;"><div style="font-size:0.72rem;font-weight:700;color:#3B5BDB;margin-bottom:6px;">🌱 초등학생</div><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:10px;"><a href="/grade/elem1">초1</a><a href="/grade/elem2">초2</a><a href="/grade/elem3">초3</a><a href="/grade/elem4">초4</a><a href="/grade/elem5">초5</a><a href="/grade/elem6">초6</a></div><div style="font-size:0.72rem;font-weight:700;color:#3B5BDB;margin-bottom:6px;">📘 중학생</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:10px;"><a href="/grade/mid1">중1</a><a href="/grade/mid2">중2</a><a href="/grade/mid3">중3</a></div><div style="font-size:0.72rem;font-weight:700;color:#3B5BDB;margin-bottom:6px;">📕 고등학생</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px;"><a href="/grade/high1">고1</a><a href="/grade/high2">고2</a><a href="/grade/high3">고3</a></div><div><a href="/grade/nsu" style="border-color:#e74c3c;color:#e74c3c;">🔥 재수생</a></div></div><div id="ddC2" style="display:none;grid-template-columns:repeat(4,1fr);gap:4px;"><a href="/schools/seoul">📍 서울</a><a href="/schools/gyeonggi">🌳 경기</a><a href="/schools/incheon">🌊 인천</a><a href="/schools/busan">🐟 부산</a><a href="/schools/daegu">🍎 대구</a><a href="/schools/daejeon">🌲 대전</a><a href="/schools/gwangju">🌺 광주</a><a href="/schools/ulsan">⚙ 울산</a><a href="/schools/sejong">🏛 세종</a><a href="/schools/gangwon">🏔 강원</a><a href="/schools/chungbuk">🌾 충북</a><a href="/schools/chungnam">🌊 충남</a><a href="/schools/jeonbuk">🌿 전북</a><a href="/schools/jeonnam">🍃 전남</a><a href="/schools/gyeongbuk">🍎 경북</a><a href="/schools/gyeongnam">🌊 경남</a><a href="/schools/jeju">🌸 제주</a></div></div></div>
 <div class="nrw"><a href="#" class="nrb" onclick="event.preventDefault();var p=document.getElementById('ddS');p.style.display=p.style.display==='block'?'none':'block';">과목수업 <span class="nra">▾</span></a><div class="nrd" id="ddS" style="width:320px;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;"><a href="/subject/korean">📖 국어</a><a href="/subject/english">🌍 영어</a><a href="/subject/math">🔢 수학</a><a href="/subject/science">🧪 과학</a><a href="/subject/social">🗺️ 사회</a><a href="/subject/coding">💻 코딩</a><a href="/subject/essay">✏️ 논술</a><a href="/subject/ged">📋 검정고시</a><a href="/subject/social-exam">📊 사회탐구</a><a href="/subject/science-exam">🔬 과학탐구</a></div></div></div>
 <a href="/academy">학원수업</a>
 <div class="nrw"><a href="#" class="nrb" onclick="event.preventDefault();var p=document.getElementById('ddL');p.style.display=p.style.display==='block'?'none':'block';">제2외국어 <span class="nra">▾</span></a><div class="nrd" id="ddL" style="width:240px;"><a href="/language/english">🇺🇸 영어 회화</a><a href="/language/japanese">🇯🇵 일본어 회화</a><a href="/language/chinese">🇨🇳 중국어 회화</a></div></div>
 <a href="#form" onclick="document.getElementById(\x27form\x27).scrollIntoView({behavior:\x27smooth\x27});return false;" class="nav-cta">문의하기</a>
 </div>
 </nav>
-<script>function switchDD(i){for(var j=0;j<3;j++){document.getElementById('ddC'+j).style.display=j===i?(j===1?'block':'grid'):'none';var t=document.querySelectorAll('.ddt');t[j].style.background=j===i?'#2E2A45':'#fff';t[j].style.color=j===i?'#fff':'#334155';}}document.addEventListener('click',function(e){['ddF','ddS','ddL'].forEach(function(id){var d=document.getElementById(id);if(d&&!d.parentElement.contains(e.target))d.style.display='none';});});</script>`;
-const FAVICON_TAGS = '<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><meta property="og:site_name" content="홈투과외"><meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index, follow"><meta name="application-name" content="홈투과외"><meta name="apple-mobile-web-app-title" content="홈투과외"><meta name="naver-site-verification" content=""><meta http-equiv="content-language" content="ko"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","logo":"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png","description":"전국 1:1 맞춤 과외 매칭. 35년 교육 노하우로 학생별 맞춤 학습 설계. 방문·화상 모두 가능, 첫 상담 무료.","contactPoint":{"@type":"ContactPoint","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","inLanguage":"ko-KR","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://hometostudy.com/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbfghik5ng");</script>';
+<script>function switchDD(i){for(var j=0;j<3;j++){document.getElementById('ddC'+j).style.display=j===i?(j===1?'block':'grid'):'none';var t=document.querySelectorAll('.ddt');t[j].style.background=j===i?'#1B2440':'#fff';t[j].style.color=j===i?'#fff':'#334155';}}document.addEventListener('click',function(e){['ddF','ddS','ddL'].forEach(function(id){var d=document.getElementById(id);if(d&&!d.parentElement.contains(e.target))d.style.display='none';});});</script>`;
+const FAVICON_TAGS = '<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><meta property="og:site_name" content="홈투과외"><meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index, follow"><meta name="application-name" content="홈투과외"><meta name="apple-mobile-web-app-title" content="홈투과외"><meta name="naver-site-verification" content=""><meta http-equiv="content-language" content="ko"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","logo":"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png","description":"전국 1:1 맞춤 과외 매칭. 35년 교육 노하우로 학생별 맞춤 학습 설계. 전국 어디서든 화상 수업, 첫 상담 무료.","contactPoint":{"@type":"ContactPoint","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","inLanguage":"ko-KR","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://hometostudy.com/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbfghik5ng");</script>';
 
 // LocalBusiness Schema 생성 (지역 페이지용)
 function buildLocalBusinessSchema(regionName, pageUrl) {
@@ -1302,7 +1302,7 @@ function buildLocalBusinessSchema(regionName, pageUrl) {
   "image":"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png",
   "url":"https://hometostudy.com"+(pageUrl||""),
   "priceRange":"무료 상담",
-  "description":regionName+" 1:1 맞춤 과외. 방문·화상 모두 가능하며 첫 상담과 체험 수업은 완전 무료입니다.",
+  "description":regionName+" 1:1 맞춤 과외. 전국 어디서든 화상 수업하며 첫 상담과 체험 수업은 완전 무료입니다.",
   "address":{"@type":"PostalAddress","addressCountry":"KR","addressRegion":regionName},
   "areaServed":{"@type":"AdministrativeArea","name":regionName},
   "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"22:00"}
@@ -1323,15 +1323,15 @@ function buildBreadcrumbSchema(items) {
   };})
  })+'</script>';
 }
-const COMMON_STYLE = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet"><link rel="alternate" type="application/rss+xml" title="홈투과외 RSS" href="https://hometostudy.com/rss"><link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><style>*{margin:0;padding:0;box-sizing:border-box;}h1,h2,h3,h4{font-family:'Jua','Noto Sans KR',sans-serif!important;font-weight:400!important;letter-spacing:.3px;}.nav-logo,.efb,.fb{font-family:'Jua','Noto Sans KR',sans-serif;}body{font-family:'Noto Sans KR',sans-serif;background:#FBF8F4;padding-top:70px;}.rv-carousel{position:relative;overflow:hidden;}.rv-track{display:flex;gap:16px;animation:rvScroll 30s linear infinite;width:max-content;}.rv-carousel:hover .rv-track{animation-play-state:paused;}@keyframes rvScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}.rv-track .rv-card{min-width:300px;max-width:300px;flex-shrink:0;box-sizing:border-box;}@media(max-width:768px){.rv-track .rv-card{min-width:280px;max-width:280px;}}.rv-dots{display:flex;justify-content:center;gap:6px;margin-top:16px;}.rv-dot{width:28px;height:4px;border-radius:2px;background:rgba(26,35,64,.12);cursor:pointer;border:none;padding:0;transition:all .3s;}.rv-dot.on{width:40px;background:#7B6EF6;}@media(max-width:768px){.efw{bottom:16px!important;right:12px!important;gap:10px!important;}.efb{width:48px!important;height:48px!important;padding:0!important;border-radius:50%!important;justify-content:center!important;font-size:20px!important;}.efl{display:none!important;}img{max-width:100%!important;height:auto!important;}table{max-width:100%!important;}}</style>${FAVICON_TAGS}`;
+const COMMON_STYLE = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"><link rel="alternate" type="application/rss+xml" title="홈투과외 RSS" href="https://hometostudy.com/rss"><link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/brand.png"><style>*{margin:0;padding:0;box-sizing:border-box;}h1,h2,h3,h4{font-weight:800!important;letter-spacing:-.3px;}body{font-family:'Noto Sans KR',sans-serif;background:#F7F8FC;padding-top:70px;}.rv-carousel{position:relative;overflow:hidden;}.rv-track{display:flex;gap:16px;animation:rvScroll 30s linear infinite;width:max-content;}.rv-carousel:hover .rv-track{animation-play-state:paused;}@keyframes rvScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}.rv-track .rv-card{min-width:300px;max-width:300px;flex-shrink:0;box-sizing:border-box;}@media(max-width:768px){.rv-track .rv-card{min-width:280px;max-width:280px;}}.rv-dots{display:flex;justify-content:center;gap:6px;margin-top:16px;}.rv-dot{width:28px;height:4px;border-radius:2px;background:rgba(26,35,64,.12);cursor:pointer;border:none;padding:0;transition:all .3s;}.rv-dot.on{width:40px;background:#3B5BDB;}@media(max-width:768px){.efw{bottom:16px!important;right:12px!important;gap:10px!important;}.efb{width:48px!important;height:48px!important;padding:0!important;border-radius:50%!important;justify-content:center!important;font-size:20px!important;}.efl{display:none!important;}img{max-width:100%!important;height:auto!important;}table{max-width:100%!important;}}</style>${FAVICON_TAGS}`;
 
 const FLOATING = `<div class="efw" style="position:fixed;bottom:24px;right:18px;display:flex;flex-direction:column;gap:8px;z-index:9998;">
  <a href="tel:01023370458" class="efb"
- style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:white;color:#2E2A45;text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.18);white-space:nowrap;">
+ style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:white;color:#1B2440;text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.18);white-space:nowrap;">
  📞 <span class="efl">전화 상담</span>
  </a>
  <a href="#form" onclick="document.getElementById(\x27form\x27).scrollIntoView({behavior:\x27smooth\x27});return false;" class="efb"
- style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:linear-gradient(135deg,#7B6EF6,#9B8CFF);color:#2E2A45;border:1px solid rgba(200,169,110,0.6);text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.2);white-space:nowrap;">
+ style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:linear-gradient(135deg,#3B5BDB,#6E86E8);color:#1B2440;border:1px solid rgba(200,169,110,0.6);text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.2);white-space:nowrap;">
  ✏️ <span class="efl">빠른 상담 문의</span>
  </a>
  <a href="https://naver.me/Gnva0jjW" target="_blank" class="efb"
@@ -1345,20 +1345,21 @@ const FLOATING = `<div class="efw" style="position:fixed;bottom:24px;right:18px;
 </div>`
 const CONTACT = ``;
 const FOOTER = `
-<section id="form" style="background:#F5F2FC;padding:64px 40px;border-top:1px solid #E2E8F0;">
+<section id="form" style="background:#EFF1F8;padding:64px 40px;border-top:1px solid #E2E8F0;">
  <div style="max-width:700px;margin:0 auto;text-align:center;">
-  <div style="display:inline-block;font-size:0.78rem;font-weight:700;letter-spacing:1.5px;color:#7B6EF6;background:rgba(200,169,110,0.1);padding:5px 14px;border-radius:100px;margin-bottom:14px;">무료 상담 신청</div>
-  <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:#2E2A45;margin-bottom:10px;">지금 바로 시작해보세요</h2>
-  <p style="font-size:0.9rem;color:#64748B;margin-bottom:28px;">아래 내용을 선택하고 신청하시면 24시간 내로 연락드립니다.<br><strong style="color:#7B6EF6;">첫 상담 및 체험 수업은 완전 무료</strong>입니다.</p>
+  <div style="display:inline-block;font-size:0.78rem;font-weight:700;letter-spacing:1.5px;color:#3B5BDB;background:rgba(200,169,110,0.1);padding:5px 14px;border-radius:100px;margin-bottom:14px;">무료 상담 신청</div>
+  <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:#1B2440;margin-bottom:10px;">지금 바로 시작해보세요</h2>
+  <p style="font-size:0.9rem;color:#64748B;margin-bottom:28px;">아래 내용을 선택하고 신청하시면 24시간 내로 연락드립니다.<br><strong style="color:#3B5BDB;">첫 상담 및 체험 수업은 완전 무료</strong>입니다.</p>
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px 24px;text-align:left;">
-   <div style="margin-bottom:18px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:8px;">🖥️ 수업 방식</label><div style="display:flex;flex-wrap:wrap;gap:8px;"><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:8px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">🏠 방문과외</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:8px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">💻 화상과외</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:8px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">🤔 상담후결정</button></div></div>
-   <div style="margin-bottom:18px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:8px;">🎓 자녀 학년</label><div style="display:flex;flex-wrap:wrap;gap:6px;"><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">유아5세</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">유아6세</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">유아7세</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초1</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초2</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초3</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초4</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초5</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초6</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">중1</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">중2</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">중3</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">고1</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">고2</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">고3</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">성인</button></div></div>
-   <div style="margin-bottom:18px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:8px;">📚 희망 과목</label><div style="display:flex;flex-wrap:wrap;gap:6px;"><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">📖 국어</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🔢 수학</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🌍 영어</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🧪 과학</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🗺️ 사회</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#2E2A45':'#F5F2FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#2E2A45':'#E2E8F0';" style="background:#F5F2FC;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🎯 기타</button></div></div>
-   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:6px;">🧑‍🎓 학생 이름</label><input type="text" id="fName" placeholder="학생 이름" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;" onfocus="this.style.borderColor='#7B6EF6'" onblur="this.style.borderColor='#E2E8F0'"></div><div><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:6px;">📱 연락처</label><input type="text" id="fPhone" placeholder="전화번호" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;" onfocus="this.style.borderColor='#7B6EF6'" onblur="this.style.borderColor='#E2E8F0'"></div></div>
-   <div style="margin-bottom:14px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:6px;">📍 거주 주소</label><div style="display:flex;gap:8px;margin-bottom:6px;"><input type="text" id="fAddr" placeholder="주소 검색 클릭" readonly onclick="if(typeof daum!=='undefined')new daum.Postcode({oncomplete:function(d){document.getElementById('fAddr').value=d.userSelectedType==='R'?d.roadAddress:d.jibunAddress;document.getElementById('fAddrD').focus();}}).open();" style="flex:1;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;cursor:pointer;"><button type="button" onclick="if(typeof daum!=='undefined')new daum.Postcode({oncomplete:function(d){document.getElementById('fAddr').value=d.userSelectedType==='R'?d.roadAddress:d.jibunAddress;document.getElementById('fAddrD').focus();}}).open();" style="background:#2E2A45;color:#fff;border:none;padding:11px 18px;border-radius:10px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;">검색</button></div><input type="text" id="fAddrD" placeholder="상세주소" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;" onfocus="this.style.borderColor='#7B6EF6'" onblur="this.style.borderColor='#E2E8F0'"></div>
-   <div style="margin-bottom:14px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#2E2A45;margin-bottom:6px;">💬 문의사항 <span style="color:#94A3B8;font-weight:400;">(선택)</span></label><textarea id="fMsg" rows="2" placeholder="추가 전달 사항" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;resize:vertical;" onfocus="this.style.borderColor='#7B6EF6'" onblur="this.style.borderColor='#E2E8F0'"></textarea></div>
-   <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:18px;"><input type="checkbox" id="fAgree" style="width:16px;height:16px;accent-color:#7B6EF6;cursor:pointer;margin-top:2px;flex-shrink:0;"><label for="fAgree" style="font-size:0.76rem;color:#64748B;cursor:pointer;line-height:1.5;">개인정보 수집 및 이용에 동의합니다. (필수)</label></div>
-   <button onclick="sfSubmit()" style="width:100%;padding:15px;background:#2E2A45;color:#fff;border:none;border-radius:12px;font-size:0.95rem;font-weight:800;cursor:pointer;font-family:inherit;">📝 상담 신청하기</button>
+   <div style="margin-bottom:18px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:8px;">🖥️ 수업 방식 <span style="color:#94A0B6;font-weight:400;">(홈투과외는 100% 화상 과외입니다)</span></label><div style="display:flex;flex-wrap:wrap;gap:8px;"><button class="fb on" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#3B5BDB':'#F7F8FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#3B5BDB':'#E3E7F0';" style="background:#3B5BDB;border:1.5px solid #3B5BDB;color:#fff;padding:8px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">💻 1:1 화상과외</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#3B5BDB':'#F7F8FC';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#3B5BDB':'#E3E7F0';" style="background:#F7F8FC;border:1.5px solid #E3E7F0;color:#334155;padding:8px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">🤔 상담 후 결정</button></div></div>
+   
+<div style="margin-bottom:18px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:8px;">🎓 자녀 학년</label><div style="display:flex;flex-wrap:wrap;gap:6px;"><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">유아5세</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">유아6세</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">유아7세</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초1</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초2</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초3</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초4</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초5</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">초6</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">중1</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">중2</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">중3</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">고1</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">고2</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">고3</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">성인</button></div></div>
+   <div style="margin-bottom:18px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:8px;">📚 희망 과목</label><div style="display:flex;flex-wrap:wrap;gap:6px;"><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">📖 국어</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🔢 수학</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🌍 영어</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🧪 과학</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🗺️ 사회</button><button class="fb" onclick="this.classList.toggle('on');this.style.background=this.classList.contains('on')?'#1B2440':'#EFF1F8';this.style.color=this.classList.contains('on')?'#fff':'#334155';this.style.borderColor=this.classList.contains('on')?'#1B2440':'#E2E8F0';" style="background:#EFF1F8;border:1.5px solid #E2E8F0;color:#334155;padding:7px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;">🎯 기타</button></div></div>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:6px;">🧑‍🎓 학생 이름</label><input type="text" id="fName" placeholder="학생 이름" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;" onfocus="this.style.borderColor='#3B5BDB'" onblur="this.style.borderColor='#E2E8F0'"></div><div><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:6px;">📱 연락처</label><input type="text" id="fPhone" placeholder="전화번호" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;" onfocus="this.style.borderColor='#3B5BDB'" onblur="this.style.borderColor='#E2E8F0'"></div></div>
+   <div style="margin-bottom:14px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:6px;">📍 거주 주소</label><div style="display:flex;gap:8px;margin-bottom:6px;"><input type="text" id="fAddr" placeholder="주소 검색 클릭" readonly onclick="if(typeof daum!=='undefined')new daum.Postcode({oncomplete:function(d){document.getElementById('fAddr').value=d.userSelectedType==='R'?d.roadAddress:d.jibunAddress;document.getElementById('fAddrD').focus();}}).open();" style="flex:1;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;cursor:pointer;"><button type="button" onclick="if(typeof daum!=='undefined')new daum.Postcode({oncomplete:function(d){document.getElementById('fAddr').value=d.userSelectedType==='R'?d.roadAddress:d.jibunAddress;document.getElementById('fAddrD').focus();}}).open();" style="background:#1B2440;color:#fff;border:none;padding:11px 18px;border-radius:10px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;">검색</button></div><input type="text" id="fAddrD" placeholder="상세주소" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;" onfocus="this.style.borderColor='#3B5BDB'" onblur="this.style.borderColor='#E2E8F0'"></div>
+   <div style="margin-bottom:14px;"><label style="display:block;font-size:0.82rem;font-weight:700;color:#1B2440;margin-bottom:6px;">💬 문의사항 <span style="color:#94A3B8;font-weight:400;">(선택)</span></label><textarea id="fMsg" rows="2" placeholder="추가 전달 사항" style="width:100%;padding:11px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:0.88rem;font-family:inherit;outline:none;resize:vertical;" onfocus="this.style.borderColor='#3B5BDB'" onblur="this.style.borderColor='#E2E8F0'"></textarea></div>
+   <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:18px;"><input type="checkbox" id="fAgree" style="width:16px;height:16px;accent-color:#3B5BDB;cursor:pointer;margin-top:2px;flex-shrink:0;"><label for="fAgree" style="font-size:0.76rem;color:#64748B;cursor:pointer;line-height:1.5;">개인정보 수집 및 이용에 동의합니다. (필수)</label></div>
+   <button onclick="sfSubmit()" style="width:100%;padding:15px;background:#1B2440;color:#fff;border:none;border-radius:12px;font-size:0.95rem;font-weight:800;cursor:pointer;font-family:inherit;">📝 상담 신청하기</button>
    <a href="https://pf.kakao.com/_KRAjG/chat" target="_blank" style="display:block;width:100%;padding:15px;margin-top:10px;background:#FEE500;color:#3A1D1D;border:none;border-radius:12px;font-size:0.95rem;font-weight:800;text-decoration:none;text-align:center;">💬 카카오톡으로 바로 문의</a>
   </div>
  </div>
@@ -1377,7 +1378,7 @@ const FOOTER = `
   </div>
   <div style="text-align:center;padding:24px 20px;line-height:2;">
    <div style="font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.8);margin-bottom:6px;">🌟 홈투과외</div>
-   <div style="margin-bottom:4px;"><a href="tel:01023370458" style="color:#9B8CFF;text-decoration:none;font-weight:600;">📞 010-2337-0458</a> &nbsp;·&nbsp; <a href="https://pf.kakao.com/_KRAjG/chat" style="color:#9B8CFF;text-decoration:none;font-weight:600;">💬 카카오톡 문의</a></div>
+   <div style="margin-bottom:4px;"><a href="tel:01023370458" style="color:#6E86E8;text-decoration:none;font-weight:600;">📞 010-2337-0458</a> &nbsp;·&nbsp; <a href="https://pf.kakao.com/_KRAjG/chat" style="color:#6E86E8;text-decoration:none;font-weight:600;">💬 카카오톡 문의</a></div>
    <p>상담 가능 시간 · 평일&amp;주말 상관없이 24시간 상담 가능합니다.</p>
    <p>© 2026 홈투과외 All Rights Reserved.</p>
   </div>
@@ -1413,25 +1414,25 @@ async function sfSubmit(){
 </script>`;
 
 const ACAD_FOOTER = `
-<section style="background:linear-gradient(135deg,#2E2A45,#5B4EE0);padding:64px 40px;text-align:center;">
+<section style="background:linear-gradient(135deg,#1B2440,#2C46B8);padding:64px 40px;text-align:center;">
  <h2 style="font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#fff;margin-bottom:12px;">학습코칭의 시작, 지금 바로 상담하세요</h2>
  <p style="font-size:0.95rem;color:rgba(255,255,255,0.55);margin-bottom:28px;">가까운 학습코칭학원에서 무료 상담을 받아보세요</p>
  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-  <a href="tel:01023370458" style="background:linear-gradient(135deg,#7B6EF6,#9B8CFF);color:#2E2A45;padding:14px 32px;border-radius:10px;font-size:0.95rem;font-weight:800;text-decoration:none;">📞 전화 상담 010-2337-0458</a>
+  <a href="tel:01023370458" style="background:linear-gradient(135deg,#3B5BDB,#6E86E8);color:#1B2440;padding:14px 32px;border-radius:10px;font-size:0.95rem;font-weight:800;text-decoration:none;">📞 전화 상담 010-2337-0458</a>
   <a href="https://pf.kakao.com/_KRAjG/chat" style="border:1.5px solid rgba(255,255,255,0.3);color:#fff;padding:14px 32px;border-radius:10px;font-size:0.95rem;font-weight:600;text-decoration:none;">💬 카카오톡 상담</a>
  </div>
 </section>
 <footer style="background:#07101e;color:rgba(255,255,255,0.4);text-align:center;padding:36px 20px;font-size:0.82rem;line-height:2;">
  <div style="font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.8);margin-bottom:8px;">🌟 홈투과외</div>
- <div style="margin-bottom:8px;"><a href="tel:01023370458" style="color:#9B8CFF;text-decoration:none;font-weight:600;">📞 010-2337-0458</a> &nbsp;·&nbsp; <a href="https://pf.kakao.com/_KRAjG/chat" style="color:#9B8CFF;text-decoration:none;font-weight:600;">💬 카카오톡 문의</a></div>
+ <div style="margin-bottom:8px;"><a href="tel:01023370458" style="color:#6E86E8;text-decoration:none;font-weight:600;">📞 010-2337-0458</a> &nbsp;·&nbsp; <a href="https://pf.kakao.com/_KRAjG/chat" style="color:#6E86E8;text-decoration:none;font-weight:600;">💬 카카오톡 문의</a></div>
  <p>상담 가능 시간 · 평일&주말 상관없이 24시간 상담 가능합니다.</p>
  <p>© 2026 홈투과외 All Rights Reserved.</p>
 </footer>`;
 
-const NOT_FOUND_HTML = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>페이지를 찾을 수 없습니다 | 홈투과외</title>${COMMON_STYLE}</head><body>${NAV}<div style="max-width:600px;margin:80px auto;padding:0 20px;text-align:center;"><div style="font-size:64px;margin-bottom:20px;">🔍</div><h1 style="font-size:28px;font-weight:900;color:#2E2A45;margin-bottom:12px;">페이지를 찾을 수 없습니다</h1><p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:32px;">요청하신 페이지가 존재하지 않거나 주소가 변경되었습니다.</p><div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;"><a href="/" style="background:#2E2A45;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">🏠 홈으로 가기</a><a href="/directory" style="background:#f0f0f0;color:#2E2A45;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">📍 전체 지역 보기</a><a href="/subject" style="background:#f0f0f0;color:#2E2A45;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">📚 과목별 수업</a></div></div>${FOOTER}</body></html>`;
+const NOT_FOUND_HTML = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>페이지를 찾을 수 없습니다 | 홈투과외</title>${COMMON_STYLE}</head><body>${NAV}<div style="max-width:600px;margin:80px auto;padding:0 20px;text-align:center;"><div style="font-size:64px;margin-bottom:20px;">🔍</div><h1 style="font-size:28px;font-weight:900;color:#1B2440;margin-bottom:12px;">페이지를 찾을 수 없습니다</h1><p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:32px;">요청하신 페이지가 존재하지 않거나 주소가 변경되었습니다.</p><div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;"><a href="/" style="background:#1B2440;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">🏠 홈으로 가기</a><a href="/directory" style="background:#f0f0f0;color:#1B2440;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">📍 전체 지역 보기</a><a href="/subject" style="background:#f0f0f0;color:#1B2440;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">📚 과목별 수업</a></div></div>${FOOTER}</body></html>`;
 const ACAD_FLOATING = `<div class="efw" style="position:fixed;bottom:24px;right:18px;display:flex;flex-direction:column;gap:8px;z-index:9998;">
- <a href="tel:01023370458" class="efb" style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:white;color:#2E2A45;text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.18);white-space:nowrap;">📞 <span class="efl">전화 상담</span></a>
- <a href="#acadForm" onclick="var f=document.getElementById('acadForm');if(f)f.scrollIntoView({behavior:'smooth'});return false;" class="efb" style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:linear-gradient(135deg,#7B6EF6,#9B8CFF);color:#2E2A45;border:1px solid rgba(200,169,110,0.6);text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.2);white-space:nowrap;">✏️ <span class="efl">상담 신청</span></a>
+ <a href="tel:01023370458" class="efb" style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:white;color:#1B2440;text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.18);white-space:nowrap;">📞 <span class="efl">전화 상담</span></a>
+ <a href="#acadForm" onclick="var f=document.getElementById('acadForm');if(f)f.scrollIntoView({behavior:'smooth'});return false;" class="efb" style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:linear-gradient(135deg,#3B5BDB,#6E86E8);color:#1B2440;border:1px solid rgba(200,169,110,0.6);text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.2);white-space:nowrap;">✏️ <span class="efl">상담 신청</span></a>
  <a href="https://naver.me/GieISRs0" target="_blank" class="efb" style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:#03C75A;color:white;text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.15);white-space:nowrap;">📋 <span class="efl">네이버 폼 신청</span></a>
  <a href="https://pf.kakao.com/_KRAjG/chat" target="_blank" class="efb" style="display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;background:#FEE500;color:#3A1D1D;text-decoration:none;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,0.15);white-space:nowrap;">💬 <span class="efl">카카오톡 상담</span></a>
 </div>`;
@@ -1441,12 +1442,12 @@ const ACAD_FORM = function(src){
 <div id="acadForm" style="max-width:900px;margin:0 auto 40px;padding:0 16px;">
 <div style="background:white;border-radius:20px;padding:clamp(28px,5vw,48px);box-shadow:0 4px 32px rgba(0,0,0,0.1);">
 <div style="text-align:center;margin-bottom:32px;">
-<span style="display:inline-block;background:rgba(200,169,110,0.15);color:#7B6EF6;padding:6px 18px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:14px;">🏫 학원수업 상담 신청</span>
-<h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#2E2A45;margin-bottom:10px;">학습코칭학원 상담 문의</h2>
-<p style="font-size:14px;color:#666;line-height:1.8;">아래 내용을 작성하시면 24시간 내로 연락드립니다.<br><b style="color:#7B6EF6;">첫 상담 및 진단검사는 무료</b>입니다.</p>
+<span style="display:inline-block;background:rgba(200,169,110,0.15);color:#3B5BDB;padding:6px 18px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:14px;">🏫 학원수업 상담 신청</span>
+<h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#1B2440;margin-bottom:10px;">학습코칭학원 상담 문의</h2>
+<p style="font-size:14px;color:#666;line-height:1.8;">아래 내용을 작성하시면 24시간 내로 연락드립니다.<br><b style="color:#3B5BDB;">첫 상담 및 진단검사는 무료</b>입니다.</p>
 </div>
 <div style="background:#f8f9fc;border:1px solid #e0e5ec;border-radius:20px;padding:clamp(20px,4vw,40px);">
-<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#2E2A45;margin-bottom:8px;">🎓 자녀 학년 <small style="color:#aaa;font-weight:400;">(복수 선택 가능)</small></label>
+<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#1B2440;margin-bottom:8px;">🎓 자녀 학년 <small style="color:#aaa;font-weight:400;">(복수 선택 가능)</small></label>
 <div id="gradeGroup" style="display:flex;flex-wrap:wrap;gap:6px;">
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">초1</button>
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">초2</button>
@@ -1461,7 +1462,7 @@ const ACAD_FORM = function(src){
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">고2</button>
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">고3</button>
 </div></div>
-<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#2E2A45;margin-bottom:8px;">📚 희망 과목 <small style="color:#aaa;font-weight:400;">(복수 선택 가능)</small></label>
+<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#1B2440;margin-bottom:8px;">📚 희망 과목 <small style="color:#aaa;font-weight:400;">(복수 선택 가능)</small></label>
 <div id="subjGroup" style="display:flex;flex-wrap:wrap;gap:6px;">
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">국어</button>
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">영어</button>
@@ -1470,24 +1471,24 @@ const ACAD_FORM = function(src){
 <button type="button" class="abtn" onclick="this.classList.toggle('sel')" style="background:#fff;border:1.5px solid #d0d5dd;color:#444;padding:8px 14px;border-radius:50px;font-size:13px;cursor:pointer;">사회</button>
 </div></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
-<div><label style="display:block;font-size:13px;font-weight:600;color:#2E2A45;margin-bottom:8px;">🧑‍🎓 학생 이름</label><input type="text" id="aName" placeholder="학생 이름" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;box-sizing:border-box;"></div>
-<div><label style="display:block;font-size:13px;font-weight:600;color:#2E2A45;margin-bottom:8px;">📱 연락처</label><input type="text" id="aContact" placeholder="전화번호" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;box-sizing:border-box;"></div>
+<div><label style="display:block;font-size:13px;font-weight:600;color:#1B2440;margin-bottom:8px;">🧑‍🎓 학생 이름</label><input type="text" id="aName" placeholder="학생 이름" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;box-sizing:border-box;"></div>
+<div><label style="display:block;font-size:13px;font-weight:600;color:#1B2440;margin-bottom:8px;">📱 연락처</label><input type="text" id="aContact" placeholder="전화번호" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;box-sizing:border-box;"></div>
 </div>
-<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#2E2A45;margin-bottom:8px;">🏫 학생 학교 (선택)</label><input type="text" id="aSchool" placeholder="예) 진관초, 은평중" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;box-sizing:border-box;"></div>
-<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#2E2A45;margin-bottom:8px;">💬 문의 사항 (선택)</label><textarea id="aMsg" rows="3" placeholder="추가 전달 사항" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;resize:vertical;box-sizing:border-box;"></textarea></div>
-<div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:22px;"><input type="checkbox" id="aAgree" style="width:17px;height:17px;accent-color:#7B6EF6;cursor:pointer;margin-top:2px;flex-shrink:0;"><label for="aAgree" style="font-size:12px;color:#888;cursor:pointer;line-height:1.6;">본인은 만 14세 이상이며, 개인정보 수집 및 이용에 동의합니다. (필수)</label></div>
+<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#1B2440;margin-bottom:8px;">🏫 학생 학교 (선택)</label><input type="text" id="aSchool" placeholder="예) 진관초, 은평중" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;box-sizing:border-box;"></div>
+<div style="margin-bottom:18px;"><label style="display:block;font-size:13px;font-weight:600;color:#1B2440;margin-bottom:8px;">💬 문의 사항 (선택)</label><textarea id="aMsg" rows="3" placeholder="추가 전달 사항" style="width:100%;background:#fff;border:1px solid #d0d5dd;border-radius:12px;padding:14px 18px;font-size:15px;outline:none;resize:vertical;box-sizing:border-box;"></textarea></div>
+<div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:22px;"><input type="checkbox" id="aAgree" style="width:17px;height:17px;accent-color:#3B5BDB;cursor:pointer;margin-top:2px;flex-shrink:0;"><label for="aAgree" style="font-size:12px;color:#888;cursor:pointer;line-height:1.6;">본인은 만 14세 이상이며, 개인정보 수집 및 이용에 동의합니다. (필수)</label></div>
 <div style="display:flex;flex-direction:column;gap:12px;">
-<button type="button" id="aSubmitBtn" onclick="submitAcadForm()" style="display:block;text-align:center;background:linear-gradient(135deg,#7B6EF6,#e0c080);color:#2E2A45;padding:18px;border-radius:50px;font-size:17px;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(200,169,110,0.4);">📝 학원수업 상담 신청하기</button>
+<button type="button" id="aSubmitBtn" onclick="submitAcadForm()" style="display:block;text-align:center;background:linear-gradient(135deg,#3B5BDB,#e0c080);color:#1B2440;padding:18px;border-radius:50px;font-size:17px;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(200,169,110,0.4);">📝 학원수업 상담 신청하기</button>
 <a href="https://pf.kakao.com/_KRAjG" target="_blank" style="display:block;text-align:center;background:#FEE500;color:#3C1E1E;padding:18px;border-radius:50px;font-size:17px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(254,229,0,0.35);">💬 카카오톡으로 바로 문의하기</a>
 </div></div></div></div>
-<style>.abtn.sel{background:linear-gradient(135deg,#7B6EF6,#e0c080)!important;border-color:transparent!important;color:#2E2A45!important;font-weight:700!important;box-shadow:0 4px 12px rgba(200,169,110,0.35)!important;}@media(max-width:768px){div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}}</style>
+<style>.abtn.sel{background:linear-gradient(135deg,#3B5BDB,#e0c080)!important;border-color:transparent!important;color:#1B2440!important;font-weight:700!important;box-shadow:0 4px 12px rgba(200,169,110,0.35)!important;}@media(max-width:768px){div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}}</style>
 `;
 };
 const ACAD_SCRIPT = function(src){
  var safeSrc = (src||'').replace(/'/g, "\\'");
  return '<script>async function submitAcadForm(){var n=document.getElementById("aName").value.trim();var c=document.getElementById("aContact").value.trim();var s=document.getElementById("aSchool")?document.getElementById("aSchool").value.trim():"";var m=document.getElementById("aMsg")?document.getElementById("aMsg").value.trim():"";var ag=document.getElementById("aAgree");if(!n){alert("학생 이름을 입력해 주세요.");return;}if(!c){alert("연락처를 입력해 주세요.");return;}if(!ag||!ag.checked){alert("개인정보 수집 및 이용에 동의해 주세요.");return;}var grades=[...document.querySelectorAll("#gradeGroup .abtn.sel")].map(function(b){return b.textContent.trim();}).join(", ")||"미선택";var subjects=[...document.querySelectorAll("#subjGroup .abtn.sel")].map(function(b){return b.textContent.trim();}).join(", ")||"미선택";var btn=document.getElementById("aSubmitBtn");if(btn){btn.disabled=true;btn.textContent="전송 중...";}try{var res=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({method:"학원수업(학습코칭학원)",grade:grades,subject:subjects,name:n,contact:c,school:s,message:m,source:"'+safeSrc+'"})});if(!res.ok){var et=await res.text();throw new Error(res.status+" - "+et);}var result=await res.json();if(result.ok){alert("상담 신청이 완료되었습니다! 24시간 내로 연락드리겠습니다.");if(btn){btn.disabled=false;btn.textContent="📝 학원수업 상담 신청하기";}}else{throw new Error(result.error||"전송 실패");}}catch(e){alert("전송 중 오류가 발생했습니다.\\n카카오톡 또는 전화(010-2337-0458)로 문의해 주세요.\\n("+e.message+")");if(btn){btn.disabled=false;btn.textContent="📝 학원수업 상담 신청하기";}}}' + '</' + 'script>';
 };
-const ACAD_CONTACT = `<section style="background:#2E2A45;color:white;text-align:center;padding:64px 20px;"><h2 style="font-size:clamp(22px,4vw,34px);margin-bottom:16px;font-weight:900;">학습코칭학원 상담 문의</h2><p style="font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:28px;">1:1 맞춤 코칭으로 성적 향상을 경험하세요</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;"><a href="#acadForm" onclick="var f=document.getElementById('acadForm');if(f)f.scrollIntoView({behavior:'smooth'});return false;" style="background:linear-gradient(135deg,#7B6EF6,#9B8CFF);color:#2E2A45;text-decoration:none;padding:16px 38px;border-radius:50px;font-weight:700;font-size:17px;display:inline-block;">상담 신청하기</a><a href="tel:01023370458" style="background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);color:#fff;text-decoration:none;padding:16px 38px;border-radius:50px;font-weight:700;font-size:17px;display:inline-block;">📞 전화 상담 010-2337-0458</a></div></section>`;
+const ACAD_CONTACT = `<section style="background:#1B2440;color:white;text-align:center;padding:64px 20px;"><h2 style="font-size:clamp(22px,4vw,34px);margin-bottom:16px;font-weight:900;">학습코칭학원 상담 문의</h2><p style="font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:28px;">1:1 맞춤 코칭으로 성적 향상을 경험하세요</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;"><a href="#acadForm" onclick="var f=document.getElementById('acadForm');if(f)f.scrollIntoView({behavior:'smooth'});return false;" style="background:linear-gradient(135deg,#3B5BDB,#6E86E8);color:#1B2440;text-decoration:none;padding:16px 38px;border-radius:50px;font-weight:700;font-size:17px;display:inline-block;">상담 신청하기</a><a href="tel:01023370458" style="background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);color:#fff;text-decoration:none;padding:16px 38px;border-radius:50px;font-weight:700;font-size:17px;display:inline-block;">📞 전화 상담 010-2337-0458</a></div></section>`;
 
 function buildDirectoryPage() {
  const sorted = Object.entries(locations).sort((a,b)=>a[1].region_name.localeCompare(b[1].region_name));
@@ -1507,7 +1508,7 @@ function buildDirectoryPage() {
  <div style="display:flex;align-items:center;gap:14px;">
  <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:${tc};color:#fff;border-radius:12px;font-size:20px;">📍</span>
  <div>
- <div style="font-size:17px;font-weight:800;color:#2E2A45;">${rn}</div>
+ <div style="font-size:17px;font-weight:800;color:#1B2440;">${rn}</div>
  <div style="font-size:13px;color:#888;margin-top:3px;">${totalCities}개 시·구·군 · ${totalDongs}개 동·읍·면</div>
  </div>
  </div>
@@ -1518,17 +1519,17 @@ function buildDirectoryPage() {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>전국 지역별 과외 | 방문·화상 1:1 맞춤 과외 | 홈투과외</title>
- <meta name="description" content="전국 시·도별 1:1 맞춤 방문·화상 과외. 35년 경력 홈투과외이 학생 한 명 한 명에게 맞춤 커리큘럼을 설계합니다. 첫 상담·체험 수업 무료.">
+ <title>전국 지역별 과외 | 화상 1:1 맞춤 과외 | 홈투과외</title>
+ <meta name="description" content="전국 시·도별 1:1 맞춤 화상 과외. 35년 경력 홈투과외이 학생 한 명 한 명에게 맞춤 커리큘럼을 설계합니다. 첫 상담·체험 수업 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:36px auto;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:20px;">
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">지역별 과외</span>
+ <span style="color:#1B2440;font-weight:700;">지역별 과외</span>
  </p>
- <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#2E2A45;margin-bottom:12px;">🗺️ 전국 지역별 과외</h1>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;">전국 시·도별 1:1 맞춤 방문·화상 과외를 연결합니다. 35년 경력 홈투과외이 학생 한 명 한 명에게 딱 맞는 커리큘럼을 설계하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
- <h2 style="font-size:20px;font-weight:900;color:#2E2A45;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #2E2A45;">전국 시·도별 지역 과외</h2>
+ <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#1B2440;margin-bottom:12px;">🗺️ 전국 지역별 과외</h1>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;">전국 시·도별 1:1 맞춤 화상 과외를 연결합니다. 35년 경력 홈투과외이 학생 한 명 한 명에게 딱 맞는 커리큘럼을 설계하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <h2 style="font-size:20px;font-weight:900;color:#1B2440;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #1B2440;">전국 시·도별 지역 과외</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;">${cards}</div>
  </div>
  ${CONTACT}${FOOTER}${FLOATING}</body></html>`;
@@ -1553,7 +1554,7 @@ function buildNationalSchoolsPage() {
  <div style="display:flex;align-items:center;gap:14px;">
  <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:${tc};color:#fff;border-radius:12px;font-size:20px;">🏫</span>
  <div>
- <div style="font-size:17px;font-weight:800;color:#2E2A45;">${rn}</div>
+ <div style="font-size:17px;font-weight:800;color:#1B2440;">${rn}</div>
  <div style="font-size:13px;color:#888;margin-top:3px;">${totalCities}개 구·군 · ${totalSchools}개 학교</div>
  </div>
  </div>
@@ -1570,11 +1571,11 @@ function buildNationalSchoolsPage() {
  <div style="max-width:900px;margin:36px auto;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:20px;">
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">학교별 과외</span>
+ <span style="color:#1B2440;font-weight:700;">학교별 과외</span>
  </p>
- <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#2E2A45;margin-bottom:12px;">🏫 전국 학교별 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#1B2440;margin-bottom:12px;">🏫 전국 학교별 과외</h1>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;">전국 초등·중등·고등학교 재학생을 위한 학교별 맞춤 1:1 과외를 연결합니다. 해당 학교 기출을 완벽히 파악한 검증된 선생님을 빠르게 매칭해드립니다.</p>
- <h2 style="font-size:20px;font-weight:900;color:#2E2A45;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #2E2A45;">전국 시·도별 학교 과외</h2>
+ <h2 style="font-size:20px;font-weight:900;color:#1B2440;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #1B2440;">전국 시·도별 학교 과외</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;">${cards}</div>
  </div>
  ${CONTACT}${FOOTER}${FLOATING}</body></html>`;
@@ -1601,7 +1602,7 @@ function buildRegionSchoolsPage(rs) {
  onmouseout="this.style.transform='';this.style.boxShadow=''">
  <div style="display:flex;align-items:center;gap:12px;">
  <span style="font-size:16px;">🏫</span>
- <span style="font-size:16px;font-weight:800;color:#2E2A45;">${ci.name} (${cnt}개)</span>
+ <span style="font-size:16px;font-weight:800;color:#1B2440;">${ci.name} (${cnt}개)</span>
  </div>
  <span style="color:#aaa;font-size:18px;">→</span>
  </div>
@@ -1618,14 +1619,14 @@ function buildRegionSchoolsPage(rs) {
  <p style="font-size:13px;color:#888;margin-bottom:20px;">
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${rn}</span>
+ <span style="color:#1B2440;font-weight:700;">${rn}</span>
  </p>
- <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#2E2A45;margin-bottom:12px;">🏫 ${rn} 학교별 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#1B2440;margin-bottom:12px;">🏫 ${rn} 학교별 과외</h1>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;">${rn} 지역 초등·중등·고등학교 재학생을 위한 학교별 맞춤 1:1 과외를 연결합니다. 해당 학교 기출을 완벽히 파악한 검증된 선생님을 빠르게 매칭해드립니다.</p>
- <h2 style="font-size:20px;font-weight:900;color:#2E2A45;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #2E2A45;">${rn} 구군별 학교 과외</h2>
+ <h2 style="font-size:20px;font-weight:900;color:#1B2440;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #1B2440;">${rn} 구군별 학교 과외</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;">${cards}</div>
  </div>
- <div style="background:#2E2A45;color:white;text-align:center;padding:50px 20px;margin-top:56px;border-radius:20px 20px 0 0;">
+ <div style="background:#1B2440;color:white;text-align:center;padding:50px 20px;margin-top:56px;border-radius:20px 20px 0 0;">
  <h2 style="font-size:clamp(20px,4vw,28px);font-weight:900;margin-bottom:10px;">${rn} 학교 과외 무료 상담</h2>
  <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;">24시간 내 전문 코디네이터가 연락드립니다</p>
  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
@@ -1643,7 +1644,7 @@ function seoTitle(kw, seed) {
   kw + ' 추천 | 1:1 맞춤 과외 · 첫 상담 무료',
   kw + ' | 35년 노하우 1:1 맞춤 · 학교별 내신 완벽 대비',
   kw + ' 신청 가이드 | 검증된 선생님 · 무료 체험 수업',
-  kw + ' 비용·후기·신청 | 방문·화상 모두 가능',
+  kw + ' 비용·후기·신청 | 전국 어디서든 화상 수업',
   kw + ' | 초·중·고 전 과목 1:1 맞춤 수업',
   kw + ' | 1:1 맞춤 과외 · 학교별 기출 분석',
   kw + ' | 검증된 선생님 빠른 매칭 · 첫 상담 무료'
@@ -1697,7 +1698,7 @@ function buildRegionPage(rs) {
  <div style="display:flex;align-items:center;gap:12px;">
  <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:${tc};color:#fff;border-radius:10px;font-size:16px;">📍</span>
  <div>
- <div style="font-size:16px;font-weight:800;color:#2E2A45;">${ci.name}</div>
+ <div style="font-size:16px;font-weight:800;color:#1B2440;">${ci.name}</div>
  <div style="font-size:12px;color:#888;margin-top:2px;">${dongCnt}개 동·읍·면 · ${schCnt}개 학교</div>
  </div>
  </div>
@@ -1712,7 +1713,7 @@ function buildRegionPage(rs) {
  <title>${seoTitle(`${rn} 과외`, cH(rs))} | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${sceneImg}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="${rn} 전 지역 1:1 맞춤 과외. 방문/화상 모두 가능, 35년 경력 홈투과외. 첫 상담·체험 수업 무료.">
+ <meta name="description" content="${rn} 전 지역 1:1 맞춤 과외. 전국 어디서든 화상 수업, 35년 경력 홈투과외. 첫 상담·체험 수업 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
 
  <!-- 상단 텍스트 (흰 배경) -->
@@ -1722,17 +1723,17 @@ function buildRegionPage(rs) {
  <p style="font-size:13px;color:#888;margin-bottom:16px;">
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/directory" style="color:#888;text-decoration:none;">지역별 과외</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${rn}</span>
+ <span style="color:#1B2440;font-weight:700;">${rn}</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">📍 ${rn}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${seoTitle(`${rn} 과외`, cH(rs))}</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${seoTitle(`${rn} 과외`, cH(rs))}</h1>
   <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rn} 전 지역 초·중·고 전 과목 1:1 맞춤 과외. 방문/화상 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rn} 전 지역 초·중·고 전 과목 1:1 맞춤 과외. 전국 어디서든 화상 수업하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
 
  <!-- 풍경 썸네일 배너 -->
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${sceneImg}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${sceneImg}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">${rn} 전 지역</p>
@@ -1759,7 +1760,7 @@ function buildRegionPage(rs) {
 
  <!-- 본문 카드 -->
  <div style="max-width:900px;margin:0 auto;padding:0 20px 36px;">
- <h2 style="font-size:20px;font-weight:900;color:#2E2A45;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #2E2A45;">${rn} 시·구·군별 과외 (${cities.length}개)</h2>
+ <h2 style="font-size:20px;font-weight:900;color:#1B2440;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #1B2440;">${rn} 시·구·군별 과외 (${cities.length}개)</h2>
  <script type="application/ld+json">${JSON.stringify({
   "@context":"https://schema.org",
   "@type":"ItemList",
@@ -1777,7 +1778,7 @@ function buildRegionPage(rs) {
 
  <!-- 과목별 과외 카드 -->
  <div style="max-width:900px;margin:0 auto;padding:0 20px 36px;">
- <h2 style="font-size:20px;font-weight:900;color:#2E2A45;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #2E2A45;">${rn} 과목별 과외 (8개)</h2>
+ <h2 style="font-size:20px;font-weight:900;color:#1B2440;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #1B2440;">${rn} 과목별 과외 (8개)</h2>
  <script type="application/ld+json">${JSON.stringify({
   "@context":"https://schema.org",
   "@type":"ItemList",
@@ -1793,7 +1794,7 @@ function buildRegionPage(rs) {
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">
  ${['국어','영어','수학','사회','과학','코딩','논술','검정고시'].map(function(sj){
   var icons = {"국어":"📖","영어":"🔤","수학":"➗","사회":"🌏","과학":"🧪","코딩":"💻","논술":"✏️","검정고시":"📚"};
-  return '<a href="/'+rs+'/subject/'+encodeURIComponent(sj)+'" style="text-decoration:none;"><div style="background:white;border:2px solid '+tc+';border-radius:14px;padding:20px;height:100%;transition:all .2s;"><div style="font-size:28px;margin-bottom:8px;">'+icons[sj]+'</div><div style="font-size:15px;font-weight:900;color:#2E2A45;margin-bottom:4px;">'+rn+' '+sj+'과외</div><div style="font-size:12px;color:'+tc+';font-weight:700;margin-top:8px;">자세히 보기 →</div></div></a>';
+  return '<a href="/'+rs+'/subject/'+encodeURIComponent(sj)+'" style="text-decoration:none;"><div style="background:white;border:2px solid '+tc+';border-radius:14px;padding:20px;height:100%;transition:all .2s;"><div style="font-size:28px;margin-bottom:8px;">'+icons[sj]+'</div><div style="font-size:15px;font-weight:900;color:#1B2440;margin-bottom:4px;">'+rn+' '+sj+'과외</div><div style="font-size:12px;color:'+tc+';font-weight:700;margin-top:8px;">자세히 보기 →</div></div></a>';
  }).join('')}
  </div>
  </div>
@@ -1960,7 +1961,7 @@ function buildRegionLongContent(rn, tc, seed){
 
  return '<div style="max-width:900px;margin:0 auto 40px;padding:0 20px;">'+selected.map(s=>
   '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">'+
-  '<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:18px;">'+s.title+'</h2>'+
+  '<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:18px;">'+s.title+'</h2>'+
   '<p style="font-size:14px;color:#444;line-height:2;margin:0;">'+s.content+'</p>'+
   '</div>'
  ).join('')+'</div>';
@@ -1987,7 +1988,7 @@ function buildRegionSubjectPage(rs, subject) {
  const tips = tipPool.length > 0 ? pkU(tipPool, seed, 4, 31) : [];
 
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${rn} ${subject}과외 | 1:1 맞춤 과외 · 첫 상담 무료 | 홈투과외</title>
- <meta name="description" content="${rn} ${subject}과외. ${sInfo.desc} 방문·화상 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다.">
+ <meta name="description" content="${rn} ${subject}과외. ${sInfo.desc} 전국 어디서든 화상 수업하며, 첫 상담과 체험 수업은 완전 무료입니다.">
  <meta property="og:title" content="${rn} ${subject}과외 | 1:1 맞춤 과외">
  <meta property="og:description" content="${rn} ${subject}과외. ${sInfo.desc}">
  <meta property="og:image" content="${bgImg(subject, seed)}">
@@ -1995,14 +1996,14 @@ function buildRegionSubjectPage(rs, subject) {
  ${FAVICON_TAGS}
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}" style="color:#888;text-decoration:none;">${rn}</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${subject}과외</span></p>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}" style="color:#888;text-decoration:none;">${rn}</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${subject}과외</span></p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">${sInfo.icon} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${rn} ${subject}과외 | 1:1 맞춤 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${rn} ${subject}과외 | 1:1 맞춤 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rn} 전 지역 ${subject}과외. ${sInfo.desc}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg(subject,seed)}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg(subject,seed)}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">${rn} 전 지역</p>
@@ -2016,7 +2017,7 @@ function buildRegionSubjectPage(rs, subject) {
  </div>
  <div style="max-width:900px;margin:0 auto;padding:0 20px;">
  ${buildWhyBlock(rn+' '+subject+'과외',tc,cH(rs+subject+'why'))}
- ${tips.length > 0 ? '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">📖 '+rn+' '+subject+'과외 공부법</h2>'+tips.map(function(t){return '<div style="background:#F5F2FC;border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid '+tc+';"><p style="font-size:14px;color:#333;line-height:2;margin:0;">'+t+'</p></div>';}).join('')+'</div>' : ''}
+ ${tips.length > 0 ? '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">📖 '+rn+' '+subject+'과외 공부법</h2>'+tips.map(function(t){return '<div style="background:#EFF1F8;border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid '+tc+';"><p style="font-size:14px;color:#333;line-height:2;margin:0;">'+t+'</p></div>';}).join('')+'</div>' : ''}
  ${buildStudyBlock(rn+' '+subject+'과외',tc,cH(rs+subject+'study'))}
  ${buildTutorBlock(rn+' '+subject+'과외',tc,cH(rs+subject+'tutor'))}
  ${buildFaqBlock(rn+' '+subject+'과외',tc,cH(rs+subject+'faq'))}
@@ -2044,7 +2045,7 @@ function buildCityPage(rs, cs) {
  <div style="background:white;border:2px solid ${tc};border-radius:14px;padding:16px;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .2s;"
  onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.12)'"
  onmouseout="this.style.transform='';this.style.boxShadow=''">
- <div style="font-size:14px;font-weight:900;color:#2E2A45;margin-bottom:10px;">📍 ${d} 과외</div>
+ <div style="font-size:14px;font-weight:900;color:#1B2440;margin-bottom:10px;">📍 ${d} 과외</div>
  <div style="color:${tc};font-size:11px;font-weight:700;">자세히 보기 →</div>
  </div>
  </a>`).join("");
@@ -2069,7 +2070,7 @@ function buildCityPage(rs, cs) {
    onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'"
    onmouseout="this.style.transform='';this.style.boxShadow=''">
    <div style="background:${gcBg[g]};color:${gc[g]};font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:8px;display:inline-block;">${g}</div>
-   <div style="font-size:14px;font-weight:900;color:#2E2A45;margin-bottom:6px;">${c.title}</div>
+   <div style="font-size:14px;font-weight:900;color:#1B2440;margin-bottom:6px;">${c.title}</div>
    <div style="font-size:12px;color:#666;line-height:1.6;flex:1;">${c.desc.substring(0,55)}...</div>
    <div style="margin-top:10px;color:${gc[g]};font-weight:700;font-size:11px;">자세히 보기 →</div>
    </div>
@@ -2093,7 +2094,7 @@ function buildCityPage(rs, cs) {
  const cityExtraHtml = extraPicks.filter(e=>e&&e.t).map(e => {
   const title = e.t.replace(/\{rd\}/g, rd);
   const body = e.b.replace(/\{rd\}/g, rd);
-  return '<div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #eee;"><h3 style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:12px;">'+title+'</h3><p style="font-size:14px;color:#555;line-height:2;">'+body+'</p></div>';
+  return '<div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #eee;"><h3 style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:12px;">'+title+'</h3><p style="font-size:14px;color:#555;line-height:2;">'+body+'</p></div>';
  }).join('');
 
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
@@ -2102,7 +2103,7 @@ function buildCityPage(rs, cs) {
  <title>${fullRd} 과외 | 지역별 맞춤 1:1 과외 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${bgImg("city",cH(rs+cs))}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="${fullRd} 과외 전문 홈투과외. ${dongStr} 상담 후 방문·화상 결정. ${schoolStr} 내신 완벽 대비. 첫 상담·체험 무료.">
+ <meta name="description" content="${fullRd} 과외 전문 홈투과외. ${dongStr} 상담 후 수업 시간 결정. ${schoolStr} 내신 완벽 대비. 첫 상담·체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
 
@@ -2113,24 +2114,24 @@ function buildCityPage(rs, cs) {
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/directory" style="color:#888;text-decoration:none;">지역별 과외</a> &rsaquo;
  <a href="/${rs}" style="color:#888;text-decoration:none;">${rn}</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${rd}</span>
+ <span style="color:#1B2440;font-weight:700;">${rd}</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">📍 ${fullRd}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${fullRd} 과외 | 지역별 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${fullRd} 과외 | 지역별 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} 전 지역 초·중·고 전 과목 1:1 맞춤 과외. 방문/화상 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} 전 지역 초·중·고 전 과목 1:1 맞춤 과외. 전국 어디서든 화상 수업하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
 
  <!-- 풍경 썸네일 배너 -->
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(rs+cs))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(rs+cs))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">${fullRd} 전 지역</p>
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${fullRd} 과외</h2>
  <div style="display:flex;gap:10px;flex-wrap:wrap;">
  <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 첫 상담·체험 무료</span>
- <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 방문·화상 결정</span>
+ <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 수업 시간 결정</span>
  <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 빠른 수업 시작</span>
  </div>
  </div>
@@ -2168,7 +2169,7 @@ function buildCityPage(rs, cs) {
  
     <!-- 추가 교육 칼럼 -->
     <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
-     <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">📝 ${rd} 과외 학습 가이드</h2>
+     <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">📝 ${rd} 과외 학습 가이드</h2>
      ${cityExtraHtml}
     </div>
 
@@ -2187,13 +2188,13 @@ function buildCityPage(rs, cs) {
 
  <!-- 수업 가능 지역 -->
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">🏘️ 수업 가능 지역(동) — 클릭해서 과목 선택</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">🏘️ 수업 가능 지역(동) — 클릭해서 과목 선택</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;">${dongCards}</div>
  </div>
 
  <!-- 과목 목록 -->
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:32px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">📚 ${kn} 학년별 과외 목록</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">📚 ${kn} 학년별 과외 목록</h2>
  ${subjectCards}
  </div>
 
@@ -2204,9 +2205,9 @@ function buildCityPage(rs, cs) {
 function buildRelatedLinksCard(title, items, tc) {
  if (!items || items.length === 0) return '';
  const cards = items.map(function(it){
-  return '<a href="'+it.url+'" style="display:block;background:#F5F2FC;border:1px solid #e0e7f0;border-radius:10px;padding:14px 18px;text-decoration:none;color:#2E2A45;transition:all .2s;"><div style="font-size:14px;font-weight:700;color:#2E2A45;margin-bottom:4px;">'+it.name+'</div>'+(it.desc?'<div style="font-size:12px;color:#666;">'+it.desc+'</div>':'')+'</a>';
+  return '<a href="'+it.url+'" style="display:block;background:#EFF1F8;border:1px solid #e0e7f0;border-radius:10px;padding:14px 18px;text-decoration:none;color:#1B2440;transition:all .2s;"><div style="font-size:14px;font-weight:700;color:#1B2440;margin-bottom:4px;">'+it.name+'</div>'+(it.desc?'<div style="font-size:12px;color:#666;">'+it.desc+'</div>':'')+'</a>';
  }).join('');
- return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">'+title+'</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;">'+cards+'</div></div>';
+ return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">'+title+'</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;">'+cards+'</div></div>';
 }
 
 function buildDongPage(rs, cs, dong) {
@@ -2239,7 +2240,7 @@ function buildDongPage(rs, cs, dong) {
  onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'"
  onmouseout="this.style.transform='';this.style.boxShadow=''">
  <div style="background:${gcBg[g]};color:${gc[g]};font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:8px;display:inline-block;">${g}</div>
- <div style="font-size:14px;font-weight:900;color:#2E2A45;margin-bottom:6px;">${dong} ${g} ${s}과외</div>
+ <div style="font-size:14px;font-weight:900;color:#1B2440;margin-bottom:6px;">${dong} ${g} ${s}과외</div>
  <div style="font-size:12px;color:#666;line-height:1.6;flex:1;">${desc.substring(0,60)}...</div>
  <div style="margin-top:10px;color:${gc[g]};font-weight:700;font-size:11px;">자세히 보기 →</div>
  </div></a>`;
@@ -2255,13 +2256,13 @@ function buildDongPage(rs, cs, dong) {
  const otherSchools= schools.filter(s=>!s.includes('고')&&!s.includes('중')&&!s.includes('초')).map(s=>`<span style="display:inline-block;background:#f8f9fa;color:#555;border-radius:20px;padding:4px 12px;margin:3px;font-size:13px;font-weight:600;">${s}</span>`).join("");
  const schoolBlock = (highSchools||midSchools||elemSchools||otherSchools) ? `
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:6px;">⭐ ${dong} 인근 주요 학교</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:6px;">⭐ ${dong} 인근 주요 학교</h2>
  <p style="font-size:13px;color:#888;margin-bottom:14px;">아래 학교 재학생 내신 기출 분석 및 맞춤 수업 가능합니다.</p>
  ${highSchools?`<div style="margin-bottom:10px;"><span style="font-size:12px;font-weight:700;color:#e74c3c;margin-right:6px;">고등학교</span>${highSchools}</div>`:""}
  ${midSchools?`<div style="margin-bottom:10px;"><span style="font-size:12px;font-weight:700;color:#2ecc71;margin-right:6px;">중학교</span>${midSchools}</div>`:""}
  ${elemSchools?`<div style="margin-bottom:10px;"><span style="font-size:12px;font-weight:700;color:#3498db;margin-right:6px;">초등학교</span>${elemSchools}</div>`:""}
  ${otherSchools?`<div>${otherSchools}</div>`:""}
- <div style="margin-top:14px;background:#F5F2FC;border-radius:12px;padding:14px 16px;font-size:13px;color:#555;line-height:1.8;">
+ <div style="margin-top:14px;background:#EFF1F8;border-radius:12px;padding:14px 16px;font-size:13px;color:#555;line-height:1.8;">
  💡 위 학교 외 ${dong} 인근 모든 학교 재학생 수업이 가능합니다. 상담 시 학교명을 알려주시면 기출 자료를 준비해 드립니다.
  </div>
  </div>` : "";
@@ -2272,7 +2273,7 @@ function buildDongPage(rs, cs, dong) {
  <title>${fullRd} ${dong} 과외 | 지역별 맞춤 1:1 과외 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${bgImg("city",cH(rs+cs+dong))}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="${dong} 과외 전문 홈투과외. 초·중·고 국어·영어·수학 1:1 맞춤 수업. ${schoolStr} 내신 완벽 대비. 상담 후 방문·화상 결정. 첫 체험 무료.">
+ <meta name="description" content="${dong} 과외 전문 홈투과외. 초·중·고 국어·영어·수학 1:1 맞춤 수업. ${schoolStr} 내신 완벽 대비. 상담 후 수업 시간 결정. 첫 체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
 
@@ -2281,24 +2282,24 @@ function buildDongPage(rs, cs, dong) {
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/${rs}" style="color:#888;text-decoration:none;">${rn}</a> &rsaquo;
  <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${rd}</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${dong}</span>
+ <span style="color:#1B2440;font-weight:700;">${dong}</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">📍 ${fullRd} ${dong}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${fullRd} ${dong} 과외 | 지역별 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${fullRd} ${dong} 과외 | 지역별 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} ${dong} 초·중·고 전 과목 1:1 맞춤 과외. 방문/화상 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} ${dong} 초·중·고 전 과목 1:1 맞춤 과외. 전국 어디서든 화상 수업하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
 
  <!-- 풍경 썸네일 배너 -->
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(rs+cs+dong))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(rs+cs+dong))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">${fullRd} ${dong}</p>
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${fullRd} ${dong} 과외</h2>
  <div style="display:flex;gap:10px;flex-wrap:wrap;">
  <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 첫 상담·체험 무료</span>
- <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 방문·화상 결정</span>
+ <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 수업 시간 결정</span>
  <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 빠른 수업 시작</span>
  </div>
  </div>
@@ -2330,47 +2331,47 @@ function buildDongPage(rs, cs, dong) {
 
  <!-- 공부법 & 과외 특징 글밥 -->
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">📖 ${dong} 학생들을 위한 공부법 가이드</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:20px;">📖 ${dong} 학생들을 위한 공부법 가이드</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-bottom:22px;">
- <div style="background:#F5F2FC;border-radius:14px;padding:18px;">
+ <div style="background:#EFF1F8;border-radius:14px;padding:18px;">
  <div style="font-size:24px;margin-bottom:8px;">🧠</div>
- <div style="font-weight:800;color:#2E2A45;margin-bottom:6px;font-size:14px;">개념 이해 → 문제 적용</div>
+ <div style="font-weight:800;color:#1B2440;margin-bottom:6px;font-size:14px;">개념 이해 → 문제 적용</div>
  <div style="font-size:12px;color:#555;line-height:1.7;">무작정 문제만 풀다 막히면 포기하게 됩니다. 개념을 완전히 이해한 후 문제에 적용하는 순서가 핵심입니다.</div>
  </div>
- <div style="background:#F5F2FC;border-radius:14px;padding:18px;">
+ <div style="background:#EFF1F8;border-radius:14px;padding:18px;">
  <div style="font-size:24px;margin-bottom:8px;">✏️</div>
- <div style="font-weight:800;color:#2E2A45;margin-bottom:6px;font-size:14px;">오답 분석으로 실수 없애기</div>
+ <div style="font-weight:800;color:#1B2440;margin-bottom:6px;font-size:14px;">오답 분석으로 실수 없애기</div>
  <div style="font-size:12px;color:#555;line-height:1.7;">틀린 문제를 그냥 넘기지 않습니다. 왜 틀렸는지 원인을 찾고, 같은 유형에서 다시 틀리지 않도록 관리합니다.</div>
  </div>
- <div style="background:#F5F2FC;border-radius:14px;padding:18px;">
+ <div style="background:#EFF1F8;border-radius:14px;padding:18px;">
  <div style="font-size:24px;margin-bottom:8px;">📅</div>
- <div style="font-weight:800;color:#2E2A45;margin-bottom:6px;font-size:14px;">매일 꾸준한 학습 루틴</div>
+ <div style="font-weight:800;color:#1B2440;margin-bottom:6px;font-size:14px;">매일 꾸준한 학습 루틴</div>
  <div style="font-size:12px;color:#555;line-height:1.7;">벼락치기보다 매일 일정 시간 꾸준히 공부하는 습관이 장기적으로 훨씬 효과적입니다. 루틴을 함께 만들어 드립니다.</div>
  </div>
- <div style="background:#F5F2FC;border-radius:14px;padding:18px;">
+ <div style="background:#EFF1F8;border-radius:14px;padding:18px;">
  <div style="font-size:24px;margin-bottom:8px;">🎯</div>
- <div style="font-weight:800;color:#2E2A45;margin-bottom:6px;font-size:14px;">시험 직전 핵심 정리</div>
+ <div style="font-weight:800;color:#1B2440;margin-bottom:6px;font-size:14px;">시험 직전 핵심 정리</div>
  <div style="font-size:12px;color:#555;line-height:1.7;">시험 2~3주 전 학교 기출 분석과 예상 문제를 집중 훈련합니다. 시험 전날까지 함께 준비합니다.</div>
  </div>
  </div>
 
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">✨ 홈투과외 과외의 특징</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">✨ 홈투과외 과외의 특징</h2>
  <div style="display:flex;flex-direction:column;gap:10px;">
  <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #f0f2f5;">
  <span style="color:${tc};font-weight:900;font-size:18px;flex-shrink:0;">✓</span>
- <div><div style="font-weight:800;color:#2E2A45;margin-bottom:3px;font-size:14px;">수업 전 학생 진단 및 맞춤 커리큘럼 설계</div><div style="font-size:12px;color:#555;line-height:1.7;">첫 수업 전 현재 수준·습관·목표를 파악해 ${dong} 학생에게 딱 맞는 커리큘럼을 만듭니다.</div></div>
+ <div><div style="font-weight:800;color:#1B2440;margin-bottom:3px;font-size:14px;">수업 전 학생 진단 및 맞춤 커리큘럼 설계</div><div style="font-size:12px;color:#555;line-height:1.7;">첫 수업 전 현재 수준·습관·목표를 파악해 ${dong} 학생에게 딱 맞는 커리큘럼을 만듭니다.</div></div>
  </div>
  <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #f0f2f5;">
  <span style="color:${tc};font-weight:900;font-size:18px;flex-shrink:0;">✓</span>
- <div><div style="font-weight:800;color:#2E2A45;margin-bottom:3px;font-size:14px;">인근 학교 기출 문제 기반 내신 집중 대비</div><div style="font-size:12px;color:#555;line-height:1.7;">단순 교과서 풀이가 아닌, 실제 시험에 출제된 기출 유형 중심으로 수업합니다.</div></div>
+ <div><div style="font-weight:800;color:#1B2440;margin-bottom:3px;font-size:14px;">인근 학교 기출 문제 기반 내신 집중 대비</div><div style="font-size:12px;color:#555;line-height:1.7;">단순 교과서 풀이가 아닌, 실제 시험에 출제된 기출 유형 중심으로 수업합니다.</div></div>
  </div>
  <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #f0f2f5;">
  <span style="color:${tc};font-weight:900;font-size:18px;flex-shrink:0;">✓</span>
- <div><div style="font-weight:800;color:#2E2A45;margin-bottom:3px;font-size:14px;">카카오톡 24시간 질문 가능</div><div style="font-size:12px;color:#555;line-height:1.7;">수업 외 시간에도 모르는 문제가 생기면 바로 질문할 수 있습니다. 질문을 미루지 않는 것이 성적을 만듭니다.</div></div>
+ <div><div style="font-weight:800;color:#1B2440;margin-bottom:3px;font-size:14px;">카카오톡 24시간 질문 가능</div><div style="font-size:12px;color:#555;line-height:1.7;">수업 외 시간에도 모르는 문제가 생기면 바로 질문할 수 있습니다. 질문을 미루지 않는 것이 성적을 만듭니다.</div></div>
  </div>
  <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;">
  <span style="color:${tc};font-weight:900;font-size:18px;flex-shrink:0;">✓</span>
- <div><div style="font-weight:800;color:#2E2A45;margin-bottom:3px;font-size:14px;">매주 학부모님께 학습 피드백 제공</div><div style="font-size:12px;color:#555;line-height:1.7;">학습 진도, 과제 완료율, 성적 변화를 매주 공유해 드립니다. 투명한 소통으로 신뢰를 드립니다.</div></div>
+ <div><div style="font-weight:800;color:#1B2440;margin-bottom:3px;font-size:14px;">매주 학부모님께 학습 피드백 제공</div><div style="font-size:12px;color:#555;line-height:1.7;">학습 진도, 과제 완료율, 성적 변화를 매주 공유해 드립니다. 투명한 소통으로 신뢰를 드립니다.</div></div>
  </div>
  </div>
  </div>
@@ -2380,7 +2381,7 @@ function buildDongPage(rs, cs, dong) {
 
  <!-- 과목 탭 -->
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:32px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:18px;">📚 ${dong} 학년별 과외 목록</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:18px;">📚 ${dong} 학년별 과외 목록</h2>
  <div style="display:flex;gap:10px;margin-bottom:18px;">${tabBtns}</div>
  ${tabContents}
  </div>
@@ -2433,21 +2434,21 @@ function buildDongDetailPage(rs, cs, dong, grade, subject) {
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${rd}</a> &rsaquo;
  <a href="/${rs}/${cs}/${encodeURIComponent(dong)}" style="color:#888;text-decoration:none;">${dong}</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${grade} ${subject}</span>
+ <span style="color:#1B2440;font-weight:700;">${grade} ${subject}</span>
  </p>
  <div style="display:inline-block;background:${color};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📍 ${dong} ${grade} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${title} | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${title} | 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rawDesc}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg(subject,cH(rs+cs+dong+grade+subject))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg(subject,cH(rs+cs+dong+grade+subject))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${title}</h2>
  <div style="display:flex;gap:10px;flex-wrap:wrap;">
  <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 첫 상담·체험 무료</span>
- <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 방문·화상 결정</span>
+ <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 수업 시간 결정</span>
  </div>
  </div>
  </div>
@@ -2462,32 +2463,32 @@ function buildDongDetailPage(rs, cs, dong, grade, subject) {
  </div>
 
  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:clamp(22px,4vw,40px);margin-bottom:20px;">
- <h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">👤 이런 학생에게 추천합니다</h2>
+ <h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">👤 이런 학생에게 추천합니다</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">📚</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${rec[grade]}</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${rec[grade]}</div>
  </div>
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">🏠</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${dong}에서 방문, 화상 수업을 원하는 학생</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${dong}에서 화상 수업을 원하는 학생</div>
  </div>
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">🎯</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${subject} 기초부터 심화까지 체계적으로 배우고 싶은 학생</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${subject} 기초부터 심화까지 체계적으로 배우고 싶은 학생</div>
  </div>
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">📊</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${schoolStr} 내신 성적을 올리고 싶은 학생</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${schoolStr} 내신 성적을 올리고 싶은 학생</div>
  </div>
  </div>
  </div>
 
  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:clamp(22px,4vw,40px);margin-bottom:20px;">
- <h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">📋 수업 구성 & 커리큘럼</h2>
+ <h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">📋 수업 구성 & 커리큘럼</h2>
  <div style="display:flex;flex-direction:column;gap:12px;">
  ${steps.map((s,i)=>`
- <div style="display:flex;align-items:flex-start;gap:14px;background:#F5F2FC;border-radius:12px;padding:16px 18px;">
+ <div style="display:flex;align-items:flex-start;gap:14px;background:#EFF1F8;border-radius:12px;padding:16px 18px;">
  <div style="background:${color};color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">${i+1}</div>
  <div style="font-size:14px;color:#333;font-weight:600;line-height:1.6;">${s}</div>
  </div>`).join("")}
@@ -2495,7 +2496,7 @@ function buildDongDetailPage(rs, cs, dong, grade, subject) {
  </div>
 
  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:clamp(22px,4vw,40px);margin-bottom:20px;">
- <h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">✨ 홈투과외 1:1 ${subject} 과외의 특별함</h2>
+ <h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">✨ 홈투과외 1:1 ${subject} 과외의 특별함</h2>
  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
  <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#333;line-height:1.7;"><span style="color:${color};font-weight:900;flex-shrink:0;">✓</span><span><strong>${dong} 지역 학교 내신 기출 완벽 분석</strong> — 시험 출제 경향을 파악해 핵심 문제만 집중 훈련합니다.</span></li>
  <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#333;line-height:1.7;"><span style="color:${color};font-weight:900;flex-shrink:0;">✓</span><span><strong>학생 수준·성향에 맞춘 100% 맞춤 커리큘럼</strong> — 처음부터 끝까지 학생 페이스에 맞게 진행합니다.</span></li>
@@ -2521,7 +2522,7 @@ function buildDongDetailPage(rs, cs, dong, grade, subject) {
  })()}
 
  <div style="text-align:center;margin-bottom:40px;">
- <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#7B6EF6,#e0c080);color:#2E2A45;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
+ <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#3B5BDB,#e0c080);color:#1B2440;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
  📝 1:1 무료 모의수업 &amp; 상담 신청하기
  </a>
  <p style="font-size:13px;color:#999;margin-top:12px;">첫 상담 및 체험 수업은 완전 무료입니다</p>
@@ -2543,8 +2544,8 @@ function buildSchoolDetailPage(rs, cs, schoolShort, grade, subject) {
  const newTitle = schoolFull+' '+grade+' '+subject+'과외';
  html = html.split(oldTitle).join(newTitle);
  html = html.replace(
-  '<p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/'+rs+'/'+cs+'" style="color:#888;text-decoration:none;">'+fullRd+'</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">'+grade+' '+subject+'</span></p>',
-  '<p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/'+rs+'/'+cs+'/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo; <a href="/'+rs+'/'+cs+'/school/'+encodeURIComponent(schoolShort)+'" style="color:#888;text-decoration:none;">'+schoolFull+'</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">'+grade+' '+subject+'</span></p>'
+  '<p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/'+rs+'/'+cs+'" style="color:#888;text-decoration:none;">'+fullRd+'</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">'+grade+' '+subject+'</span></p>',
+  '<p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/'+rs+'/'+cs+'/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo; <a href="/'+rs+'/'+cs+'/school/'+encodeURIComponent(schoolShort)+'" style="color:#888;text-decoration:none;">'+schoolFull+'</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">'+grade+' '+subject+'</span></p>'
  );
 
  // === 학교별 고유 콘텐츠 (시드 기반 변형) ===
@@ -2652,13 +2653,13 @@ function buildSchoolDetailPage(rs, cs, schoolShort, grade, subject) {
  const roadmap = pick(roadmapPool, 4, 20);
 
  // 섹션 1: 학교 맞춤 전략 (확장)
- const sec1 = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid #7B6EF6;padding-left:14px;margin-bottom:18px;">🏫 '+sn+' 학생을 위한 맞춤 전략</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:18px;"><strong style="color:#7B6EF6;">'+sg+' 과외</strong>는 동일 진도 수업과 다릅니다. '+approaches[0]+' 또한 '+approaches[1]+' 마지막으로 '+approaches[2]+'</p><div style="background:#F5F2FC;border-radius:12px;padding:18px 22px;"><div style="font-size:13px;font-weight:800;color:#2E2A45;margin-bottom:10px;">📚 '+sn+' 학생 전용 학습 포인트</div><ul style="margin:0;padding-left:20px;font-size:13px;color:#555;line-height:2;"><li>'+benefits[0]+'</li><li>'+benefits[1]+'</li><li>'+benefits[2]+'</li></ul></div></div></div>';
+ const sec1 = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid #3B5BDB;padding-left:14px;margin-bottom:18px;">🏫 '+sn+' 학생을 위한 맞춤 전략</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:18px;"><strong style="color:#3B5BDB;">'+sg+' 과외</strong>는 동일 진도 수업과 다릅니다. '+approaches[0]+' 또한 '+approaches[1]+' 마지막으로 '+approaches[2]+'</p><div style="background:#EFF1F8;border-radius:12px;padding:18px 22px;"><div style="font-size:13px;font-weight:800;color:#1B2440;margin-bottom:10px;">📚 '+sn+' 학생 전용 학습 포인트</div><ul style="margin:0;padding-left:20px;font-size:13px;color:#555;line-height:2;"><li>'+benefits[0]+'</li><li>'+benefits[1]+'</li><li>'+benefits[2]+'</li></ul></div></div></div>';
 
  // 섹션 2: 학교 내신 시험 대비
- const sec2 = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid #e74c3c;padding-left:14px;margin-bottom:18px;">📝 '+sn+' '+subject+' 시험 대비 가이드</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:16px;">'+sn+' '+grade+' '+subject+' 정기고사는 단순한 교과서 학습으로는 부족합니다. '+exams[0]+'</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px;"><div style="border:1px solid #fde2e2;border-radius:12px;padding:16px;background:#fff5f5;"><div style="font-weight:800;color:#e74c3c;margin-bottom:8px;font-size:13px;">🎯 핵심 포인트 1</div><div style="font-size:12px;color:#555;line-height:1.8;">'+exams[1]+'</div></div><div style="border:1px solid #fde2e2;border-radius:12px;padding:16px;background:#fff5f5;"><div style="font-weight:800;color:#e74c3c;margin-bottom:8px;font-size:13px;">🎯 핵심 포인트 2</div><div style="font-size:12px;color:#555;line-height:1.8;">'+exams[2]+'</div></div></div></div></div>';
+ const sec2 = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid #e74c3c;padding-left:14px;margin-bottom:18px;">📝 '+sn+' '+subject+' 시험 대비 가이드</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:16px;">'+sn+' '+grade+' '+subject+' 정기고사는 단순한 교과서 학습으로는 부족합니다. '+exams[0]+'</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px;"><div style="border:1px solid #fde2e2;border-radius:12px;padding:16px;background:#fff5f5;"><div style="font-weight:800;color:#e74c3c;margin-bottom:8px;font-size:13px;">🎯 핵심 포인트 1</div><div style="font-size:12px;color:#555;line-height:1.8;">'+exams[1]+'</div></div><div style="border:1px solid #fde2e2;border-radius:12px;padding:16px;background:#fff5f5;"><div style="font-weight:800;color:#e74c3c;margin-bottom:8px;font-size:13px;">🎯 핵심 포인트 2</div><div style="font-size:12px;color:#555;line-height:1.8;">'+exams[2]+'</div></div></div></div></div>';
 
  // 섹션 3: 학교 학습 로드맵
- const sec3 = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid #3498db;padding-left:14px;margin-bottom:18px;">🗓️ '+sn+' '+grade+' '+subject+' 10주 로드맵</h2><p style="font-size:13px;color:#666;margin-bottom:16px;">'+sn+' 시험 일정 기준으로 설계된 단계별 학습 플랜입니다.</p><div style="display:flex;flex-direction:column;gap:8px;">'+roadmap.map((step,i)=>'<div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#F5F2FC;border-radius:10px;border-left:3px solid #3498db;"><span style="background:#3498db;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">'+(i+1)+'</span><span style="font-size:13px;color:#2E2A45;line-height:1.7;">'+step+'</span></div>').join('')+'</div></div></div>';
+ const sec3 = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid #3498db;padding-left:14px;margin-bottom:18px;">🗓️ '+sn+' '+grade+' '+subject+' 10주 로드맵</h2><p style="font-size:13px;color:#666;margin-bottom:16px;">'+sn+' 시험 일정 기준으로 설계된 단계별 학습 플랜입니다.</p><div style="display:flex;flex-direction:column;gap:8px;">'+roadmap.map((step,i)=>'<div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#EFF1F8;border-radius:10px;border-left:3px solid #3498db;"><span style="background:#3498db;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">'+(i+1)+'</span><span style="font-size:13px;color:#1B2440;line-height:1.7;">'+step+'</span></div>').join('')+'</div></div></div>';
 
  // 섹션 4: 학교 학생 자주 묻는 질문
  // 섹션 4: 학교 학생 자주 묻는 질문 (JSON-LD FAQ Schema 포함)
@@ -2671,7 +2672,7 @@ function buildSchoolDetailPage(rs, cs, schoolShort, grade, subject) {
    "acceptedAnswer":{"@type":"Answer","text":f.a}
   };})
  })+'</script>';
- const sec4 = sec4Schema+'<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid #2ecc71;padding-left:14px;margin-bottom:18px;">❓ '+sn+' 학부모님이 자주 묻는 질문</h2>'+faqs.map(f=>'<div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #eef2f7;"><div style="font-weight:800;color:#2E2A45;margin-bottom:8px;font-size:14px;">Q. '+f.q+'</div><div style="font-size:13px;color:#555;line-height:2;">A. '+f.a+'</div></div>').join('')+'</div></div>';
+ const sec4 = sec4Schema+'<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);"><h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid #2ecc71;padding-left:14px;margin-bottom:18px;">❓ '+sn+' 학부모님이 자주 묻는 질문</h2>'+faqs.map(f=>'<div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #eef2f7;"><div style="font-weight:800;color:#1B2440;margin-bottom:8px;font-size:14px;">Q. '+f.q+'</div><div style="font-size:13px;color:#555;line-height:2;">A. '+f.a+'</div></div>').join('')+'</div></div>';
 
  // 모든 섹션 결합
  const allSections = sec1 + sec2 + sec3 + sec4;
@@ -2711,20 +2712,20 @@ function buildDetailPage(rs, cs, grade, subject) {
  <meta name="description" content="${fullRd} ${grade} ${subject} 과외. ${c.desc.substring(0,60)}. 홈투과외 1:1 맞춤 수업, 첫 체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${fullRd}</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${grade} ${subject}</span></p>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${fullRd}</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${grade} ${subject}</span></p>
  <div style="display:inline-block;background:${color};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📍 ${fullRd} ${grade} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${fullRd} ${grade} ${subject}과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${fullRd} ${grade} ${subject}과외 | 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${c.desc}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg(subject,cH(rs+cs+grade+subject))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg(subject,cH(rs+cs+grade+subject))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${fullRd} ${grade} ${subject}과외</h2>
  <div style="display:flex;gap:10px;flex-wrap:wrap;">
  <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 첫 상담·체험 무료</span>
- <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 방문·화상 결정</span>
+ <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;">✅ 상담 후 수업 시간 결정</span>
  </div></div></div></div>
  <div style="max-width:900px;margin:0 auto;padding:0 20px;">
 
@@ -2736,32 +2737,32 @@ function buildDetailPage(rs, cs, grade, subject) {
  </div>
 
  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:clamp(22px,4vw,40px);margin-bottom:20px;">
- <h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">👤 이런 학생에게 추천합니다</h2>
+ <h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">👤 이런 학생에게 추천합니다</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">📚</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${rec[grade]}</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${rec[grade]}</div>
  </div>
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">🏠</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${rd} ${dongStr} 방문, 화상 수업을 원하는 학생</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${rd} ${dongStr} 화상 수업을 원하는 학생</div>
  </div>
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">🎯</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${subject} 기초부터 심화까지 완성하고 싶은 학생</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${subject} 기초부터 심화까지 완성하고 싶은 학생</div>
  </div>
- <div style="background:#F5F2FC;border-radius:12px;padding:16px;text-align:center;">
+ <div style="background:#EFF1F8;border-radius:12px;padding:16px;text-align:center;">
  <div style="font-size:24px;margin-bottom:8px;">📊</div>
- <div style="font-size:13px;font-weight:700;color:#2E2A45;">${schoolStr} 내신 성적을 올리고 싶은 학생</div>
+ <div style="font-size:13px;font-weight:700;color:#1B2440;">${schoolStr} 내신 성적을 올리고 싶은 학생</div>
  </div>
  </div>
  </div>
 
  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:clamp(22px,4vw,40px);margin-bottom:20px;">
- <h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">📋 수업 구성 & 커리큘럼</h2>
+ <h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">📋 수업 구성 & 커리큘럼</h2>
  <div style="display:flex;flex-direction:column;gap:12px;">
  ${steps.map((s,i)=>`
- <div style="display:flex;align-items:flex-start;gap:14px;background:#F5F2FC;border-radius:12px;padding:16px 18px;">
+ <div style="display:flex;align-items:flex-start;gap:14px;background:#EFF1F8;border-radius:12px;padding:16px 18px;">
  <div style="background:${color};color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">${i+1}</div>
  <div style="font-size:14px;color:#333;font-weight:600;line-height:1.6;">${s}</div>
  </div>`).join("")}
@@ -2769,7 +2770,7 @@ function buildDetailPage(rs, cs, grade, subject) {
  </div>
 
  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:clamp(22px,4vw,40px);margin-bottom:20px;">
- <h2 style="font-size:18px;font-weight:900;color:#2E2A45;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">✨ 홈투과외 1:1 ${subject} 과외의 특별함</h2>
+ <h2 style="font-size:18px;font-weight:900;color:#1B2440;border-left:5px solid ${color};padding-left:12px;margin-bottom:16px;">✨ 홈투과외 1:1 ${subject} 과외의 특별함</h2>
  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
  <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#333;line-height:1.7;"><span style="color:${color};font-weight:900;flex-shrink:0;">✓</span><span><strong>${rd} 학교별 내신 기출 완벽 분석</strong> — 출제 경향을 파악해 시험에 직결되는 핵심 문제만 훈련합니다.</span></li>
  <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#333;line-height:1.7;"><span style="color:${color};font-weight:900;flex-shrink:0;">✓</span><span><strong>학생 수준·성향에 맞춘 100% 맞춤 커리큘럼</strong> — 처음부터 끝까지 학생 페이스에 맞게 진행합니다.</span></li>
@@ -2782,7 +2783,7 @@ function buildDetailPage(rs, cs, grade, subject) {
  ${renderUniqueContent(genContent(rs,cs,"",grade,subject,ci.schools),rd,grade,subject,color,rd,ci.schools)}
 
  <div style="text-align:center;margin-bottom:40px;">
- <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#7B6EF6,#e0c080);color:#2E2A45;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
+ <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#3B5BDB,#e0c080);color:#1B2440;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
  📝 1:1 무료 모의수업 &amp; 상담 신청하기
  </a>
  <p style="font-size:13px;color:#999;margin-top:12px;">첫 상담 및 체험 수업은 완전 무료입니다</p>
@@ -2845,7 +2846,7 @@ function buildSchoolListPage(rs, cs) {
  onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'"
  onmouseout="this.style.transform='';this.style.boxShadow=''">
  <div style="position:absolute;top:-8px;right:-8px;width:40px;height:40px;background:${bgColor};border-radius:50%;opacity:0.5;"></div>
- <div style="font-size:15px;font-weight:900;color:#2E2A45;margin-bottom:10px;position:relative;z-index:1;">⭐ ${fullName}</div>
+ <div style="font-size:15px;font-weight:900;color:#1B2440;margin-bottom:10px;position:relative;z-index:1;">⭐ ${fullName}</div>
  <div style="color:${color};font-size:12px;font-weight:700;position:relative;z-index:1;">자세히 보기 →</div>
  </div>
  </a>`;
@@ -2853,7 +2854,7 @@ function buildSchoolListPage(rs, cs) {
  return `<div style="margin-bottom:44px;">
  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
  <span style="display:inline-flex;align-items:center;justify-content:center;background:${color};color:white;width:36px;height:36px;border-radius:10px;font-size:18px;font-weight:900;">${badge}</span>
- <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin:0;">${title}</h2>
+ <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin:0;">${title}</h2>
  <span style="background:${bgColor};color:${color};padding:5px 14px;border-radius:20px;font-size:13px;font-weight:800;">${list.length}개교</span>
  </div>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">${cards}</div>
@@ -2875,10 +2876,10 @@ function buildSchoolListPage(rs, cs) {
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo;
  <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${rd}</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${fullRd}</span>
+ <span style="color:#1B2440;font-weight:700;">${fullRd}</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">🏫 ${fullRd}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${fullRd} 학교별 과외 | ${totalCount}개교 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${fullRd} 학교별 과외 | ${totalCount}개교 맞춤 1:1 과외</h1>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} 지역 초등·중등·고등학교 재학생을 위한 학교별 맞춤 1:1 과외를 연결합니다. 해당 학교 기출을 완벽히 파악한 검증된 선생님을 빠르게 매칭해드립니다.</p>
  </div>
 
@@ -2887,7 +2888,7 @@ function buildSchoolListPage(rs, cs) {
  <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${(() => {
  const imgs = {"seoul":"https://images.unsplash.com/photo-1546874177-9e664107314e?w=1200&h=400&fit=crop","gyeonggi":"https://images.unsplash.com/photo-1580137189272-c9379f8864fd?w=1200&h=400&fit=crop","incheon":"https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=1200&h=400&fit=crop","busan":"https://images.unsplash.com/photo-1595882080887-db25e0c0e44e?w=1200&h=400&fit=crop","daegu":"https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=1200&h=400&fit=crop","gwangju":"https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=1200&h=400&fit=crop","daejeon":"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=400&fit=crop","ulsan":"https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&h=400&fit=crop","sejong":"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=400&fit=crop","gangwon":"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=400&fit=crop","chungbuk":"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=400&fit=crop","chungnam":"https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=400&fit=crop","jeonbuk":"https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=1200&h=400&fit=crop","jeonnam":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=400&fit=crop","gyeongbuk":"https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=400&fit=crop","gyeongnam":"https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1200&h=400&fit=crop","jeju":"https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&h=400&fit=crop"};
  return imgs[rs] || "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=400&fit=crop";
- })()}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ })()}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">📍 홈투과외 1:1 맞춤 과외</p>
@@ -2902,21 +2903,21 @@ function buildSchoolListPage(rs, cs) {
  </div>
 
  <!-- 통계 바 -->
- <div style="background:white;border-bottom:1px solid #ECE7F6;padding:22px 20px;">
+ <div style="background:white;border-bottom:1px solid #E3E7F0;padding:22px 20px;">
  <div style="max-width:1100px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;text-align:center;">
  <div>
- <div style="font-size:28px;font-weight:900;color:#2E2A45;">${totalCount}</div>
+ <div style="font-size:28px;font-weight:900;color:#1B2440;">${totalCount}</div>
  <div style="font-size:12px;color:#888;font-weight:600;">전체 학교</div>
  </div>
- <div style="border-left:1px solid #ECE7F6;">
+ <div style="border-left:1px solid #E3E7F0;">
  <div style="font-size:28px;font-weight:900;color:#3498db;">${elemList.length}</div>
  <div style="font-size:12px;color:#888;font-weight:600;">초등학교</div>
  </div>
- <div style="border-left:1px solid #ECE7F6;">
+ <div style="border-left:1px solid #E3E7F0;">
  <div style="font-size:28px;font-weight:900;color:#2ecc71;">${midList.length}</div>
  <div style="font-size:12px;color:#888;font-weight:600;">중학교</div>
  </div>
- <div style="border-left:1px solid #ECE7F6;">
+ <div style="border-left:1px solid #E3E7F0;">
  <div style="font-size:28px;font-weight:900;color:#e74c3c;">${highList.length}</div>
  <div style="font-size:12px;color:#888;font-weight:600;">고등학교</div>
  </div>
@@ -2973,7 +2974,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
  const gc = {"초등":"#3498db","중등":"#2ecc71","고등":"#e74c3c"};
  const gcBg= {"초등":"#eaf4fd","중등":"#e8f8f5","고등":"#fdecea"};
  const typeColor = gradeKey ? gc[gradeKey] : tc;
- const typeBg = gradeKey ? gcBg[gradeKey] : "#F5F2FC";
+ const typeBg = gradeKey ? gcBg[gradeKey] : "#EFF1F8";
 
  // 학교별 3000자 콘텐츠 생성 (학교명이 시드에 포함되어 고유)
  const ct = genContent(rs, cs, schoolShort, gradeKey||"", "", schools);
@@ -2997,20 +2998,20 @@ function buildSchoolPage(rs, cs, schoolShort) {
 
  // ── 학교 개요 섹션 HTML 생성 ──
  let overview = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:16px;">⭐ ${schoolFull} 과외 개요</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:16px;">⭐ ${schoolFull} 과외 개요</h2>
  <p style="font-size:14px;color:#444;line-height:2;margin:0;">${overviewText}</p>
  </div>`;
 
  // ── 학교 맞춤 공부법 섹션 ──
  let studyGuide = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:16px;">📖 ${schoolFull} 재학생 맞춤 공부법</h2>`;
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:16px;">📖 ${schoolFull} 재학생 맞춤 공부법</h2>`;
  schoolSections.forEach(function(body){
  studyGuide += `<div style="background:${typeBg};border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid ${typeColor};">
  <p style="font-size:14px;color:#333;line-height:2;margin:0;">${body}</p>
  </div>`;
  });
  moreTips.forEach(function(t){
- studyGuide += `<div style="background:#F5F2FC;border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+ studyGuide += `<div style="background:#EFF1F8;border-radius:14px;padding:18px 22px;margin-bottom:12px;">
  <p style="font-size:14px;color:#333;line-height:2;margin:0;">${t}</p>
  </div>`;
  });
@@ -3020,7 +3021,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
  let columns = "";
  ct.columns.slice(0,2).forEach(function(col){
  columns += `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:14px;">📝 ${col.title}</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:14px;">📝 ${col.title}</h2>
  <p style="font-size:14px;color:#444;line-height:2;">${col.body}</p>
  </div>`;
  });
@@ -3034,21 +3035,21 @@ function buildSchoolPage(rs, cs, schoolShort) {
  const validGrades = gradePoolByType[gradeKey] || RV_GRADES;
 
  let reviewSection = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:14px;">💬 ${schoolFull} 학부모님 생생 후기</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:14px;">💬 ${schoolFull} 학부모님 생생 후기</h2>
  <div class="rv-carousel" id="rvSchool"><div class="rv-track" id="rvSchoolT">`;
  ct.reviews.slice(0,6).forEach(function(rv,i){
  const fixedGrade = validGrades[(cH(rv.name+i+schoolShort)>>>0)%validGrades.length];
  reviewSection += `<div class="rv-card" style="border:2px solid ${typeColor}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
  <div style="width:40px;height:40px;border-radius:50%;background:${typeColor};color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;">${rv.name.charAt(0)}</div>
- <div><div style="font-weight:700;color:#2E2A45;font-size:14px;">${maskName(rv.name)} 학부모님</div>
+ <div><div style="font-weight:700;color:#1B2440;font-size:14px;">${maskName(rv.name)} 학부모님</div>
  <div style="font-size:12px;color:#888;">${schoolFull} · ${fixedGrade} ${rv.subj}</div></div>
  </div>
  <p style="font-size:13px;color:#555;line-height:1.8;margin:0;">"${rv.body}"</p>
  </div>`;
  });
  reviewSection += `</div><div class="rv-dots" id="rvSchoolD"><button class="rv-dot on" onclick="rvGo('rvSchool',0)"></button><button class="rv-dot" onclick="rvGo('rvSchool',1)"></button><button class="rv-dot" onclick="rvGo('rvSchool',2)"></button></div></div>
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:14px;">📈 실제 성적 향상 사례</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:14px;">📈 실제 성적 향상 사례</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">`;
  // 학교 유형에 맞는 성적 사례만 필터링 (없으면 전체에서 사용 후 학년만 교체)
  const matchingStories = SUCCESS_POOL.filter(function(s){
@@ -3066,7 +3067,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
  )) ? st.grade : validGrades[(cH(st.name+i+schoolShort)>>>0)%validGrades.length];
  reviewSection += `<div style="border:2px solid ${typeColor}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
- <span style="font-weight:800;color:#2E2A45;font-size:15px;">${st.name} 학생</span>
+ <span style="font-weight:800;color:#1B2440;font-size:15px;">${st.name} 학생</span>
  <span style="background:${typeColor}15;color:${typeColor};padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">${stGrade} ${st.subj}</span>
  </div>
  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
@@ -3088,7 +3089,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
  if (gradeKey) {
  const g = gradeKey;
  subjectCards = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:32px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:18px;">📚 ${schoolFull} ${g} 과외 과목</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${typeColor};padding-left:14px;margin-bottom:18px;">📚 ${schoolFull} ${g} 과외 과목</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">`;
  for (const c of ci.classes) {
  if (c.grade !== g) continue;
@@ -3097,7 +3098,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
  onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'"
  onmouseout="this.style.transform='';this.style.boxShadow=''">
  <div style="background:${gcBg[g]};color:${gc[g]};font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:8px;display:inline-block;">${g}</div>
- <div style="font-size:14px;font-weight:900;color:#2E2A45;margin-bottom:6px;">${schoolFull} ${c.subject}과외</div>
+ <div style="font-size:14px;font-weight:900;color:#1B2440;margin-bottom:6px;">${schoolFull} ${c.subject}과외</div>
  <div style="font-size:12px;color:#666;line-height:1.6;flex:1;">${c.desc.substring(0,55)}...</div>
  <div style="margin-top:10px;color:${gc[g]};font-weight:700;font-size:11px;">자세히 보기 →</div>
  </div>
@@ -3115,14 +3116,14 @@ function buildSchoolPage(rs, cs, schoolShort) {
  <meta name="description" content="${schoolFull} 과외 전문 홈투과외. ${schoolFull} 내신 기출 완벽 분석, 1:1 맞춤 수업, 35년 교육 노하우. 첫 상담·체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}/${cs}/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo; <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${fullRd}</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${schoolFull}</span></p>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}/${cs}/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo; <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${fullRd}</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${schoolFull}</span></p>
  <div style="display:inline-block;background:${typeColor};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🏫 ${schoolFull}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${schoolFull} 과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${schoolFull} 과외 | 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} ${schoolFull} 재학생을 위한 맞춤 1:1 과외. 방문/화상 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} ${schoolFull} 재학생을 위한 맞춤 1:1 과외. 전국 어디서든 화상 수업하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",seed)}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",seed)}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">${fullRd}</p>
@@ -3143,7 +3144,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
  ${subjectCards}
 
  <div style="text-align:center;margin-bottom:40px;">
- <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#7B6EF6,#e0c080);color:#2E2A45;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
+ <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#3B5BDB,#e0c080);color:#1B2440;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
  📝 ${schoolFull} 1:1 무료 모의수업 &amp; 상담 신청
  </a>
  <p style="font-size:13px;color:#999;margin-top:12px;">첫 상담 및 체험 수업은 완전 무료입니다</p>
@@ -3223,9 +3224,9 @@ function buildGradePage(gradeCode) {
  subjects.forEach(function(subj){
  const tips = pkU(tipPool[subj]||tipPool["국어"], seed, 2, cH(subj));
  tipSection += `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">📖 ${gd.name} ${subj} 과외 공부법</h2>`;
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">📖 ${gd.name} ${subj} 과외 공부법</h2>`;
  tips.forEach(function(t){
- tipSection += `<div style="background:#F5F2FC;border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid ${tc};">
+ tipSection += `<div style="background:#EFF1F8;border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid ${tc};">
  <p style="font-size:14px;color:#333;line-height:2;margin:0;">${t}</p>
  </div>`;
  });
@@ -3242,13 +3243,13 @@ function buildGradePage(gradeCode) {
  return {name:pk(RV_NAMES,s2,i*3),grade:gd.short,subj:pk(RV_SUBJS,s2,i*7+2),body:r};
  });
  let reviewSection = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">💬 ${gd.name} 학부모님 생생 후기</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">💬 ${gd.name} 학부모님 생생 후기</h2>
  <div class="rv-carousel" id="rvGrade"><div class="rv-track" id="rvGradeT">`;
  reviewMeta.forEach(function(rv){
  reviewSection += `<div class="rv-card" style="border:2px solid ${tc}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
  <div style="width:40px;height:40px;border-radius:50%;background:${tc};color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;">${rv.name.charAt(0)}</div>
- <div><div style="font-weight:700;color:#2E2A45;font-size:14px;">${maskName(rv.name)} 학부모님</div>
+ <div><div style="font-weight:700;color:#1B2440;font-size:14px;">${maskName(rv.name)} 학부모님</div>
  <div style="font-size:12px;color:#888;">${rv.grade} ${rv.subj}</div></div></div>
  <p style="font-size:13px;color:#555;line-height:1.8;margin:0;">"${rv.body}"</p></div>`;
  });
@@ -3268,14 +3269,14 @@ function buildGradePage(gradeCode) {
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:16px;">
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${gd.name} 과외</span>
+ <span style="color:#1B2440;font-weight:700;">${gd.name} 과외</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">${gd.emoji} ${gd.name}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${gd.name} 과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${gd.name} 과외 | 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",seed)}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",seed)}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${gd.name} 과외</h2>
@@ -3289,7 +3290,7 @@ function buildGradePage(gradeCode) {
  </div>
  <div style="max-width:900px;margin:0 auto;padding:0 20px;">
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">📌 ${gd.name} 과외가 필요한 이유</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">📌 ${gd.name} 과외가 필요한 이유</h2>
  <p style="font-size:14px;color:#444;line-height:2;margin:0;">${gd.desc}</p>
  </div>
  ${buildWhyBlock(`${gd.name} 과외`,tc,cH('grade-'+gradeCode+'-why'))}
@@ -3298,12 +3299,12 @@ function buildGradePage(gradeCode) {
  ${buildTutorBlock(`${gd.name} 과외`,tc,cH('grade-'+gradeCode+'-tutor'))}
  </div>
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:18px;">📚 ${gd.name} 과목별 과외</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:18px;">📚 ${gd.name} 과목별 과외</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
  ${subjects.map(function(s){
  const subjEmoji={"국어":"📖","영어":"🔤","수학":"🔢","사회":"🌍","과학":"🔬"};
  const subjDesc = ((descriptions[gd.level]||descriptions["초등"])[s]||"").replace(/\{region\}/g,"");
- return '<a href="/grade/'+gradeCode+'/'+encodeURIComponent(s)+'" style="text-decoration:none;"><div style="background:white;border:2px solid '+tc+';border-radius:14px;padding:16px;height:100%;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 8px 20px rgba(0,0,0,0.1)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="font-size:24px;margin-bottom:8px;">'+(subjEmoji[s]||"📚")+'</div><div style="font-size:15px;font-weight:900;color:#2E2A45;margin-bottom:6px;">'+gd.name+' '+s+'과외</div><div style="font-size:12px;color:#666;line-height:1.6;flex:1;">'+subjDesc.replace(/\{\{region\}\}/g,"").substring(0,55)+'...</div><div style="margin-top:10px;color:'+tc+';font-weight:700;font-size:11px;">자세히 보기 →</div></div></a>';
+ return '<a href="/grade/'+gradeCode+'/'+encodeURIComponent(s)+'" style="text-decoration:none;"><div style="background:white;border:2px solid '+tc+';border-radius:14px;padding:16px;height:100%;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 8px 20px rgba(0,0,0,0.1)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="font-size:24px;margin-bottom:8px;">'+(subjEmoji[s]||"📚")+'</div><div style="font-size:15px;font-weight:900;color:#1B2440;margin-bottom:6px;">'+gd.name+' '+s+'과외</div><div style="font-size:12px;color:#666;line-height:1.6;flex:1;">'+subjDesc.replace(/\{\{region\}\}/g,"").substring(0,55)+'...</div><div style="margin-top:10px;color:'+tc+';font-weight:700;font-size:11px;">자세히 보기 →</div></div></a>';
  }).join("")}
  </div>
  </div>
@@ -3311,7 +3312,7 @@ function buildGradePage(gradeCode) {
  ${reviewSection}
  ${faqSection}
  <div style="text-align:center;margin-bottom:40px;">
- <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#7B6EF6,#e0c080);color:#2E2A45;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
+ <a href="/#form" style="display:inline-block;background:linear-gradient(135deg,#3B5BDB,#e0c080);color:#1B2440;font-size:17px;font-weight:900;padding:20px 48px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(200,169,110,0.4);">
  📝 ${gd.name} 1:1 무료 모의수업 &amp; 상담 신청
  </a>
  <p style="font-size:13px;color:#999;margin-top:12px;">첫 상담 및 체험 수업은 완전 무료입니다</p>
@@ -3333,9 +3334,9 @@ function buildGradeSubjectPage(gradeCode, subject) {
  // 해당 과목 팁 6개
  const tips = pkU(tipPool[subject]||tipPool["국어"], seed, 6, 1);
  let tipSection = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">📖 ${gd.name} ${subject} 공부법 & 학습 전략</h2>`;
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">📖 ${gd.name} ${subject} 공부법 & 학습 전략</h2>`;
  tips.forEach(function(t){
- tipSection += `<div style="background:#F5F2FC;border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid ${tc};">
+ tipSection += `<div style="background:#EFF1F8;border-radius:14px;padding:18px 22px;margin-bottom:12px;border-left:4px solid ${tc};">
  <p style="font-size:14px;color:#333;line-height:2;margin:0;">${t}</p>
  </div>`;
  });
@@ -3379,15 +3380,15 @@ function buildGradeSubjectPage(gradeCode, subject) {
    ];
   }
   gedSection = '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">'+
-   '<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:18px;">📚 '+gedTitle+'</h2>'+
+   '<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:18px;">📚 '+gedTitle+'</h2>'+
    '<p style="font-size:14px;color:#666;line-height:2;margin-bottom:20px;">'+gd.name+' 학생을 위한 검정고시 시험 과목별 학습 가이드입니다. 각 과목의 출제 특성과 효율적인 학습 방법을 자세히 안내합니다.</p>'+
-   gedSubjects.map(function(s){return '<div style="background:#F5F2FC;border-radius:14px;padding:20px 22px;margin-bottom:14px;border-left:4px solid '+tc+';"><h3 style="font-size:15px;font-weight:800;color:#2E2A45;margin-bottom:10px;">'+s.n+'</h3><p style="font-size:13.5px;color:#444;line-height:2;margin:0;">'+s.c+'</p></div>';}).join('')+
+   gedSubjects.map(function(s){return '<div style="background:#EFF1F8;border-radius:14px;padding:20px 22px;margin-bottom:14px;border-left:4px solid '+tc+';"><h3 style="font-size:15px;font-weight:800;color:#1B2440;margin-bottom:10px;">'+s.n+'</h3><p style="font-size:13.5px;color:#444;line-height:2;margin:0;">'+s.c+'</p></div>';}).join('')+
    '</div>';
  }
  // 전략 (STRAT_GRADE에서)
  const strat = pk(STRAT_GRADE[level]||STRAT_GRADE["초등"], seed, 3);
  let stratSection = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">🎯 ${gd.name} 학습 전략</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">🎯 ${gd.name} 학습 전략</h2>
  <p style="font-size:14px;color:#444;line-height:2;margin:0;">${strat}</p>
  </div>`;
  // 교육 칼럼
@@ -3395,7 +3396,7 @@ function buildGradeSubjectPage(gradeCode, subject) {
  let colSection = "";
  columns.forEach(function(col){
  colSection += `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📝 ${col.title}</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📝 ${col.title}</h2>
  <p style="font-size:14px;color:#444;line-height:2;">${col.body}</p>
  </div>`;
  });
@@ -3410,13 +3411,13 @@ function buildGradeSubjectPage(gradeCode, subject) {
  return {name:pk(RV_NAMES,s2,i*3),grade:gd.short,subj:subject,body:r};
  });
  let reviewSection = `<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">💬 ${gd.name} ${subject} 학부모님 생생 후기</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">💬 ${gd.name} ${subject} 학부모님 생생 후기</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px;">`;
  reviewMeta.forEach(function(rv){
  reviewSection += `<div style="border:2px solid ${tc}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
  <div style="width:40px;height:40px;border-radius:50%;background:${tc};color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;">${rv.name.charAt(0)}</div>
- <div><div style="font-weight:700;color:#2E2A45;font-size:14px;">${maskName(rv.name)} 학부모님</div>
+ <div><div style="font-weight:700;color:#1B2440;font-size:14px;">${maskName(rv.name)} 학부모님</div>
  <div style="font-size:12px;color:#888;">${rv.grade} ${rv.subj}</div></div></div>
  <p style="font-size:13px;color:#555;line-height:1.8;margin:0;">"${rv.body}"</p></div>`;
  });
@@ -3425,12 +3426,12 @@ function buildGradeSubjectPage(gradeCode, subject) {
  var storyPool = SUCCESS_POOL.filter(function(s){return s.subj===subject;});
  if(storyPool.length<3) storyPool = SUCCESS_POOL;
  const stories = pkU(storyPool, seed, 3, 17);
- reviewSection += `<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📈 ${gd.name} ${subject} 실제 성적 향상 사례</h2>
+ reviewSection += `<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:14px;">📈 ${gd.name} ${subject} 실제 성적 향상 사례</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">`;
  stories.forEach(function(st){
  reviewSection += `<div class="rv-card" style="border:2px solid ${tc}22;border-radius:16px;padding:20px;background:white;">
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
- <span style="font-weight:800;color:#2E2A45;font-size:15px;">${st.name} 학생</span>
+ <span style="font-weight:800;color:#1B2440;font-size:15px;">${st.name} 학생</span>
  <span style="background:${tc}15;color:${tc};padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">${gd.short} ${st.subj}</span></div>
  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
  <span style="background:#fdecea;color:#e74c3c;padding:6px 14px;border-radius:8px;font-weight:800;font-size:15px;">${st.from}</span>
@@ -3455,14 +3456,14 @@ function buildGradeSubjectPage(gradeCode, subject) {
  <meta name="description" content="${gd.name} ${subject} 과외 전문 홈투과외. ${subjDesc.substring(0,60)} 35년 교육 노하우, 첫 상담·체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/grade/${gradeCode}" style="color:#888;text-decoration:none;">${gd.name}</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${subject}과외</span></p>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/grade/${gradeCode}" style="color:#888;text-decoration:none;">${gd.name}</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${subject}과외</span></p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📚 ${gd.name} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${gd.name} ${subject}과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${gd.name} ${subject}과외 | 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${gd.name} ${subject} 전문 1:1 맞춤 과외. 학교별 내신 완벽 대비. 방문/화상 모두 가능하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${gd.name} ${subject} 전문 1:1 맞춤 과외. 학교별 내신 완벽 대비. 전국 어디서든 화상 수업하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${heroImg}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${heroImg}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${gd.name} ${subject}과외</h2>
@@ -3477,7 +3478,7 @@ function buildGradeSubjectPage(gradeCode, subject) {
  ${buildTutorBlock(`${gd.name} ${subject}과외`,tc,cH('gradeSubj-'+gradeCode+'-'+subject+'-tutor'))}
  </div>
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">
- <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">⭐ ${gd.name} ${subject}과외 개요</h2>
+ <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid ${tc};padding-left:14px;margin-bottom:16px;">⭐ ${gd.name} ${subject}과외 개요</h2>
  <p style="font-size:14px;color:#444;line-height:2;margin:0;">${subjDesc} ${gd.desc}</p>
  </div>
  ${tipSection}
@@ -4107,7 +4108,7 @@ function buildCenterDetailPage(slug) {
  const gradeColor=function(gr){
  if(!gr) return {bg:'#f8f9fa',fg:'#999'};
  const hasEl=/초/.test(gr), hasMid=/중/.test(gr), hasHigh=/고/.test(gr);
- if(hasEl&&hasHigh) return {bg:'#2E2A4510',fg:'#2E2A45'};
+ if(hasEl&&hasHigh) return {bg:'#1B244010',fg:'#1B2440'};
  if(hasHigh) return {bg:'#f59e0b15',fg:'#d97706'};
  if(hasMid) return {bg:'#10b98115',fg:'#059669'};
  if(hasEl) return {bg:'#3b82f615',fg:'#2563eb'};
@@ -4121,8 +4122,8 @@ function buildCenterDetailPage(slug) {
  const gc = gradeColor(gr);
  return '<div style="background:'+col+'10;padding:12px 14px;border-radius:12px;border:1px solid '+col+'30;display:flex;justify-content:space-between;align-items:center;gap:8px;"><span style="font-size:13px;font-weight:800;color:'+col+';">'+s+'</span>'+(gr?'<span style="font-size:11px;padding:3px 10px;border-radius:50px;font-weight:700;background:'+gc.bg+';color:'+gc.fg+';">'+gr+'</span>':'')+'</div>';
  }).join('');
- const schoolList = [ct.se?'<div style="padding:10px 0;border-bottom:1px solid #f0f0f0;"><span style="display:inline-block;width:40px;background:#2E2A45;color:#7B6EF6;padding:3px 0;border-radius:6px;font-size:11px;font-weight:800;text-align:center;margin-right:10px;">초등</span><span style="font-size:13px;color:#444;">'+ct.se+'</span></div>':'',ct.sm?'<div style="padding:10px 0;border-bottom:1px solid #f0f0f0;"><span style="display:inline-block;width:40px;background:#2E2A45;color:#7B6EF6;padding:3px 0;border-radius:6px;font-size:11px;font-weight:800;text-align:center;margin-right:10px;">중등</span><span style="font-size:13px;color:#444;">'+ct.sm+'</span></div>':'',ct.sh?'<div style="padding:10px 0;"><span style="display:inline-block;width:40px;background:#2E2A45;color:#7B6EF6;padding:3px 0;border-radius:6px;font-size:11px;font-weight:800;text-align:center;margin-right:10px;">고등</span><span style="font-size:13px;color:#444;">'+ct.sh+'</span></div>':''].join('');
- const wkBadge = ct.w&&ct.w!=='주말불가'&&ct.w!=='' ? '<span style="background:#7B6EF615;color:#7B6EF6;padding:6px 16px;border-radius:50px;font-size:13px;font-weight:700;border:1px solid #7B6EF640;">✓ '+ct.w+'</span>' : '<span style="background:#f8f9fa;color:#999;padding:6px 16px;border-radius:50px;font-size:13px;font-weight:700;border:1px solid #e5e5e5;">주말수업 불가</span>';
+ const schoolList = [ct.se?'<div style="padding:10px 0;border-bottom:1px solid #f0f0f0;"><span style="display:inline-block;width:40px;background:#1B2440;color:#3B5BDB;padding:3px 0;border-radius:6px;font-size:11px;font-weight:800;text-align:center;margin-right:10px;">초등</span><span style="font-size:13px;color:#444;">'+ct.se+'</span></div>':'',ct.sm?'<div style="padding:10px 0;border-bottom:1px solid #f0f0f0;"><span style="display:inline-block;width:40px;background:#1B2440;color:#3B5BDB;padding:3px 0;border-radius:6px;font-size:11px;font-weight:800;text-align:center;margin-right:10px;">중등</span><span style="font-size:13px;color:#444;">'+ct.sm+'</span></div>':'',ct.sh?'<div style="padding:10px 0;"><span style="display:inline-block;width:40px;background:#1B2440;color:#3B5BDB;padding:3px 0;border-radius:6px;font-size:11px;font-weight:800;text-align:center;margin-right:10px;">고등</span><span style="font-size:13px;color:#444;">'+ct.sh+'</span></div>':''].join('');
+ const wkBadge = ct.w&&ct.w!=='주말불가'&&ct.w!=='' ? '<span style="background:#3B5BDB15;color:#3B5BDB;padding:6px 16px;border-radius:50px;font-size:13px;font-weight:700;border:1px solid #3B5BDB40;">✓ '+ct.w+'</span>' : '<span style="background:#f8f9fa;color:#999;padding:6px 16px;border-radius:50px;font-size:13px;font-weight:700;border:1px solid #e5e5e5;">주말수업 불가</span>';
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -4137,14 +4138,14 @@ function buildCenterDetailPage(slug) {
  ${COMMON_STYLE}
  </head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/academy" style="color:#888;text-decoration:none;">학원수업</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${ct.n}</span></p>
- <div style="display:inline-block;background:#7B6EF6;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🏫 ${ct.n}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${ct.n} | 학습코칭학원</h1>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/academy" style="color:#888;text-decoration:none;">학원수업</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${ct.n}</span></p>
+ <div style="display:inline-block;background:#3B5BDB;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🏫 ${ct.n}</div>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${ct.n} | 학습코칭학원</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">📍 ${ct.a}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(ct.sl))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(ct.sl))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:6px;">${ct.r}</p>
@@ -4157,31 +4158,31 @@ function buildCenterDetailPage(slug) {
 
  <!-- 수업 과목 + 타겟 학교 -->
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
- <div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #2E2A45;">
- <h3 style="font-size:16px;font-weight:900;color:#2E2A45;margin-bottom:16px;">📚 수업 과목 &amp; 가능 학년</h3>
+ <div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #1B2440;">
+ <h3 style="font-size:16px;font-weight:900;color:#1B2440;margin-bottom:16px;">📚 수업 과목 &amp; 가능 학년</h3>
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">${subjBadges}</div>
  <div style="margin-top:18px;padding-top:16px;border-top:1px solid #E2E8F0;">
-  <h4 style="font-size:15px;font-weight:800;color:#2E2A45;margin-bottom:12px;">📍 위치 정보</h4>
+  <h4 style="font-size:15px;font-weight:800;color:#1B2440;margin-bottom:12px;">📍 위치 정보</h4>
   <div style="margin-bottom:10px;">
-   <p style="font-size:13px;font-weight:700;color:#2E2A45;margin-bottom:3px;">정확한 위치</p>
+   <p style="font-size:13px;font-weight:700;color:#1B2440;margin-bottom:3px;">정확한 위치</p>
    <p style="font-size:13px;color:#333;line-height:1.6;">${ct.a}</p>
   </div>
-  ${ct.w?'<div><p style="font-size:13px;font-weight:700;color:#2E2A45;margin-bottom:3px;">인근 안내</p><p style="font-size:13px;color:#333;line-height:1.6;">'+ct.w+'</p></div>':''}
+  ${ct.w?'<div><p style="font-size:13px;font-weight:700;color:#1B2440;margin-bottom:3px;">인근 안내</p><p style="font-size:13px;color:#333;line-height:1.6;">'+ct.w+'</p></div>':''}
  </div>
  </div>
  
- <div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #2E2A45;">
-  <h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid #7B6EF6;padding-left:14px;margin-bottom:16px;">🏫 타겟 학교</h2>
+ <div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #1B2440;">
+  <h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid #3B5BDB;padding-left:14px;margin-bottom:16px;">🏫 타겟 학교</h2>
   <div style="margin-bottom:16px;">
-   <p style="font-size:14px;font-weight:700;color:#2E2A45;margin-bottom:6px;">타겟 초등학교</p>
+   <p style="font-size:14px;font-weight:700;color:#1B2440;margin-bottom:6px;">타겟 초등학교</p>
    <p style="font-size:14px;color:#555;line-height:1.8;">${ct.se||'정보 없음'}</p>
   </div>
   <div style="margin-bottom:16px;">
-   <p style="font-size:15px;font-weight:700;color:#2E2A45;margin-bottom:6px;">타겟 중학교</p>
+   <p style="font-size:15px;font-weight:700;color:#1B2440;margin-bottom:6px;">타겟 중학교</p>
    <p style="font-size:14px;color:#555;line-height:1.8;">${ct.sm||'정보 없음'}</p>
   </div>
   <div>
-   <p style="font-size:15px;font-weight:700;color:#2E2A45;margin-bottom:6px;">타겟 고등학교</p>
+   <p style="font-size:15px;font-weight:700;color:#1B2440;margin-bottom:6px;">타겟 고등학교</p>
    <p style="font-size:14px;color:#555;line-height:1.8;">${ct.sh||'정보 없음'}</p>
   </div>
  </div>
@@ -4224,9 +4225,9 @@ function buildCenterDetailPage(slug) {
   if(combos.length===0) return '';
   let html = '<div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;">';
   html += '<div style="text-align:center;margin-bottom:24px;">';
-  html += '<h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">📍 '+loc.d+' 맞춤 학원 정보</h2>';
+  html += '<h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">📍 '+loc.d+' 맞춤 학원 정보</h2>';
   if(loc.l && loc.l.length) html += '<p style="font-size:13px;color:#888;margin-bottom:8px;">'+loc.l.join(' · ')+' 인근</p>';
-  html += '<div style="width:40px;height:3px;background:#7B6EF6;margin:0 auto;"></div>';
+  html += '<div style="width:40px;height:3px;background:#3B5BDB;margin:0 auto;"></div>';
   html += '</div>';
   html += '<div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;">';
   var tabGrades=['초등','중등','고등'];
@@ -4245,8 +4246,8 @@ function buildCenterDetailPage(slug) {
      var url='/academy/'+encodeURIComponent(ct.sl)+'/'+encodeURIComponent(c.g)+'/'+encodeURIComponent(c.s);
      html+='<a href="'+url+'" style="display:block;background:#fafaf7;border:1px solid #f0ebe0;border-radius:12px;padding:16px;text-decoration:none;transition:all .2s;" onmouseover="this.style.boxShadow=\'0 4px 16px rgba(0,0,0,0.08)\'" onmouseout="this.style.boxShadow=\'none\'">';
      html+='<span style="display:inline-block;background:'+gc+';color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;margin-bottom:6px;">'+c.g+'</span>';
-     html+='<p style="font-size:13px;font-weight:800;color:#2E2A45;margin:0;line-height:1.5;">'+loc.d+' '+c.s+' 학원</p>';
-     html+='<p style="font-size:11px;color:#7B6EF6;font-weight:700;margin:4px 0 0;">자세히 보기 →</p>';
+     html+='<p style="font-size:13px;font-weight:800;color:#1B2440;margin:0;line-height:1.5;">'+loc.d+' '+c.s+' 학원</p>';
+     html+='<p style="font-size:11px;color:#3B5BDB;font-weight:700;margin:4px 0 0;">자세히 보기 →</p>';
      html+='</a>';
     });
     html+='</div>';
@@ -4265,7 +4266,7 @@ function buildCenterDetailPage(slug) {
   if(se.length+sm.length+sh.length===0)return '';
   var subjs=ct.subj||['국어','영어','수학'];
   var html='<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;">';
-  html+='<h2 style="font-size:19px;font-weight:900;color:#2E2A45;text-align:center;margin-bottom:8px;">🏫 타겟 학교별 맞춤 정보</h2>';
+  html+='<h2 style="font-size:19px;font-weight:900;color:#1B2440;text-align:center;margin-bottom:8px;">🏫 타겟 학교별 맞춤 정보</h2>';
   html+='<p style="font-size:13px;color:#888;text-align:center;margin-bottom:20px;">'+ct.n+' 학원이 관리하는 학교별 과목 안내</p>';
   html+='<div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;">';
   var tabs=[{l:'🌱 초등',c:'#2e7d52',s:se},{l:'📘 중등',c:'#1a5fa8',s:sm},{l:'🔥 고등',c:'#7b1fa2',s:sh}];
@@ -4280,9 +4281,9 @@ function buildCenterDetailPage(slug) {
     tb.s.forEach(function(school){
      html+='<div style="border:1.5px solid #E2E8F0;border-radius:12px;padding:14px;">';
      html+='<span style="display:inline-block;background:'+tb.c+';color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;margin-bottom:8px;">'+tb.l.split(' ')[1]+'</span>';
-     html+='<p style="font-size:14px;font-weight:700;color:#2E2A45;margin-bottom:6px;">'+school+'</p>';
+     html+='<p style="font-size:14px;font-weight:700;color:#1B2440;margin-bottom:6px;">'+school+'</p>';
      html+='<div style="display:flex;flex-wrap:wrap;gap:4px;">';
-     subjs.forEach(function(sj){html+='<a href="/academy/'+encodeURIComponent(ct.sl)+'/'+encodeURIComponent(tb.l.split(' ')[1])+'/'+encodeURIComponent(sj)+'/'+encodeURIComponent(school)+'" style="font-size:11px;color:#2E2A45;border:1px solid #E2E8F0;padding:4px 10px;border-radius:6px;text-decoration:none;font-weight:600;transition:all .15s;display:inline-block;" onmouseover="this.style.background=\'#2E2A45\';this.style.color=\'#fff\';this.style.borderColor=\'#2E2A45\'" onmouseout="this.style.background=\'\';this.style.color=\'#2E2A45\';this.style.borderColor=\'#E2E8F0\'">'+sj+' →</a>';});
+     subjs.forEach(function(sj){html+='<a href="/academy/'+encodeURIComponent(ct.sl)+'/'+encodeURIComponent(tb.l.split(' ')[1])+'/'+encodeURIComponent(sj)+'/'+encodeURIComponent(school)+'" style="font-size:11px;color:#1B2440;border:1px solid #E2E8F0;padding:4px 10px;border-radius:6px;text-decoration:none;font-weight:600;transition:all .15s;display:inline-block;" onmouseover="this.style.background=\'#1B2440\';this.style.color=\'#fff\';this.style.borderColor=\'#1B2440\'" onmouseout="this.style.background=\'\';this.style.color=\'#1B2440\';this.style.borderColor=\'#E2E8F0\'">'+sj+' →</a>';});
      html+='</div></div>';
     });
     html+='</div>';
@@ -4296,7 +4297,7 @@ function buildCenterDetailPage(slug) {
  </div>
  ${ACAD_FOOTER}${ACAD_FLOATING}
  <style>@media(max-width:768px){div[style*="grid-template-columns:1fr 1fr"],div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr!important;}}
- .subpage-link:hover{border-color:#7B6EF6!important;background:white!important;}</style>
+ .subpage-link:hover{border-color:#3B5BDB!important;background:white!important;}</style>
  ${ACAD_SCRIPT('학원 센터페이지 ('+ct.n+')')}
  </body></html>`;
 }
@@ -4314,7 +4315,7 @@ function buildCenterSubPage(slug, grade, subject, school) {
  const info = CENTER_INFO[slug] || {r:'',p:'B'};
  const subjColors={"국어":"#3b82f6","영어":"#10b981","수학":"#f59e0b","과학":"#8b5cf6","사회":"#ef4444"};
  const gradeColor = grade==='초등'?'#3b82f6':(grade==='중등'?'#10b981':'#f59e0b');
- const subjColor = subjColors[subject]||'#2E2A45';
+ const subjColor = subjColors[subject]||'#1B2440';
  const title = school ? school+' '+subject+'학원' : loc.d+' '+grade+' '+subject+'학원';
 // PATCH: Add info grid + keywords to buildCenterSubPage
 // Insert AFTER: const title = ... line
@@ -4328,20 +4329,20 @@ Object.keys(ct.g||{}).forEach(function(subj){
  _subjBadges2+='<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-radius:10px;border:1.5px solid '+clr+'33;"><span style="font-weight:700;color:'+clr+';font-size:14px;">'+subj+'</span><span style="font-size:12px;color:#888;font-weight:600;">'+(ct.g[subj])+'</span></div>';
 });
 
-var _locInfo='<div style="margin-bottom:10px;"><p style="font-size:13px;font-weight:700;color:#2E2A45;margin-bottom:3px;">정확한 위치</p><p style="font-size:13px;color:#333;line-height:1.6;">'+ct.a+'</p></div>';
-if(ct.w) _locInfo+='<div><p style="font-size:13px;font-weight:700;color:#2E2A45;margin-bottom:3px;">인근 안내</p><p style="font-size:13px;color:#333;line-height:1.6;">'+ct.w+'</p></div>';
+var _locInfo='<div style="margin-bottom:10px;"><p style="font-size:13px;font-weight:700;color:#1B2440;margin-bottom:3px;">정확한 위치</p><p style="font-size:13px;color:#333;line-height:1.6;">'+ct.a+'</p></div>';
+if(ct.w) _locInfo+='<div><p style="font-size:13px;font-weight:700;color:#1B2440;margin-bottom:3px;">인근 안내</p><p style="font-size:13px;color:#333;line-height:1.6;">'+ct.w+'</p></div>';
 
 var _infoGrid='<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 20px;">';
-_infoGrid+='<div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #2E2A45;">';
-_infoGrid+='<h3 style="font-size:16px;font-weight:900;color:#2E2A45;margin-bottom:16px;">📚 수업 과목 & 가능 학년</h3>';
+_infoGrid+='<div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #1B2440;">';
+_infoGrid+='<h3 style="font-size:16px;font-weight:900;color:#1B2440;margin-bottom:16px;">📚 수업 과목 & 가능 학년</h3>';
 _infoGrid+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">'+_subjBadges2+'</div>';
-_infoGrid+='<div style="margin-top:18px;padding-top:16px;border-top:1px solid #E2E8F0;"><h4 style="font-size:15px;font-weight:800;color:#2E2A45;margin-bottom:12px;">📍 위치 정보</h4>'+_locInfo+'</div>';
+_infoGrid+='<div style="margin-top:18px;padding-top:16px;border-top:1px solid #E2E8F0;"><h4 style="font-size:15px;font-weight:800;color:#1B2440;margin-bottom:12px;">📍 위치 정보</h4>'+_locInfo+'</div>';
 _infoGrid+='</div>';
-_infoGrid+='<div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #2E2A45;">';
-_infoGrid+='<h3 style="font-size:16px;font-weight:900;color:#2E2A45;margin-bottom:16px;">🏫 타겟 학교</h3>';
-_infoGrid+='<div style="margin-bottom:12px;"><p style="font-size:14px;font-weight:700;color:#2E2A45;margin-bottom:6px;">타겟 초등학교</p><p style="font-size:13px;color:#333;">'+(ct.se||'-')+'</p></div>';
-_infoGrid+='<div style="margin-bottom:12px;"><p style="font-size:14px;font-weight:700;color:#2E2A45;margin-bottom:6px;">타겟 중학교</p><p style="font-size:13px;color:#333;">'+(ct.sm||'-')+'</p></div>';
-_infoGrid+='<div><p style="font-size:14px;font-weight:700;color:#2E2A45;margin-bottom:6px;">타겟 고등학교</p><p style="font-size:13px;color:#333;">'+(ct.sh||'-')+'</p></div>';
+_infoGrid+='<div style="background:white;border-radius:20px;padding:28px;box-shadow:0 2px 12px #0000000f;border-top:4px solid #1B2440;">';
+_infoGrid+='<h3 style="font-size:16px;font-weight:900;color:#1B2440;margin-bottom:16px;">🏫 타겟 학교</h3>';
+_infoGrid+='<div style="margin-bottom:12px;"><p style="font-size:14px;font-weight:700;color:#1B2440;margin-bottom:6px;">타겟 초등학교</p><p style="font-size:13px;color:#333;">'+(ct.se||'-')+'</p></div>';
+_infoGrid+='<div style="margin-bottom:12px;"><p style="font-size:14px;font-weight:700;color:#1B2440;margin-bottom:6px;">타겟 중학교</p><p style="font-size:13px;color:#333;">'+(ct.sm||'-')+'</p></div>';
+_infoGrid+='<div><p style="font-size:14px;font-weight:700;color:#1B2440;margin-bottom:6px;">타겟 고등학교</p><p style="font-size:13px;color:#333;">'+(ct.sh||'-')+'</p></div>';
 _infoGrid+='</div></div>';
 
 // Keyword section
@@ -4363,12 +4364,12 @@ var _eduText = _eduTexts[_subjName] || '학습 코칭에서 가장 중요한 것
 
 _eduExtra += '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;">';
 _eduExtra += '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);">';
-_eduExtra += '<h2 style="font-size:19px;font-weight:900;color:#2E2A45;border-left:5px solid #7B6EF6;padding-left:14px;margin-bottom:16px;">📚 '+_subjName+' 학습 가이드</h2>';
+_eduExtra += '<h2 style="font-size:19px;font-weight:900;color:#1B2440;border-left:5px solid #3B5BDB;padding-left:14px;margin-bottom:16px;">📚 '+_subjName+' 학습 가이드</h2>';
 _eduExtra += '<p style="font-size:14px;color:#444;line-height:2.1;">'+_eduText+'</p>';
 _eduExtra += '</div></div>';
 
 var _kwTitle=title;
-var _kwBottom='<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:#F5F2FC;border-radius:16px;padding:20px 24px;">';
+var _kwBottom='<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:#EFF1F8;border-radius:16px;padding:20px 24px;">';
 _kwBottom+='<p style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8;">';
 _kwBottom+=_kwTitle+'은 학생 맞춤형 학습 코칭으로 실질적인 성적 향상을 이끌어냅니다. ';
 _kwBottom+=_kwTitle+'에 관심이 있으시다면 무료 상담을 통해 자세한 수업 안내를 받아보세요. ';
@@ -4604,7 +4605,7 @@ var _studyGuides = {
 '사회':'사회는 이해 과목입니다. 제도가 왜 만들어졌는지, 어떤 문제를 해결하려는 것인지를 이해하면 암기량이 절반으로 줄어듭니다. 교과서 목차를 먼저 파악하고 핵심 개념 20개를 뽑아 각각 2줄로 설명할 수 있는지 테스트해 보세요. 그래프와 통계표를 정확히 읽는 연습도 매우 중요합니다.'
 };
 var _guideText = _studyGuides[subject] || '학습 코칭에서 가장 중요한 것은 학생 개개인에 맞는 전략을 설계하는 것입니다. 내신 시험에서는 학교별 출제 경향을 분석하는 것이 핵심이며, 최소 3년치 기출을 풀어 유형을 파악하세요.';
-var _guideHtml = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><div style="text-align:center;margin-bottom:24px;"><h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">📚 '+subject+' 학습 가이드</h2><div style="width:40px;height:3px;background:#7B6EF6;margin:12px auto 0;"></div></div><p style="font-size:14px;color:#444;line-height:2.1;">'+_guideText+'</p></div>';
+var _guideHtml = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><div style="text-align:center;margin-bottom:24px;"><h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">📚 '+subject+' 학습 가이드</h2><div style="width:40px;height:3px;background:#3B5BDB;margin:12px auto 0;"></div></div><p style="font-size:14px;color:#444;line-height:2.1;">'+_guideText+'</p></div>';
 var _rvData = [
 {nm:'김○○',gr:'초등',body:'아이가 공부에 흥미를 잃었었는데 코치 선생님 덕분에 다시 공부가 재미있다고 해요. 맞춤형 수업이라 아이 수준에 딱 맞게 진행해주셔서 정말 감사합니다.'},
 {nm:'이○○',gr:'초등',body:'처음에는 반신반의했는데 한 달 만에 시험 성적이 15점이나 올랐어요. 매주 보내주시는 학습 리포트도 정말 유용합니다.'},
@@ -4613,11 +4614,11 @@ var _rvData = [
 {nm:'정○○',gr:'고등',body:'자기주도학습 습관이 잡히니까 다른 과목 성적도 같이 올랐어요. 플래너 관리가 정말 체계적입니다.'},
 {nm:'윤○○',gr:'고등',body:'수능 대비와 내신을 동시에 잡아주셔서 시간을 효율적으로 쓸 수 있었어요. 입시 전략 상담도 큰 도움이 되었습니다.'}
 ];
-var _rvHtml = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:24px;"><h2 style="font-size:16px;font-weight:900;color:#2E2A45;border-left:5px solid #7B6EF6;padding-left:14px;margin-bottom:14px;">💬 학부모 후기</h2><div style="overflow:hidden;"><div style="display:flex;gap:12px;animation:rvScroll 30s linear infinite;width:max-content;">';
-for(var _ri=0;_ri<9;_ri++){var _rv=_rvData[_ri%6];_rvHtml+='<div style="min-width:220px;max-width:220px;flex-shrink:0;border:1px solid #E2E8F0;border-radius:12px;padding:14px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><div style="width:28px;height:28px;border-radius:50%;background:#7B6EF6;color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;">'+_rv.nm.charAt(0)+'</div><div><div style="font-weight:700;color:#2E2A45;font-size:11px;">'+_rv.nm+' 학부모님</div><div style="font-size:10px;color:#888;">'+_rv.gr+' · '+subject+'</div></div></div><p style="font-size:11px;color:#555;line-height:1.7;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">"'+_rv.body+'"</p></div>';}
+var _rvHtml = '<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:24px;"><h2 style="font-size:16px;font-weight:900;color:#1B2440;border-left:5px solid #3B5BDB;padding-left:14px;margin-bottom:14px;">💬 학부모 후기</h2><div style="overflow:hidden;"><div style="display:flex;gap:12px;animation:rvScroll 30s linear infinite;width:max-content;">';
+for(var _ri=0;_ri<9;_ri++){var _rv=_rvData[_ri%6];_rvHtml+='<div style="min-width:220px;max-width:220px;flex-shrink:0;border:1px solid #E2E8F0;border-radius:12px;padding:14px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><div style="width:28px;height:28px;border-radius:50%;background:#3B5BDB;color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;">'+_rv.nm.charAt(0)+'</div><div><div style="font-weight:700;color:#1B2440;font-size:11px;">'+_rv.nm+' 학부모님</div><div style="font-size:10px;color:#888;">'+_rv.gr+' · '+subject+'</div></div></div><p style="font-size:11px;color:#555;line-height:1.7;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">"'+_rv.body+'"</p></div>';}
 _rvHtml+='</div></div></div></div>';
 var _kwTitle=title;
-var _kwBottom='<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:#F5F2FC;border-radius:16px;padding:20px 24px;"><p style="font-size:13px;color:#64748B;line-height:1.8;">'+_kwTitle+'은 학생 맞춤형 학습 코칭으로 실질적인 성적 향상을 이끌어냅니다. '+_kwTitle+'에 관심이 있으시다면 무료 상담을 통해 자세한 수업 안내를 받아보세요. '+_kwTitle+'의 체계적인 커리큘럼과 전담 코치 시스템을 직접 경험해 보실 수 있습니다. '+_kwTitle+'에서는 학생의 수준에 맞는 개별 커리큘럼을 설계하고, '+_kwTitle+'만의 플래너 기반 자기주도학습 시스템으로 꾸준한 성장을 돕습니다. 지금 '+_kwTitle+' 무료 상담을 신청하세요. '+_kwTitle+'이 여러분의 목표 달성을 함께 하겠습니다.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;"><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+_kwTitle+'</span><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+ct.n+' '+subject+'</span><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+loc.d+' '+grade+' 학원</span><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+ct.n+' 학습코칭</span></div></div></div>';
+var _kwBottom='<div style="max-width:900px;margin:0 auto 24px;padding:0 20px;"><div style="background:#EFF1F8;border-radius:16px;padding:20px 24px;"><p style="font-size:13px;color:#64748B;line-height:1.8;">'+_kwTitle+'은 학생 맞춤형 학습 코칭으로 실질적인 성적 향상을 이끌어냅니다. '+_kwTitle+'에 관심이 있으시다면 무료 상담을 통해 자세한 수업 안내를 받아보세요. '+_kwTitle+'의 체계적인 커리큘럼과 전담 코치 시스템을 직접 경험해 보실 수 있습니다. '+_kwTitle+'에서는 학생의 수준에 맞는 개별 커리큘럼을 설계하고, '+_kwTitle+'만의 플래너 기반 자기주도학습 시스템으로 꾸준한 성장을 돕습니다. 지금 '+_kwTitle+' 무료 상담을 신청하세요. '+_kwTitle+'이 여러분의 목표 달성을 함께 하겠습니다.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;"><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+_kwTitle+'</span><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+ct.n+' '+subject+'</span><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+loc.d+' '+grade+' 학원</span><span style="background:white;border:1px solid #E2E8F0;padding:5px 12px;border-radius:50px;font-size:11px;color:#334155;font-weight:600;">'+ct.n+' 학습코칭</span></div></div></div>';
 var _studyReviewHtml = _guideHtml + _rvHtml;
 
 
@@ -4634,14 +4635,14 @@ var _studyReviewHtml = _guideHtml + _rvHtml;
  ${COMMON_STYLE}
  </head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/academy" style="color:#888;text-decoration:none;">학원수업</a> &rsaquo; <a href="/academy/${encodeURIComponent(slug)}" style="color:#888;text-decoration:none;">${ct.n}</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${grade} ${subject}</span></p>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/academy" style="color:#888;text-decoration:none;">학원수업</a> &rsaquo; <a href="/academy/${encodeURIComponent(slug)}" style="color:#888;text-decoration:none;">${ct.n}</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${grade} ${subject}</span></p>
  <div style="display:inline-block;background:${subjColor};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">${heroLabel} ${grade} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${title}</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${title}</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${ct.n} · ${ct.a}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(ct.sl+grade+subject))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",cH(ct.sl+grade+subject))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${title}</h2>
@@ -4654,11 +4655,11 @@ var _studyReviewHtml = _guideHtml + _rvHtml;
 
  <div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;">
  <div style="text-align:center;margin-bottom:24px;">
- <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">학원 정보</h2>
- <div style="width:40px;height:3px;background:#7B6EF6;margin:12px auto 0;"></div>
+ <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">학원 정보</h2>
+ <div style="width:40px;height:3px;background:#3B5BDB;margin:12px auto 0;"></div>
  </div>
  <div style="display:grid;grid-template-columns:1fr;gap:10px;max-width:600px;margin:0 auto;">
- <div style="display:flex;padding:12px 18px;background:#fafaf7;border-radius:10px;"><span style="font-size:12px;color:#888;width:110px;flex-shrink:0;font-weight:700;">지점명</span><span style="font-size:13px;color:#2E2A45;font-weight:700;">${ct.n}</span></div>
+ <div style="display:flex;padding:12px 18px;background:#fafaf7;border-radius:10px;"><span style="font-size:12px;color:#888;width:110px;flex-shrink:0;font-weight:700;">지점명</span><span style="font-size:13px;color:#1B2440;font-weight:700;">${ct.n}</span></div>
  <div style="display:flex;padding:12px 18px;background:#fafaf7;border-radius:10px;"><span style="font-size:12px;color:#888;width:110px;flex-shrink:0;font-weight:700;">주소</span><span style="font-size:13px;color:#444;">${ct.a}</span></div>
  ${info.r?'<div style="display:flex;padding:12px 18px;background:#fafaf7;border-radius:10px;"><span style="font-size:12px;color:#888;width:110px;flex-shrink:0;font-weight:700;">교육지원청</span><span style="font-size:13px;color:#444;">'+info.r+'</span></div>':''}
  </div>
@@ -4668,12 +4669,12 @@ var _studyReviewHtml = _guideHtml + _rvHtml;
  ${_infoGrid}
  <div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;">
  <div style="text-align:center;margin-bottom:28px;">
- <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">${title}의 특징</h2>
+ <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">${title}의 특징</h2>
  <p style="font-size:13px;color:#888;">${loc.d} ${grade} ${subject} 학생을 위한 차별화된 학습 시스템</p>
- <div style="width:40px;height:3px;background:#7B6EF6;margin:12px auto 0;"></div>
+ <div style="width:40px;height:3px;background:#3B5BDB;margin:12px auto 0;"></div>
  </div>
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
- ${features.map(function(f){return '<div style="padding:20px;background:#fafaf7;border-radius:16px;border-left:3px solid '+subjColor+';"><div style="font-size:28px;margin-bottom:8px;">'+f.icon+'</div><h3 style="font-size:15px;font-weight:800;color:#2E2A45;margin:0 0 6px;">'+f.t+'</h3><p style="font-size:12px;color:#555;line-height:1.8;margin:0;">'+f.d+'</p></div>';}).join('')}
+ ${features.map(function(f){return '<div style="padding:20px;background:#fafaf7;border-radius:16px;border-left:3px solid '+subjColor+';"><div style="font-size:28px;margin-bottom:8px;">'+f.icon+'</div><h3 style="font-size:15px;font-weight:800;color:#1B2440;margin:0 0 6px;">'+f.t+'</h3><p style="font-size:12px;color:#555;line-height:1.8;margin:0;">'+f.d+'</p></div>';}).join('')}
  
  
 </div>
@@ -4687,11 +4688,11 @@ var _studyReviewHtml = _guideHtml + _rvHtml;
  <p style="font-size:13px;color:#92400e;line-height:1.8;">원활한 상담을 위해 꼭 미리 예약 후 방문 부탁드립니다.<br>예약 없이 방문하시면 상담이 어려울 수 있습니다.</p>
  </div>
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:500px;margin:0 auto;">
- <a href="tel:010-2337-0458" style="display:flex;align-items:center;justify-content:center;gap:8px;background:white;color:#2E2A45;border:2px solid #7B6EF6;padding:16px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px;transition:all .2s;">
+ <a href="tel:010-2337-0458" style="display:flex;align-items:center;justify-content:center;gap:8px;background:white;color:#1B2440;border:2px solid #3B5BDB;padding:16px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px;transition:all .2s;">
  <span style="font-size:18px;">📱</span>
- <div style="text-align:left;"><div style="font-size:11px;color:#7B6EF6;margin-bottom:2px;">전화 예약</div><div style="font-size:13px;">010-2337-0458</div></div>
+ <div style="text-align:left;"><div style="font-size:11px;color:#3B5BDB;margin-bottom:2px;">전화 예약</div><div style="font-size:13px;">010-2337-0458</div></div>
  </a>
- <a href="#acadForm" onclick="var f=document.getElementById('acadForm');if(f)f.scrollIntoView({behavior:'smooth'});return false;" style="display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#7B6EF6,#e0c080);color:#2E2A45;border:2px solid transparent;padding:16px;border-radius:12px;text-decoration:none;font-weight:900;font-size:14px;box-shadow:0 4px 16px rgba(200,169,110,0.35);transition:all .2s;">
+ <a href="#acadForm" onclick="var f=document.getElementById('acadForm');if(f)f.scrollIntoView({behavior:'smooth'});return false;" style="display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#3B5BDB,#e0c080);color:#1B2440;border:2px solid transparent;padding:16px;border-radius:12px;text-decoration:none;font-weight:900;font-size:14px;box-shadow:0 4px 16px rgba(200,169,110,0.35);transition:all .2s;">
  <span style="font-size:18px;">📝</span>
  <span>상담 신청하기</span>
  </a>
@@ -4701,19 +4702,19 @@ var _studyReviewHtml = _guideHtml + _rvHtml;
  <!-- 공부 방법 & 커리큘럼 -->
  <div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;">
  <div style="text-align:center;margin-bottom:28px;">
- <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">${grade} ${subject} 공부 방법</h2>
+ <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">${grade} ${subject} 공부 방법</h2>
  <p style="font-size:13px;color:#888;">${guide.sub}</p>
- <div style="width:40px;height:3px;background:#7B6EF6;margin:12px auto 0;"></div>
+ <div style="width:40px;height:3px;background:#3B5BDB;margin:12px auto 0;"></div>
  </div>
  <div style="display:flex;flex-direction:column;gap:22px;">
- ${guide.sections.map(function(s,i){return '<div style="padding:24px;background:'+subjColor+'06;border-radius:16px;border-left:4px solid '+subjColor+';"><div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;"><div style="width:32px;height:32px;border-radius:50%;background:'+subjColor+';color:white;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">'+(i+1)+'</div><h3 style="font-size:16px;font-weight:900;color:#2E2A45;margin:0;line-height:1.5;padding-top:4px;">'+s.h+'</h3></div><p style="font-size:14px;color:#444;line-height:1.95;margin:0;padding-left:46px;">'+s.p+'</p></div>';}).join('')}
+ ${guide.sections.map(function(s,i){return '<div style="padding:24px;background:'+subjColor+'06;border-radius:16px;border-left:4px solid '+subjColor+';"><div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;"><div style="width:32px;height:32px;border-radius:50%;background:'+subjColor+';color:white;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">'+(i+1)+'</div><h3 style="font-size:16px;font-weight:900;color:#1B2440;margin:0;line-height:1.5;padding-top:4px;">'+s.h+'</h3></div><p style="font-size:14px;color:#444;line-height:1.95;margin:0;padding-left:46px;">'+s.p+'</p></div>';}).join('')}
  </div>
- <div style="margin-top:24px;padding:18px 22px;background:#2E2A4505;border-radius:12px;text-align:center;">
- <p style="font-size:13px;color:#555;margin:0;line-height:1.8;"><b style="color:#2E2A45;">${ct.n}</b>에서는 위 학습법을 <b style="color:${subjColor};">${grade} ${subject}</b>에 최적화하여 개별 맞춤으로 지도합니다</p>
+ <div style="margin-top:24px;padding:18px 22px;background:#1B244005;border-radius:12px;text-align:center;">
+ <p style="font-size:13px;color:#555;margin:0;line-height:1.8;"><b style="color:#1B2440;">${ct.n}</b>에서는 위 학습법을 <b style="color:${subjColor};">${grade} ${subject}</b>에 최적화하여 개별 맞춤으로 지도합니다</p>
  </div>
  </div>
 
- ${extra ? '<div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;"><div style="text-align:center;margin-bottom:28px;"><h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">'+extra.title+'</h2><p style="font-size:13px;color:#888;">'+ct.n+' · '+loc.d+' '+grade+' '+subject+' 학생 맞춤 가이드</p><div style="width:40px;height:3px;background:'+subjColor+';margin:12px auto 0;"></div></div><div style="display:flex;flex-direction:column;gap:22px;">'+extra.points.map(function(pt){return '<div style="padding:24px;background:#f8f9fc;border-radius:16px;border-left:4px solid '+subjColor+';"><h3 style="font-size:16px;font-weight:900;color:#2E2A45;margin:0 0 12px;display:flex;align-items:center;gap:10px;"><span style="width:28px;height:28px;border-radius:50%;background:'+subjColor+';color:white;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;">✓</span>'+pt.h+'</h3><p style="font-size:14px;color:#444;line-height:1.95;margin:0;padding-left:38px;">'+pt.p+'</p></div>';}).join('')+'</div></div>' : ''}
+ ${extra ? '<div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;"><div style="text-align:center;margin-bottom:28px;"><h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">'+extra.title+'</h2><p style="font-size:13px;color:#888;">'+ct.n+' · '+loc.d+' '+grade+' '+subject+' 학생 맞춤 가이드</p><div style="width:40px;height:3px;background:'+subjColor+';margin:12px auto 0;"></div></div><div style="display:flex;flex-direction:column;gap:22px;">'+extra.points.map(function(pt){return '<div style="padding:24px;background:#f8f9fc;border-radius:16px;border-left:4px solid '+subjColor+';"><h3 style="font-size:16px;font-weight:900;color:#1B2440;margin:0 0 12px;display:flex;align-items:center;gap:10px;"><span style="width:28px;height:28px;border-radius:50%;background:'+subjColor+';color:white;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;">✓</span>'+pt.h+'</h3><p style="font-size:14px;color:#444;line-height:1.95;margin:0;padding-left:38px;">'+pt.p+'</p></div>';}).join('')+'</div></div>' : ''}
 
  <!-- 학원 정보 -->
  
@@ -4728,11 +4729,11 @@ var _studyReviewHtml = _guideHtml + _rvHtml;
  <!-- 자주 묻는 질문 (펼침 상태) -->
  <div style="background:white;border-radius:20px;padding:36px 28px;margin-bottom:28px;box-shadow:0 2px 12px #0000000f;">
  <div style="text-align:center;margin-bottom:24px;">
- <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2E2A45;margin-bottom:8px;">자주 묻는 질문</h2>
- <div style="width:40px;height:3px;background:#7B6EF6;margin:12px auto 0;"></div>
+ <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1B2440;margin-bottom:8px;">자주 묻는 질문</h2>
+ <div style="width:40px;height:3px;background:#3B5BDB;margin:12px auto 0;"></div>
  </div>
  <div style="display:flex;flex-direction:column;gap:14px;">
- ${faqs.map(function(f){return '<div style="background:#fafaf7;border-radius:12px;padding:18px 22px;"><div style="font-size:14px;font-weight:800;color:#2E2A45;margin-bottom:10px;"><span style="color:#7B6EF6;margin-right:8px;font-weight:900;">Q.</span>'+f.q+'</div><div style="font-size:13px;color:#555;line-height:1.8;padding-top:10px;border-top:1px solid #eee;"><span style="color:'+subjColor+';font-weight:800;margin-right:6px;">A.</span>'+f.a+'</div></div>';}).join('')}
+ ${faqs.map(function(f){return '<div style="background:#fafaf7;border-radius:12px;padding:18px 22px;"><div style="font-size:14px;font-weight:800;color:#1B2440;margin-bottom:10px;"><span style="color:#3B5BDB;margin-right:8px;font-weight:900;">Q.</span>'+f.q+'</div><div style="font-size:13px;color:#555;line-height:1.8;padding-top:10px;border-top:1px solid #eee;"><span style="color:'+subjColor+';font-weight:800;margin-right:6px;">A.</span>'+f.a+'</div></div>';}).join('')}
  </div>
  </div>
 
@@ -4777,13 +4778,13 @@ function buildAcademyPage() {
  const schoolTxt = schoolLines.join('');
  cardsHtml += `<a href="/academy/${encodeURIComponent(slug)}" class="acad-card" data-region="${c.r}" style="text-decoration:none;color:inherit;display:block;">
  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
- <h3 style="font-size:16px;font-weight:900;color:#2E2A45;margin:0;">${c.n}</h3>
- <span style="background:#7B6EF615;color:#7B6EF6;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;">${c.r}</span>
+ <h3 style="font-size:16px;font-weight:900;color:#1B2440;margin:0;">${c.n}</h3>
+ <span style="background:#3B5BDB15;color:#3B5BDB;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;">${c.r}</span>
  </div>
  <p style="font-size:12px;color:#888;margin:0 0 8px;">📍 ${c.a}</p>
  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">${subjBadges}${wkBadge}</div>
  ${schoolTxt ? '<div style="font-size:11px;color:#666;line-height:1.8;background:#f8f9fa;padding:8px 12px;border-radius:8px;margin-bottom:8px;">'+schoolTxt+'</div>' : ''}
- <div style="text-align:right;"><span style="font-size:12px;color:#7B6EF6;font-weight:700;">자세히 보기 →</span></div>
+ <div style="text-align:right;"><span style="font-size:12px;color:#3B5BDB;font-weight:700;">자세히 보기 →</span></div>
  </a>`;
  });
 
@@ -4801,14 +4802,14 @@ function buildAcademyPage() {
  ${COMMON_STYLE}
  <style>
  .acad-tab{padding:8px 18px;border:1px solid #e0e0e0;border-radius:50px;background:white;cursor:pointer;font-size:13px;font-weight:600;color:#666;font-family:'Noto Sans KR',sans-serif;transition:all .2s;white-space:nowrap;}
- .acad-tab:hover{border-color:#7B6EF6;color:#7B6EF6;}
- .acad-tab.active{background:#2E2A45;color:#7B6EF6;border-color:#2E2A45;}
+ .acad-tab:hover{border-color:#3B5BDB;color:#3B5BDB;}
+ .acad-tab.active{background:#1B2440;color:#3B5BDB;border-color:#1B2440;}
  .acad-cnt{font-size:11px;opacity:.7;}
  .acad-card{background:white;border:1px solid #eee;border-radius:16px;padding:20px;transition:transform .2s,box-shadow .2s;}
  .acad-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.08);}
  .acad-card.hide{display:none!important;}
  .coach-step{background:white;border-radius:20px;padding:28px 24px;text-align:center;border:2px solid transparent;transition:border-color .3s,transform .3s;}
- .coach-step:hover{border-color:#7B6EF6;transform:translateY(-4px);}
+ .coach-step:hover{border-color:#3B5BDB;transform:translateY(-4px);}
  .nest-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
  @media(max-width:768px){.nest-grid{grid-template-columns:1fr;}}
  .mgmt-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:white;border-radius:24px;padding:clamp(28px,5vw,52px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:box-shadow .3s;}
@@ -4820,7 +4821,7 @@ function buildAcademyPage() {
  .mgmt-icon-card{background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-radius:14px;padding:16px 12px;text-align:center;transition:transform .2s;}
  .mgmt-icon-card:hover{transform:translateY(-3px);}
  .mgmt-badge{display:inline-block;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:800;margin-bottom:14px;}
- .mgmt-h2{font-size:clamp(22px,3.8vw,30px);font-weight:900;color:#2E2A45;margin-bottom:14px;line-height:1.4;}
+ .mgmt-h2{font-size:clamp(22px,3.8vw,30px);font-weight:900;color:#1B2440;margin-bottom:14px;line-height:1.4;}
  .mgmt-desc{font-size:14px;color:#555;line-height:2;margin-bottom:20px;}
  .mgmt-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
  .mgmt-check span:first-child{font-weight:800;flex-shrink:0;font-size:15px;}
@@ -4830,9 +4831,9 @@ function buildAcademyPage() {
  .mgmt-slider img.active{opacity:1;}
  .mgmt-slider-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
  .mgmt-slider-dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,.15);border:none;cursor:pointer;padding:0;transition:all .3s;}
- .mgmt-slider-dot.active{background:#2E2A45;transform:scale(1.2);}
+ .mgmt-slider-dot.active{background:#1B2440;transform:scale(1.2);}
  .grade-card{background:#f8f9fa;border-radius:20px;padding:32px 24px;text-align:center;transition:transform .3s,box-shadow .3s;border:2px solid transparent;}
- .grade-card:hover{transform:translateY(-5px);box-shadow:0 8px 28px rgba(0,0,0,0.1);border-color:#7B6EF6;}
+ .grade-card:hover{transform:translateY(-5px);box-shadow:0 8px 28px rgba(0,0,0,0.1);border-color:#3B5BDB;}
  .grade-card h3{font-size:20px;font-weight:900;margin-bottom:16px;}
  .grade-card p{font-size:13px;color:#555;line-height:2;margin:0;}
  .grade-badge{display:inline-block;padding:6px 24px;border-radius:50px;font-size:14px;font-weight:900;color:white;margin-bottom:18px;}
@@ -4848,18 +4849,18 @@ function buildAcademyPage() {
  .review-wrap{overflow:hidden;position:relative;margin-bottom:20px;}
  .review-nav{display:flex;justify-content:center;gap:10px;margin-top:16px;}
  .review-nav button{width:38px;height:38px;border-radius:50%;border:2px solid #ddd;background:white;cursor:pointer;font-size:16px;color:#666;transition:all .2s;}
- .review-nav button:hover{border-color:#2E2A45;color:#2E2A45;}
+ .review-nav button:hover{border-color:#1B2440;color:#1B2440;}
  </style>
  </head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">학원수업</span></p>
- <div style="display:inline-block;background:#7B6EF6;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🏫 학원수업</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">학습코칭학원 | 전국 205개 센터</h1>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">학원수업</span></p>
+ <div style="display:inline-block;background:#3B5BDB;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🏫 학원수업</div>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">학습코칭학원 | 전국 205개 센터</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">플랜관리·학습관리·생활관리 3대 개별 맞춤 관리 시스템. 4C 코칭, 둥지 학습, AI학습클래스. 초중고 전과목 학원수업.</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",42)}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",42)}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">학습코칭학원 전국 205개 센터</h2>
@@ -4872,28 +4873,28 @@ function buildAcademyPage() {
  <!-- 4C 코칭 시스템 -->
  <div style="margin-bottom:40px;">
  <div style="text-align:center;margin-bottom:28px;">
- <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#2E2A45;margin-bottom:8px;">🔄 4C 코칭 프로세스</h2>
+ <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#1B2440;margin-bottom:8px;">🔄 4C 코칭 프로세스</h2>
  <p style="font-size:14px;color:#888;">학생 맞춤 학습 솔루션의 4단계 핵심 시스템</p>
  </div>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
  <div class="coach-step" style="box-shadow:0 4px 16px rgba(59,130,246,0.08);">
  <div style="width:60px;height:60px;border-radius:50%;background:#3b82f615;color:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px;">1</div>
- <h3 style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:8px;">Check 진단</h3>
+ <h3 style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:8px;">Check 진단</h3>
  <p style="font-size:13px;color:#666;line-height:1.8;">퍼스널 진단검사로 학습 습관, 집중력, 이해도를 정밀 분석하여 학생의 강점과 약점을 파악합니다.</p>
  </div>
  <div class="coach-step" style="box-shadow:0 4px 16px rgba(16,185,129,0.08);">
  <div style="width:60px;height:60px;border-radius:50%;background:#10b98115;color:#10b981;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px;">2</div>
- <h3 style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:8px;">Curriculum 설계</h3>
+ <h3 style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:8px;">Curriculum 설계</h3>
  <p style="font-size:13px;color:#666;line-height:1.8;">진단 결과를 바탕으로 학생 맞춤 커리큘럼을 설계합니다. 학교별 기출 분석과 수준별 교재를 선정합니다.</p>
  </div>
  <div class="coach-step" style="box-shadow:0 4px 16px rgba(245,158,11,0.08);">
  <div style="width:60px;height:60px;border-radius:50%;background:#f59e0b15;color:#f59e0b;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px;">3</div>
- <h3 style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:8px;">Coaching 수업</h3>
+ <h3 style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:8px;">Coaching 수업</h3>
  <p style="font-size:13px;color:#666;line-height:1.8;">둥지 학습 시스템으로 소수정예 1:1 맞춤 수업을 진행합니다. 코치가 밀착 관리하며 자기주도학습 습관을 형성합니다.</p>
  </div>
  <div class="coach-step" style="box-shadow:0 4px 16px rgba(139,92,246,0.08);">
  <div style="width:60px;height:60px;border-radius:50%;background:#8b5cf615;color:#8b5cf6;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px;">4</div>
- <h3 style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:8px;">Care 관리</h3>
+ <h3 style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:8px;">Care 관리</h3>
  <p style="font-size:13px;color:#666;line-height:1.8;">학부모 피드백, 정기 평가서 발송, 학습 플래너 관리까지. 수업 외 일상 소통으로 학습 습관과 감정까지 살핍니다.</p>
  </div>
  </div>
@@ -4901,22 +4902,22 @@ function buildAcademyPage() {
 
  <!-- ── 개별 맞춤 관리 시스템 ── -->
  <div style="text-align:center;margin:56px 0 32px;">
- <span class="mgmt-badge" style="background:#2E2A4510;color:#2E2A45;">와와학습코칭 핵심 시스템</span>
- <h2 style="font-size:clamp(24px,4.5vw,36px);font-weight:900;color:#2E2A45;margin-bottom:10px;line-height:1.3;">개별 맞춤 관리 시스템</h2>
+ <span class="mgmt-badge" style="background:#1B244010;color:#1B2440;">와와학습코칭 핵심 시스템</span>
+ <h2 style="font-size:clamp(24px,4.5vw,36px);font-weight:900;color:#1B2440;margin-bottom:10px;line-height:1.3;">개별 맞춤 관리 시스템</h2>
  <p style="font-size:15px;color:#888;line-height:1.8;">단순히 공부만 시키는 학원이 아닙니다<br>둥지 · 계획 · 학습 · 생활, 4가지를 촘촘하게 관리합니다</p>
  </div>
 
  <!-- 플랜관리 위: 둥지 학습 시스템 -->
  <div class="mgmt-section" style="margin-bottom:32px;">
  <div class="mgmt-text">
- <span style="background:#7B6EF615;color:#7B6EF6;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:14px;">와와만의 특별한 공간</span>
+ <span style="background:#3B5BDB15;color:#3B5BDB;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:14px;">와와만의 특별한 공간</span>
  <h2 class="mgmt-h2">📖 둥지 학습 시스템</h2>
- <p style="font-size:13px;color:#7B6EF6;font-weight:700;margin-bottom:16px;">코치를 중심으로 학생들이 둘러앉는 집중형 구조</p>
- <p class="mgmt-desc">정서적 안정감과 적절한 긴장감을 동시에 제공합니다. 다른 친구들이 열심히 공부하는 모습을 보며 <b style="color:#7B6EF6;">자연스러운 학습 동기</b>가 부여됩니다.</p>
- <div class="mgmt-check"><span style="color:#7B6EF6;">✓</span><span>코치 동선 안에서 즉각적인 1:1 피드백</span></div>
- <div class="mgmt-check"><span style="color:#7B6EF6;">✓</span><span>소수정예 그룹으로 집중력 극대화</span></div>
- <div class="mgmt-check"><span style="color:#7B6EF6;">✓</span><span>자기주도학습 습관 자연스럽게 형성</span></div>
- <div class="mgmt-check"><span style="color:#7B6EF6;">✓</span><span>또래 학습 효과로 학습 동기 부여</span></div>
+ <p style="font-size:13px;color:#3B5BDB;font-weight:700;margin-bottom:16px;">코치를 중심으로 학생들이 둘러앉는 집중형 구조</p>
+ <p class="mgmt-desc">정서적 안정감과 적절한 긴장감을 동시에 제공합니다. 다른 친구들이 열심히 공부하는 모습을 보며 <b style="color:#3B5BDB;">자연스러운 학습 동기</b>가 부여됩니다.</p>
+ <div class="mgmt-check"><span style="color:#3B5BDB;">✓</span><span>코치 동선 안에서 즉각적인 1:1 피드백</span></div>
+ <div class="mgmt-check"><span style="color:#3B5BDB;">✓</span><span>소수정예 그룹으로 집중력 극대화</span></div>
+ <div class="mgmt-check"><span style="color:#3B5BDB;">✓</span><span>자기주도학습 습관 자연스럽게 형성</span></div>
+ <div class="mgmt-check"><span style="color:#3B5BDB;">✓</span><span>또래 학습 효과로 학습 동기 부여</span></div>
  </div>
  <div class="mgmt-visual" style="background:linear-gradient(135deg,#fef9ef,#f0f4ff);padding:16px;">
  <img src="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/%EB%91%A5%EC%A7%80%ED%95%99%EC%8A%B5.jpg" alt="둥지 학습 시스템" style="width:100%;border-radius:14px;object-fit:cover;">
@@ -5002,7 +5003,7 @@ function buildAcademyPage() {
  <!-- 학년별 수업 안내 -->
  <div style="margin-bottom:40px;">
  <div style="text-align:center;margin-bottom:32px;">
- <h2 style="font-size:clamp(24px,4.5vw,36px);font-weight:900;color:#2E2A45;margin-bottom:6px;line-height:1.3;">학년별 수업은<br>어떻게 진행 하나요?</h2>
+ <h2 style="font-size:clamp(24px,4.5vw,36px);font-weight:900;color:#1B2440;margin-bottom:6px;line-height:1.3;">학년별 수업은<br>어떻게 진행 하나요?</h2>
  <p style="font-size:14px;color:#888;">학생의 학년과 수준에 맞는 최적의 수업을 설계합니다</p>
  </div>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
@@ -5028,14 +5029,14 @@ function buildAcademyPage() {
  <div style="margin-bottom:40px;">
  <div style="text-align:center;margin-bottom:28px;">
  <span style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;padding:6px 20px;border-radius:50px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:14px;">AI 기반 올인원 학습 플랫폼</span>
- <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#2E2A45;margin-bottom:8px;">🤖 AI 학습클래스</h2>
+ <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#1B2440;margin-bottom:8px;">🤖 AI 학습클래스</h2>
  <p style="font-size:14px;color:#888;line-height:1.8;">AI 기술로 학생 개개인의 실력을 정밀 분석하고<br>수준별 맞춤 학습 콘텐츠를 무제한 제공합니다</p>
  </div>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:28px;border-top:4px solid #3b82f6;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
  <div style="width:50px;height:50px;border-radius:14px;background:#3b82f610;display:flex;align-items:center;justify-content:center;font-size:26px;">🔤</div>
- <div><h3 style="font-size:17px;font-weight:900;color:#2E2A45;margin:0;">AI 영어</h3>
+ <div><h3 style="font-size:17px;font-weight:900;color:#1B2440;margin:0;">AI 영어</h3>
  <p style="font-size:11px;color:#3b82f6;font-weight:700;margin:0;">AI English Class</p></div>
  </div>
  <div style="display:flex;flex-direction:column;gap:10px;">
@@ -5048,7 +5049,7 @@ function buildAcademyPage() {
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:28px;border-top:4px solid #f59e0b;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
  <div style="width:50px;height:50px;border-radius:14px;background:#f59e0b10;display:flex;align-items:center;justify-content:center;font-size:26px;">🔢</div>
- <div><h3 style="font-size:17px;font-weight:900;color:#2E2A45;margin:0;">AI 수학</h3>
+ <div><h3 style="font-size:17px;font-weight:900;color:#1B2440;margin:0;">AI 수학</h3>
  <p style="font-size:11px;color:#f59e0b;font-weight:700;margin:0;">AI Math Class</p></div>
  </div>
  <div style="display:flex;flex-direction:column;gap:10px;">
@@ -5061,7 +5062,7 @@ function buildAcademyPage() {
  <div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:28px;border-top:4px solid #10b981;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
  <div style="width:50px;height:50px;border-radius:14px;background:#10b98110;display:flex;align-items:center;justify-content:center;font-size:26px;">📖</div>
- <div><h3 style="font-size:17px;font-weight:900;color:#2E2A45;margin:0;">AI 국어</h3>
+ <div><h3 style="font-size:17px;font-weight:900;color:#1B2440;margin:0;">AI 국어</h3>
  <p style="font-size:11px;color:#10b981;font-weight:700;margin:0;">AI Korean Class</p></div>
  </div>
  <div style="display:flex;flex-direction:column;gap:10px;">
@@ -5075,7 +5076,7 @@ function buildAcademyPage() {
  <div style="background:linear-gradient(135deg,#f0f0ff,#fef9ef);border-radius:16px;padding:24px 28px;margin-top:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
  <div style="font-size:36px;">💡</div>
  <div style="flex:1;min-width:240px;">
- <p style="font-size:15px;font-weight:800;color:#2E2A45;margin:0 0 6px;">AI + 코치 = 최적의 학습 시너지</p>
+ <p style="font-size:15px;font-weight:800;color:#1B2440;margin:0 0 6px;">AI + 코치 = 최적의 학습 시너지</p>
  <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">AI가 실력을 정밀 분석하고 맞춤 콘텐츠를 제공하면, 전문 코치가 학습 방향을 잡아주고 동기를 부여합니다. 기술과 사람의 조화로 학습 효과를 극대화합니다.</p>
  </div>
  </div>
@@ -5083,7 +5084,7 @@ function buildAcademyPage() {
 
  <!-- 성적 향상 후기 -->
  <div style="background:white;border-radius:24px;padding:clamp(32px,5vw,56px) clamp(20px,4vw,40px);margin-bottom:40px;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
- <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#2E2A45;text-align:center;margin-bottom:28px;">이미 많은 학생들이 성적 상승을 경험했습니다!</h2>
+ <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#1B2440;text-align:center;margin-bottom:28px;">이미 많은 학생들이 성적 상승을 경험했습니다!</h2>
  <div class="review-wrap" id="reviewWrap">
  <div class="review-track" id="reviewTrack">
  <div class="review-card">
@@ -5144,9 +5145,9 @@ function buildAcademyPage() {
 
  <!-- 전국 센터 검색 -->
  <div style="margin-bottom:40px;">
- <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#2E2A45;text-align:center;margin-bottom:8px;">🏫 전국 학습코칭학원</h2>
+ <h2 style="font-size:clamp(22px,4vw,32px);font-weight:900;color:#1B2440;text-align:center;margin-bottom:8px;">🏫 전국 학습코칭학원</h2>
  <p style="font-size:14px;color:#888;text-align:center;margin-bottom:20px;">지역별로 가까운 학원을 찾아보세요</p>
- <div style="max-width:500px;margin:0 auto 20px;"><input type="text" id="acadSearchInput" placeholder="학원명 또는 지역 검색 (예: 강남, 수원, 하남)" style="width:100%;padding:14px 20px;border:2px solid #E2E8F0;border-radius:50px;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box;" onfocus="this.style.borderColor='#7B6EF6'" onblur="this.style.borderColor='#E2E8F0'"></div>
+ <div style="max-width:500px;margin:0 auto 20px;"><input type="text" id="acadSearchInput" placeholder="학원명 또는 지역 검색 (예: 강남, 수원, 하남)" style="width:100%;padding:14px 20px;border:2px solid #E2E8F0;border-radius:50px;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box;" onfocus="this.style.borderColor='#3B5BDB'" onblur="this.style.borderColor='#E2E8F0'"></div>
  <div id="acadTabs" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
  ${regionTabs}
  </div>
@@ -5457,25 +5458,25 @@ const LANG_DATA = {
 };
 function buildLangPage(slug){
  var d=LANG_DATA[slug]; if(!d) return null;
- var typesHtml=d.types.map(function(t,idx){return '<div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border-radius:20px;padding:28px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 12px rgba(0,0,0,0.04);"><div style="min-width:48px;width:48px;height:48px;background:linear-gradient(135deg,'+d.clr+','+d.clr+'cc);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900;flex-shrink:0;">'+(idx+1)+'</div><div><h3 style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:8px;">'+t.t+'</h3><p style="font-size:14px;color:#555;line-height:1.85;">'+t.d+'</p></div></div>';}).join('');
- var whyHtml=d.why.map(function(w){return '<div style="background:#fff;border-radius:18px;padding:28px 24px;border-top:4px solid '+d.clr+';box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="font-size:34px;margin-bottom:12px;">'+w.i+'</div><h3 style="font-size:16px;font-weight:800;color:#2E2A45;margin-bottom:8px;">'+w.t+'</h3><p style="font-size:13px;color:#666;line-height:1.8;">'+w.d+'</p></div>';}).join('');
+ var typesHtml=d.types.map(function(t,idx){return '<div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border-radius:20px;padding:28px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 12px rgba(0,0,0,0.04);"><div style="min-width:48px;width:48px;height:48px;background:linear-gradient(135deg,'+d.clr+','+d.clr+'cc);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900;flex-shrink:0;">'+(idx+1)+'</div><div><h3 style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:8px;">'+t.t+'</h3><p style="font-size:14px;color:#555;line-height:1.85;">'+t.d+'</p></div></div>';}).join('');
+ var whyHtml=d.why.map(function(w){return '<div style="background:#fff;border-radius:18px;padding:28px 24px;border-top:4px solid '+d.clr+';box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="font-size:34px;margin-bottom:12px;">'+w.i+'</div><h3 style="font-size:16px;font-weight:800;color:#1B2440;margin-bottom:8px;">'+w.t+'</h3><p style="font-size:13px;color:#666;line-height:1.8;">'+w.d+'</p></div>';}).join('');
  var curHtml=d.cur.map(function(c,idx){return '<div style="display:flex;gap:20px;align-items:flex-start;"><div style="min-width:48px;width:48px;height:48px;background:'+d.clr+';border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:900;flex-shrink:0;">'+(idx+1)+'</div><div style="flex:1;background:'+d.clrL+';border-radius:14px;padding:22px;border-left:4px solid '+d.clr+';"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:8px;"><span style="font-size:16px;font-weight:900;color:'+d.clr+';">'+c.l+'</span><span style="font-size:12px;color:#888;background:#fff;padding:4px 12px;border-radius:50px;">'+c.p+'</span></div><p style="font-size:14px;color:#444;line-height:1.8;">'+c.d+'</p></div></div>';}).join('');
- var faqHtml=d.faq.map(function(f){return '<div style="background:#f8f9fc;border-radius:14px;padding:22px 24px;margin-bottom:12px;border-left:4px solid '+d.clr+';"><div style="font-size:15px;font-weight:800;color:#2E2A45;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;"><span style="color:'+d.clr+';font-weight:900;font-size:17px;flex-shrink:0;">Q.</span>'+f.q+'</div><div style="font-size:14px;color:#555;line-height:1.85;padding-left:27px;"><span style="color:'+d.clr+';font-weight:800;margin-right:6px;">A.</span>'+f.a+'</div></div>';}).join('');
+ var faqHtml=d.faq.map(function(f){return '<div style="background:#f8f9fc;border-radius:14px;padding:22px 24px;margin-bottom:12px;border-left:4px solid '+d.clr+';"><div style="font-size:15px;font-weight:800;color:#1B2440;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;"><span style="color:'+d.clr+';font-weight:900;font-size:17px;flex-shrink:0;">Q.</span>'+f.q+'</div><div style="font-size:14px;color:#555;line-height:1.85;padding-left:27px;"><span style="color:'+d.clr+';font-weight:800;margin-right:6px;">A.</span>'+f.a+'</div></div>';}).join('');
  var subLinks=LANG_SUBS[slug]||[];
  var subLinksHtml=subLinks.map(function(s){return '<a href="/language/'+slug+'/'+s.slug+'" class="topic-card"><div class="topic-icon">'+s.icon+'</div><div class="topic-info"><div class="topic-title">'+s.t+'</div><div class="topic-desc">'+s.desc+'</div></div><span class="topic-arrow">›</span></a>';}).join('');
- var others=Object.keys(LANG_DATA).filter(function(k){return k!==slug;}).map(function(k){var o=LANG_DATA[k];return '<a href="/language/'+k+'" style="display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:20px 24px;text-decoration:none;border:2px solid #e5e7eb;transition:all .25s;flex:1;min-width:200px;" onmouseover="this.style.borderColor=\''+o.clr+'\';this.style.transform=\'translateY(-3px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.1)\'" onmouseout="this.style.borderColor=\'#e5e7eb\';this.style.transform=\'\';this.style.boxShadow=\'\'"><span style="font-size:36px;">'+o.flag+'</span><div><div style="font-size:16px;font-weight:800;color:#2E2A45;">'+o.n+'</div><div style="font-size:13px;color:#888;margin-top:2px;">자세히 보기 →</div></div></a>';}).join('');
+ var others=Object.keys(LANG_DATA).filter(function(k){return k!==slug;}).map(function(k){var o=LANG_DATA[k];return '<a href="/language/'+k+'" style="display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:20px 24px;text-decoration:none;border:2px solid #e5e7eb;transition:all .25s;flex:1;min-width:200px;" onmouseover="this.style.borderColor=\''+o.clr+'\';this.style.transform=\'translateY(-3px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.1)\'" onmouseout="this.style.borderColor=\'#e5e7eb\';this.style.transform=\'\';this.style.boxShadow=\'\'"><span style="font-size:36px;">'+o.flag+'</span><div><div style="font-size:16px;font-weight:800;color:#1B2440;">'+o.n+'</div><div style="font-size:13px;color:#888;margin-top:2px;">자세히 보기 →</div></div></a>';}).join('');
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${d.n} | ${d.sub} - 홈투과외</title>
  <meta property="og:image" content="https://images.unsplash.com/photo-${d.bg}?w=1200&q=80">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta name="description" content="홈투과외 ${d.n} 1:1 화상·전화 수업. ${d.sub}. 무료 테스트 수업으로 시작하세요."><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">${COMMON_STYLE}<style></style></head><body>${NAV}
 <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/language" style="color:#888;text-decoration:none;">제2외국어</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">${d.n}</span></p>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/language" style="color:#888;text-decoration:none;">제2외국어</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">${d.n}</span></p>
  <div style="display:inline-block;background:${d.clr};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">${d.emoji} ${d.n}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${d.n} | ${d.sub}</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${d.n} | ${d.sub}</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${d.sub}. 무료 테스트 수업으로 시작하세요.</p>
 </div>
 <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url(https://images.unsplash.com/photo-${d.bg}?w=1400&q=80) center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url(https://images.unsplash.com/photo-${d.bg}?w=1400&q=80) center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${d.heroTitle}</h2>
@@ -5487,34 +5488,34 @@ function buildLangPage(slug){
 <div style="max-width:900px;margin:0 auto;padding:0 20px;">
  ${buildWhyBlock(`${d.n}`,d.clr,cH('lang-'+slug+'-why'))}
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin:32px 0 24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-  <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:16px;border-left:5px solid ${d.clr};padding-left:14px;">${d.emoji} ${d.n}이란?</h2>
+  <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:16px;border-left:5px solid ${d.clr};padding-left:14px;">${d.emoji} ${d.n}이란?</h2>
   <p style="font-size:15px;color:#444;line-height:2;">${d.intro}</p>
  </div>
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-  <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:16px;">${d.whyTitle}</h2>
+  <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:16px;">${d.whyTitle}</h2>
   <p style="font-size:15px;color:#444;line-height:2;">${d.whyText}</p>
  </div>
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-  <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:24px;border-left:5px solid ${d.clr};padding-left:14px;">📋 ${d.n} 수업 종류</h2>
+  <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:24px;border-left:5px solid ${d.clr};padding-left:14px;">📋 ${d.n} 수업 종류</h2>
   <div style="display:flex;flex-direction:column;gap:16px;">${typesHtml}</div>
  </div>
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);text-align:center;">
-  <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:8px;">왜 홈투과외인가요?</h2>
+  <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:8px;">왜 홈투과외인가요?</h2>
   <p style="font-size:14px;color:#888;margin-bottom:24px;">다른 곳과 차별화되는 홈투과외만의 강점</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:left;">${whyHtml}</div>
  </div>
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-  <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:8px;border-left:5px solid ${d.clr};padding-left:14px;">📚 단계별 커리큘럼</h2>
+  <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:8px;border-left:5px solid ${d.clr};padding-left:14px;">📚 단계별 커리큘럼</h2>
   <p style="font-size:14px;color:#888;margin-bottom:24px;padding-left:19px;">수준에 맞는 단계에서 시작하여 체계적으로 실력을 향상시킵니다</p>
   <div style="display:flex;flex-direction:column;gap:20px;">${curHtml}</div>
  </div>
  ${buildFaqBlock(`${d.n}`,d.clr,cH("lang-"+slug+"-faq"))}
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-  <h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:20px;">📂 ${d.n} 주제별 수업 가이드</h2>
+  <h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:20px;">📂 ${d.n} 주제별 수업 가이드</h2>
   <div class="topic-grid">${subLinksHtml}</div>
  </div>
  <div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-  <h2 style="font-size:20px;font-weight:800;color:#2E2A45;margin-bottom:16px;">🌏 다른 언어 수업도 확인하세요</h2>
+  <h2 style="font-size:20px;font-weight:800;color:#1B2440;margin-bottom:16px;">🌏 다른 언어 수업도 확인하세요</h2>
   <div style="display:flex;gap:14px;flex-wrap:wrap;">${others}</div>
  </div>
 </div>
@@ -5525,19 +5526,19 @@ ${CONTACT}${FOOTER}${FLOATING}
 function buildLangMainPage(){
  var cards=[{s:"english",f:"🇺🇸",n:"영어 회화",c:"#2563eb",d:"비즈니스·생활·수능 영어까지, 1:1 맞춤 영어 회화 수업으로 자신감을 키워보세요.",tags:["생활영어","비즈니스","토익스피킹","수능영어"]},{s:"japanese",f:"🇯🇵",n:"일본어 회화",c:"#dc2626",d:"JLPT·여행·취업 일본어, 한국인 맞춤 학습법으로 가장 빠르게 습득할 수 있습니다.",tags:["JLPT","여행일본어","비즈니스","애니메이션"]},{s:"chinese",f:"🇨🇳",n:"중국어 회화",c:"#ea580c",d:"HSK·비즈니스 중국어, 성조부터 실전 회화까지 체계적으로 학습하세요.",tags:["HSK","비즈니스","여행중국어","성조교정"]}].map(function(l){
   var tagHtml=l.tags.map(function(t){return '<span style="background:'+l.c+'12;color:'+l.c+';padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;">'+t+'</span>';}).join('');
-  return '<a href="/language/'+l.s+'" style="background:#fff;border-radius:20px;padding:36px 28px;text-decoration:none;border:2px solid '+l.c+'22;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:all .3s;display:block;" onmouseover="this.style.transform=\'translateY(-8px)\';this.style.boxShadow=\'0 16px 48px rgba(0,0,0,0.13)\';this.style.borderColor=\''+l.c+'\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'0 4px 24px rgba(0,0,0,0.07)\';this.style.borderColor=\''+l.c+'22\'"><div style="font-size:52px;margin-bottom:14px;">'+l.f+'</div><h3 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:10px;">'+l.n+'</h3><p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:16px;">'+l.d+'</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">'+tagHtml+'</div><span style="display:inline-block;background:'+l.c+';color:#fff;padding:12px 32px;border-radius:50px;font-size:14px;font-weight:700;">자세히 보기 →</span></a>';}).join('');
+  return '<a href="/language/'+l.s+'" style="background:#fff;border-radius:20px;padding:36px 28px;text-decoration:none;border:2px solid '+l.c+'22;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:all .3s;display:block;" onmouseover="this.style.transform=\'translateY(-8px)\';this.style.boxShadow=\'0 16px 48px rgba(0,0,0,0.13)\';this.style.borderColor=\''+l.c+'\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'0 4px 24px rgba(0,0,0,0.07)\';this.style.borderColor=\''+l.c+'22\'"><div style="font-size:52px;margin-bottom:14px;">'+l.f+'</div><h3 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:10px;">'+l.n+'</h3><p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:16px;">'+l.d+'</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">'+tagHtml+'</div><span style="display:inline-block;background:'+l.c+';color:#fff;padding:12px 32px;border-radius:50px;font-size:14px;font-weight:700;">자세히 보기 →</span></a>';}).join('');
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>제2외국어 수업 | 영어·일본어·중국어 1:1 화상·전화 수업 - 홈투과외</title>
  <meta property="og:image" content="${bgImg("city",42)}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta name="description" content="홈투과외 제2외국어 1:1 화상·전화 수업. 영어, 일본어, 중국어 회화를 맞춤 수업으로 배우세요. 무료 테스트 수업."><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">제2외국어</span></p>
- <div style="display:inline-block;background:#7B6EF6;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🌏 제2외국어</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">제2외국어 수업 | 영어·일본어·중국어 1:1 수업</h1>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">제2외국어</span></p>
+ <div style="display:inline-block;background:#3B5BDB;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🌏 제2외국어</div>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">제2외국어 수업 | 영어·일본어·중국어 1:1 수업</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">영어·일본어·중국어 1:1 화상·전화 수업으로 원하는 언어를 체계적으로 배울 수 있습니다. 무료 테스트 수업으로 시작하세요.</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",42)}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("city",42)}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">🌏 제2외국어 수업</h2>
@@ -5585,9 +5586,9 @@ function buildLangSubPage(lang,sub){
  var subs=LANG_SUBS[lang]; if(!subs) return null;
  var s=null; for(var i=0;i<subs.length;i++){if(subs[i].slug===sub){s=subs[i];break;}} if(!s) return null;
  var otherSubs=subs.filter(function(x){return x.slug!==sub;}).map(function(x){
-  return '<a href="/language/'+lang+'/'+x.slug+'" class="sub-link-card2"><span style="font-size:28px;">'+x.icon+'</span><div><div style="font-size:15px;font-weight:800;color:#2E2A45;">'+x.t+'</div><div style="font-size:12px;color:#888;margin-top:2px;">'+x.desc+'</div></div></a>';
+  return '<a href="/language/'+lang+'/'+x.slug+'" class="sub-link-card2"><span style="font-size:28px;">'+x.icon+'</span><div><div style="font-size:15px;font-weight:800;color:#1B2440;">'+x.t+'</div><div style="font-size:12px;color:#888;margin-top:2px;">'+x.desc+'</div></div></a>';
  }).join('');
- return '<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>'+s.t+' | '+d.n+' - 홈투과외</title><meta name="description" content="'+s.desc+'. 홈투과외 1:1 '+d.n+' 수업."><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">'+COMMON_STYLE+'<style>.sub-link-card2{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:20px;text-decoration:none;border:2px solid #e5e7eb;transition:all .2s;}.sub-link-card2:hover{border-color:#7B6EF6;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08);}</style></head><body>'+NAV+'<div style="background:linear-gradient(135deg,#0D1526,#1e2d50);padding:100px 20px 50px;"><div style="max-width:900px;margin:0 auto;"><p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;"><a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none;">홈</a> › <a href="/language" style="color:rgba(255,255,255,0.5);text-decoration:none;">제2외국어</a> › <a href="/language/'+lang+'" style="color:rgba(255,255,255,0.5);text-decoration:none;">'+d.n+'</a> › '+s.t+'</p><div style="font-size:44px;margin-bottom:14px;">'+s.icon+'</div><h1 style="font-family:Noto Serif KR,serif;font-size:clamp(26px,5vw,40px);font-weight:900;color:#fff;line-height:1.35;margin-bottom:10px;">'+s.t+'</h1><p style="font-size:15px;color:rgba(255,255,255,0.65);">'+s.desc+'</p></div></div><div style="max-width:900px;margin:32px auto;padding:0 20px;">'+buildWhyBlock(s.t,d.clr,cH('langsub-'+lang+'-'+sub+'-why'))+'<div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);"><h2 style="font-size:22px;font-weight:900;color:#2E2A45;border-left:5px solid '+d.clr+';padding-left:14px;margin-bottom:20px;">'+s.icon+' '+s.t+'</h2><p style="font-size:15px;color:#444;line-height:2.1;">'+s.content+'</p></div><div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);"><h2 style="font-size:20px;font-weight:800;color:#2E2A45;margin-bottom:16px;">📌 관련 '+d.n+' 수업</h2><div style="display:flex;flex-direction:column;gap:12px;">'+otherSubs+'</div></div><div style="background:linear-gradient(135deg,'+d.clr+'11,'+d.clrL+');border:2px solid '+d.clr+'33;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;text-align:center;"><h2 style="font-size:22px;font-weight:900;color:#2E2A45;margin-bottom:10px;">무료 테스트 수업 신청</h2><p style="font-size:14px;color:#666;margin-bottom:20px;">지금 바로 홈투과외의 '+d.n+' 수업을 무료로 체험해 보세요</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a href="#form" onclick="document.getElementById(\x27form\x27).scrollIntoView({behavior:\x27smooth\x27});return false;" style="background:'+d.clr+';color:#fff;text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;display:inline-block;">무료 상담 신청</a><a href="tel:01023370458" style="background:#fff;border:2px solid '+d.clr+';color:'+d.clr+';text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;display:inline-block;">📞 전화 상담</a></div></div></div>'+FOOTER+FLOATING+'</body></html>';
+ return '<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>'+s.t+' | '+d.n+' - 홈투과외</title><meta name="description" content="'+s.desc+'. 홈투과외 1:1 '+d.n+' 수업."><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">'+COMMON_STYLE+'<style>.sub-link-card2{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:20px;text-decoration:none;border:2px solid #e5e7eb;transition:all .2s;}.sub-link-card2:hover{border-color:#3B5BDB;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08);}</style></head><body>'+NAV+'<div style="background:linear-gradient(135deg,#0D1526,#1e2d50);padding:100px 20px 50px;"><div style="max-width:900px;margin:0 auto;"><p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;"><a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none;">홈</a> › <a href="/language" style="color:rgba(255,255,255,0.5);text-decoration:none;">제2외국어</a> › <a href="/language/'+lang+'" style="color:rgba(255,255,255,0.5);text-decoration:none;">'+d.n+'</a> › '+s.t+'</p><div style="font-size:44px;margin-bottom:14px;">'+s.icon+'</div><h1 style="font-family:Noto Serif KR,serif;font-size:clamp(26px,5vw,40px);font-weight:900;color:#fff;line-height:1.35;margin-bottom:10px;">'+s.t+'</h1><p style="font-size:15px;color:rgba(255,255,255,0.65);">'+s.desc+'</p></div></div><div style="max-width:900px;margin:32px auto;padding:0 20px;">'+buildWhyBlock(s.t,d.clr,cH('langsub-'+lang+'-'+sub+'-why'))+'<div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);"><h2 style="font-size:22px;font-weight:900;color:#1B2440;border-left:5px solid '+d.clr+';padding-left:14px;margin-bottom:20px;">'+s.icon+' '+s.t+'</h2><p style="font-size:15px;color:#444;line-height:2.1;">'+s.content+'</p></div><div style="background:#fff;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,0.07);"><h2 style="font-size:20px;font-weight:800;color:#1B2440;margin-bottom:16px;">📌 관련 '+d.n+' 수업</h2><div style="display:flex;flex-direction:column;gap:12px;">'+otherSubs+'</div></div><div style="background:linear-gradient(135deg,'+d.clr+'11,'+d.clrL+');border:2px solid '+d.clr+'33;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;text-align:center;"><h2 style="font-size:22px;font-weight:900;color:#1B2440;margin-bottom:10px;">무료 테스트 수업 신청</h2><p style="font-size:14px;color:#666;margin-bottom:20px;">지금 바로 홈투과외의 '+d.n+' 수업을 무료로 체험해 보세요</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a href="#form" onclick="document.getElementById(\x27form\x27).scrollIntoView({behavior:\x27smooth\x27});return false;" style="background:'+d.clr+';color:#fff;text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;display:inline-block;">무료 상담 신청</a><a href="tel:01023370458" style="background:#fff;border:2px solid '+d.clr+';color:'+d.clr+';text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;display:inline-block;">📞 전화 상담</a></div></div></div>'+FOOTER+FLOATING+'</body></html>';
 }
 
 addEventListener("fetch", event => {
@@ -5639,13 +5640,13 @@ async function handle(req) {
 <style>
  body{margin:0;padding:0;background:#eef1f6;}
  .ew{width:100%;max-width:600px;margin:0 auto;background:#f8f9fc;border-radius:12px;overflow:hidden;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;}
- .ew-head{background:linear-gradient(135deg,#2E2A45,#5B4EE0);padding:28px;}
+ .ew-head{background:linear-gradient(135deg,#1B2440,#2C46B8);padding:28px;}
  .ew-body{padding:24px 28px;background:#fff;}
  .ew-foot{padding:16px 28px;background:#f8f9fc;font-size:12px;color:#aaa;text-align:center;}
  table.ew-tbl{width:100%;border-collapse:collapse;}
  table.ew-tbl td{padding:10px 6px;border-bottom:1px solid #eee;vertical-align:top;word-break:break-word;}
  td.lbl{color:#888;font-size:13px;width:96px;white-space:nowrap;}
- td.val{font-weight:600;color:#2E2A45;font-size:15px;}
+ td.val{font-weight:600;color:#1B2440;font-size:15px;}
  @media only screen and (max-width:600px){
   .ew-head{padding:22px 18px!important;}
   .ew-body{padding:18px 16px!important;}
@@ -5659,7 +5660,7 @@ async function handle(req) {
 <body>
  <div class="ew">
   <div class="ew-head">
-   <h1 style="color:#7B6EF6;margin:0;font-size:20px;">📚 새 상담 신청이 도착했습니다</h1>
+   <h1 style="color:#3B5BDB;margin:0;font-size:20px;">📚 새 상담 신청이 도착했습니다</h1>
    <p style="color:rgba(255,255,255,0.6);margin:6px 0 0;font-size:13px;">홈투과외 홈페이지 상담 신청</p>
    <div style="margin-top:12px;display:inline-block;background:${srcColor};color:white;padding:5px 16px;border-radius:50px;font-size:12px;font-weight:700;">📍 유입 경로: ${srcLabel}</div>
   </div>
@@ -5736,7 +5737,7 @@ if (p === "/img/banner1.png") {
 
  
 function buildSubjectMainPage(){
- const cards=SUBJECT_LIST.map(k=>{const s=SUBJECTS[k];return '<a href="/subject/'+s.slug+'" style="text-decoration:none;color:inherit;"><div style="background:#fff;border-radius:18px;padding:28px 22px;border:1px solid rgba(192,200,216,.3);box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'0 14px 36px rgba(26,35,64,.12)\'" onmouseout="this.style.transform=\'translateY(0)\';this.style.boxShadow=\'0 4px 20px rgba(0,0,0,.07)\'"><div style="font-size:36px;margin-bottom:12px;">'+s.icon+'</div><div style="font-size:17px;font-weight:800;color:#2E2A45;margin-bottom:8px;">'+s.name+' 과외</div><div style="font-size:13px;color:#4A5568;line-height:1.7;">'+s.desc.substring(0,60)+'...</div></div></a>';}).join('');
+ const cards=SUBJECT_LIST.map(k=>{const s=SUBJECTS[k];return '<a href="/subject/'+s.slug+'" style="text-decoration:none;color:inherit;"><div style="background:#fff;border-radius:18px;padding:28px 22px;border:1px solid rgba(192,200,216,.3);box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'0 14px 36px rgba(26,35,64,.12)\'" onmouseout="this.style.transform=\'translateY(0)\';this.style.boxShadow=\'0 4px 20px rgba(0,0,0,.07)\'"><div style="font-size:36px;margin-bottom:12px;">'+s.icon+'</div><div style="font-size:17px;font-weight:800;color:#1B2440;margin-bottom:8px;">'+s.name+' 과외</div><div style="font-size:13px;color:#4A5568;line-height:1.7;">'+s.desc.substring(0,60)+'...</div></div></a>';}).join('');
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
  <title>과목별 수업 | 홈투과외</title>
@@ -5748,14 +5749,14 @@ function buildSubjectMainPage(){
  </head><body>
  ${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
- <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <span style="color:#2E2A45;font-weight:700;">과목별 수업</span></p>
- <div style="display:inline-block;background:#7B6EF6;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📚 과목별 수업</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">과목별 수업 안내 | 초·중·고 1:1 맞춤 수업</h1>
+ <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <span style="color:#1B2440;font-weight:700;">과목별 수업</span></p>
+ <div style="display:inline-block;background:#3B5BDB;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📚 과목별 수업</div>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">과목별 수업 안내 | 초·중·고 1:1 맞춤 수업</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">초·중·고 전 과목, 학생에게 꼭 맞는 1:1 맞춤 수업을 제공합니다.</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",7)}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",7)}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">📚 과목별 수업 안내</h2>
@@ -5782,10 +5783,10 @@ function buildSubjectPage(subSlug){
  if(st.mid)grades.push({id:'mid',label:'📘 중학생',color:'#1a5fa8',data:st.mid});
  if(st.high)grades.push({id:'high',label:'🔥 고등학생',color:'#7b1fa2',data:st.high});
  const tabs=grades.map((g,i)=>'<button class="gt'+(i===0?' gta':'')+'" onclick="switchGrade('+i+')" style="flex:1;padding:12px 16px;border-radius:10px;border:2px solid '+(i===0?g.color:'#E2E8F0')+';background:'+(i===0?g.color:'#fff')+';color:'+(i===0?'#fff':'#334155')+';font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;">'+g.label+'</button>').join('');
- const panels=grades.map((g,i)=>'<div class="gp" id="gp'+i+'" style="display:'+(i===0?'block':'none')+';"><div style="background:'+g.color+';color:#fff;padding:20px 24px;border-radius:14px;margin-bottom:20px;"><h3 style="font-size:1.1rem;font-weight:800;margin-bottom:8px;">'+g.label.split(' ')[1]+' '+s.name+' 학습법</h3><p style="font-size:0.85rem;opacity:0.85;line-height:1.7;">'+s.name+' 과목을 효과적으로 학습하는 방법을 안내합니다.</p></div><div style="margin-bottom:24px;"><h4 style="font-size:1rem;font-weight:800;color:#2E2A45;margin-bottom:12px;display:flex;align-items:center;gap:8px;">📚 공부 방법</h4><p style="font-size:0.88rem;color:#334155;line-height:2;">'+g.data.study+'</p></div><div><h4 style="font-size:1rem;font-weight:800;color:#2E2A45;margin-bottom:12px;display:flex;align-items:center;gap:8px;">📝 시험 대비 전략</h4><p style="font-size:0.88rem;color:#334155;line-height:2;">'+g.data.exam+'</p></div></div>').join('');
- const curCards=s.curriculum?s.curriculum.map((c,i)=>'<div style="background:#fff;border:1.5px solid #E2E8F0;border-radius:14px;padding:24px 20px;"><div style="font-size:0.7rem;font-weight:700;color:#7B6EF6;letter-spacing:1px;margin-bottom:8px;">STEP '+(i+1)+'</div><div style="font-size:0.95rem;font-weight:800;color:#2E2A45;margin-bottom:8px;">'+c.t+'</div><div style="font-size:0.85rem;color:#64748B;line-height:1.7;">'+c.d+'</div></div>').join(''):'';
- const tipCards=s.tips?s.tips.map(t=>'<div style="border:1px solid #E2E8F0;border-radius:12px;padding:20px;margin-bottom:12px;"><p style="font-weight:700;color:#2E2A45;font-size:0.92rem;margin-bottom:8px;">Q. '+t.q+'</p><p style="font-size:0.85rem;color:#64748B;line-height:1.8;">'+t.a+'</p></div>').join(''):'';
- const otherSubjects=SUBJECT_LIST.filter(k=>k!==sKey).map(k=>{const o=SUBJECTS[k];return '<a href="/subject/'+o.slug+'" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#fff;border:1.5px solid #E2E8F0;color:#2E2A45;text-decoration:none;border-radius:50px;font-size:0.82rem;font-weight:600;">'+o.icon+' '+o.name+'</a>';}).join('');
+ const panels=grades.map((g,i)=>'<div class="gp" id="gp'+i+'" style="display:'+(i===0?'block':'none')+';"><div style="background:'+g.color+';color:#fff;padding:20px 24px;border-radius:14px;margin-bottom:20px;"><h3 style="font-size:1.1rem;font-weight:800;margin-bottom:8px;">'+g.label.split(' ')[1]+' '+s.name+' 학습법</h3><p style="font-size:0.85rem;opacity:0.85;line-height:1.7;">'+s.name+' 과목을 효과적으로 학습하는 방법을 안내합니다.</p></div><div style="margin-bottom:24px;"><h4 style="font-size:1rem;font-weight:800;color:#1B2440;margin-bottom:12px;display:flex;align-items:center;gap:8px;">📚 공부 방법</h4><p style="font-size:0.88rem;color:#334155;line-height:2;">'+g.data.study+'</p></div><div><h4 style="font-size:1rem;font-weight:800;color:#1B2440;margin-bottom:12px;display:flex;align-items:center;gap:8px;">📝 시험 대비 전략</h4><p style="font-size:0.88rem;color:#334155;line-height:2;">'+g.data.exam+'</p></div></div>').join('');
+ const curCards=s.curriculum?s.curriculum.map((c,i)=>'<div style="background:#fff;border:1.5px solid #E2E8F0;border-radius:14px;padding:24px 20px;"><div style="font-size:0.7rem;font-weight:700;color:#3B5BDB;letter-spacing:1px;margin-bottom:8px;">STEP '+(i+1)+'</div><div style="font-size:0.95rem;font-weight:800;color:#1B2440;margin-bottom:8px;">'+c.t+'</div><div style="font-size:0.85rem;color:#64748B;line-height:1.7;">'+c.d+'</div></div>').join(''):'';
+ const tipCards=s.tips?s.tips.map(t=>'<div style="border:1px solid #E2E8F0;border-radius:12px;padding:20px;margin-bottom:12px;"><p style="font-weight:700;color:#1B2440;font-size:0.92rem;margin-bottom:8px;">Q. '+t.q+'</p><p style="font-size:0.85rem;color:#64748B;line-height:1.8;">'+t.a+'</p></div>').join(''):'';
+ const otherSubjects=SUBJECT_LIST.filter(k=>k!==sKey).map(k=>{const o=SUBJECTS[k];return '<a href="/subject/'+o.slug+'" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#fff;border:1.5px solid #E2E8F0;color:#1B2440;text-decoration:none;border-radius:50px;font-size:0.82rem;font-weight:600;">'+o.icon+' '+o.name+'</a>';}).join('');
  const gradeColors=grades.map(g=>g.color);
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -5801,15 +5802,15 @@ function buildSubjectPage(subSlug){
  <p style="font-size:13px;color:#888;margin-bottom:16px;">
  <a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo;
  <a href="/subject" style="color:#888;text-decoration:none;">과목수업</a> &rsaquo;
- <span style="color:#2E2A45;font-weight:700;">${s.name} 과외</span>
+ <span style="color:#1B2440;font-weight:700;">${s.name} 과외</span>
  </p>
- <div style="display:inline-block;background:#7B6EF6;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">${s.icon} ${s.name}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#2E2A45;margin:0 0 10px 0;line-height:1.3;">${s.name} 과외 | 맞춤 1:1 과외</h1>
+ <div style="display:inline-block;background:#3B5BDB;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">${s.icon} ${s.name}</div>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#1B2440;margin:0 0 10px 0;line-height:1.3;">${s.name} 과외 | 맞춤 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${s.desc}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
- <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",cH(sKey))}') center/cover no-repeat,linear-gradient(135deg,#2E2A45,#5B4EE0);">
+ <div style="position:relative;border-radius:20px;overflow:hidden;height:clamp(200px,30vw,320px);background:url('${bgImg("school",cH(sKey))}') center/cover no-repeat,linear-gradient(135deg,#1B2440,#2C46B8);">
  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.15) 100%);"></div>
  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(24px,4vw,40px);">
  <h2 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin:0 0 12px 0;">${s.name} 과외</h2>
@@ -5822,26 +5823,26 @@ function buildSubjectPage(subSlug){
  </div>
  </div>
  <div style="max-width:900px;margin:0 auto;padding:40px 20px;">
-  ${buildWhyBlock(`${s.name} 과외`,'#7B6EF6',cH('subject-'+sKey+'-why'))}
+  ${buildWhyBlock(`${s.name} 과외`,'#3B5BDB',cH('subject-'+sKey+'-why'))}
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(26,35,64,0.06);">
-   <h2 style="font-size:1.2rem;font-weight:900;color:#2E2A45;margin-bottom:14px;border-left:4px solid #7B6EF6;padding-left:14px;">${s.name} 수업 안내</h2>
+   <h2 style="font-size:1.2rem;font-weight:900;color:#1B2440;margin-bottom:14px;border-left:4px solid #3B5BDB;padding-left:14px;">${s.name} 수업 안내</h2>
    <p style="font-size:0.92rem;color:#334155;line-height:2;">${s.content}</p>
   </div>
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(26,35,64,0.06);">
-   <h2 style="font-size:1.2rem;font-weight:900;color:#2E2A45;margin-bottom:20px;border-left:4px solid #7B6EF6;padding-left:14px;">📋 커리큘럼</h2>
+   <h2 style="font-size:1.2rem;font-weight:900;color:#1B2440;margin-bottom:20px;border-left:4px solid #3B5BDB;padding-left:14px;">📋 커리큘럼</h2>
    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">${curCards}</div>
   </div>
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(26,35,64,0.06);">
-   <h2 style="font-size:1.2rem;font-weight:900;color:#2E2A45;margin-bottom:20px;border-left:4px solid #7B6EF6;padding-left:14px;">🎓 학년별 공부법 & 시험 대비</h2>
+   <h2 style="font-size:1.2rem;font-weight:900;color:#1B2440;margin-bottom:20px;border-left:4px solid #3B5BDB;padding-left:14px;">🎓 학년별 공부법 & 시험 대비</h2>
    <div class="grade-tabs" style="display:flex;gap:10px;margin-bottom:24px;">${tabs}</div>
    <div id="gradePanels">${panels}</div>
   </div>
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(26,35,64,0.06);">
-   <h2 style="font-size:1.2rem;font-weight:900;color:#2E2A45;margin-bottom:20px;border-left:4px solid #7B6EF6;padding-left:14px;">💡 자주 묻는 질문</h2>
+   <h2 style="font-size:1.2rem;font-weight:900;color:#1B2440;margin-bottom:20px;border-left:4px solid #3B5BDB;padding-left:14px;">💡 자주 묻는 질문</h2>
    ${tipCards}
   </div>
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,4vw,40px);margin-bottom:24px;box-shadow:0 4px 24px rgba(26,35,64,0.06);">
-   <h2 style="font-size:1.2rem;font-weight:900;color:#2E2A45;margin-bottom:16px;">📚 다른 과목 수업</h2>
+   <h2 style="font-size:1.2rem;font-weight:900;color:#1B2440;margin-bottom:16px;">📚 다른 과목 수업</h2>
    <div style="display:flex;flex-wrap:wrap;gap:8px;">${otherSubjects}</div>
   </div>
  </div>
@@ -5887,11 +5888,11 @@ function buildSubjectPage(subSlug){
    items.push(`<item><title><![CDATA[${title}]]></title><link>${url}</link><description><![CDATA[${desc}]]></description><guid>${url}</guid><pubDate>${now}</pubDate></item>`);
   }
   // 메인
-  addItem("홈투과외 - 1:1 방문 화상 과외", base+"/", "초·중·고 전 과목 1:1 맞춤 과외. 방문·화상 수업 선택 가능. 무료 상담 및 체험 수업.");
+  addItem("홈투과외 - 1:1 화상 과외", base+"/", "초·중·고 전 과목 1:1 맞춤 과외. 화상 수업 진행. 무료 상담 및 체험 수업.");
   // 지역 페이지
   Object.keys(locations).forEach(function(rs){
    const rn = locations[rs].name;
-   addItem(rn+" 과외 | 홈투과외", base+"/"+rs, rn+" 지역 초·중·고 1:1 맞춤 과외. 상담 후 방문·화상 결정. 첫 상담 무료.");
+   addItem(rn+" 과외 | 홈투과외", base+"/"+rs, rn+" 지역 초·중·고 1:1 맞춤 과외. 상담 후 수업 시간 결정. 첫 상담 무료.");
    // 주요 시/구/군
    Object.keys(locations[rs].cities||{}).slice(0,10).forEach(function(cs){
     const ci = locations[rs].cities[cs];
@@ -5907,7 +5908,7 @@ function buildSubjectPage(subSlug){
   // 학년 페이지
   Object.keys(GRADE_DATA).forEach(function(gc){
    const gd = GRADE_DATA[gc];
-   addItem(gd.name+" 과외 | 홈투과외", base+"/grade/"+gc, gd.name+" 맞춤 1:1 과외. 학교 내신 완벽 대비. 방문·화상 선택 가능.");
+   addItem(gd.name+" 과외 | 홈투과외", base+"/grade/"+gc, gd.name+" 맞춤 1:1 과외. 학교 내신 완벽 대비. 화상 수업 진행.");
   });
   // 외국어
   ["english","japanese","chinese"].forEach(function(l){
@@ -5923,9 +5924,9 @@ function buildSubjectPage(subSlug){
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
- <title>홈투과외 - 1:1 방문 화상 과외</title>
+ <title>홈투과외 - 1:1 화상 과외</title>
  <link>${base}</link>
- <description>초·중·고 전 과목 1:1 맞춤 과외. 방문·화상 수업 모두 가능. 무료 상담 및 체험 수업.</description>
+ <description>초·중·고 전 과목 1:1 맞춤 과외. 전국 어디서든 화상 수업. 무료 상담 및 체험 수업.</description>
  <language>ko</language>
  <lastBuildDate>${now}</lastBuildDate>
  <atom:link href="${base}/rss" rel="self" type="application/rss+xml"/>
