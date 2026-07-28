@@ -1699,15 +1699,6 @@ function buildRegionPage(rs) {
  </div>
  </div>
 
- <!-- 홈투과외 수업 사진 -->
- <div style="max-width:900px;margin:0 auto 24px;padding:0 20px;">
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-   <div style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#F6F6FA;">${thumbImg(rs+'-a', rn+' 홈투과외 1:1 수업')}</div>
-   <div style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#F6F6FA;">${thumbImg(rs+'-b', rn+' 홈투과외 1:1 맞춤 수업')}</div>
-   <div style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#F6F6FA;">${thumbImg(rs+'-c', rn+' 홈투과외 학습 관리')}</div>
-  </div>
- </div>
-
  <!-- WHY 블록 (공용 헬퍼) -->
  <div style="max-width:900px;margin:0 auto 24px;padding:0 20px;">
  ${buildWhyBlock(`${rn} 과외`,tc,cH(rs+'region-why'))}
@@ -3851,13 +3842,6 @@ function buildSubjectPage(subSlug){
  </div>
  </div>
  </div>
- </div>
- <div style="max-width:900px;margin:0 auto;padding:0 20px 8px;">
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-   <div style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#F6F6FA;">${thumbImg(subSlug+'-a', s.name+' 1:1 맞춤 과외')}</div>
-   <div style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#F6F6FA;">${thumbImg(subSlug+'-b', s.name+' 1:1 맞춤 지도')}</div>
-   <div style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#F6F6FA;">${thumbImg(subSlug+'-c', s.name+' 학습 관리')}</div>
-  </div>
  </div>
  <div style="max-width:900px;margin:0 auto;padding:40px 20px;">
   ${buildWhyBlock(`${s.name} 과외`,'#2B6BE4',cH('subject-'+sKey+'-why'))}
