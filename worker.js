@@ -366,7 +366,7 @@ const subjects = ["국어","영어","수학","사회","과학","코딩","논술"
 
 // ============================================================
 // 콘텐츠 자동 생성 시스템 v3 (3000자/페이지, 유사도 <10%)
-// 핵심: 35년 교육 노하우, 1:1 맞춤, 첫 체험 무료,
+// 핵심: 검증된 선생님 매칭, 1:1 맞춤, 첫 체험 무료,
 // 카톡 24시간, 기출 분석, 수행평가 관리, 매주 학부모 피드백
 // ============================================================
 function maskName(n){if(!n||n.length<2)return n;return n.charAt(0)+"○".repeat(n.length-1);}
@@ -376,12 +376,12 @@ function pkU(a,h,n,b){const arr=a.slice(),r=[];let rng=(Math.imul(h>>>0,26544357
 
 const WHY_INTROS=[
 "{kw}는 학생 한 명 한 명의 현재 수준과 학습 목표를 정확히 진단한 뒤 시작합니다. 단순히 진도를 빨리 빼는 수업이 아니라 부족한 개념을 짚어주고 이해의 빈틈을 메워주는 방식으로 진행되며, 결과적으로 시험에서 흔들리지 않는 실력을 만들어 드립니다.",
-"많은 학부모님이 {kw}를 고민하실 때 가장 먼저 묻는 질문은 \"우리 아이에게 정말 맞을까\"입니다. 홈투과외은 첫 상담에서 학생의 성향과 약점을 면밀히 살핀 뒤 그에 맞는 교사를 매칭하기 때문에, 학생이 처음부터 편하게 수업에 집중할 수 있는 환경이 만들어집니다.",
-"{kw}의 핵심은 학생 스스로 \"왜 틀렸는지\"를 설명할 수 있을 때까지 끌어올리는 것입니다. 홈투과외은 단순 정답 풀이 대신 사고 과정을 함께 따라가며, 같은 유형이 변형되어 출제되어도 학생이 흔들림 없이 풀어낼 수 있도록 지도합니다.",
+"많은 학부모님이 {kw}를 고민하실 때 가장 먼저 묻는 질문은 \"우리 아이에게 정말 맞을까\"입니다. 홈투과외는 첫 상담에서 학생의 성향과 약점을 면밀히 살핀 뒤 그에 맞는 교사를 매칭하기 때문에, 학생이 처음부터 편하게 수업에 집중할 수 있는 환경이 만들어집니다.",
+"{kw}의 핵심은 학생 스스로 \"왜 틀렸는지\"를 설명할 수 있을 때까지 끌어올리는 것입니다. 홈투과외는 단순 정답 풀이 대신 사고 과정을 함께 따라가며, 같은 유형이 변형되어 출제되어도 학생이 흔들림 없이 풀어낼 수 있도록 지도합니다.",
 "학교 진도와 학원 커리큘럼이 따로 도는 경우가 많아 학생이 헷갈려 하는 일이 잦습니다. {kw}는 학생이 다니는 학교의 시험 범위와 출제 경향을 먼저 파악하고, 그 흐름에 맞춰 수업을 설계하기 때문에 내신과 학습이 자연스럽게 한 방향으로 정렬됩니다.",
 "성적이 정체된 학생일수록 \"무엇을 얼마나 모르는지\"가 흐릿한 경우가 많습니다. {kw}는 첫 두세 회 수업에서 학생의 약점을 정밀하게 분류한 뒤, 그 약점을 우선순위로 채워 나가는 단계별 학습 플랜을 함께 설계해 드립니다.",
 "공부 시간은 긴데 점수가 오르지 않는다면 학습 방법이 비효율적일 가능성이 큽니다. {kw}는 학생의 공부 동선과 노트 정리, 오답 처리 습관까지 함께 점검하기 때문에 같은 시간을 투자해도 결과가 달라지는 학습 루틴을 만들어 갑니다.",
-"{kw}를 진행할 때 홈투과외이 가장 중요하게 보는 것은 \"학생이 수업을 기다리는가\"입니다. 부담스럽고 어려운 시간이 아니라, 한 주의 궁금증을 해소하고 다음 한 주를 설계하는 시간이 되도록 분위기와 난이도를 섬세하게 조절합니다.",
+"{kw}를 진행할 때 홈투과외가 가장 중요하게 보는 것은 \"학생이 수업을 기다리는가\"입니다. 부담스럽고 어려운 시간이 아니라, 한 주의 궁금증을 해소하고 다음 한 주를 설계하는 시간이 되도록 분위기와 난이도를 섬세하게 조절합니다.",
 "교재 한 권으로 모든 학생을 가르치는 시대는 지났습니다. {kw}는 학생의 현재 수준과 목표 시점에 맞춰 메인 교재와 보조 자료를 별도로 선정하고, 매주 학생의 이해도에 따라 다음 주 학습량을 유연하게 조정합니다.",
 "내신과 수능, 또는 진학 목표가 다르면 같은 과목이라도 접근법이 완전히 달라야 합니다. {kw}는 학생의 단기·중기 목표를 분리해 우선순위를 잡고, 시험 시기에는 시기별로 전략 자체를 바꿔 적용하는 맞춤 운영이 가능합니다.",
 "수업 외 시간 관리가 결국 성적을 좌우합니다. {kw}는 일주일 단위로 학생의 자가 학습 분량을 함께 설계하고, 카카오톡으로 즉시 질문할 수 있는 라인을 열어두기 때문에 \"막히는 순간\"이 학습 정체로 이어지지 않습니다.",
@@ -391,14 +391,14 @@ const WHY_INTROS=[
 "성적이 오르지 않을 때 가장 흔한 원인은 \"문제 양\"이 아니라 \"피드백 속도\"입니다. {kw}는 학생이 푼 문제를 그 자리에서 바로 점검하고, 막힌 지점을 다음 주제로 미루지 않기 때문에 짧은 기간 안에도 변화가 체감됩니다.",
 "학생마다 동기가 작동하는 방식이 다릅니다. {kw}는 칭찬과 압박, 목표 설정과 단기 보상의 비율을 학생의 성향에 맞춰 설계하기 때문에, 공부에 대한 거부감 없이 자기주도 학습으로 전환되는 학생이 많습니다.",
 "수업이 끝나도 혼자 복습할 수 없다면 그 수업은 절반만 한 것입니다. {kw}는 매 수업의 마지막 10분을 \"오늘 배운 것 다시 설명하기\"에 사용해, 학생이 수업장을 나설 때 이미 핵심을 한 번 더 정리한 상태가 되도록 합니다.",
-"{kw}에서 가장 자주 듣는 학부모님 말씀은 \"우리 아이가 어디서 막히는지 모르겠다\"입니다. 홈투과외은 첫 4회차 안에 학생의 학습 병목 지점을 정확히 찾아내고, 그 지점을 풀어내는 작업부터 시작해 진짜 변화를 만들어 갑니다.",
+"{kw}에서 가장 자주 듣는 학부모님 말씀은 \"우리 아이가 어디서 막히는지 모르겠다\"입니다. 홈투과외는 첫 4회차 안에 학생의 학습 병목 지점을 정확히 찾아내고, 그 지점을 풀어내는 작업부터 시작해 진짜 변화를 만들어 갑니다.",
 "성적 향상의 80%는 사실 \"공부 시간 확보\"보다 \"공부 방식\"에서 결정됩니다. {kw}는 같은 1시간을 투자해도 학생의 머리에 남는 양이 달라지도록 학습법 자체를 함께 바꿔주기 때문에, 짧은 기간 안에도 변화가 보입니다.",
 "학생이 \"이건 알아\"라고 말할 때와 \"진짜 풀 수 있다\"는 다릅니다. {kw}는 학생의 자기인식을 객관적으로 검증하는 즉문즉답 구간을 매 수업에 배치해, 안다고 착각하던 부분을 발견하고 메우는 데 시간을 씁니다.",
 "같은 문제를 두세 번 풀어도 또 틀린다면 그 문제의 풀이가 아니라 학생의 사고 흐름을 점검해야 합니다. {kw}는 정답이 아닌 \"학생이 그 문제에 어떻게 접근했는지\"를 함께 따라가며, 사고 패턴 자체를 교정해 드립니다.",
 "공부 의욕이 떨어진 학생일수록 작은 성취가 가장 큰 회복제입니다. {kw}는 한 주 안에 반드시 풀어내는 \"오늘의 도전 문제\"를 함께 정해두기 때문에, 매주 \"내가 어제보다 한 걸음 더 갔다\"는 감각이 학생에게 쌓여 갑니다.",
 "학습량은 학생마다 다르게 설계되어야 합니다. {kw}는 학생의 집중력 한계와 회복 시간을 측정한 뒤, 무리 없이 지속할 수 있는 최적의 학습량을 함께 찾아드립니다. 너무 적어도 너무 많아도 안 되는 그 지점을 신중하게 잡습니다.",
 "막연하게 \"열심히 해야지\"가 아니라, \"이번 주에 무엇을 어디까지 끝내야 하는지\"가 명확할 때 학생은 움직입니다. {kw}는 매주 시작 전 학생과 함께 한 주 분량을 분 단위로 쪼개 배분하고, 끝난 뒤 함께 점검합니다.",
-"기존 학원·과외에서 효과를 못 본 학생을 만나면 홈투과외이 가장 먼저 묻는 것은 \"이전에 어떤 방식으로 했는가\"입니다. {kw}는 무엇이 안 맞았는지부터 분석한 뒤, 그 학생에게는 절대 같은 방식을 반복하지 않는 다른 접근을 설계합니다.",
+"기존 학원·과외에서 효과를 못 본 학생을 만나면 홈투과외가 가장 먼저 묻는 것은 \"이전에 어떤 방식으로 했는가\"입니다. {kw}는 무엇이 안 맞았는지부터 분석한 뒤, 그 학생에게는 절대 같은 방식을 반복하지 않는 다른 접근을 설계합니다.",
 "학생이 시험장에서 흔들리는 이유는 실력 부족이 아니라 \"실전 감각\" 부족인 경우가 많습니다. {kw}는 시험 2~3주 전부터 실제 시험 시간과 환경을 그대로 재현한 모의 실전을 반복해, 시험장에서도 평소 실력이 그대로 나오게 만듭니다.",
 "수업이 무서운 시간이 아니라 \"가장 똑똑해지는 시간\"이 되어야 합니다. {kw}는 학생이 모르는 부분을 부끄러움 없이 꺼낼 수 있는 분위기를 만드는 데 의식적으로 공을 들이며, 그 결과 학생의 질문 빈도가 늘어나고 그만큼 실력도 빨리 자랍니다."
 ];
@@ -421,11 +421,24 @@ const WHY_FEATURES=[
 {i:"💡",t:"학부모 상담 동행",d:"성적 변화와 학습 태도에 대한 객관적 정보를 정기적으로 공유드려 가정에서의 응원이 정확해집니다."}
 ];
 function buildWhyBlock(kw,tc,seed){
- const pickedIntros=pkU(WHY_INTROS,seed,2,11);
- const introHtml=pickedIntros.map(t=>t.replace(/\{kw\}/g,'<strong style="color:'+tc+'">'+kw+'</strong>')).join(' ');
- const feats=pkU(WHY_FEATURES,seed,4,31);
- const cards=feats.map(f=>'<div style="border:1px solid #EAEAF0;border-radius:14px;padding:18px;"><div style="font-size:24px;margin-bottom:8px;">'+f.i+'</div><div style="font-weight:800;color:#17171C;margin-bottom:5px;font-size:14px;">'+f.t+'</div><div style="font-size:12px;color:#666;line-height:1.7;">'+f.d.replace(/\{kw\}/g,kw)+'</div></div>').join('');
- return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#17171C;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;">🏙️ '+kw+', 왜 홈투과외일까요?</h2><p style="font-size:14px;color:#444;line-height:2;margin-bottom:20px;">'+introHtml+'</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;">'+cards+'</div></div>';
+ var steps=[
+  {n:"01",t:"검증된 선생님만 등록",d:"학력과 전공, 과외 경력은 물론 실제 수업 역량과 성향까지 확인한 선생님만 "+kw+"에 배정합니다. 기준을 통과하지 못하면 배정하지 않습니다."},
+  {n:"02",t:"학생에게 맞춰 매칭",d:"학생의 현재 수준과 목표, 성향을 먼저 파악합니다. 그 위에 가장 잘 맞는 선생님을 1:1로 연결해 첫 수업부터 어긋남이 없도록 합니다."},
+  {n:"03",t:"수업 후에도 관리",d:"배정으로 끝나지 않습니다. 매주 학습 리포트로 진행 상황을 공유하고, 맞지 않으면 부담 없이 다른 선생님으로 다시 매칭해 드립니다."}
+ ];
+ var cards=steps.map(function(x){
+  return '<div style="border:1px solid #EAEAF0;border-radius:16px;padding:24px 22px;background:#fff;">'
+   + '<div style="font-family:monospace;font-size:13px;font-weight:700;color:'+tc+';letter-spacing:1px;margin-bottom:12px;">'+x.n+'</div>'
+   + '<div style="font-weight:800;color:#17171C;margin-bottom:8px;font-size:16px;letter-spacing:-0.3px;">'+x.t+'</div>'
+   + '<div style="font-size:13.5px;color:#5E6980;line-height:1.8;">'+x.d+'</div></div>';
+ }).join('');
+ return '<div style="margin-bottom:28px;">'
+  + '<div style="margin-bottom:20px;">'
+  + '<div style="font-family:monospace;font-size:12px;font-weight:700;color:'+tc+';letter-spacing:1.5px;margin-bottom:8px;">HOMETO STUDY</div>'
+  + '<h2 style="font-size:clamp(20px,3.4vw,26px);font-weight:800;color:#17171C;letter-spacing:-0.6px;line-height:1.4;">'+kw+'는 선생님부터 다릅니다</h2>'
+  + '<p style="font-size:14px;color:#7C7C88;margin-top:8px;line-height:1.8;">같은 지역, 같은 과목이라도 학생마다 맞는 선생님은 다릅니다. '+kw+'는 검증을 통과한 선생님만, 학생에게 꼭 맞게 연결합니다.</p>'
+  + '</div>'
+  + '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">'+cards+'</div></div>';
 }
 
 const STUDY_TIPS=[
@@ -489,16 +502,8 @@ const METHOD_POOL=[
 "카카오톡으로 학생 정보 전송 → 24시간 내 최적 강사 3인 추천 → 프로필 비교 후 선택 → 무료 체험 → 수업 확정",
 "상담 신청 후 코디네이터가 학교·성적·희망 요일을 꼼꼼히 파악합니다. 3일 내 맞춤 강사를 연결해 드리며 첫 수업은 무료입니다"
 ];
-function buildStudyBlock(kw,tc,seed){
- var picks=pkU(STUDY_TIPS,seed,4,7);
- var cards=picks.map(function(c){return '<div style="background:#F6F6FA;border-radius:14px;padding:20px;"><div style="font-size:26px;margin-bottom:10px;">'+c.i+'</div><div style="font-weight:800;color:#17171C;margin-bottom:8px;">'+c.t+'</div><div style="font-size:13px;color:#555;line-height:1.8;">'+c.b.replace(/\{kw\}/g,kw)+'</div></div>';}).join('');
- return '<div style="background:white;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.07);padding:clamp(22px,4vw,40px);margin-bottom:24px;"><h2 style="font-size:19px;font-weight:900;color:#17171C;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:20px;">📖 '+kw+' 공부법 가이드</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">'+cards+'</div></div>';
-}
-function buildTutorBlock(kw,tc,seed){
- var picks=pkU(TUTOR_FEATS,seed,4,13);
- var items=picks.map(function(f,i){return '<div style="display:flex;gap:14px;align-items:flex-start;background:#F6F6FA;border-radius:12px;padding:16px 18px;"><div style="background:'+tc+';color:white;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">'+(i+1)+'</div><div><div style="font-weight:800;color:#17171C;margin-bottom:4px;font-size:14px;">'+f.t+'</div><div style="font-size:13px;color:#555;line-height:1.7;">'+f.b+'</div></div></div>';}).join('');
- return '<h2 style="font-size:19px;font-weight:900;color:#17171C;border-left:5px solid '+tc+';padding-left:14px;margin-bottom:16px;margin-top:8px;">💡 '+kw+' 홈투과외만의 특징</h2><div style="display:flex;flex-direction:column;gap:12px;">'+items+'</div>';
-}
+function buildStudyBlock(kw,tc,seed){ return ""; }
+function buildTutorBlock(kw,tc,seed){ return ""; }
 function buildFaqBlock(kw,tc,seed){
  var picks=pkU(FAQ_POOL,seed,4,19);
  var qs=picks.map(function(f){return '<div><p style="font-weight:700;color:#2563eb;font-size:15px;margin-bottom:8px;">Q. '+f.q+'</p><p style="font-size:14px;color:#444;line-height:1.8;">'+f.a+'</p></div>';}).join('');
@@ -882,7 +887,7 @@ const OVERVIEW_POOL=[
 "{school}는 {city}의 대표적인 학교로, 내신 시험의 난이도와 출제 유형을 정확히 파악하는 것이 고득점의 핵심입니다. 홈투과외는 {school} 재학생들의 기출 패턴에 맞춘 맞춤형 1:1 과외를 제공합니다. 학교 선생님의 출제 스타일을 분석하고, 취약 단원을 집중 보강하여 내신 성적 향상을 체계적으로 관리합니다.",
 "{school} 재학생을 위한 홈투과외 1:1 맞춤 수업은 학교 교과서와 부교재를 기반으로 진행됩니다. {school}의 시험 범위와 출제 유형에 맞춰 체계적으로 대비하며, 수행평가까지 꼼꼼하게 챙겨 전체 내신 등급을 관리합니다. 매주 학습 리포트를 통해 학부모님께 학습 상황을 투명하게 공유합니다.",
 "{city}에 위치한 {school} 학생들의 학습 특성에 맞춘 1:1 맞춤 과외를 제공합니다. 해당 학교의 기출문제를 완벽히 분석하고, 내신 출제 경향에 따른 전략적 대비로 효율적인 성적 향상을 도와드립니다. 학원에서 따라가기 어려운 학생도 1:1 수업을 통해 자신감을 되찾을 수 있습니다.",
-"{school} 학생의 학습 수준을 정밀 진단한 뒤, 약점 단원을 집중 보강하는 맞춤 커리큘럼으로 수업합니다. 홈투과외는 35년 교육 경험을 바탕으로 {school} 재학생의 내신 등급 향상과 상위권 도약을 체계적으로 지원합니다.",
+"{school} 학생의 학습 수준을 정밀 진단한 뒤, 약점 단원을 집중 보강하는 맞춤 커리큘럼으로 수업합니다. 홈투과외는 검증된 선생님이 {school} 재학생의 내신 등급 향상과 상위권 도약을 체계적으로 지원합니다.",
 "{school} 재학생이라면 학교 내신에 최적화된 과외가 필수입니다. 홈투과외는 {school}의 교과서, 부교재, 기출문제를 기반으로 시험 대비를 진행하며, 서술형 답안 작성법부터 고난도 문제 풀이까지 체계적으로 훈련합니다.",
 "{city}의 {school} 학생을 위한 1:1 맞춤 과외입니다. 학교에서 배우는 내용을 기반으로 개념 정리→유형 훈련→실전 대비의 3단계 커리큘럼을 적용합니다. 이동 시간 없이 집에서 편하게 수업받을 수 있으며, 24시간 카카오톡 질문이 가능합니다.",
 "{school} 학생의 성적 향상을 위해 가장 중요한 것은 학교별 출제 유형을 정확히 파악하는 것입니다. 홈투과외는 {school}의 기출문제를 분석하여 빈출 유형에 집중 대비하고, 취약점을 빠르게 보완하여 시험 점수를 효율적으로 올려드립니다.",
@@ -1107,11 +1112,11 @@ const descriptions = {
 const grades = ["초등","중등","고등"];
 
 const CITY_EXTRA=[
-{t:"성적이 오르는 공부 패턴",b:"{rd} 과외에서 성적을 올리는 가장 확실한 방법은 자신의 약점을 정확히 아는 것입니다. 홈투과외는 첫 수업에서 학생의 현재 수준을 진단하고 단원별 이해도를 체크합니다. 부족한 단원은 개념부터 다시 잡고 충분히 이해한 뒤에 문제 풀이로 넘어갑니다. 전 학년 공부에서 가장 중요한 것은 개념 이해입니다. 단순 암기로는 응용 문제에서 무너집니다. 홈투과외은 학생이 스스로 개념을 설명할 수 있을 때까지 반복 확인하며 확실한 이해를 도와드립니다. 이해 위에 유형별 문제 풀이를 더하면 고득점이 자연스럽게 따라옵니다. {rd} 지역 학교의 출제 패턴을 분석한 맞춤 수업으로 효율을 극대화합니다."},
-{t:"투명한 {rd} 과외 운영 시스템",b:"홈투과외이 직접 담당하여 학습 전반을 관리합니다. 수업 이후에도 학습 방향 조언, 시험 대비 전략, 수행 평가 준비 등을 종합적으로 안내하며 정기적으로 학습 상담을 진행합니다. 과외 비용이 부담스러우실 수 있습니다. 홈투과외는 학생 상황에 맞는 합리적인 수업 방식을 추천해드리며 비용 대비 최대 효과를 낼 수 있도록 커리큘럼을 설계합니다. 숨겨진 추가 비용 없이 투명하게 안내되며, 정기적인 학습 리포트로 구체적인 성과를 확인하실 수 있습니다. 주간과 월간 학습 진도, 성적 변화, 개선 사항이 기록되어 학부모님과 공유됩니다."},
+{t:"성적이 오르는 공부 패턴",b:"{rd} 과외에서 성적을 올리는 가장 확실한 방법은 자신의 약점을 정확히 아는 것입니다. 홈투과외는 첫 수업에서 학생의 현재 수준을 진단하고 단원별 이해도를 체크합니다. 부족한 단원은 개념부터 다시 잡고 충분히 이해한 뒤에 문제 풀이로 넘어갑니다. 전 학년 공부에서 가장 중요한 것은 개념 이해입니다. 단순 암기로는 응용 문제에서 무너집니다. 홈투과외는 학생이 스스로 개념을 설명할 수 있을 때까지 반복 확인하며 확실한 이해를 도와드립니다. 이해 위에 유형별 문제 풀이를 더하면 고득점이 자연스럽게 따라옵니다. {rd} 지역 학교의 출제 패턴을 분석한 맞춤 수업으로 효율을 극대화합니다."},
+{t:"투명한 {rd} 과외 운영 시스템",b:"홈투과외가 직접 담당하여 학습 전반을 관리합니다. 수업 이후에도 학습 방향 조언, 시험 대비 전략, 수행 평가 준비 등을 종합적으로 안내하며 정기적으로 학습 상담을 진행합니다. 과외 비용이 부담스러우실 수 있습니다. 홈투과외는 학생 상황에 맞는 합리적인 수업 방식을 추천해드리며 비용 대비 최대 효과를 낼 수 있도록 커리큘럼을 설계합니다. 숨겨진 추가 비용 없이 투명하게 안내되며, 정기적인 학습 리포트로 구체적인 성과를 확인하실 수 있습니다. 주간과 월간 학습 진도, 성적 변화, 개선 사항이 기록되어 학부모님과 공유됩니다."},
 {t:"{rd} 과외, 왜 1:1이어야 할까요?",b:"수업 횟수보다 더 중요한 것은 수업 중 학생이 실제로 소화하는 양입니다. {rd} 홈투과외는 주 2~3회 수업으로도 학원 주 5회 수업 이상의 효과를 냅니다. 모든 시간이 100% 우리 아이를 위한 시간이기 때문에 가능한 효율입니다. 1:1 맞춤 수업은 학생의 이해 속도에 100% 맞춰 진행됩니다. 학원처럼 다른 학생 때문에 기다리거나 이미 아는 내용을 반복 들을 필요가 없습니다. 모르는 부분을 바로 질문하고 이해할 때까지 반복 지도받을 수 있는 것, 이것이 {rd} 과외의 가장 큰 장점입니다."},
-{t:"전 학년 학습 전략의 핵심 원칙",b:"기초가 부족하다면 거슬러 올라가 보완하는 것이 정답입니다. 현재 학년 진도를 따라가면서 동시에 과거 단원의 빈틈을 메꿔야 합니다. 홈투과외은 학생의 과거 학년부터 점검하여 숨겨진 구멍을 정밀 진단합니다. 학습 환경도 성적에 큰 영향을 미칩니다. 집중할 수 있는 공간과 적절한 학습 도구가 갖춰져야 효과적인 학습이 가능합니다. {rd} 홈투과외는 환경 조성 팁까지 학부모님께 안내합니다. 좋은 선생님과 좋은 학생의 만남이 성적을 만듭니다."},
-{t:"{rd} 과외 선생님 선택 기준",b:"명문대 출신 여부보다 학생과의 소통 능력과 학교별 출제 경향 이해도가 더 중요합니다. 홈투과외은 자세한 상담을 통해 학생에게 잘 맞는 수업 방식을 설계하며, 무료 체험 수업으로 수업 스타일과 학습 방향을 직접 확인하신 후 결정하실 수 있습니다. {rd} 지역 학교의 특성을 잘 아는 것도 중요한 기준입니다. 내신 시험은 학교마다 출제 경향이 다르기 때문에, 해당 학교의 기출 패턴을 파악하고 있는 과외가 훨씬 효과적입니다. 홈투과외는 {rd} 내 주요 학교의 시험 자료를 축적하고 분석합니다."},
+{t:"전 학년 학습 전략의 핵심 원칙",b:"기초가 부족하다면 거슬러 올라가 보완하는 것이 정답입니다. 현재 학년 진도를 따라가면서 동시에 과거 단원의 빈틈을 메꿔야 합니다. 홈투과외는 학생의 과거 학년부터 점검하여 숨겨진 구멍을 정밀 진단합니다. 학습 환경도 성적에 큰 영향을 미칩니다. 집중할 수 있는 공간과 적절한 학습 도구가 갖춰져야 효과적인 학습이 가능합니다. {rd} 홈투과외는 환경 조성 팁까지 학부모님께 안내합니다. 좋은 선생님과 좋은 학생의 만남이 성적을 만듭니다."},
+{t:"{rd} 과외 선생님 선택 기준",b:"명문대 출신 여부보다 학생과의 소통 능력과 학교별 출제 경향 이해도가 더 중요합니다. 홈투과외는 자세한 상담을 통해 학생에게 잘 맞는 수업 방식을 설계하며, 무료 체험 수업으로 수업 스타일과 학습 방향을 직접 확인하신 후 결정하실 수 있습니다. {rd} 지역 학교의 특성을 잘 아는 것도 중요한 기준입니다. 내신 시험은 학교마다 출제 경향이 다르기 때문에, 해당 학교의 기출 패턴을 파악하고 있는 과외가 훨씬 효과적입니다. 홈투과외는 {rd} 내 주요 학교의 시험 자료를 축적하고 분석합니다."},
 {t:"내신과 수능 동시 준비 전략",b:"학기 중에는 내신에 80% 비중을 두고 수능 감각 유지를 위해 주 2~3회 모의고사 유형 문제를 풀어봅니다. 방학에는 수능 대비에 집중하며 기출 분석과 약점 보완에 집중합니다. 두 가지를 동시에 잡으려면 시간 관리가 핵심이므로 주간 학습 계획을 세우고 실천 여부를 매주 점검하는 습관이 중요합니다. {rd} 홈투과외는 내신과 수능을 모두 놓치지 않는 균형 잡힌 학습 전략을 제안합니다. 학생의 목표 대학과 전형 방식에 맞춰 최적의 비율을 설정하고 유연하게 조정합니다."},
 {t:"{rd} 학생들의 실제 성적 변화",b:"{rd} 지역에서 홈투과외와 함께한 학생들의 변화를 소개합니다. 수학 4등급에서 2등급으로 올라간 학생은 기초 개념 재정리와 오답 분석을 통해 3개월 만에 두 등급을 상승시켰습니다. 영어가 계속 60점대였던 학생은 독해 전략과 문법 체계 재정리를 통해 89점까지 향상되었습니다. 국어 서술형에서 계속 감점되던 학생은 답안 작성 구조 훈련을 통해 서술형 만점을 달성했습니다. 이 모든 변화의 공통점은 학생 개개인의 약점을 정확히 진단하고 맞춤으로 보강한 결과입니다."},
 {t:"중학교에서 고등학교 학습 전환 전략",b:"중학교에서 고등학교로 올라가면 학습 난이도와 양이 급격히 증가합니다. 가장 큰 차이는 수학과 영어의 깊이입니다. 중학교 때 기본기를 확실히 다지지 않으면 고등학교에서 따라가기 매우 어렵습니다. {rd} 홈투과외는 중3 겨울방학부터 고1 수학과 영어를 미리 접할 수 있는 선행 커리큘럼을 제공합니다. 고등학교는 자기주도학습 시간이 성적을 결정하므로 중학교 때부터 자기 공부 시간을 확보하는 습관을 길러야 합니다."},
@@ -1321,7 +1326,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:99999;background:rgba(255,255,25
 </div>
 </nav>
 <script>function switchDD(i){for(var j=0;j<3;j++){document.getElementById('ddC'+j).style.display=j===i?(j===1?'block':'grid'):'none';var t=document.querySelectorAll('.ddt');t[j].style.background=j===i?'#17171C':'#fff';t[j].style.color=j===i?'#fff':'#4A4A55';}}document.addEventListener('click',function(e){['ddF','ddS','ddL'].forEach(function(id){var d=document.getElementById(id);if(d&&!d.parentElement.contains(e.target))d.style.display='none';});});</script>`;
-const FAVICON_TAGS = '<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/hometwostudy.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/hometwostudy.png"><meta property="og:site_name" content="홈투과외"><meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index, follow"><meta name="application-name" content="홈투과외"><meta name="apple-mobile-web-app-title" content="홈투과외"><meta name="naver-site-verification" content=""><meta http-equiv="content-language" content="ko"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","logo":"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/hometwostudy.png","description":"전국 1:1 맞춤 과외 매칭. 35년 교육 노하우로 학생별 맞춤 학습 설계. 첫 상담 무료.","contactPoint":{"@type":"ContactPoint","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","inLanguage":"ko-KR","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://hometostudy.com/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbfghik5ng");</script>';
+const FAVICON_TAGS = '<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/hometwostudy.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/hometwostudy.png"><meta property="og:site_name" content="홈투과외"><meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index, follow"><meta name="application-name" content="홈투과외"><meta name="apple-mobile-web-app-title" content="홈투과외"><meta name="naver-site-verification" content=""><meta http-equiv="content-language" content="ko"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","logo":"https://raw.githubusercontent.com/YOONSOEUN1/hometwo/main/images/hometwostudy.png","description":"전국 1:1 맞춤 과외 매칭. 검증된 선생님이 학생별 맞춤 학습 설계. 첫 상담 무료.","contactPoint":{"@type":"ContactPoint","contactType":"customer service","areaServed":"KR","availableLanguage":["Korean"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"홈투과외","alternateName":"홈투과외","url":"https://hometostudy.com","inLanguage":"ko-KR","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://hometostudy.com/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbfghik5ng");</script>';
 
 // LocalBusiness Schema 생성 (지역 페이지용)
 function buildLocalBusinessSchema(regionName, pageUrl) {
@@ -1472,7 +1477,7 @@ function buildDirectoryPage() {
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
  <title>전국 지역별 과외 | 1:1 맞춤 과외 | 홈투과외</title>
- <meta name="description" content="전국 시·도별 1:1 맞춤 과외. 35년 경력 홈투과외이 학생 한 명 한 명에게 맞춤 커리큘럼을 설계합니다. 첫 상담·체험 수업 무료.">
+ <meta name="description" content="전국 시·도별 1:1 맞춤 과외. 홈투과외가 학생 한 명 한 명에게 맞춤 커리큘럼을 설계합니다. 첫 상담·체험 수업 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:36px auto;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:20px;">
@@ -1480,7 +1485,7 @@ function buildDirectoryPage() {
  <span style="color:#17171C;font-weight:700;">지역별 과외</span>
  </p>
  <h1 style="font-size:clamp(26px,5vw,36px);font-weight:900;color:#17171C;margin-bottom:12px;">🗺️ 전국 지역별 과외</h1>
- <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;">전국 시·도별 1:1 맞춤 과외를 연결합니다. 35년 경력 홈투과외이 학생 한 명 한 명에게 딱 맞는 커리큘럼을 설계하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
+ <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;">전국 시·도별 1:1 맞춤 과외를 연결합니다. 홈투과외가 학생 한 명 한 명에게 딱 맞는 커리큘럼을 설계하며, 첫 상담과 체험 수업은 완전 무료입니다.</p>
  <h2 style="font-size:20px;font-weight:900;color:#17171C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #17171C;">전국 시·도별 지역 과외</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;">${cards}</div>
  </div>
@@ -1593,13 +1598,13 @@ function buildRegionSchoolsPage(rs) {
 // SEO + CTR 최적화 제목 변형 풀
 function seoTitle(kw, seed) {
  const pool = [
-  kw + ' 추천 | 1:1 맞춤 과외 · 첫 상담 무료',
-  kw + ' | 35년 노하우 1:1 맞춤 · 학교별 내신 완벽 대비',
-  kw + ' 신청 가이드 | 검증된 선생님 · 무료 체험 수업',
-  kw + ' 비용·후기·신청 | ',
-  kw + ' | 초·중·고 전 과목 1:1 맞춤 수업',
-  kw + ' | 1:1 맞춤 과외 · 학교별 기출 분석',
-  kw + ' | 검증된 선생님 빠른 매칭 · 첫 상담 무료'
+  kw + ' | 검증된 선생님 1:1 매칭',
+  kw + ' | 학생에게 맞는 선생님을 찾아드립니다',
+  kw + ' | 1:1 맞춤 과외 · 첫 상담 무료',
+  kw + ' | 검증·매칭·관리까지',
+  kw + ' | 우리 지역 검증된 과외 선생님',
+  kw + ' 선생님 매칭 | 첫 상담 무료',
+  kw + ' | 학생 맞춤 1:1 과외'
  ];
  return pool[(seed >>> 0) % pool.length];
 }
@@ -1662,10 +1667,10 @@ function buildRegionPage(rs) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${seoTitle(`${rn} 과외`, cH(rs))} | 홈투과외</title>
+ <title>${rn}에서 찾는 우리 아이 과외 선생님 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${sceneImg}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="${rn} 전 지역 1:1 맞춤 과외. 35년 경력 홈투과외. 첫 상담·체험 수업 무료.">
+ <meta name="description" content="${rn} 전 지역 1:1 맞춤 과외. 홈투과외. 첫 상담·체험 수업 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
 
  <!-- 상단 텍스트 (흰 배경) -->
@@ -1678,7 +1683,7 @@ function buildRegionPage(rs) {
  <span style="color:#17171C;font-weight:700;">${rn}</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">📍 ${rn}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${seoTitle(`${rn} 과외`, cH(rs))}</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${rn}에서 찾는 우리 아이 과외 선생님</h1>
   <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rn} 전 지역 초·중·고 전 과목 1:1 맞춤 과외. 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
@@ -1939,9 +1944,9 @@ function buildRegionSubjectPage(rs, subject) {
  const tipPool = (typeof TIP_SUBJ !== "undefined" && TIP_SUBJ[subject]) || [];
  const tips = tipPool.length > 0 ? pkU(tipPool, seed, 4, 31) : [];
 
- return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${rn} ${subject}과외 | 1:1 맞춤 과외 · 첫 상담 무료 | 홈투과외</title>
+ return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${rn} ${subject}, 검증된 선생님과 1:1로 · 첫 상담 무료 | 홈투과외</title>
  <meta name="description" content="${rn} ${subject}과외. ${sInfo.desc} 첫 상담과 체험 수업은 완전 무료입니다.">
- <meta property="og:title" content="${rn} ${subject}과외 | 1:1 맞춤 과외">
+ <meta property="og:title" content="${rn} ${subject}, 검증된 선생님과 1:1로">
  <meta property="og:description" content="${rn} ${subject}과외. ${sInfo.desc}">
  <meta property="og:image" content="${bgImg(subject, seed)}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}">
@@ -1950,7 +1955,7 @@ function buildRegionSubjectPage(rs, subject) {
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}" style="color:#888;text-decoration:none;">${rn}</a> &rsaquo; <span style="color:#17171C;font-weight:700;">${subject}과외</span></p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">${sInfo.icon} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${rn} ${subject}과외 | 1:1 맞춤 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${rn} ${subject}, 검증된 선생님과 1:1로</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rn} 전 지역 ${subject}과외. ${sInfo.desc}</p>
  </div>
@@ -2052,7 +2057,7 @@ function buildCityPage(rs, cs) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${fullRd} 과외 | 지역별 맞춤 1:1 과외 | 홈투과외</title>
+ <title>${fullRd}, 동네에서 만나는 1:1 과외 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${bgImg("city",cH(rs+cs))}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
  <meta name="description" content="${fullRd} 과외 전문 홈투과외. ${dongStr} 상담 후 수업 시간 결정. ${schoolStr} 내신 완벽 대비. 첫 상담·체험 무료.">
@@ -2069,7 +2074,7 @@ function buildCityPage(rs, cs) {
  <span style="color:#17171C;font-weight:700;">${rd}</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">📍 ${fullRd}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${fullRd} 과외 | 지역별 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${fullRd}, 동네에서 만나는 1:1 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} 전 지역 초·중·고 전 과목 1:1 맞춤 과외. 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
@@ -2376,7 +2381,7 @@ function buildDongDetailPage(rs, cs, dong, grade, subject) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${title} | 맞춤 1:1 과외 | 홈투과외</title>
+ <title>${title}, 가까운 곳에서 시작하는 과외 | 홈투과외</title>
  <meta property="og:image" content="${bgImg(subject,cH(rs+cs+dong+grade+subject))}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}">
  <meta name="description" content="${dong} ${grade} ${subject} 과외. ${rawDesc.substring(0,60)}. 홈투과외 1:1 맞춤 수업, 첫 체험 무료.">
@@ -2389,7 +2394,7 @@ function buildDongDetailPage(rs, cs, dong, grade, subject) {
  <span style="color:#17171C;font-weight:700;">${grade} ${subject}</span>
  </p>
  <div style="display:inline-block;background:${color};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📍 ${dong} ${grade} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${title} | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${title}, 가까운 곳에서 시작하는 과외</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${rawDesc}</p>
  </div>
@@ -2658,7 +2663,7 @@ function buildDetailPage(rs, cs, grade, subject) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${fullRd} ${grade} ${subject}과외 | 맞춤 1:1 과외 | 홈투과외</title>
+ <title>${fullRd} ${grade} ${subject}, 딱 맞는 선생님 매칭 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${bgImg(subject,cH(rs+cs+grade+subject))}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
  <meta name="description" content="${fullRd} ${grade} ${subject} 과외. ${c.desc.substring(0,60)}. 홈투과외 1:1 맞춤 수업, 첫 체험 무료.">
@@ -2666,7 +2671,7 @@ function buildDetailPage(rs, cs, grade, subject) {
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${fullRd}</a> &rsaquo; <span style="color:#17171C;font-weight:700;">${grade} ${subject}</span></p>
  <div style="display:inline-block;background:${color};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📍 ${fullRd} ${grade} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${fullRd} ${grade} ${subject}과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${fullRd} ${grade} ${subject}, 딱 맞는 선생님 매칭</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${c.desc}</p>
  </div>
@@ -3062,15 +3067,15 @@ function buildSchoolPage(rs, cs, schoolShort) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${schoolFull} 과외 | 맞춤 1:1 과외 | 홈투과외</title>
+ <title>${schoolFull} 내신, 학교 맞춤으로 준비하세요 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${bgImg("school",seed)}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="${schoolFull} 과외 전문 홈투과외. ${schoolFull} 내신 기출 완벽 분석, 1:1 맞춤 수업, 35년 교육 노하우. 첫 상담·체험 무료.">
+ <meta name="description" content="${schoolFull} 과외 전문 홈투과외. ${schoolFull} 내신 기출 완벽 분석, 1:1 맞춤 수업, 검증된 선생님 매칭. 첫 상담·체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/${rs}/${cs}/schools" style="color:#888;text-decoration:none;">학교별 과외</a> &rsaquo; <a href="/${rs}/${cs}" style="color:#888;text-decoration:none;">${fullRd}</a> &rsaquo; <span style="color:#17171C;font-weight:700;">${schoolFull}</span></p>
  <div style="display:inline-block;background:${typeColor};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">🏫 ${schoolFull}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${schoolFull} 과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${schoolFull} 내신, 학교 맞춤으로 준비하세요</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${fullRd} ${schoolFull} 재학생을 위한 맞춤 1:1 과외. 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
@@ -3146,19 +3151,19 @@ function fullCityName(regionSlug, cityName){
 
 // ── 학년별 과외 페이지 데이터 ──
 const GRADE_DATA = {
- "elem1":{name:"초등학생 1학년",short:"초1",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 1학년은 학교생활의 첫걸음입니다. 올바른 학습 습관과 기본기를 다지는 것이 가장 중요한 시기입니다. 홈투과외은 35년 교육 노하우로 놀이와 학습을 연결하여 공부에 흥미를 갖도록 도와드립니다."},
- "elem2":{name:"초등학생 2학년",short:"초2",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 2학년은 구구단, 받아쓰기 등 기초 학력이 형성되는 시기입니다. 이때 기초가 탄탄해야 고학년에서 빛을 발합니다. 홈투과외은 학생 수준에 맞는 맞춤 학습을 설계합니다."},
- "elem3":{name:"초등학생 3학년",short:"초3",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 3학년부터 본격적인 교과 학습이 시작됩니다. 사회, 과학이 새로 추가되고 수학 난이도도 올라가는 시기입니다. 홈투과외은 1:1 맞춤으로 학생의 빈틈을 정확히 채워드립니다."},
- "elem4":{name:"초등학생 4학년",short:"초4",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 4학년은 분수, 소수 등 추상적 수학 개념이 등장하여 학력 차이가 벌어지기 시작하는 시기입니다. 홈투과외은 실생활 예시로 쉽게 설명하며 개념을 확실히 잡아줍니다."},
- "elem5":{name:"초등학생 5학년",short:"초5",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 5학년은 중학교 준비가 본격적으로 시작되는 시기입니다. 독해력과 수학적 사고력을 키워야 합니다. 홈투과외은 35년 교육 노하우로 중학교 대비 기초를 탄탄히 다져드립니다."},
- "elem6":{name:"초등학생 6학년",short:"초6",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 6학년은 중학교 진학을 앞둔 중요한 시기입니다. 현재 학년 개념을 완벽히 이해해야 중학교에서 훨씬 빠르게 성적을 올릴 수 있습니다. 홈투과외이 빈틈없이 준비시켜 드립니다."},
- "mid1":{name:"중학생 1학년",short:"중1",level:"중등",color:"#2ecc71",emoji:"📘",desc:"중학생 1학년은 초등학교와 완전히 다른 시험 체계에 적응해야 합니다. 자유학기제 기간에도 기본 학습을 놓치면 안 됩니다. 홈투과외은 학교별 기출을 분석해 내신 완벽 대비를 도와드립니다."},
- "mid2":{name:"중학생 2학년",short:"중2",level:"중등",color:"#2ecc71",emoji:"📘",desc:"중학생 2학년은 고입에 반영되는 중요한 시기입니다. 방정식, 함수 등 고등수학의 기초가 되는 단원을 확실히 잡아야 합니다. 홈투과외은 35년 노하우로 학교별 기출을 완벽 분석합니다."},
+ "elem1":{name:"초등학생 1학년",short:"초1",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 1학년은 학교생활의 첫걸음입니다. 올바른 학습 습관과 기본기를 다지는 것이 가장 중요한 시기입니다. 홈투과외는 검증된 선생님이 놀이와 학습을 연결하여 공부에 흥미를 갖도록 도와드립니다."},
+ "elem2":{name:"초등학생 2학년",short:"초2",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 2학년은 구구단, 받아쓰기 등 기초 학력이 형성되는 시기입니다. 이때 기초가 탄탄해야 고학년에서 빛을 발합니다. 홈투과외는 학생 수준에 맞는 맞춤 학습을 설계합니다."},
+ "elem3":{name:"초등학생 3학년",short:"초3",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 3학년부터 본격적인 교과 학습이 시작됩니다. 사회, 과학이 새로 추가되고 수학 난이도도 올라가는 시기입니다. 홈투과외는 1:1 맞춤으로 학생의 빈틈을 정확히 채워드립니다."},
+ "elem4":{name:"초등학생 4학년",short:"초4",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 4학년은 분수, 소수 등 추상적 수학 개념이 등장하여 학력 차이가 벌어지기 시작하는 시기입니다. 홈투과외는 실생활 예시로 쉽게 설명하며 개념을 확실히 잡아줍니다."},
+ "elem5":{name:"초등학생 5학년",short:"초5",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 5학년은 중학교 준비가 본격적으로 시작되는 시기입니다. 독해력과 수학적 사고력을 키워야 합니다. 홈투과외는 검증된 선생님이 중학교 대비 기초를 탄탄히 다져드립니다."},
+ "elem6":{name:"초등학생 6학년",short:"초6",level:"초등",color:"#3498db",emoji:"🌱",desc:"초등학생 6학년은 중학교 진학을 앞둔 중요한 시기입니다. 현재 학년 개념을 완벽히 이해해야 중학교에서 훨씬 빠르게 성적을 올릴 수 있습니다. 홈투과외가 빈틈없이 준비시켜 드립니다."},
+ "mid1":{name:"중학생 1학년",short:"중1",level:"중등",color:"#2ecc71",emoji:"📘",desc:"중학생 1학년은 초등학교와 완전히 다른 시험 체계에 적응해야 합니다. 자유학기제 기간에도 기본 학습을 놓치면 안 됩니다. 홈투과외는 학교별 기출을 분석해 내신 완벽 대비를 도와드립니다."},
+ "mid2":{name:"중학생 2학년",short:"중2",level:"중등",color:"#2ecc71",emoji:"📘",desc:"중학생 2학년은 고입에 반영되는 중요한 시기입니다. 방정식, 함수 등 고등수학의 기초가 되는 단원을 확실히 잡아야 합니다. 홈투과외는 노하우로 학교별 기출을 완벽 분석합니다."},
  "mid3":{name:"중학생 3학년",short:"중3",level:"중등",color:"#2ecc71",emoji:"📘",desc:"중학생 3학년은 고등학교 진학 전 마지막 기회입니다. 수학과 영어 기본기를 완벽히 점검하고 부족한 부분을 집중 보완하는 것이 고1 내신 성적의 출발점입니다."},
  "high1":{name:"고등학생 1학년",short:"고1",level:"고등",color:"#e74c3c",emoji:"📕",desc:"고등학생 1학년은 전 과정의 기초를 다지는 시기입니다. 수학과 영어 기본기를 확실히 잡아두면 고2, 고3에서 훨씬 수월합니다. 내신과 수능을 동시에 대비하는 전략이 필요합니다."},
- "high2":{name:"고등학생 2학년",short:"고2",level:"고등",color:"#e74c3c",emoji:"📕",desc:"고등학생 2학년은 수능과 내신을 본격적으로 동시 준비해야 하는 시기입니다. 홈투과외은 35년 교육 노하우로 학생의 목표에 맞춘 맞춤 전략을 설계합니다."},
- "high3":{name:"고등학생 3학년",short:"고3",level:"고등",color:"#e74c3c",emoji:"📕",desc:"고등학생 3학년은 수능과 내신의 최종 마무리 시기입니다. 기출 분석과 오답 관리가 핵심입니다. 멘탈 관리까지 홈투과외이 함께합니다."},
- "nsu":{name:"재수생(N수생)",short:"재수생",level:"고등",color:"#9b59b6",emoji:"🔥",desc:"재수생은 수능에 올인하는 중요한 시기입니다. 취약 과목 집중 보강과 시간 배분 전략이 핵심입니다. 홈투과외은 35년 교육 노하우로 목표 대학 합격을 위한 체계적 로드맵을 함께 설계합니다."}
+ "high2":{name:"고등학생 2학년",short:"고2",level:"고등",color:"#e74c3c",emoji:"📕",desc:"고등학생 2학년은 수능과 내신을 본격적으로 동시 준비해야 하는 시기입니다. 홈투과외는 검증된 선생님이 학생의 목표에 맞춘 맞춤 전략을 설계합니다."},
+ "high3":{name:"고등학생 3학년",short:"고3",level:"고등",color:"#e74c3c",emoji:"📕",desc:"고등학생 3학년은 수능과 내신의 최종 마무리 시기입니다. 기출 분석과 오답 관리가 핵심입니다. 멘탈 관리까지 홈투과외가 함께합니다."},
+ "nsu":{name:"재수생(N수생)",short:"재수생",level:"고등",color:"#9b59b6",emoji:"🔥",desc:"재수생은 수능에 올인하는 중요한 시기입니다. 취약 과목 집중 보강과 시간 배분 전략이 핵심입니다. 홈투과외는 검증된 선생님이 목표 대학 합격을 위한 체계적 로드맵을 함께 설계합니다."}
 };
 
 function buildGradePage(gradeCode) {
@@ -3213,10 +3218,10 @@ function buildGradePage(gradeCode) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${gd.name} 과외 | 맞춤 1:1 과외 | 홈투과외</title>
+ <title>${gd.name}, 지금 무엇을 해야 할까요 | 홈투과외</title>
  <meta property="og:type" content="website"><meta property="og:site_name" content="홈투과외"><meta property="og:image" content="${bgImg("school",seed)}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="${gd.name} 과외 전문 홈투과외. ${gd.short} 맞춤 1:1 과외, 35년 교육 노하우. 첫 상담·체험 무료.">
+ <meta name="description" content="${gd.name} 과외 전문 홈투과외. ${gd.short} 맞춤 1:1 과외, 검증된 선생님 매칭. 첫 상담·체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:16px;">
@@ -3224,7 +3229,7 @@ function buildGradePage(gradeCode) {
  <span style="color:#17171C;font-weight:700;">${gd.name} 과외</span>
  </p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">${gd.emoji} ${gd.name}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${gd.name} 과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${gd.name}, 지금 무엇을 해야 할까요</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  </div>
  <div style="max-width:900px;margin:0 auto 36px;padding:0 20px;">
@@ -3402,15 +3407,15 @@ function buildGradeSubjectPage(gradeCode, subject) {
  return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
  <meta name="naver-site-verification" content="26708e26772b453f6b142c13cdf20670ec41d976"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
- <title>${gd.name} ${subject}과외 | 맞춤 1:1 과외 | 홈투과외</title>
+ <title>${gd.name} ${subject}, 시기에 맞는 전략으로 | 홈투과외</title>
  <meta property="og:image" content="${heroImg}">
  <meta property="article:modified_time" content="${getUpdateDateISO()}">
- <meta name="description" content="${gd.name} ${subject} 과외 전문 홈투과외. ${subjDesc.substring(0,60)} 35년 교육 노하우, 첫 상담·체험 무료.">
+ <meta name="description" content="${gd.name} ${subject} 과외 전문 홈투과외. ${subjDesc.substring(0,60)} 검증된 선생님 매칭, 첫 상담·체험 무료.">
  ${COMMON_STYLE}</head><body>${NAV}
  <div style="max-width:900px;margin:40px auto 0;padding:0 20px;">
  <p style="font-size:13px;color:#888;margin-bottom:16px;"><a href="/" style="color:#888;text-decoration:none;">홈</a> &rsaquo; <a href="/grade/${gradeCode}" style="color:#888;text-decoration:none;">${gd.name}</a> &rsaquo; <span style="color:#17171C;font-weight:700;">${subject}과외</span></p>
  <div style="display:inline-block;background:${tc};color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:14px;">📚 ${gd.name} ${subject}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${gd.name} ${subject}과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${gd.name} ${subject}, 시기에 맞는 전략으로</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${gd.name} ${subject} 전문 1:1 맞춤 과외. 학교별 내신 완벽 대비. 첫 상담과 체험 수업은 완전 무료입니다.</p>
  </div>
@@ -3826,7 +3831,7 @@ function buildSubjectPage(subSlug){
  <span style="color:#17171C;font-weight:700;">${s.name} 과외</span>
  </p>
  <div style="display:inline-block;background:#2B6BE4;color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:14px;">${s.icon} ${s.name}</div>
- <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${s.name} 과외 | 맞춤 1:1 과외</h1>
+ <h1 style="font-size:clamp(26px,5vw,38px);font-weight:900;color:#17171C;margin:0 0 10px 0;line-height:1.3;">${s.name}, 이렇게 가르치면 오릅니다</h1>
  <p style="font-size:12px;color:#999;margin-top:8px;">✏️ 홈투과외 편집팀 &nbsp;|&nbsp; 📅 ${getUpdateDate()}</p>
  <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;">${s.desc}</p>
  </div>
