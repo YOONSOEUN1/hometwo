@@ -3114,7 +3114,7 @@ function buildSchoolPage(rs, cs, schoolShort) {
 // 키 파일 위치: https://hometostudy.com/{INDEXNOW_KEY}.txt
 // 핑 호출 방법: https://hometostudy.com/admin/indexnow-ping?token={INDEXNOW_ADMIN_TOKEN}
 const INDEXNOW_KEY = "8a3f2c6e9b1d7405f8e2a4c6b9d1e3f5";
-const INDEXNOW_ADMIN_TOKEN = "eunshine_naver_ping_2026_silver";
+const INDEXNOW_ADMIN_TOKEN = "hometo_ping_2026_secure_k29x";
 const SITE_HOST = "hometostudy.com";
 
 function getUpdateDate(){
@@ -4021,11 +4021,35 @@ function buildSubjectPage(subSlug){
  // page 없으면 전체 요약만 표시
  if (!pageParam) {
  return new Response(JSON.stringify({
-  info: "page 파라미터를 추가하세요. 예: ?token=...&page=1",
+  info: "전체를 한 번에 제출하려면 page=all 을 사용하세요.",
   totalUrls: allUrls.length,
   totalPages: totalPages,
   pageSize: PAGE_SIZE,
+  submitAll: "/admin/indexnow-ping?token=" + INDEXNOW_ADMIN_TOKEN + "&page=all",
   howTo: Array.from({length: totalPages}, function(_,i){return "/admin/indexnow-ping?token=" + INDEXNOW_ADMIN_TOKEN + "&page=" + (i+1);})
+ }, null, 2), { headers: {"Content-Type": "application/json; charset=utf-8"} });
+ }
+
+ // page=all : 전체 URL을 한 번에 순차 제출
+ if (pageParam === "all") {
+ const results = [];
+ let okCount = 0;
+ for (let i = 0; i < totalPages; i++) {
+  const batch = allUrls.slice(i * PAGE_SIZE, (i + 1) * PAGE_SIZE);
+  if (batch.length === 0) continue;
+  const rr = await submitIndexNowChunk(batch);
+  const ok = rr.status === 200 || rr.status === 202;
+  if (ok) okCount++;
+  results.push({ page: i + 1, urls: batch.length, naverStatus: rr.status, ok: ok });
+ }
+ return new Response(JSON.stringify({
+  ok: okCount === results.length,
+  mode: "all",
+  totalUrls: allUrls.length,
+  totalPages: totalPages,
+  submittedPages: results.length,
+  successPages: okCount,
+  results: results
  }, null, 2), { headers: {"Content-Type": "application/json; charset=utf-8"} });
  }
 
