@@ -3617,8 +3617,33 @@ function handleSuggest(q) {
 // ── 제2외국어 페이지 ──
 const NOT_FOUND_HTML = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>페이지를 찾을 수 없습니다 | 홈투과외</title>${COMMON_STYLE}</head><body>${NAV}<div style="max-width:640px;margin:90px auto;padding:0 20px;text-align:center;"><p style="font-family:monospace;font-size:13px;color:#8C2F26;letter-spacing:1.5px;margin-bottom:14px;">404 NOT FOUND</p><h1 style="font-size:28px;font-weight:800;color:#17171C;margin-bottom:12px;">페이지를 찾을 수 없습니다</h1><p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:32px;">요청하신 페이지가 존재하지 않거나 주소가 변경되었습니다.<br>아래에서 지역이나 학교로 다시 찾아보세요.</p><div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;"><a href="/" style="background:#17171C;color:#fff;padding:13px 26px;text-decoration:none;font-weight:700;font-size:14px;">홈으로 가기</a><a href="/directory" style="background:transparent;border:1px solid #DED8CE;color:#17171C;padding:13px 26px;text-decoration:none;font-weight:700;font-size:14px;">전체 지역 보기</a><a href="/schools" style="background:transparent;border:1px solid #DED8CE;color:#17171C;padding:13px 26px;text-decoration:none;font-weight:700;font-size:14px;">학교로 찾기</a></div></div>${FOOTER}</body></html>`;
 
+/* ── 전화 클릭 → 텔레그램 알림 (tel-alert) ───────────────────
+   모든 HTML 응답의 </body> 앞에 추적 스크립트를 자동으로 넣습니다.
+   사이트 이름을 바꾸려면 아래 data-site 값만 수정하세요.        */
+const TEL_ALERT_TAG =
+ '<script defer src="https://tel-aler.thdmsdidfl.workers.dev/t.js" data-site="홈투과외"></script>';
+
+async function injectTelAlert(res) {
+ try {
+  const ct = res.headers.get("content-type") || "";
+  if (!ct.includes("text/html")) return res;
+
+  let html = await res.text();
+  if (html.indexOf("/t.js") >= 0) return new Response(html, res);
+
+  if (html.indexOf("</body>") >= 0) {
+   html = html.replace("</body>", TEL_ALERT_TAG + "</body>");
+  } else {
+   html += TEL_ALERT_TAG;
+  }
+  return new Response(html, res);
+ } catch (e) {
+  return res;
+ }
+}
+
 addEventListener("fetch", event => {
- event.respondWith(handle(event.request));
+ event.respondWith(handle(event.request).then(injectTelAlert));
 });
 
 async function handle(req) {
